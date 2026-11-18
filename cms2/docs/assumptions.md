@@ -17,6 +17,8 @@
 
 ## Open questions for the business
 
+0. In Cross-Cutting Domains, should a Role Profile be able to require the **whole Domain** at PL1–PL2 instead of one of its Elements? Today requirements stay at Element level and the lower levels are inherited from the Domain.
+
 1. Confirm the PL labels and whether every framework uses five levels.
 2. Should a Role Profile be allowed to mix Elements from different Framework Versions during a transition?
 3. Should publishing be blocked when the Essential/total recommendations are exceeded?
@@ -30,6 +32,5 @@
 | **CMS Administration Workspace** (`/now/cms-admin/home`) returns "Page not found" on dev485488. All workspace records install correctly (page registry, app config, routes, screens, list menu, dashboard), as does the route ACL `now.cms-admin.*`, and they match a working OOTB workspace. A cache flush and re-activating the registry did not help | Open | Use the classic **CMS 2.0 – Competency Management** application menu: all modules, forms, related lists ("Affected Role Profiles") and Publish / Validate / New Version / Retire actions work there. Next step: open the experience in UI Builder (`/now/builder/ui/experience/7295a1f6820b439ea5ee332dabf0daf5`) and save it once, or raise it as an SDK 4.14.2 / Brazil Workspace issue |
 | The server module path contains the package version (`x_2317791_cms2/cms2/0.0.1/...`) in the two Script Include bridges | By design of SDK modules | When `package.json` version changes, update `src/script-includes/*.js` |
 | The previous app `x_2317791_cms_2_0` ("CMS 2.0 – Competency Management") is still installed, so two menus with the same name exist | Decision: build alongside | Retire or uninstall `x_2317791_cms_2_0` when ready (product owner decision) |
-| An unused, empty column `x_2317791_cms2_comp_group.layout` remains on the instance from a short-lived iteration. The SDK and the REST API do not drop columns | Harmless: on no form or list, not read by code | Delete it in the UI: System Definition › Dictionary → `x_2317791_cms2_comp_group` / `layout` → Delete |
 | A user reference stored by REST/integrations may hold the sys_id instead of `user_name` (referenceKey) | Handled | The "own assignment" ACL and `getMyRoleProfile()` accept either form |
 | Business rules do not run when demo data loads from XML | Expected | Demo rows set calculated fields (`display_name`) explicitly |

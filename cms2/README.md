@@ -25,8 +25,8 @@ PLs, Framework Versions and effective dating. **Prototype – all demo content i
 
 ```
 src/fluent/
-  application/menu.now.ts          application menu + 22 modules
-  data-model/*.now.ts              9 tables + form layouts
+  application/menu.now.ts          application menu + 19 modules
+  data-model/*.now.ts              10 tables (Governed Content base + 5 extending it + 4 others) + forms
   security/                        roles, 45 ACLs, cross-scope privileges
   business-rules/validation.now.ts lifecycle rules (logic in src/server)
   configuration/                   system properties, PL scale (first install)
@@ -34,7 +34,7 @@ src/fluent/
   ui/ui-actions.now.ts             Publish / Validate / Create New Version / Retire
   ui/workspace.now.ts              CMS Administration Workspace + dashboard
   ui/portal/                       6 Service Portal widgets, 5 pages
-  tests/cms-atf.now.ts             12 ATF tests + suite      (generated)
+  tests/cms-atf.now.ts             13 ATF tests + suite      (generated)
   demo/demo-data.now.ts            synthetic demo data       (generated)
 src/server/                        TypeScript modules: config, dates, validation, versioning, catalog, rules
 src/script-includes/               bridge JS for Script Includes

@@ -13,11 +13,12 @@ Source: `src/fluent/security/`.
 
 Grant `x_2317791_cms2.user` to employees through a group, not individually.
 
-## Record ACLs (45)
+## Record ACLs (50)
 
 | Table | read | create / write | delete |
 |---|---|---|---|
 | comp_group, domain, element, pl_descriptor | user: `status=published^active=true`; content_admin and role_profile_admin: all | content_admin | admin |
+| governed (base) | user: Published; both admin roles: all | admin | admin |
 | fw_version | user: Published; both admin roles: all | admin | admin |
 | prof_level | user | admin | admin |
 | role_profile | user: Published; role_profile_admin and content_admin: all | role_profile_admin | admin |

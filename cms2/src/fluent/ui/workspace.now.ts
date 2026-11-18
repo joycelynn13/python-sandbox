@@ -13,12 +13,6 @@ const adminAudience = Applicability({
     roles: [cmsContentAdmin, cmsRoleProfileAdmin, cmsAdmin],
 })
 
-const contentAudience = Applicability({
-    $id: Now.ID['cms2_ws_applicability_content'],
-    name: 'CMS 2.0 Content Administrators',
-    roles: [cmsContentAdmin, cmsAdmin],
-})
-
 const roleProfileAudience = Applicability({
     $id: Now.ID['cms2_ws_applicability_rp'],
     name: 'CMS 2.0 Role Profile Administrators',
@@ -68,26 +62,17 @@ const listConfig = UxListMenuConfig({
                     order: 40,
                     table: 'x_2317791_cms2_pl_descriptor',
                     condition: 'active=true^ORDERBYelement^ORDERBYproficiency_level',
-                    columns: 'element,proficiency_level,descriptor,status,framework_version,effective_from',
+                    columns: 'element,proficiency_level,description,status,framework_version,effective_from',
                     applicabilities: [{ $id: Now.ID['cms2_ws_list_descriptors_app'], applicability: adminAudience }],
                 },
                 {
                     $id: Now.ID['cms2_ws_list_draft_content'],
-                    title: 'Draft Elements',
+                    title: 'All Draft Content',
                     order: 50,
-                    table: 'x_2317791_cms2_element',
-                    condition: 'status=draft^active=true',
-                    columns: 'code,name,domain,framework_version,supersedes,sys_updated_on',
-                    applicabilities: [{ $id: Now.ID['cms2_ws_list_draft_content_app'], applicability: contentAudience }],
-                },
-                {
-                    $id: Now.ID['cms2_ws_list_draft_descriptors'],
-                    title: 'Draft PL Descriptors',
-                    order: 60,
-                    table: 'x_2317791_cms2_pl_descriptor',
-                    condition: 'status=draft^active=true',
-                    columns: 'element,proficiency_level,descriptor,framework_version,supersedes',
-                    applicabilities: [{ $id: Now.ID['cms2_ws_list_draft_descriptors_app'], applicability: contentAudience }],
+                    table: 'x_2317791_cms2_governed',
+                    condition: 'status=draft^active=true^ORDERBYsys_class_name',
+                    columns: 'sys_class_name,code,name,framework_version,supersedes,sys_updated_on',
+                    applicabilities: [{ $id: Now.ID['cms2_ws_list_draft_content_app'], applicability: adminAudience }],
                 },
             ],
         },
@@ -176,6 +161,7 @@ export const cmsAdminWorkspace = Workspace({
     title: 'CMS Administration Workspace',
     path: 'cms-admin',
     tables: [
+        'x_2317791_cms2_governed',
         'x_2317791_cms2_fw_version',
         'x_2317791_cms2_comp_group',
         'x_2317791_cms2_domain',

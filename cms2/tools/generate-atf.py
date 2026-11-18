@@ -50,14 +50,14 @@ var base = { framework_version: fw, status: 'published', effective_from: t0, act
 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
 for (var i = 1; i <= 5; i++) {
-    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
 }
 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 """
 
@@ -115,11 +115,11 @@ var d = ins('domain', { code: 'ATF-DOM2', name: 'ATF Draft Domain', competency_g
 check(!!d, 'create Draft Domain');
 var e = ins('element', { code: 'ATF-EL-NEW', name: 'ATF New Element', domain: d, framework_version: fw, status: 'draft' });
 check(!!e, 'create Draft Element');
-check(!!ins('pl_descriptor', { element: e, proficiency_level: lvl(2), descriptor: 'draft PL2', framework_version: fw, status: 'draft' }), 'create Draft PL descriptor');
-check(upd('element', e, { name: 'ATF New Element (renamed)', descriptor: 'updated' }), 'update Draft Element');
+check(!!ins('pl_descriptor', { element: e, proficiency_level: lvl(2), description: 'draft PL2', framework_version: fw, status: 'draft' }), 'create Draft PL descriptor');
+check(upd('element', e, { name: 'ATF New Element (renamed)', description: 'updated' }), 'update Draft Element');
 var g = new GlideRecord(P + 'element'); g.get(e);
 check(g.getValue('status') === 'draft' && g.getValue('name') === 'ATF New Element (renamed)', 'Element stored as Draft with new name');
-check(!upd('element', el4, { descriptor: 'edit published in place' }), 'Published Element cannot be edited in place');
+check(!upd('element', el4, { description: 'edit published in place' }), 'Published Element cannot be edited in place');
 """, False)])
 
 test('t04_rp_admin_creates_draft', 'CMS2 T04 – Role Profile Administrator can create a draft Role Profile',
@@ -209,15 +209,15 @@ test('t10_history_preserved', 'CMS2 T10 – Previously Published content remains
 var newId = new x_2317791_cms2.CmsAdminActions().createNewVersion((function () { var g = new GlideRecord(P + 'element'); g.get(el4); return g; })());
 check(!!newId && newId !== el4, 'new Draft version created');
 var o = new GlideRecord(P + 'element'); o.get(el4);
-check(o.getValue('status') === 'published' && o.getValue('descriptor') === 'ATF element without PL5', 'original unchanged while new version is Draft');
+check(o.getValue('status') === 'published' && o.getValue('description') === 'ATF element without PL5', 'original unchanged while new version is Draft');
 var n = new GlideRecord(P + 'element'); n.get(newId);
 check(n.getValue('status') === 'draft' && n.getValue('supersedes') === el4, 'new version is Draft and supersedes original');
 var nd = new GlideRecord(P + 'pl_descriptor'); nd.addQuery('element', newId); nd.query();
 check(nd.getRowCount() === 4, 'descriptors copied to new version (got ' + nd.getRowCount() + ')');
-check(upd('element', newId, { descriptor: 'ATF element v2', status: 'published', effective_from: plusDays(1) }), 'publish new version from tomorrow');
+check(upd('element', newId, { description: 'ATF element v2', status: 'published', effective_from: plusDays(1) }), 'publish new version from tomorrow');
 o = new GlideRecord(P + 'element'); o.get(el4);
 check(o.getValue('status') === 'published' && o.getValue('effective_to') === today(), 'old version still Published, end-dated today (got ' + o.getValue('effective_to') + ')');
-check(o.getValue('descriptor') === 'ATF element without PL5', 'old descriptor text preserved');
+check(o.getValue('description') === 'ATF element without PL5', 'old descriptor text preserved');
 """, False), ('user', 'cmsUser'), ('script', 'assert_read', LOOKUP + r"""
 var g = new GlideRecordSecure(P + 'element'); check(g.get(el4), 'CMS User can still read the historical Published version');
 """, False)])
@@ -225,9 +225,9 @@ var g = new GlideRecordSecure(P + 'element'); check(g.get(el4), 'CMS User can st
 test('t11_duplicate_descriptor', 'CMS2 T11 – Duplicate active Element + PL descriptor combinations are prevented',
      'A second active Draft for the same Element/PL/version and an overlapping Published duplicate are both rejected.',
      [('user', 'cmsAdmin'), ('script', 'fixture', '', True), ('user', 'cmsContentAdmin'), ('script', 'assert', LOOKUP + r"""
-check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(2), descriptor: 'first', framework_version: fw, status: 'draft' }), 'first Draft PL2 descriptor');
-check(!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(2), descriptor: 'second', framework_version: fw, status: 'draft' }), 'second active Draft PL2 rejected');
-check(!ins('pl_descriptor', { element: el4, proficiency_level: lvl(1), descriptor: 'dup', framework_version: fw, status: 'published', effective_from: today() }), 'overlapping Published PL1 duplicate rejected');
+check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(2), description: 'first', framework_version: fw, status: 'draft' }), 'first Draft PL2 descriptor');
+check(!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(2), description: 'second', framework_version: fw, status: 'draft' }), 'second active Draft PL2 rejected');
+check(!ins('pl_descriptor', { element: el4, proficiency_level: lvl(1), description: 'dup', framework_version: fw, status: 'published', effective_from: today() }), 'overlapping Published PL1 duplicate rejected');
 """, False)])
 
 test('t12_listing_published_effective', 'CMS2 T12 – Employee-facing listing only returns Published and currently effective records',

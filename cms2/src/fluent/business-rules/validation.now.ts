@@ -10,9 +10,10 @@ import {
 } from '../../server/cms-rules'
 
 /*
- * Lifecycle rules. Each versioned table gets one "before" rule (defaults +
- * validation, aborts on error) and one "after" rule (end-date predecessors,
- * cascade-publish descriptors). All logic is in src/server.
+ * Lifecycle rules. Framework Version and the Governed Content base table each
+ * get one "before" rule (defaults + validation, aborts on error) and one
+ * "after" rule (end-date predecessors, cascade-publish descriptors). Rules on
+ * the base table are inherited by all five child tables. Logic is in src/server.
  */
 
 
@@ -37,10 +38,12 @@ BusinessRule({
     script: versionedAfter,
 })
 
+// One pair of rules on the base table runs for every Governed Content type
+// (Competency Group, Domain, Element, Element PL Descriptor, Role Profile).
 BusinessRule({
-    $id: Now.ID['br_comp_group_before'],
-    name: 'CMS2 – Competency Group lifecycle validation',
-    table: 'x_2317791_cms2_comp_group',
+    $id: Now.ID['br_governed_before'],
+    name: 'CMS2 – Governed Content lifecycle validation',
+    table: 'x_2317791_cms2_governed',
     when: 'before',
     action: ['insert', 'update'],
     order: 100,
@@ -48,93 +51,9 @@ BusinessRule({
     script: versionedBefore,
 })
 BusinessRule({
-    $id: Now.ID['br_comp_group_after'],
-    name: 'CMS2 – Competency Group end-date predecessors',
-    table: 'x_2317791_cms2_comp_group',
-    when: 'after',
-    action: ['insert', 'update'],
-    order: 100,
-    active: true,
-    script: versionedAfter,
-})
-
-BusinessRule({
-    $id: Now.ID['br_domain_before'],
-    name: 'CMS2 – Domain lifecycle validation',
-    table: 'x_2317791_cms2_domain',
-    when: 'before',
-    action: ['insert', 'update'],
-    order: 100,
-    active: true,
-    script: versionedBefore,
-})
-BusinessRule({
-    $id: Now.ID['br_domain_after'],
-    name: 'CMS2 – Domain end-date predecessors',
-    table: 'x_2317791_cms2_domain',
-    when: 'after',
-    action: ['insert', 'update'],
-    order: 100,
-    active: true,
-    script: versionedAfter,
-})
-
-BusinessRule({
-    $id: Now.ID['br_element_before'],
-    name: 'CMS2 – Element lifecycle validation',
-    table: 'x_2317791_cms2_element',
-    when: 'before',
-    action: ['insert', 'update'],
-    order: 100,
-    active: true,
-    script: versionedBefore,
-})
-BusinessRule({
-    $id: Now.ID['br_element_after'],
-    name: 'CMS2 – Element end-date predecessors and publish descriptors',
-    table: 'x_2317791_cms2_element',
-    when: 'after',
-    action: ['insert', 'update'],
-    order: 100,
-    active: true,
-    script: versionedAfter,
-})
-
-BusinessRule({
-    $id: Now.ID['br_pl_descriptor_before'],
-    name: 'CMS2 – PL Descriptor lifecycle validation',
-    table: 'x_2317791_cms2_pl_descriptor',
-    when: 'before',
-    action: ['insert', 'update'],
-    order: 100,
-    active: true,
-    script: versionedBefore,
-})
-BusinessRule({
-    $id: Now.ID['br_pl_descriptor_after'],
-    name: 'CMS2 – PL Descriptor end-date predecessors',
-    table: 'x_2317791_cms2_pl_descriptor',
-    when: 'after',
-    action: ['insert', 'update'],
-    order: 100,
-    active: true,
-    script: versionedAfter,
-})
-
-BusinessRule({
-    $id: Now.ID['br_role_profile_before'],
-    name: 'CMS2 – Role Profile lifecycle validation',
-    table: 'x_2317791_cms2_role_profile',
-    when: 'before',
-    action: ['insert', 'update'],
-    order: 100,
-    active: true,
-    script: versionedBefore,
-})
-BusinessRule({
-    $id: Now.ID['br_role_profile_after'],
-    name: 'CMS2 – Role Profile end-date predecessors',
-    table: 'x_2317791_cms2_role_profile',
+    $id: Now.ID['br_governed_after'],
+    name: 'CMS2 – Governed Content end-date predecessors and publish descriptors',
+    table: 'x_2317791_cms2_governed',
     when: 'after',
     action: ['insert', 'update'],
     order: 100,

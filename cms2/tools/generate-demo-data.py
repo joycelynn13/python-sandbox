@@ -155,6 +155,11 @@ def rec(var, key, table, data):
     w('})')
     w('')
 ref = lambda v: ('ref', v)
+def key_sys_id(key):
+    keys = open(os.path.join(ROOT, 'src/fluent/generated/keys.ts')).read()
+    m = re.search(r"['\"]?" + re.escape(key) + r"['\"]?: \{\s*table: '[^']+'\s*id: '([0-9a-f]{32})'", keys)
+    assert m, 'key not in keys.ts (build once first): ' + key
+    return m.group(1)
 LC = {**{'published': 'published'}}
 rec(FW, 'demo_fw_2026', 'x_2317791_cms2_fw_version', {
     'name': 'HTX Technical Competency Framework 2026 (Prototype)', 'version_number': '2026.1',
@@ -179,19 +184,21 @@ for key, code, name, g, desc in domains:
 evar = {}; emax = {}
 for i, (code, name, dom, desc, maxpl, focus) in enumerate(elements):
     v = 'demo_el_' + ident(code); evar[code] = v; emax[code] = maxpl
-    rec(v, v, 'x_2317791_cms2_element', {'code': code, 'name': name, 'domain': ref(dvar[dom]), 'descriptor': desc,
+    rec(v, v, 'x_2317791_cms2_element', {'code': code, 'name': name, 'domain': ref(dvar[dom]), 'description': desc,
         'sequence': (i + 1) * 10, 'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
     for lvl in range(1, maxpl + 1):
         dv_ = f'demo_pld_{ident(code)}_pl{lvl}'
         rec(dv_, dv_, 'x_2317791_cms2_pl_descriptor', {'element': ref(v), 'proficiency_level': ref(f'pl{lvl}'),
-            'descriptor': PL_TEMPLATES[lvl].format(f=focus), 'display_name': f'{code} – PL{lvl}',
+            'description': PL_TEMPLATES[lvl].format(f=focus), 'code': f'{code} – PL{lvl}', 'name': f'{code} – PL{lvl}',
             'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
 for key, code, name, title, fam, fn, desc, ver, frm, to, status, sup, reqs in role_profiles:
     v = 'demo_' + key
     rec(v, v, 'x_2317791_cms2_role_profile', {'code': code, 'name': name, 'job_title': title, 'job_family': fam,
         'business_function': fn, 'description': desc, 'framework_version': ref(FW), 'version': ver,
         'status': status, 'effective_from': frm, 'effective_to': to, 'active': True,
-        'supersedes': ref('demo_' + sup) if sup else None})
+        # supersedes is typed to the base table, so pass the predecessor's sys_id from the
+        # app's own key registry (stable across builds) rather than the record variable
+        'supersedes': key_sys_id('demo_' + sup) if sup else None})
     for n, (ecode, t, lvl) in enumerate(reqs):
         assert lvl <= emax[ecode], f'{key}: {ecode} has no PL{lvl}'
         rv = f'demo_req_{key}_{ident(ecode)}'

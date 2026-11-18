@@ -47,14 +47,14 @@ export const atf_t01_user_reads_published = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -150,14 +150,14 @@ export const atf_t02_user_cannot_edit = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -255,14 +255,14 @@ export const atf_t03_content_admin_drafts = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -305,11 +305,11 @@ export const atf_t03_content_admin_drafts = Test(
                 check(!!d, 'create Draft Domain');
                 var e = ins('element', { code: 'ATF-EL-NEW', name: 'ATF New Element', domain: d, framework_version: fw, status: 'draft' });
                 check(!!e, 'create Draft Element');
-                check(!!ins('pl_descriptor', { element: e, proficiency_level: lvl(2), descriptor: 'draft PL2', framework_version: fw, status: 'draft' }), 'create Draft PL descriptor');
-                check(upd('element', e, { name: 'ATF New Element (renamed)', descriptor: 'updated' }), 'update Draft Element');
+                check(!!ins('pl_descriptor', { element: e, proficiency_level: lvl(2), description: 'draft PL2', framework_version: fw, status: 'draft' }), 'create Draft PL descriptor');
+                check(upd('element', e, { name: 'ATF New Element (renamed)', description: 'updated' }), 'update Draft Element');
                 var g = new GlideRecord(P + 'element'); g.get(e);
                 check(g.getValue('status') === 'draft' && g.getValue('name') === 'ATF New Element (renamed)', 'Element stored as Draft with new name');
-                check(!upd('element', el4, { descriptor: 'edit published in place' }), 'Published Element cannot be edited in place');
+                check(!upd('element', el4, { description: 'edit published in place' }), 'Published Element cannot be edited in place');
 
                 return finish();
             })(outputs, steps, params, stepResult, assertEqual);
@@ -358,14 +358,14 @@ export const atf_t04_rp_admin_creates_draft = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -457,14 +457,14 @@ export const atf_t05_rp_admin_adds_requirements = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -559,14 +559,14 @@ export const atf_t06_target_pl_element_level = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -661,14 +661,14 @@ export const atf_t07_no_empty_pl5 = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -802,14 +802,14 @@ export const atf_t08_published_rp_no_draft_refs = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -954,14 +954,14 @@ export const atf_t10_history_preserved = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -1003,15 +1003,15 @@ export const atf_t10_history_preserved = Test(
                 var newId = new x_2317791_cms2.CmsAdminActions().createNewVersion((function () { var g = new GlideRecord(P + 'element'); g.get(el4); return g; })());
                 check(!!newId && newId !== el4, 'new Draft version created');
                 var o = new GlideRecord(P + 'element'); o.get(el4);
-                check(o.getValue('status') === 'published' && o.getValue('descriptor') === 'ATF element without PL5', 'original unchanged while new version is Draft');
+                check(o.getValue('status') === 'published' && o.getValue('description') === 'ATF element without PL5', 'original unchanged while new version is Draft');
                 var n = new GlideRecord(P + 'element'); n.get(newId);
                 check(n.getValue('status') === 'draft' && n.getValue('supersedes') === el4, 'new version is Draft and supersedes original');
                 var nd = new GlideRecord(P + 'pl_descriptor'); nd.addQuery('element', newId); nd.query();
                 check(nd.getRowCount() === 4, 'descriptors copied to new version (got ' + nd.getRowCount() + ')');
-                check(upd('element', newId, { descriptor: 'ATF element v2', status: 'published', effective_from: plusDays(1) }), 'publish new version from tomorrow');
+                check(upd('element', newId, { description: 'ATF element v2', status: 'published', effective_from: plusDays(1) }), 'publish new version from tomorrow');
                 o = new GlideRecord(P + 'element'); o.get(el4);
                 check(o.getValue('status') === 'published' && o.getValue('effective_to') === today(), 'old version still Published, end-dated today (got ' + o.getValue('effective_to') + ')');
-                check(o.getValue('descriptor') === 'ATF element without PL5', 'old descriptor text preserved');
+                check(o.getValue('description') === 'ATF element without PL5', 'old descriptor text preserved');
 
                 return finish();
             })(outputs, steps, params, stepResult, assertEqual);
@@ -1098,14 +1098,14 @@ export const atf_t11_duplicate_descriptor = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();
@@ -1144,9 +1144,9 @@ export const atf_t11_duplicate_descriptor = Test(
                 var el4 = byCode('element', 'ATF-EL'), el5 = byCode('element', 'ATF-EL5'), elDraft = byCode('element', 'ATF-EL-D'), dom = byCode('domain', 'ATF-DOM');
                 check(fw && el4 && el5 && elDraft && dom, 'fixture records found');
 
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(2), descriptor: 'first', framework_version: fw, status: 'draft' }), 'first Draft PL2 descriptor');
-                check(!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(2), descriptor: 'second', framework_version: fw, status: 'draft' }), 'second active Draft PL2 rejected');
-                check(!ins('pl_descriptor', { element: el4, proficiency_level: lvl(1), descriptor: 'dup', framework_version: fw, status: 'published', effective_from: today() }), 'overlapping Published PL1 duplicate rejected');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(2), description: 'first', framework_version: fw, status: 'draft' }), 'first Draft PL2 descriptor');
+                check(!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(2), description: 'second', framework_version: fw, status: 'draft' }), 'second active Draft PL2 rejected');
+                check(!ins('pl_descriptor', { element: el4, proficiency_level: lvl(1), description: 'dup', framework_version: fw, status: 'published', effective_from: today() }), 'overlapping Published PL1 duplicate rejected');
 
                 return finish();
             })(outputs, steps, params, stepResult, assertEqual);
@@ -1195,14 +1195,14 @@ export const atf_t12_listing_published_effective = Test(
                 function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
                 var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
                 var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
-                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, descriptor: 'ATF element without PL5' }));
-                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, descriptor: 'ATF element with PL5' }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
                 for (var i = 1; i <= 5; i++) {
-                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), descriptor: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
-                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), descriptor: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
                 }
                 var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
-                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), descriptor: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
                 check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
 
                 return finish();

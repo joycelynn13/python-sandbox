@@ -20,7 +20,7 @@ function copyColumns(table: string): string[] {
 }
 
 function cloneAsDraft(src: any, overrides: { [f: string]: string }): string {
-    const table: string = src.getTableName()
+    const table: string = src.getRecordClassName()
     const gr: any = new GlideRecord(table)
     gr.initialize()
     copyColumns(table).forEach((f) => gr.setValue(f, src.getValue(f)))
@@ -35,12 +35,12 @@ function cloneAsDraft(src: any, overrides: { [f: string]: string }): string {
 
 /** Before-rule housekeeping: calculated display names and retirement end-date. */
 export function applyLifecycleDefaults(current: any, previous: any): void {
-    const table: string = current.getTableName()
+    const table: string = current.getRecordClassName()
     if (table === T.descriptor) {
-        current.setValue(
-            'display_name',
-            `${current.element.code || ''} – ${current.proficiency_level.code || ''}`.trim()
-        )
+        // code and name are calculated, e.g. "EL-APPDEV – PL3"
+        const label = `${current.element.code || ''} – ${current.proficiency_level.code || ''}`.trim()
+        current.setValue('code', label)
+        current.setValue('name', label)
     }
     const retiring = v(current, 'status') === STATUS.retired && (!previous || v(previous, 'status') !== STATUS.retired)
     if (retiring && !v(current, 'effective_to')) {
@@ -56,7 +56,7 @@ export function applyLevelDisplayName(current: any): void {
 
 /** After a record becomes Published: end-date the record(s) it replaces. */
 export function closePredecessors(current: any): void {
-    const table: string = current.getTableName()
+    const table: string = current.getRecordClassName()
     const from = v(current, 'effective_from')
     if (!from) return
     const dayBefore = addDays(from, -1)
@@ -111,7 +111,7 @@ export function retire(current: any): boolean {
 
 /** Creates a Draft revision of any versioned record; returns the new sys_id. */
 export function createNewVersion(current: any): string {
-    const table: string = current.getTableName()
+    const table: string = current.getRecordClassName()
     if (table === T.fwVersion) return createNextFrameworkVersion(current)
 
     const overrides: { [f: string]: string } = {}

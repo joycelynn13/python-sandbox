@@ -2,62 +2,34 @@ import '@servicenow/sdk/global'
 import {
     Table,
     StringColumn,
-    MultiLineTextColumn,
     ChoiceColumn,
-    DateColumn,
     BooleanColumn,
     IntegerColumn,
     ReferenceColumn,
+    OverrideColumn,
 } from '@servicenow/sdk/core'
 
 // ---------------------------------------------------------------- Role Profile
+// Extends Governed Content (code, name, description, framework_version, status,
+// effective dates, supersedes are inherited) and adds the job attributes.
 export const x_2317791_cms2_role_profile = Table({
     name: 'x_2317791_cms2_role_profile',
     label: 'Role Profile',
+    extends: 'x_2317791_cms2_governed',
     display: 'name',
     audit: true,
-    textIndex: true,
     allowWebServiceAccess: true,
     accessibleFrom: 'public',
     actions: { read: true, create: false, update: false, delete: false },
     schema: {
-        code: StringColumn({ label: 'Role Profile Code', mandatory: true, maxLength: 40 }),
-        name: StringColumn({ label: 'Role Profile Name', mandatory: true, maxLength: 160 }),
+        code: OverrideColumn({ baseTable: 'x_2317791_cms2_governed', mandatory: true }),
+        name: OverrideColumn({ baseTable: 'x_2317791_cms2_governed', mandatory: true }),
         job_title: StringColumn({ label: 'Job Title / Role', maxLength: 160 }),
         job_family: StringColumn({ label: 'Job Family', maxLength: 100 }),
         business_function: StringColumn({ label: 'Function', maxLength: 100 }),
-        description: MultiLineTextColumn({ label: 'Description', maxLength: 4000 }),
         owner: ReferenceColumn({ label: 'Owner / Function Lead', referenceTable: 'sys_user' }),
-        framework_version: ReferenceColumn({
-            label: 'Framework Version',
-            referenceTable: 'x_2317791_cms2_fw_version',
-            mandatory: true,
-        }),
         version: IntegerColumn({ label: 'Version', default: '1', readOnly: true }),
-        status: ChoiceColumn({
-            label: 'Status',
-            mandatory: true,
-            default: 'draft',
-            dropdown: 'dropdown_without_none',
-            choices: {
-                draft: { label: 'Draft', sequence: 10 },
-                published: { label: 'Published', sequence: 20 },
-                retired: { label: 'Retired', sequence: 30 },
-            },
-        }),
-        effective_from: DateColumn({ label: 'Effective From' }),
-        effective_to: DateColumn({ label: 'Effective To' }),
-        active: BooleanColumn({ label: 'Active', default: 'true' }),
-        supersedes: ReferenceColumn({
-            label: 'Supersedes',
-            referenceTable: 'x_2317791_cms2_role_profile',
-            readOnly: true,
-        }),
     },
-    index: [
-        { name: 'cms2_rp_code', unique: false, element: ['code', 'version'] },
-        { name: 'cms2_rp_status_dates', unique: false, element: ['status', 'effective_from', 'effective_to'] },
-    ],
 })
 
 // ---------------------------------------------------------------- Role Profile Element Requirement

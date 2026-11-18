@@ -5,6 +5,7 @@ import { gs } from '@servicenow/glide'
 export const SCOPE = 'x_2317791_cms2'
 
 export const T = {
+    governed: 'x_2317791_cms2_governed',
     fwVersion: 'x_2317791_cms2_fw_version',
     group: 'x_2317791_cms2_comp_group',
     domain: 'x_2317791_cms2_domain',
@@ -47,8 +48,8 @@ export const LOCKED_FIELDS: { [table: string]: string[] } = {
         'code', 'name', 'description', 'competency_group', 'owner', 'sme', 'sequence',
         'framework_version', 'effective_from', 'supersedes',
     ],
-    [T.element]: ['code', 'name', 'domain', 'descriptor', 'sequence', 'framework_version', 'effective_from', 'supersedes'],
-    [T.descriptor]: ['element', 'proficiency_level', 'descriptor', 'framework_version', 'effective_from', 'supersedes'],
+    [T.element]: ['code', 'name', 'domain', 'description', 'sequence', 'framework_version', 'effective_from', 'supersedes'],
+    [T.descriptor]: ['element', 'proficiency_level', 'description', 'framework_version', 'effective_from', 'supersedes'],
     [T.roleProfile]: [
         'code', 'name', 'job_title', 'job_family', 'business_function', 'description', 'owner',
         'framework_version', 'version', 'effective_from', 'supersedes',

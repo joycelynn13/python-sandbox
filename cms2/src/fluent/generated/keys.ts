@@ -65,6 +65,26 @@ declare global {
                         table: 'sys_security_acl'
                         id: 'c34df92eac1744408d5768dfb3a5cd49'
                     }
+                    acl_gov_create: {
+                        table: 'sys_security_acl'
+                        id: '33c9ca3dad634b10a155e4bba75c5775'
+                    }
+                    acl_gov_delete: {
+                        table: 'sys_security_acl'
+                        id: 'e22943b44184456384658a47614aa2a6'
+                    }
+                    acl_gov_read_admin: {
+                        table: 'sys_security_acl'
+                        id: '4ecd87344a69462abd16cdf260384ba8'
+                    }
+                    acl_gov_read_user: {
+                        table: 'sys_security_acl'
+                        id: '37a6e6616c384f2a97b073cd574c4193'
+                    }
+                    acl_gov_write: {
+                        table: 'sys_security_acl'
+                        id: '5d8dd7467fc64156b7d249bedc357886'
+                    }
                     acl_grp_create: {
                         table: 'sys_security_acl'
                         id: '160a54028959466f9d6562fd90093b90'
@@ -188,26 +208,32 @@ declare global {
                     br_comp_group_after: {
                         table: 'sys_script'
                         id: '5a236ce077d647d1a187f530bb7126d7'
+                        deleted: true
                     }
                     br_comp_group_before: {
                         table: 'sys_script'
                         id: '97b87b2cee8444e19deffdcef15f802e'
+                        deleted: true
                     }
                     br_domain_after: {
                         table: 'sys_script'
                         id: '110ab34a17b4472db5e4386edc2354c5'
+                        deleted: true
                     }
                     br_domain_before: {
                         table: 'sys_script'
                         id: '32e8ec7e878d4308a5d22db81224a712'
+                        deleted: true
                     }
                     br_element_after: {
                         table: 'sys_script'
                         id: 'eb57f55ea14b46ec80f487e81006612c'
+                        deleted: true
                     }
                     br_element_before: {
                         table: 'sys_script'
                         id: 'c7502fc8ffc7409ea435db7b639ee63e'
+                        deleted: true
                     }
                     br_fw_version_after: {
                         table: 'sys_script'
@@ -217,13 +243,23 @@ declare global {
                         table: 'sys_script'
                         id: '3ced58764d2747cfa85b2ac93ce521c7'
                     }
+                    br_governed_after: {
+                        table: 'sys_script'
+                        id: '4b4b9a0a04374097863f339bbcec9c7b'
+                    }
+                    br_governed_before: {
+                        table: 'sys_script'
+                        id: '058d39dd2cf54e62a066a5761fa108c1'
+                    }
                     br_pl_descriptor_after: {
                         table: 'sys_script'
                         id: 'f1846bb348c84fcca00fd224583c4876'
+                        deleted: true
                     }
                     br_pl_descriptor_before: {
                         table: 'sys_script'
                         id: '1aaf3cdbdaa14870b25060d7fe2f2995'
+                        deleted: true
                     }
                     br_prof_level_before: {
                         table: 'sys_script'
@@ -244,10 +280,12 @@ declare global {
                     br_role_profile_after: {
                         table: 'sys_script'
                         id: '6fa82d8917f843c1ae2c591e8d797566'
+                        deleted: true
                     }
                     br_role_profile_before: {
                         table: 'sys_script'
                         id: 'a6f6123106c74a66a635e909ed65cc23'
+                        deleted: true
                     }
                     cms2_admin_dashboard: {
                         table: 'par_dashboard'
@@ -388,6 +426,7 @@ declare global {
                     cms2_ws_applicability_content: {
                         table: 'sys_ux_applicability'
                         id: '14fc0b98aadd494eb3716fe24c7d5550'
+                        deleted: true
                     }
                     cms2_ws_applicability_rp: {
                         table: 'sys_ux_applicability'
@@ -436,10 +475,12 @@ declare global {
                     cms2_ws_list_draft_descriptors: {
                         table: 'sys_ux_list'
                         id: 'ef6c69a581e443959ad2425804490579'
+                        deleted: true
                     }
                     cms2_ws_list_draft_descriptors_app: {
                         table: 'sys_ux_applicability_m2m_list'
                         id: '66e5d93d14f546aa8fb7dd50293a2bb9'
+                        deleted: true
                     }
                     cms2_ws_list_elements: {
                         table: 'sys_ux_list'
@@ -1193,6 +1234,10 @@ declare global {
                         table: 'x_2317791_cms2_rp_assignment'
                         id: '3af838e85ffc4f23b1c40905bb1a105d'
                     }
+                    mod_all_content: {
+                        table: 'sys_app_module'
+                        id: '091db58efb3a42aeafa8e2110cc7d541'
+                    }
                     mod_assignments: {
                         table: 'sys_app_module'
                         id: '1e2a6be20348434ea3d3a2421afcf61c'
@@ -1201,17 +1246,24 @@ declare global {
                         table: 'sys_app_module'
                         id: '27becb0e240047b19b1af551ee54b743'
                     }
+                    mod_draft_content: {
+                        table: 'sys_app_module'
+                        id: '894e458a57714d978bde51ae8762952f'
+                    }
                     mod_draft_descriptors: {
                         table: 'sys_app_module'
                         id: '0ebf2217ad7c45ca8f7e2da0187e5a79'
+                        deleted: true
                     }
                     mod_draft_elements: {
                         table: 'sys_app_module'
                         id: '14dcb15ef4714a9283edfc4afb39611e'
+                        deleted: true
                     }
                     mod_draft_rps: {
                         table: 'sys_app_module'
                         id: '2d14b74253b64230b5b77ceaa42b1589'
+                        deleted: true
                     }
                     mod_elements: {
                         table: 'sys_app_module'
@@ -1240,14 +1292,21 @@ declare global {
                     mod_pub_descriptors: {
                         table: 'sys_app_module'
                         id: '4539c947d3a641a7b9a81537ae346318'
+                        deleted: true
                     }
                     mod_pub_elements: {
                         table: 'sys_app_module'
                         id: '8cb6e48156874c959576345f3aba974b'
+                        deleted: true
                     }
                     mod_pub_rps: {
                         table: 'sys_app_module'
                         id: '2b090c9794394f14b0dde316c0de9733'
+                        deleted: true
+                    }
+                    mod_published_content: {
+                        table: 'sys_app_module'
+                        id: '2ccaf2e11ef74b56806a2246d6bd8b04'
                     }
                     mod_requirements: {
                         table: 'sys_app_module'
@@ -1756,26 +1815,32 @@ declare global {
                     ua_dom_new_version: {
                         table: 'sys_ui_action'
                         id: '714d8d88bc6d4cac8794a396b7eb9a4b'
+                        deleted: true
                     }
                     ua_dom_publish: {
                         table: 'sys_ui_action'
                         id: '6d318df4ece341dca5e6970846831a13'
+                        deleted: true
                     }
                     ua_dom_retire: {
                         table: 'sys_ui_action'
                         id: 'bb45c36221894c4bab170988dc04da90'
+                        deleted: true
                     }
                     ua_elm_new_version: {
                         table: 'sys_ui_action'
                         id: 'add4dfa3d1e2402ba67f45448ba42380'
+                        deleted: true
                     }
                     ua_elm_publish: {
                         table: 'sys_ui_action'
                         id: '02d539bb9db34c9baa4b54be635a05f5'
+                        deleted: true
                     }
                     ua_elm_retire: {
                         table: 'sys_ui_action'
                         id: '8867534ca08f40379e86566a8dc35dfb'
+                        deleted: true
                     }
                     ua_fw_new_version: {
                         table: 'sys_ui_action'
@@ -1789,41 +1854,62 @@ declare global {
                         table: 'sys_ui_action'
                         id: '9cd621a0426c47a489367f8359c071db'
                     }
+                    ua_gov_new_version: {
+                        table: 'sys_ui_action'
+                        id: '6b72a5193ae041c8a1a96d9dba7982c8'
+                    }
+                    ua_gov_publish: {
+                        table: 'sys_ui_action'
+                        id: '3df031f3b64c458797cb1c6092515a1e'
+                    }
+                    ua_gov_retire: {
+                        table: 'sys_ui_action'
+                        id: '3aa67dde0d28492d93f01897bb0a1fe1'
+                    }
                     ua_grp_new_version: {
                         table: 'sys_ui_action'
                         id: '5be987ffcd0743549ee249b44900a80b'
+                        deleted: true
                     }
                     ua_grp_publish: {
                         table: 'sys_ui_action'
                         id: '4d1cd758faaf43c6b90771326a6d74c7'
+                        deleted: true
                     }
                     ua_grp_retire: {
                         table: 'sys_ui_action'
                         id: '7919d59b30674f3083e5a187f8be51b9'
+                        deleted: true
                     }
                     ua_pld_new_version: {
                         table: 'sys_ui_action'
                         id: 'cb43cc59569f44658d4191371b8ce342'
+                        deleted: true
                     }
                     ua_pld_publish: {
                         table: 'sys_ui_action'
                         id: '72bbc454ad3047efa790a18336497edf'
+                        deleted: true
                     }
                     ua_pld_retire: {
                         table: 'sys_ui_action'
                         id: 'e5bd9e45f7b34c71bdcdf6e3a7f6b88b'
+                        deleted: true
                     }
                     ua_rp_new_version: {
                         table: 'sys_ui_action'
                         id: '70fb53322fd446e6b7c87a9f39b3d19f'
+                        deleted: true
                     }
                     ua_rp_publish: {
                         table: 'sys_ui_action'
                         id: 'a2236ef178b6462489baa49ca8f5d337'
+                        deleted: true
                     }
                     ua_rp_retire: {
                         table: 'sys_ui_action'
                         id: 'c7e4c3c5182b488faa20021af7c0d5f4'
+                        deleted: true
                     }
                     ua_rp_validate: {
                         table: 'sys_ui_action'
@@ -1831,6 +1917,19 @@ declare global {
                     }
                 }
                 composite: [
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '001bd0e727f44663b645e34059868295'
+                        key: {
+                            sys_security_acl: 'e22943b44184456384658a47614aa2a6'
+                            sys_user_role: {
+                                id: '4cf0c55285a84f87b0a05fb7d97765b4'
+                                key: {
+                                    name: 'x_2317791_cms2.admin'
+                                }
+                            }
+                        }
+                    },
                     {
                         table: 'sys_variable_value'
                         id: '00418d9c766645708836da0a449d63ec'
@@ -1845,6 +1944,28 @@ declare global {
                         key: {
                             document_key: 'c698d815add443b28c11a9d32d936b53'
                             variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '00e264d297964d418192edb7d0fbf31a'
+                        key: {
+                            sys_ui_section: {
+                                id: '0d56c2435a174bed94f7a924451ddd53'
+                                key: {
+                                    name: 'x_2317791_cms2_element'
+                                    caption: 'Element'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'description'
+                            position: '9'
                         }
                     },
                     {
@@ -1890,6 +2011,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary_override'
+                        id: '0394e3e3ef494400bdffafa49072d8e0'
+                        key: {
+                            name: 'x_2317791_cms2_element'
+                            element: 'code'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: '03cf7eaf6b944e7c8955dddd78152153'
                         key: {
@@ -1920,7 +2049,16 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: '044498083126469e8eafd940c00cca2a'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'active'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: '04594e9fa95a454a9d97729adfaf911e'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'code'
@@ -1960,6 +2098,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary_override'
+                        id: '058a0e02f7e146489234d32e695b9828'
+                        key: {
+                            name: 'x_2317791_cms2_role_profile'
+                            element: 'code'
+                        }
+                    },
+                    {
                         table: 'sys_element_mapping'
                         id: '05a9f77010154d2e90d0b53282720d7e'
                         key: {
@@ -1971,6 +2117,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '05bc5e61f6ac4bfe9412c4157de23515'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'status'
@@ -1989,6 +2136,17 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '074aac943f904efc9ccbb8a7363a07af'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'status'
+                            value: 'retired'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '0761ec540b3e4c1ba36a4c8e0d8749f8'
                         key: {
@@ -1999,9 +2157,32 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '0902541911f1452083594446836968c6'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'name'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '098435df1ff44977b3716fe59cb25d08'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'description'
+                            position: '10'
                         }
                     },
                     {
@@ -2037,6 +2218,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '0a25504652d34cb58f66b9ea0cedd31f'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'framework_version'
@@ -2105,6 +2287,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '0ab08e1d9f994f63bbe12428f5355eb5'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'supersedes'
@@ -2135,6 +2318,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: '0b87561762a743da9f4e16f97f0ab891'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_domain'
                             col_name_string: 'status,effective_from,effective_to'
@@ -2149,8 +2333,22 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_action_role'
+                        id: '0c15ae0151ed4c8c975b047c36cae43c'
+                        key: {
+                            sys_ui_action: '6b72a5193ae041c8a1a96d9dba7982c8'
+                            sys_user_role: {
+                                id: '4c6768bd7f394c328825b26980654fc9'
+                                key: {
+                                    name: 'x_2317791_cms2.role_profile_admin'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '0cc3e5064a87404fbd5e523d355128b6'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'status'
@@ -2159,6 +2357,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '0d1ada0c77e24f178f7d0a96e0459b9f'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'status'
@@ -2303,6 +2502,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary_override'
+                        id: '1090d3402cc045ee9f934057dce99db8'
+                        key: {
+                            name: 'x_2317791_cms2_role_profile'
+                            element: 'name'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: '10a8043158b34ba1ac2bd35989184e35'
                         key: {
@@ -2349,6 +2556,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: '11449ab2ba4c4370b665da5653b8e760'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_element'
                             col_name_string: 'code,framework_version'
@@ -2357,6 +2565,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '116c656e2d0b409a8ab77dc978c2cc8a'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'status'
@@ -2368,12 +2577,21 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '11e4ea8eb359416d916f8c9d753590da'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'status'
                             value: 'draft'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary_override'
+                        id: '120df2f9a9f54c6abdbacfcea3349bc0'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'description'
                         }
                     },
                     {
@@ -2387,6 +2605,7 @@ declare global {
                     {
                         table: 'sys_choice_set'
                         id: '127abd85fbc24f239b97f10418794668'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'status'
@@ -2403,6 +2622,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '12d16f887bb54b1ea9fd59ff94744836'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'effective_from'
@@ -2442,6 +2662,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '14252793f5d449aa8f0a3cb7e66b1429'
+                        deleted: true
                         key: {
                             sys_ui_action: 'bb45c36221894c4bab170988dc04da90'
                             sys_user_role: {
@@ -2470,6 +2691,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '14ee102a531e4794a41bad5ea8b4679e'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'name'
@@ -2519,6 +2741,28 @@ declare global {
                     },
                     {
                         table: 'sys_ui_element'
+                        id: '1629a0efa24145d1a7ab6339a22349c0'
+                        key: {
+                            sys_ui_section: {
+                                id: '73e1cc6d5b264849b093c16eef9c44d6'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'Versioning'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'name'
+                            position: '6'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
                         id: '16a6ffd7f8b44617a188d7881f0b82ab'
                         deleted: false
                         key: {
@@ -2543,6 +2787,7 @@ declare global {
                     {
                         table: 'sys_choice_set'
                         id: '17201025b32a4e298e2f5e5aa30d76da'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'status'
@@ -2573,6 +2818,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '1771da2ee3fc473393c8b61bc055c7af'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'framework_version'
@@ -2626,6 +2872,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '17e52ca5b1b34ac3a67b28b6ec067074'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'sequence'
@@ -2707,6 +2954,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '1b3ea1b0649f48038c09dcf606e2dfeb'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'effective_from'
@@ -2755,6 +3003,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '1c9258f8f36d43788a1ab605d8b66fe7'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'active'
@@ -2845,6 +3094,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '1eeb4c5d35914c59acb6156e9c6c970a'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'status'
@@ -2931,6 +3181,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '2021aca96ff44e178934bd97260650c0'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'active'
@@ -2939,6 +3190,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: '205e1088d3cc46728054765307799b1c'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_role_profile'
                             col_name_string: 'code,version'
@@ -2980,6 +3232,28 @@ declare global {
                         key: {
                             document_key: 'c70f290ee4c54b3b898d09cf4ade1d71'
                             variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '212b2be8a9d3459393ec00d96fb58b49'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.split'
+                            position: '4'
                         }
                     },
                     {
@@ -3063,6 +3337,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '237949d6344f400cbee9a9408b56d910'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'description'
@@ -3149,6 +3424,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '24353fca8f9543dba7711609859d2a6f'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'code'
@@ -3176,6 +3452,14 @@ declare global {
                             name: 'x_2317791_cms2_prof_level'
                             element: 'level'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary_override'
+                        id: '24f2395190ab4e839dd5bbf2998ab267'
+                        key: {
+                            name: 'x_2317791_cms2_comp_group'
+                            element: 'name'
                         }
                     },
                     {
@@ -3220,6 +3504,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '25f30f322f7245adbea5315e60b58cfe'
+                        deleted: true
                         key: {
                             sys_ui_action: '7919d59b30674f3083e5a187f8be51b9'
                             sys_user_role: {
@@ -3285,6 +3570,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '26db07d8655b4adbba5b5d2f2ed32724'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'supersedes'
@@ -3320,6 +3606,14 @@ declare global {
                         key: {
                             document_key: '8eaf536baf834370aeef42625dec868c'
                             variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '2887ab2817ce441787995d69e23675a5'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'NULL'
                         }
                     },
                     {
@@ -3414,6 +3708,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '2cfde4c73d104c85959b89ca48eafd42'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'sequence'
@@ -3526,6 +3821,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '2f6fc61b31f4400abe1763754f2da281'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'effective_from'
@@ -3534,6 +3830,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '2ff99f122bb64ae795c29a43948530ab'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'sequence'
@@ -3571,6 +3868,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '30ed64e59daa4e469d5063d0f4e2bf7c'
+                        deleted: true
                         key: {
                             sys_ui_action: 'add4dfa3d1e2402ba67f45448ba42380'
                             sys_user_role: {
@@ -3639,6 +3937,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '32b529f001354b1082c4c5d646a337e8'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'active'
@@ -3678,6 +3977,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '3381b75b24724c968f9947069877c9d4'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'status'
@@ -3686,6 +3986,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '3384e08ddddf40fd8a3f9fa1c0d67591'
+                        deleted: true
                         key: {
                             sys_ui_action: '6d318df4ece341dca5e6970846831a13'
                             sys_user_role: {
@@ -3699,6 +4000,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '342a288c1c2f41a49f97ac57ea16ad36'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'active'
@@ -3707,6 +4009,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '34519e61cbe4465b8bb7cc9d2c6098fe'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'supersedes'
@@ -3746,6 +4049,7 @@ declare global {
                     {
                         table: 'sys_choice_set'
                         id: '349f22e010124af8979e358d7cb1dfd2'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'status'
@@ -3785,11 +4089,37 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: '34d4a5d7f7b541e4bf33a53d984e121a'
+                        key: {
+                            sys_security_acl: '37a6e6616c384f2a97b073cd574c4193'
+                            sys_user_role: {
+                                id: '0a6d7362df87496cb747d732eee6ddfe'
+                                key: {
+                                    name: 'x_2317791_cms2.user'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '34ec6388893543c59488f2b1dae99c9e'
                         key: {
                             document_key: '89a75df6c9ae42239d5877b0c848a2a1'
                             variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_action_role'
+                        id: '34efccd0c9ae4e7a84c3ba6e9e3770b3'
+                        key: {
+                            sys_ui_action: '3df031f3b64c458797cb1c6092515a1e'
+                            sys_user_role: {
+                                id: '042092450fab4f3982aec93342a647e2'
+                                key: {
+                                    name: 'x_2317791_cms2.content_admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -3838,8 +4168,16 @@ declare global {
                         }
                     },
                     {
+                        table: 'ua_table_licensing_config'
+                        id: '3541e19701d54309b021f75c470ac522'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '35708952b5e3470cac3934b45337d23d'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'effective_from'
@@ -3887,6 +4225,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '374d1149d54f46fca822e38658848785'
+                        deleted: true
                         key: {
                             sys_ui_action: '5be987ffcd0743549ee249b44900a80b'
                             sys_user_role: {
@@ -3900,6 +4239,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '38320c7cd1164465bc428b3e628502ba'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'effective_to'
@@ -3908,6 +4248,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '388eda8af82346619805682be1568807'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'status'
@@ -3949,6 +4290,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: '3938030c0484421fbe8efdef649aa1ba'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_pl_descriptor'
                             col_name_string: 'status,effective_from,effective_to'
@@ -3957,6 +4299,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '3964994d4a5f4469a0e9a8f59327c682'
+                        deleted: true
                         key: {
                             sys_ui_action: 'a2236ef178b6462489baa49ca8f5d337'
                             sys_user_role: {
@@ -4049,12 +4392,22 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '3be1d024f53348f8b9fa4c3ae1070c23'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'status'
                             value: 'published'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '3c100dd7cfa24f83a950d0eef4614c5f'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'effective_to'
+                            language: 'en'
                         }
                     },
                     {
@@ -4116,6 +4469,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '3dd55d31452243b2b5343dbf3c15c577'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'name'
@@ -4125,6 +4479,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '3de5d1912ba345048f1b03750eeba670'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'status'
@@ -4136,6 +4491,14 @@ declare global {
                         key: {
                             document_key: 'c393fb1903184f678597e66478010fcb'
                             variable: '989d9e235324220002c6435723dc3484'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '3ef2d0392ca84e1d960acf5f72e98b7e'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'code'
                         }
                     },
                     {
@@ -4210,6 +4573,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '410ddaabc9ee4cc990a0c014f4aa4cb3'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'effective_from'
@@ -4242,6 +4606,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '41cff1b0326a46c396569969f4ea74c1'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'effective_from'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '422c2e5bc6de4ccd88e0a0cfdbb1fc90'
                         key: {
@@ -4263,6 +4635,15 @@ declare global {
                         id: '43033bd08a5549be9e86dd1f7046c464'
                         key: {
                             name: 'x_2317791_cms2_rp_assignment'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '432bc72587fd4ebe962791a1b96b2909'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'framework_version'
+                            language: 'en'
                         }
                     },
                     {
@@ -4429,6 +4810,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '46ba35a049e0402caff28d47d71a5bbf'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'effective_to'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '4713e4d400d54f479a7c7c4826934f1a'
                         key: {
@@ -4498,6 +4887,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '48c10f64c9424cd9bd9239f4d8e57b88'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'supersedes'
@@ -4510,6 +4900,19 @@ declare global {
                             name: 'x_2317791_cms2_domain'
                             element: 'competency_group'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '48f283bfec7a45f891f4e53ca2b211d7'
+                        key: {
+                            sys_security_acl: '5d8dd7467fc64156b7d249bedc357886'
+                            sys_user_role: {
+                                id: '4cf0c55285a84f87b0a05fb7d97765b4'
+                                key: {
+                                    name: 'x_2317791_cms2.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -4532,6 +4935,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '4960a8c927784981a720504aa47b81f7'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'status'
@@ -4585,6 +4989,20 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_form'
+                        id: '4994e761f7374c4f88055d062b722c70'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            view: {
+                                id: 'Default view'
+                                key: {
+                                    name: 'NULL'
+                                }
+                            }
+                            sys_domain: 'global'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '49b4bab76b144a4089d03bbb98626ac0'
                         key: {
@@ -4608,6 +5026,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '4a2af0214ee54fd8bf913e2dd111d6be'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'sequence'
@@ -4632,6 +5051,15 @@ declare global {
                         key: {
                             document_key: '01aa2478b65440a9bc14ab73e66ae68a'
                             variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '4b9b57c8ad0245368c4698fc9928d148'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'sequence'
+                            language: 'en'
                         }
                     },
                     {
@@ -4665,6 +5093,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '4ca5cc5866df4c38b2ebb963f4d8d766'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'supersedes'
@@ -4740,6 +5169,22 @@ declare global {
                         key: {
                             document_key: 'b86821413dc74f86af35bc888deeb2f3'
                             variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '4ded476f2ba94fb4bd0a9b0fedc9c9d9'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'description'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: '4e06855cd9bd4f85810d09e7d61eeeeb'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'status'
                         }
                     },
                     {
@@ -4880,6 +5325,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '500660ae7c0943cc836a8e6049f97832'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'status'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: '50281f3c09f74825bc68e43f8d073714'
                         key: {
@@ -4961,8 +5414,17 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary_override'
+                        id: '5113097d92b443649c30e23b7e803974'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'code'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '51cc473a94f14a8f83ea31b6cdbca298'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'code'
@@ -5029,6 +5491,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '549c1c66c95443a48f3e84eb28ace7e1'
+                        deleted: true
                         key: {
                             sys_ui_action: '714d8d88bc6d4cac8794a396b7eb9a4b'
                             sys_user_role: {
@@ -5088,6 +5551,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '55cf29b129be4c08922f83b8fca944e6'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'status'
@@ -5313,6 +5777,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: '5e9086a8904e4ca7a3d623907ee02db8'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_role_profile'
                             col_name_string: 'status,effective_from,effective_to'
@@ -5360,6 +5825,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '604fa1d2f8dd4bd9a3781ff5114ef8a6'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'effective_from'
@@ -5674,6 +6140,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '676ef7706d0442ec832e0edb5f5875e9'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'display_name'
@@ -5682,6 +6149,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '67febb099e78437fa5eae8d23a5d4081'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '0d56c2435a174bed94f7a924451ddd53'
@@ -5769,9 +6237,18 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '6a3a3b0efadb4c5695f9935c1a098228'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'effective_to'
+                        }
+                    },
+                    {
+                        table: 'sys_index'
+                        id: '6a45d55018ff41a7ade4ab1e913ff08c'
+                        key: {
+                            logical_table_name: 'x_2317791_cms2_governed'
+                            col_name_string: 'status,effective_from,effective_to'
                         }
                     },
                     {
@@ -5783,8 +6260,31 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '6b2cb0bfef8346ce83cb180a30c0f488'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'sys_class_name'
+                            position: '1'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '6b2d48daf51149b7a6ccc4fda88f0ee7'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'status'
@@ -5840,6 +6340,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '6b9e97776ba64061b06b7c537a409482'
+                        deleted: true
                         key: {
                             sys_ui_action: '4d1cd758faaf43c6b90771326a6d74c7'
                             sys_user_role: {
@@ -5954,6 +6455,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '6e6923e449604d1ab4c1744fbde45dc0'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -5976,6 +6478,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '6ec1f8e0d86e4f09a1cf4b20dffc9227'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'framework_version'
@@ -6064,6 +6567,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: '70d595b1e7084215b80c1a3ad0dd8647'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_element'
                             col_name_string: 'status,effective_from,effective_to'
@@ -6244,6 +6748,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: '74e7c2ec98574c2994a5e17811f84a29'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_comp_group'
                             col_name_string: 'status,effective_from,effective_to'
@@ -6303,6 +6808,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '7682a3ef191844e796400ecf98fb30d8'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'supersedes'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '76a8d15c53184d52aea881402492684d'
                         key: {
@@ -6312,7 +6825,19 @@ declare global {
                     },
                     {
                         table: 'sys_choice'
+                        id: '7720148471634affa2cedffab9973200'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'status'
+                            value: 'published'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
                         id: '7750744cbc704e6fbd9ca2d8c1a5eebc'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'status'
@@ -6322,11 +6847,42 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '7782ac442a6e46dcb08d5a25a7737eae'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'name'
+                            position: '3'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '77c7be2a7063458293d9f005216b5910'
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'job_title'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '77f568b8242d438ab94f1c061dc4bbf3'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'supersedes'
+                            language: 'en'
                         }
                     },
                     {
@@ -6371,6 +6927,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '791bcec03f75497398f410990e86d471'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'status'
@@ -6420,6 +6977,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: '79ea90c54fe54ca4ba1b831da62ad0b5'
+                        deleted: true
                         key: {
                             sys_ui_action: '72bbc454ad3047efa790a18336497edf'
                             sys_user_role: {
@@ -6491,6 +7049,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '7c6e9efba0b54aa0b7c88688b170d0d9'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'descriptor'
@@ -6507,6 +7066,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '7d097df5ba8a47afa9b2a9f9e305c9ab'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'active'
@@ -6594,6 +7154,19 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_action_role'
+                        id: '7ddba7cb5e1047f0b3a803d4470e62e1'
+                        key: {
+                            sys_ui_action: '3aa67dde0d28492d93f01897bb0a1fe1'
+                            sys_user_role: {
+                                id: '4c6768bd7f394c328825b26980654fc9'
+                                key: {
+                                    name: 'x_2317791_cms2.role_profile_admin'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: '7e109ac136054d40a1a295f1287c991f'
                         deleted: false
@@ -6661,6 +7234,15 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_requirement'
                             element: 'element'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '801e1addca88486ebcd4d529a20bd78c'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'status'
+                            language: 'en'
                         }
                     },
                     {
@@ -6777,6 +7359,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '82c71029771c43de9dd96874e286cd15'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'effective_to'
+                            position: '8'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '82c728d20e3a437db12a66add1a01271'
                         key: {
@@ -6823,11 +7427,33 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_action_role'
+                        id: '856617f49a91465192319a3aeb3b05fc'
+                        key: {
+                            sys_ui_action: '6b72a5193ae041c8a1a96d9dba7982c8'
+                            sys_user_role: {
+                                id: '042092450fab4f3982aec93342a647e2'
+                                key: {
+                                    name: 'x_2317791_cms2.content_admin'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '858733f7ae524ee9b5a8514954b125a1'
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'NULL'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '8593d9085f63400d970bbfa7a6b8823d'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'name'
                             language: 'en'
                         }
                     },
@@ -6856,6 +7482,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '85d39e3220bf4b6496672fe2def14c06'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'status'
@@ -6975,6 +7602,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '88a7b0d7ee08445890af6b50d454048f'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'NULL'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '88fbe0606882440ea64e8cad0e0cf2bc'
                         key: {
@@ -6985,6 +7621,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '8978ff2f27b44eddb60762996fa0a292'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'effective_to'
@@ -7003,6 +7640,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '8ad9f1b51c9a44d08b9ffd6ca9193ac3'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'sequence'
@@ -7045,6 +7683,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '8b48eb068d874f29840b01162b3bf22c'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'framework_version'
@@ -7083,6 +7722,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '8bfac0db56d443e8a8da47ecb48e1c90'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'active'
@@ -7323,6 +7963,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '907ff3510c2344b6b828499e01db0000'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'description'
@@ -7332,6 +7973,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '90824c1f20ca42b2b6e8149eb479550f'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'supersedes'
@@ -7348,6 +7990,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: '90a7e950304e4be9a4bc69736f2b81a1'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'status'
@@ -7370,6 +8013,19 @@ declare global {
                         key: {
                             document_key: 'f906aa20705d43c6b532046feacc6497'
                             variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_action_role'
+                        id: '918a988011e04c66ad37c3eabe082867'
+                        key: {
+                            sys_ui_action: '3df031f3b64c458797cb1c6092515a1e'
+                            sys_user_role: {
+                                id: '4c6768bd7f394c328825b26980654fc9'
+                                key: {
+                                    name: 'x_2317791_cms2.role_profile_admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -7397,6 +8053,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '91cf3fb5637d47aaa9e797478490e972'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'status'
@@ -7405,6 +8062,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '92107165027c471380bd148e34e0e7fc'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'code'
@@ -7499,6 +8157,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '96b8ce06fe7d47e391ff701b1ef714af'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'supersedes'
@@ -7522,6 +8181,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '96d1780c77c04e63bda5b122b578d1e7'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'effective_from'
@@ -7670,6 +8330,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: '9a48d0542e4846948700fbd3e0fe1d83'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'effective_to'
@@ -7719,6 +8380,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: '9b188d0d3bc84df6badc6a35d0165e2e'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'status'
@@ -7750,6 +8412,7 @@ declare global {
                     {
                         table: 'sys_choice_set'
                         id: '9c2321690304476d8862947122def7fe'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'status'
@@ -7952,6 +8615,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: 'a1018c94bfe0427784ffe6409792b330'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'code'
+                            position: '2'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'a164f88c4303401882ec5f2d63bbacb9'
                         key: {
@@ -7983,6 +8668,28 @@ declare global {
                                     name: 'x_2317791_cms2.role_profile_admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'a1df479157aa40539e8a1d3edaad54e6'
+                        key: {
+                            sys_ui_section: {
+                                id: '83ebab2f3b974a548207049311ee681c'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'Element PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'description'
+                            position: '7'
                         }
                     },
                     {
@@ -8029,6 +8736,17 @@ declare global {
                         key: {
                             document_key: 'c9c4ced1851c456bbda64d3b0d3aa256'
                             variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'a277a83d8d2f4061bac7ebb631b0ee26'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'status'
+                            value: 'draft'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -8108,6 +8826,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'a37e63ad54744d72ba8efef219c1138b'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'descriptor'
@@ -8234,12 +8953,46 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: 'a4a4243c5d694e029e790e6dfef24a1f'
+                        deleted: true
                         key: {
                             sys_ui_action: 'c7e4c3c5182b488faa20021af7c0d5f4'
                             sys_user_role: {
                                 id: '4c6768bd7f394c328825b26980654fc9'
                                 key: {
                                     name: 'x_2317791_cms2.role_profile_admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_form_section'
+                        id: 'a4b940f9cb9f44029c3e6eb3d28f787b'
+                        key: {
+                            sys_ui_form: {
+                                id: '4994e761f7374c4f88055d062b722c70'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
                                 }
                             }
                         }
@@ -8284,6 +9037,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'a56e69d6e2ae4f58af798694583b3a59'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'active'
@@ -8292,6 +9046,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'a588f827ba7649d6a4a1781fd07472e8'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'sequence'
@@ -8300,7 +9055,29 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: 'a5aacd5ed7b14754be0eb76de804dd64'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'sequence'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_action_role'
+                        id: 'a64c865355d9463aa685c80362484674'
+                        key: {
+                            sys_ui_action: '3aa67dde0d28492d93f01897bb0a1fe1'
+                            sys_user_role: {
+                                id: '042092450fab4f3982aec93342a647e2'
+                                key: {
+                                    name: 'x_2317791_cms2.content_admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: 'a6892b35f5114bbba5d1a7a00c682b87'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'effective_to'
@@ -8309,6 +9086,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'a76e39299f17400fa27a22c03bc23e7d'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'framework_version'
@@ -8385,6 +9163,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'a9bb0f14f14a40b5860486fd3cc53823'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'descriptor'
@@ -8472,6 +9251,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'ac3082d27fb34539847887fa9b580a81'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'effective_from'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: 'ac8dea88741d4ff1bdd9b4373884ddcf'
                         key: {
@@ -8499,6 +9287,19 @@ declare global {
                         key: {
                             document_key: 'a35425752dca4e7c87d9f0a8270f6877'
                             variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'aed5e5b807764d629e1abfe1e6a3da3a'
+                        key: {
+                            sys_security_acl: '33c9ca3dad634b10a155e4bba75c5775'
+                            sys_user_role: {
+                                id: '4cf0c55285a84f87b0a05fb7d97765b4'
+                                key: {
+                                    name: 'x_2317791_cms2.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -8555,6 +9356,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'b0d2571be1c645ba8bfc56e70fd7ee48'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'display_name'
@@ -8581,6 +9383,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'b1861460b4f34a0bb8df7c26ff81b27f'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'framework_version'
@@ -8628,6 +9431,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: 'b3ad364c185c452a9cb37083b659fd92'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_comp_group'
                             col_name_string: 'code,framework_version'
@@ -8651,6 +9455,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: 'b47d9abe070741a0993fbd3d4cde6df1'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '73e1cc6d5b264849b093c16eef9c44d6'
@@ -8681,6 +9486,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'b5111e6afa3c4df5a15809d798d171fc'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'name'
@@ -8705,6 +9511,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'b553c709a7374ed883e84072bf2ca9a8'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'framework_version'
@@ -8752,6 +9559,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'b6a027147b614d23904bc77854a82d22'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'framework_version'
@@ -8768,6 +9576,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'b6f4ed02aa9c46f3889434135b5999f8'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'effective_from'
@@ -8877,12 +9686,35 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: 'b9bf044d6c8b4c61bc8c53044e0f7f7f'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'status'
                             value: 'retired'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'b9c0d612fb384f468bd354d50eaa7983'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'framework_version'
+                            position: '5'
                         }
                     },
                     {
@@ -8962,6 +9794,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'bcfaea4f715d4fa597a7d969b1a44518'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'description'
@@ -9085,6 +9918,14 @@ declare global {
                         id: 'c061a92af54c4f8780eaa5843c794b10'
                         key: {
                             name: 'x_2317791_cms2_comp_group'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'c1519d4ea1a840daa4de70d2834dea17'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'name'
                         }
                     },
                     {
@@ -9213,6 +10054,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: 'c2e5f35154134164aa2a6a44d20802fc'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'status'
@@ -9275,6 +10117,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: 'c4183447bafc4339a6a4bdc1d97b69a6'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'status'
+                            position: '6'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: 'c41a2c8620fc43b0b75d9ad8bb5faf0e'
                         key: {
@@ -9283,8 +10147,17 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_index'
+                        id: 'c431eaffa33e4b55be4fc8acf269ab51'
+                        key: {
+                            logical_table_name: 'x_2317791_cms2_pl_descriptor'
+                            col_name_string: 'element,proficiency_level'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: 'c434ff5f577f43109cf358c2c16f4199'
+                        deleted: true
                         key: {
                             sys_ui_action: 'cb43cc59569f44658d4191371b8ce342'
                             sys_user_role: {
@@ -9306,6 +10179,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'c4e5f203fb86422db9e00580d6b6c7e8'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'name'
@@ -9378,6 +10252,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'c6057265ddf54f529b2fb590d866810d'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'effective_to'
@@ -9387,6 +10262,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'c62e863515864c0c90c022741faf351a'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'active'
@@ -9506,6 +10382,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'c8c02cf8bcd948c595371d6060d52750'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'framework_version'
@@ -9550,6 +10427,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'c9c16a0587eb4e818f0d0459101585cd'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'description'
@@ -9600,6 +10478,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'cc8783c7c6f74638be7c95e66b8bbe8e'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'code'
@@ -9641,6 +10520,21 @@ declare global {
                                     name: 'x_2317791_cms2.admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_db_object'
+                        id: 'cd200a63455b474e905dba95d6e036f5'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary_override'
+                        id: 'cdf01795182c440999c6dfc1522959cd'
+                        key: {
+                            name: 'x_2317791_cms2_element'
+                            element: 'name'
                         }
                     },
                     {
@@ -9736,6 +10630,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'd0942c3d99b5457985c9e46ddafa6f26'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'active'
@@ -9753,6 +10648,21 @@ declare global {
                                     name: 'x_2317791_cms2.user'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_section'
+                        id: 'd0985b8c32014021b00594c74e3cbf10'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            caption: 'Governed Content'
+                            view: {
+                                id: 'Default view'
+                                key: {
+                                    name: 'NULL'
+                                }
+                            }
+                            sys_domain: 'global'
                         }
                     },
                     {
@@ -9905,6 +10815,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'd3171e9979044c59b47ed9694150621d'
+                        key: {
+                            name: 'x_2317791_cms2_element'
+                            element: 'description'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: 'd3c54105019044af9220db45b5a0a8ad'
                         key: {
@@ -9951,9 +10870,23 @@ declare global {
                     {
                         table: 'sys_choice_set'
                         id: 'd40b12f4ba3e417a93110b3e67d47c02'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'status'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'd4377455f4ca4c7ab881fc6d158fbf40'
+                        key: {
+                            sys_security_acl: '4ecd87344a69462abd16cdf260384ba8'
+                            sys_user_role: {
+                                id: '042092450fab4f3982aec93342a647e2'
+                                key: {
+                                    name: 'x_2317791_cms2.content_admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -10035,6 +10968,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'd5e94cae1dd04ca1bcf0e1ec24947cfe'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'effective_to'
@@ -10051,6 +10985,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'd6c7d41432234e45bf31296c5f4dece2'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'framework_version'
@@ -10141,6 +11076,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary_override'
+                        id: 'd93daa08fbc24b4f825d607d6afaa7e0'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'name'
+                        }
+                    },
+                    {
                         table: 'sys_ui_section'
                         id: 'd9bae872cc0344dfa453de4291b9abb9'
                         key: {
@@ -10158,6 +11101,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'da105699a7ea4f908414e84c93af592f'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'effective_from'
@@ -10236,6 +11180,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: 'dbd20aba9c574326919a08e5b9d334f5'
+                        deleted: true
                         key: {
                             sys_ui_action: '8867534ca08f40379e86566a8dc35dfb'
                             sys_user_role: {
@@ -10273,6 +11218,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'dcddcc3c2cdb4d6f97d589e7d31a7487'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'descriptor'
@@ -10321,6 +11267,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'ddecfc6c23f541ba8b35831ab41271a7'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'supersedes'
@@ -10360,6 +11307,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'de6b4749908149df852c113c08500bc5'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'active'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'de81a663e5b14a10af5c490bc49801e3'
                         key: {
@@ -10378,6 +11334,28 @@ declare global {
                         key: {
                             document_key: 'baf9ea2b991e4819a85b60107f242533'
                             variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'df9d95de03d24743b59e948901bb67ef'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.end_split'
+                            position: '9'
                         }
                     },
                     {
@@ -10422,6 +11400,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: 'e08b09c7dbbc4927b8123984912ac0cf'
+                        deleted: true
                         key: {
                             sys_ui_action: 'e5bd9e45f7b34c71bdcdf6e3a7f6b88b'
                             sys_user_role: {
@@ -10441,8 +11420,17 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'e0fb94c0bea242208ec183a26201372f'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'framework_version'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'e145c88610af4786a9c7ffeee7777889'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'status'
@@ -10454,6 +11442,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'e1a184db08da43359e7a531fbd713843'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'effective_to'
@@ -10461,8 +11450,22 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_security_acl_role'
+                        id: 'e2f9c1221a1c489eba8c5008564d0f56'
+                        key: {
+                            sys_security_acl: '4ecd87344a69462abd16cdf260384ba8'
+                            sys_user_role: {
+                                id: '4c6768bd7f394c328825b26980654fc9'
+                                key: {
+                                    name: 'x_2317791_cms2.role_profile_admin'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'e3699c790289495594622cf90869e7bc'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'description'
@@ -10472,6 +11475,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'e388726a69064e13b7d6fab481aecb70'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'status'
@@ -10547,6 +11551,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'e5d92093c2ff48628501e64acd3e17be'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'supersedes'
@@ -10646,6 +11651,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: 'e7ece810e790479aa906f6fd949eeb5e'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'status'
@@ -10672,7 +11678,17 @@ declare global {
                     },
                     {
                         table: 'sys_documentation'
+                        id: 'e8a8af39084748ae96d1a2442076ffe5'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'code'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
                         id: 'e94c93d645484633b7a30a8a8d69c963'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'effective_to'
@@ -10732,6 +11748,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'eadb3816fc4248c58a767d416ff04c1f'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'description'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'eb26a9e6f12145c7aa6c40e3e113d590'
                         key: {
@@ -10764,6 +11789,14 @@ declare global {
                             }
                             element: '12M.x_2317791_cms2_domain.x_2317791_cms2_element.domain'
                             position: '0'
+                        }
+                    },
+                    {
+                        table: 'sys_index'
+                        id: 'eb6a821e5a19464d940f5d7bf846b7ee'
+                        key: {
+                            logical_table_name: 'x_2317791_cms2_governed'
+                            col_name_string: 'code,framework_version'
                         }
                     },
                     {
@@ -10816,6 +11849,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'ec98fd3232eb4c888db42c9b7e8691eb'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'effective_to'
@@ -10952,6 +11986,7 @@ declare global {
                     {
                         table: 'sys_choice'
                         id: 'eef9a60bbb194e44b594e7a453270fa7'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'status'
@@ -10990,6 +12025,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'f00ca6046af749c1b8f47b5b89a49b71'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'effective_from'
@@ -11014,6 +12050,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: 'f209f4a0a4f34e0c937245162c70508f'
+                        deleted: true
                         key: {
                             sys_ui_action: '70fb53322fd446e6b7c87a9f39b3d19f'
                             sys_user_role: {
@@ -11043,6 +12080,7 @@ declare global {
                     {
                         table: 'sys_documentation'
                         id: 'f34bcb9ce1e3451da3cd84c6e32352fc'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_element'
                             element: 'supersedes'
@@ -11099,6 +12137,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'f4788c0346714cb7bcb2c0615f9d5e73'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'description'
@@ -11144,6 +12183,7 @@ declare global {
                     {
                         table: 'sys_ui_action_role'
                         id: 'f643d7f3ad914174a5cf5ae1ed8b7775'
+                        deleted: true
                         key: {
                             sys_ui_action: '02d539bb9db34c9baa4b54be635a05f5'
                             sys_user_role: {
@@ -11171,6 +12211,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary_override'
+                        id: 'f91116a6b21c4ac08111b50ca01dc290'
+                        key: {
+                            name: 'x_2317791_cms2_comp_group'
+                            element: 'code'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'fa3f0e1f09b942dd8287b4132f5d2909'
                         key: {
@@ -11194,6 +12242,7 @@ declare global {
                     {
                         table: 'sys_index'
                         id: 'fa658aa6feea49c79c543d8e294687f5'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_pl_descriptor'
                             col_name_string: 'element,proficiency_level,framework_version'
@@ -11212,6 +12261,28 @@ declare global {
                         key: {
                             document_key: 'c698d815add443b28c11a9d32d936b53'
                             variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'fafbedf9bf864ae2b67934e3538533ba'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'effective_from'
+                            position: '7'
                         }
                     },
                     {
@@ -11246,9 +12317,19 @@ declare global {
                     {
                         table: 'sys_index'
                         id: 'fcd8e1c462714200bdbfcb50c15902bc'
+                        deleted: true
                         key: {
                             logical_table_name: 'x_2317791_cms2_domain'
                             col_name_string: 'code,framework_version'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'fd08d108c9194355b7878079902b0623'
+                        key: {
+                            name: 'x_2317791_cms2_governed'
+                            element: 'description'
+                            language: 'en'
                         }
                     },
                     {
@@ -11292,6 +12373,7 @@ declare global {
                     {
                         table: 'sys_dictionary'
                         id: 'fe962e4ad941404687050e5124a0a840'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'active'
@@ -11303,6 +12385,28 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'version'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'fea9c436b6214cd1ab122b320a35d54f'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0985b8c32014021b00594c74e3cbf10'
+                                key: {
+                                    name: 'x_2317791_cms2_governed'
+                                    caption: 'Governed Content'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.begin_split'
+                            position: '0'
                         }
                     },
                     {

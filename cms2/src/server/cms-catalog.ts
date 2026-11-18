@@ -166,7 +166,7 @@ function descriptorsFor(elementIds: string[]): { [elementId: string]: { [levelId
         const row = {
             id: d.getUniqueValue(),
             levelId: l,
-            descriptor: v(d, 'descriptor'),
+            descriptor: v(d, 'description'),
             effectiveFrom: v(d, 'effective_from'),
             effectiveTo: v(d, 'effective_to'),
         }
@@ -188,7 +188,7 @@ function elementRow(gr: any) {
         id: gr.getUniqueValue(),
         code: v(gr, 'code'),
         name: v(gr, 'name'),
-        descriptor: v(gr, 'descriptor'),
+        descriptor: v(gr, 'description'),
         domainId: v(gr, 'domain'),
         domain: dv(gr, 'domain'),
         group: dv(gr, 'domain.competency_group'),

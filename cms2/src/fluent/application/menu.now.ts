@@ -197,95 +197,11 @@ Record({
     },
 })
 
-Record({
-    $id: Now.ID['mod_draft_elements'],
-    table: 'sys_app_module',
-    data: {
-        title: 'Draft Content – Elements',
-        application: cmsMenu,
-        link_type: 'FILTER',
-        name: 'x_2317791_cms2_element',
-        filter: 'status=draft^active=true',
-        roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.admin'],
-        active: true,
-        order: 320,
-    },
-})
 
-Record({
-    $id: Now.ID['mod_draft_descriptors'],
-    table: 'sys_app_module',
-    data: {
-        title: 'Draft Content – PL Descriptors',
-        application: cmsMenu,
-        link_type: 'FILTER',
-        name: 'x_2317791_cms2_pl_descriptor',
-        filter: 'status=draft^active=true',
-        roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.admin'],
-        active: true,
-        order: 330,
-    },
-})
 
-Record({
-    $id: Now.ID['mod_draft_rps'],
-    table: 'sys_app_module',
-    data: {
-        title: 'Draft Content – Role Profiles',
-        application: cmsMenu,
-        link_type: 'FILTER',
-        name: 'x_2317791_cms2_role_profile',
-        filter: 'status=draft^active=true',
-        roles: ['x_2317791_cms2.role_profile_admin', 'x_2317791_cms2.admin'],
-        active: true,
-        order: 340,
-    },
-})
 
-Record({
-    $id: Now.ID['mod_pub_elements'],
-    table: 'sys_app_module',
-    data: {
-        title: 'Published Content – Elements (effective)',
-        application: cmsMenu,
-        link_type: 'FILTER',
-        name: 'x_2317791_cms2_element',
-        filter: 'status=published^active=true^effective_from<=javascript:gs.endOfToday()^effective_toISEMPTY^ORestive_to>=javascript:gs.beginningOfToday()',
-        roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.role_profile_admin', 'x_2317791_cms2.admin'],
-        active: true,
-        order: 350,
-    },
-})
 
-Record({
-    $id: Now.ID['mod_pub_descriptors'],
-    table: 'sys_app_module',
-    data: {
-        title: 'Published Content – PL Descriptors (effective)',
-        application: cmsMenu,
-        link_type: 'FILTER',
-        name: 'x_2317791_cms2_pl_descriptor',
-        filter: 'status=published^active=true^effective_from<=javascript:gs.endOfToday()^effective_toISEMPTY^ORestive_to>=javascript:gs.beginningOfToday()',
-        roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.role_profile_admin', 'x_2317791_cms2.admin'],
-        active: true,
-        order: 360,
-    },
-})
 
-Record({
-    $id: Now.ID['mod_pub_rps'],
-    table: 'sys_app_module',
-    data: {
-        title: 'Published Content – Role Profiles (effective)',
-        application: cmsMenu,
-        link_type: 'FILTER',
-        name: 'x_2317791_cms2_role_profile',
-        filter: 'status=published^active=true^effective_from<=javascript:gs.endOfToday()^effective_toISEMPTY^ORestive_to>=javascript:gs.beginningOfToday()',
-        roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.role_profile_admin', 'x_2317791_cms2.admin'],
-        active: true,
-        order: 370,
-    },
-})
 
 Record({
     $id: Now.ID['mod_sep_config'],
@@ -326,5 +242,50 @@ Record({
         roles: ['x_2317791_cms2.admin'],
         active: true,
         order: 420,
+    },
+})
+
+Record({
+    $id: Now.ID['mod_draft_content'],
+    table: 'sys_app_module',
+    data: {
+        title: 'Draft Content',
+        application: cmsMenu,
+        link_type: 'FILTER',
+        name: 'x_2317791_cms2_governed',
+        filter: 'status=draft^active=true^ORDERBYsys_class_name',
+        hint: 'All Draft Groups, Domains, Elements, PL Descriptors and Role Profiles',
+        roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.role_profile_admin', 'x_2317791_cms2.admin'],
+        active: true,
+        order: 320,
+    },
+})
+
+Record({
+    $id: Now.ID['mod_published_content'],
+    table: 'sys_app_module',
+    data: {
+        title: 'Published Content (effective today)',
+        application: cmsMenu,
+        link_type: 'FILTER',
+        name: 'x_2317791_cms2_governed',
+        filter: 'status=published^active=true^effective_from<=javascript:gs.endOfToday()^effective_toISEMPTY^ORestive_to>=javascript:gs.beginningOfToday()^ORDERBYsys_class_name',
+        roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.role_profile_admin', 'x_2317791_cms2.admin'],
+        active: true,
+        order: 330,
+    },
+})
+
+Record({
+    $id: Now.ID['mod_all_content'],
+    table: 'sys_app_module',
+    data: {
+        title: 'All Governed Content',
+        application: cmsMenu,
+        link_type: 'LIST',
+        name: 'x_2317791_cms2_governed',
+        roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.role_profile_admin', 'x_2317791_cms2.admin'],
+        active: true,
+        order: 340,
     },
 })

@@ -49,6 +49,16 @@ Acl({ $id: Now.ID['acl_pld_create'], type: 'record', table: 'x_2317791_cms2_pl_d
 Acl({ $id: Now.ID['acl_pld_write'], type: 'record', table: 'x_2317791_cms2_pl_descriptor', operation: 'write', roles: [cmsContentAdmin] })
 Acl({ $id: Now.ID['acl_pld_delete'], type: 'record', table: 'x_2317791_cms2_pl_descriptor', operation: 'delete', roles: [cmsAdmin] })
 
+// ---------------------------------------------------------------- Governed Content (base table)
+// Cross-type lists ("Draft Content", "Published Content") query the base table.
+// Editing always happens on the child record's own form, where the child
+// table's ACLs above apply, so the base table only grants read (plus admin).
+Acl({ $id: Now.ID['acl_gov_read_user'], type: 'record', table: 'x_2317791_cms2_governed', operation: 'read', roles: [cmsUser], condition: PUBLISHED, description: 'CMS Users read Published content in cross-type lists.' })
+Acl({ $id: Now.ID['acl_gov_read_admin'], type: 'record', table: 'x_2317791_cms2_governed', operation: 'read', roles: [cmsContentAdmin, cmsRoleProfileAdmin] })
+Acl({ $id: Now.ID['acl_gov_create'], type: 'record', table: 'x_2317791_cms2_governed', operation: 'create', roles: [cmsAdmin] })
+Acl({ $id: Now.ID['acl_gov_write'], type: 'record', table: 'x_2317791_cms2_governed', operation: 'write', roles: [cmsAdmin] })
+Acl({ $id: Now.ID['acl_gov_delete'], type: 'record', table: 'x_2317791_cms2_governed', operation: 'delete', roles: [cmsAdmin] })
+
 // ---------------------------------------------------------------- framework version (CMS Admin owns versions)
 Acl({ $id: Now.ID['acl_fwv_read_user'], type: 'record', table: 'x_2317791_cms2_fw_version', operation: 'read', roles: [cmsUser], condition: PUBLISHED })
 Acl({ $id: Now.ID['acl_fwv_read_admin'], type: 'record', table: 'x_2317791_cms2_fw_version', operation: 'read', roles: [cmsContentAdmin, cmsRoleProfileAdmin] })

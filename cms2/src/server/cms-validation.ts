@@ -25,7 +25,7 @@ export const isTrue = (x: any): boolean => ['1', 'true'].indexOf(String(x)) >= 0
 
 /** Validates any versioned record (framework version, group, domain, element, PL descriptor, role profile). */
 export function lifecycleErrors(current: any, previous: any): string[] {
-    const table: string = current.getTableName()
+    const table: string = current.getRecordClassName()
     const errors: string[] = []
     const status = v(current, 'status')
     const prevStatus = previous ? v(previous, 'status') : ''

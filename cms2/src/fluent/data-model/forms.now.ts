@@ -149,7 +149,7 @@ Form({
                         { field: 'active', type: 'table_field' },
                     ],
                 },
-                { layout: 'one-column', elements: [{ field: 'descriptor', type: 'table_field' }] },
+                { layout: 'one-column', elements: [{ field: 'description', type: 'table_field' }] },
             ],
         },
         {
@@ -230,7 +230,7 @@ Form({
                         { field: 'active', type: 'table_field' },
                     ],
                 },
-                { layout: 'one-column', elements: [{ field: 'descriptor', type: 'table_field' }] },
+                { layout: 'one-column', elements: [{ field: 'description', type: 'table_field' }] },
             ],
         },
         {
@@ -245,7 +245,7 @@ Form({
                     ],
                     rightElements: [
                         { field: 'supersedes', type: 'table_field' },
-                        { field: 'display_name', type: 'table_field' },
+                        { field: 'name', type: 'table_field' },
                     ],
                 },
             ],
@@ -349,6 +349,33 @@ Form({
                         { field: 'active', type: 'table_field' },
                     ],
                 },
+            ],
+        },
+    ],
+})
+
+Form({
+    table: 'x_2317791_cms2_governed',
+    view: default_view,
+    sections: [
+        {
+            caption: 'Governed Content',
+            content: [
+                {
+                    layout: 'two-column',
+                    leftElements: [
+                        { field: 'sys_class_name', type: 'table_field' },
+                        { field: 'code', type: 'table_field' },
+                        { field: 'name', type: 'table_field' },
+                    ],
+                    rightElements: [
+                        { field: 'framework_version', type: 'table_field' },
+                        { field: 'status', type: 'table_field' },
+                        { field: 'effective_from', type: 'table_field' },
+                        { field: 'effective_to', type: 'table_field' },
+                    ],
+                },
+                { layout: 'one-column', elements: [{ field: 'description', type: 'table_field' }] },
             ],
         },
     ],

@@ -1,5 +1,12 @@
 (function () {
     var api = new x_2317791_cms2.CmsCatalogApi();
+    // Domain mode: ?domain=<sys_id> → Elements of one Domain with PL selector
+    data.domainId = $sp.getParameter('domain') || '';
+    if (data.domainId) {
+        data.dom = api.getDomain(data.domainId);
+        return;
+    }
+    // Landing / search mode
     var f = (input && input.filter) || {
         text: $sp.getParameter('q') || '',
         groupId: $sp.getParameter('group') || '',

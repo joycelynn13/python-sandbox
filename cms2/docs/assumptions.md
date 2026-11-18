@@ -12,6 +12,7 @@
 | A6 | Employee Center is the employee channel. Pages are Service Portal pages opened inside `/esc` | Pages are portal-independent and can be moved to another portal |
 | A7 | EMPOWER MSS is out of scope. Prototype assignments link `sys_user.user_name` → Role Profile code | Replace `x_2317791_cms2_rp_assignment` with the authorised source; `getMyRoleProfile()` is the only consumer |
 | A8 | All demo content is **synthetic** and is not approved HTX competency policy | Demo rows are in `unload.demo` and can be excluded from installs |
+| A10 | Competency Group names follow the *Refreshed Technical Competency Framework* slide ("Specialised Competencies"), not the earlier brief ("Specialist Professional Competencies") | Rename the 4 group records |
 | A9 | Skills Management is not used yet; Elements may later link read-only to `cmn_skill` for the assessment phase | See ADR §6.3 |
 
 ## Open questions for the business

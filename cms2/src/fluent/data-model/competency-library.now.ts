@@ -34,6 +34,16 @@ export const x_2317791_cms2_comp_group = Table({
         name: StringColumn({ label: 'Name', mandatory: true, maxLength: 160 }),
         description: MultiLineTextColumn({ label: 'Description', maxLength: 4000 }),
         sequence: IntegerColumn({ label: 'Sequence', default: '100' }),
+        layout: ChoiceColumn({
+            label: 'Library Layout',
+            default: 'column',
+            dropdown: 'dropdown_without_none',
+            hint: 'How the group is shown on the Competency Library landing page.',
+            choices: {
+                row: { label: 'Tile row (full width)', sequence: 10 },
+                column: { label: 'Column', sequence: 20 },
+            },
+        }),
         framework_version: ReferenceColumn({
             label: 'Framework Version',
             referenceTable: 'x_2317791_cms2_fw_version',

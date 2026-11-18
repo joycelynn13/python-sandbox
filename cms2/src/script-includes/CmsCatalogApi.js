@@ -14,6 +14,7 @@ CmsCatalogApi.prototype = {
     getRoleProfile: function (id) { return this._m.getRoleProfile(id); },
     getLibrary: function (filter) { return this._m.getLibrary(filter || {}); },
     getElement: function (id) { return this._m.getElement(id); },
+    getDomain: function (id) { return this._m.getDomain(id); },
     canSeeAllStatuses: function () { return this._m.canSeeAllStatuses(); },
     type: 'CmsCatalogApi'
 };

@@ -22,36 +22,70 @@ PL_DESC = {
 def ident(s): return re.sub(r'[^a-z0-9]+', '_', s.lower()).strip('_')
 def q(s): return "'" + s.replace('\\', '\\\\').replace("'", "\\'") + "'"
 
+# code, name, description, sequence, landing-page layout ('row' = tile band, 'column' = column)
+# Names follow the "Refreshed Technical Competency Framework" slide (4 CCCs + 33 SPCs = 37 Domains).
 groups = [
-    ('CCC', 'Cross-Cutting Competencies', 'Competencies applicable across all technical functions.', 10),
-    ('SPC-D', 'Specialist Professional Competencies – Digital', 'Specialist competencies for digital and software disciplines.', 20),
-    ('SPC-E', 'Specialist Professional Competencies – Engineering', 'Specialist competencies for engineering disciplines.', 30),
-    ('SPC-S', 'Specialist Professional Competencies – Sciences', 'Specialist competencies for scientific disciplines.', 40),
+    ('CCC', 'Cross-Cutting Competencies', 'Competencies that apply across all technical functions.', 10, 'row'),
+    ('SPC-E', 'Specialised Competencies – Engineering', 'Specialised competencies for engineering disciplines.', 20, 'column'),
+    ('SPC-D', 'Specialised Competencies – Digital', 'Specialised competencies for digital disciplines.', 30, 'column'),
+    ('SPC-S', 'Specialised Competencies – Sciences', 'Specialised competencies for scientific disciplines.', 40, 'column'),
 ]
-domains = [  # code, name, group, description, seq
-    ('CCC-PDM', 'Project and Delivery Management', 'CCC', 'Planning, documenting and delivering technical work.', 10),
-    ('CCC-PSA', 'Problem Solving and Analysis', 'CCC', 'Structured analysis of technical problems.', 20),
-    ('DIG-SWE', 'Software Engineering', 'SPC-D', 'Building, designing and assuring software.', 10),
-    ('DIG-ARC', 'Architecture and Integration', 'SPC-D', 'Designing solutions and integrating systems.', 20),
-    ('DIG-DAT', 'Data and Analytics', 'SPC-D', 'Turning data into insight.', 30),
-    ('DIG-CYB', 'Cybersecurity', 'SPC-D', 'Protecting systems and information.', 40),
-    ('ENG-SYS', 'Systems Engineering', 'SPC-E', 'Engineering complex systems across their lifecycle.', 10),
-    ('SCI-RES', 'Scientific Research Methods', 'SPC-S', 'Designing and running scientific investigations.', 10),
+# key (stable Now.ID – the first 8 reuse the original demo keys so records update in place),
+# code, name, group, description
+domains = [
+    ('ccc_pdm', 'CCC-PM', 'Project Management', 'CCC', 'Planning, delivering and controlling technical projects and programmes.'),
+    (None, 'CCC-PMHD', 'Product Management & Human-centric Design', 'CCC', 'Shaping products around user needs, value and experience.'),
+    ('sci_res', 'CCC-RTM', 'Research & Technology Management', 'CCC', 'Directing research, technology scouting and technology roadmaps.'),
+    ('ccc_psa', 'CCC-SM', 'System Management', 'CCC', 'Managing systems and capabilities across their operational life.'),
+    (None, 'ENG-LV', 'Land Vehicles', 'SPC-E', 'Engineering of land vehicle platforms and sub-systems.'),
+    (None, 'ENG-MS', 'Marine Systems', 'SPC-E', 'Engineering of vessels and marine platforms.'),
+    (None, 'ENG-US', 'Unmanned Systems', 'SPC-E', 'Engineering of unmanned and autonomous platforms.'),
+    (None, 'ENG-WS', 'Weapon Systems', 'SPC-E', 'Engineering, integration and assurance of weapon systems.'),
+    (None, 'ENG-SMIB', 'Structural, Marine Infrastructure and Blast Engineering', 'SPC-E', 'Design and protection of structures and marine infrastructure.'),
+    (None, 'ENG-ARCH', 'Architecture', 'SPC-E', 'Architectural design of facilities and the built environment.'),
+    (None, 'ENG-MEF', 'Mechanical, Electrical & Fire Safety Engineering', 'SPC-E', 'Building services, electrical systems and fire safety engineering.'),
+    (None, 'ENG-QSFM', 'Quantity Surveying and Facility Management', 'SPC-E', 'Cost management of works and management of facilities.'),
+    (None, 'ENG-PSE', 'Protective Systems & Equipment', 'SPC-E', 'Engineering of protective systems and equipment for responders.'),
+    ('eng_sys', 'ENG-SE', 'Systems Engineering', 'SPC-E', 'Engineering complex systems across their lifecycle.'),
+    ('dig_dat', 'DIG-DSE', 'Data Science and Engineering', 'SPC-D', 'Building data platforms and turning data into insight.'),
+    ('dig_swe', 'DIG-SAIE', 'Software and AI Engineering', 'SPC-D', 'Designing, building and assuring software and AI-enabled systems.'),
+    ('dig_cyb', 'DIG-CYB', 'Cybersecurity', 'SPC-D', 'Protecting systems, networks and information.'),
+    (None, 'DIG-MS', 'Modelling & Simulation', 'SPC-D', 'Building models and simulations for analysis and training.'),
+    (None, 'DIG-NC', 'Networking and Communications', 'SPC-D', 'Designing and operating networks and communication systems.'),
+    (None, 'DIG-CDI', 'Cloud & Digital Infrastructure', 'SPC-D', 'Engineering and operating cloud and digital infrastructure.'),
+    (None, 'DIG-AIRD', 'AI Applied R&D', 'SPC-D', 'Applied research and development of AI capabilities.'),
+    (None, 'DIG-SIOT', 'Sensors and IOT', 'SPC-D', 'Designing and integrating sensors and Internet-of-Things solutions.'),
+    (None, 'DIG-OS', 'Operational Systems', 'SPC-D', 'Engineering and sustaining mission-critical operational systems.'),
+    ('dig_arc', 'DIG-EA', 'Enterprise Architecture', 'SPC-D', 'Defining enterprise, solution and integration architectures.'),
+    (None, 'DIG-DCO', 'Data Centre Operations', 'SPC-D', 'Operating and maintaining data centre facilities.'),
+    (None, 'DIG-QT', 'Quantum Technologies', 'SPC-D', 'Research and application of quantum technologies.'),
+    (None, 'DIG-ST', 'Space Technologies', 'SPC-D', 'Application of space-based technologies and data.'),
+    (None, 'SCI-MB', 'Molecular Biology', 'SPC-S', 'Molecular and biological analysis methods.'),
+    (None, 'SCI-CPT', 'Chemistry, Pharmacology & Toxicology Sciences', 'SPC-S', 'Chemical analysis, pharmacology and toxicology.'),
+    (None, 'SCI-EFR', 'Energetics, Fire and Radiological Sciences', 'SPC-S', 'Science of energetic materials, fire and radiation.'),
+    (None, 'SCI-MTPE', 'Materials, Trace and Physical Evidence Science', 'SPC-S', 'Analysis of materials and trace and physical evidence.'),
+    (None, 'SCI-BS', 'Biometric Science', 'SPC-S', 'Biometric identification science and technology.'),
+    (None, 'SCI-CPB', 'Cognition, Psychology & Behavioural Sciences', 'SPC-S', 'Human cognition, psychology and behaviour.'),
+    (None, 'SCI-BPS', 'Biomechanics & Physiological Science', 'SPC-S', 'Human biomechanics and physiological performance.'),
+    (None, 'SCI-HSI', 'Human-Systems Interface & Interaction Sciences', 'SPC-S', 'Designing effective interaction between people and systems.'),
+    (None, 'SCI-ASI', 'Advanced Sensing & Imaging Science', 'SPC-S', 'Advanced sensing, imaging and signal science.'),
+    (None, 'SCI-CS', 'Computational Science', 'SPC-S', 'Computational methods for scientific problems.'),
 ]
+assert len(domains) == 37, len(domains)
 # code, name, domain, descriptor, max PL (min PL = 1), focus phrase used in PL descriptors
 elements = [
-    ('EL-APPDEV', 'Application Development', 'DIG-SWE', 'Build, test and maintain software applications that meet functional and non-functional requirements.', 5, 'application code and components'),
-    ('EL-SWDES', 'Software Design', 'DIG-SWE', 'Design software structures, interfaces and patterns that are maintainable and fit for purpose.', 5, 'software designs and interfaces'),
-    ('EL-TESTQ', 'Testing and Quality', 'DIG-SWE', 'Plan and perform testing and quality assurance to verify software meets its requirements.', 4, 'test plans, automated tests and quality checks'),
-    ('EL-SOLARC', 'Solution Architecture', 'DIG-ARC', 'Define end-to-end solution architectures that balance business needs, risk and technology constraints.', 5, 'solution architectures'),
-    ('EL-SYSINT', 'Systems Integration', 'DIG-ARC', 'Integrate systems and services through APIs, messaging and data exchange.', 4, 'integrations, APIs and interfaces'),
-    ('EL-DATAAN', 'Data Analytics', 'DIG-DAT', 'Collect, analyse and visualise data to produce evidence-based insights.', 5, 'analyses, dashboards and data models'),
+    ('EL-APPDEV', 'Application Development', 'DIG-SAIE', 'Build, test and maintain software applications that meet functional and non-functional requirements.', 5, 'application code and components'),
+    ('EL-SWDES', 'Software Design', 'DIG-SAIE', 'Design software structures, interfaces and patterns that are maintainable and fit for purpose.', 5, 'software designs and interfaces'),
+    ('EL-TESTQ', 'Testing and Quality', 'DIG-SAIE', 'Plan and perform testing and quality assurance to verify software meets its requirements.', 4, 'test plans, automated tests and quality checks'),
+    ('EL-SOLARC', 'Solution Architecture', 'DIG-EA', 'Define end-to-end solution architectures that balance business needs, risk and technology constraints.', 5, 'solution architectures'),
+    ('EL-SYSINT', 'Systems Integration', 'DIG-EA', 'Integrate systems and services through APIs, messaging and data exchange.', 4, 'integrations, APIs and interfaces'),
+    ('EL-DATAAN', 'Data Analytics', 'DIG-DSE', 'Collect, analyse and visualise data to produce evidence-based insights.', 5, 'analyses, dashboards and data models'),
     ('EL-CYBFUN', 'Cybersecurity Fundamentals', 'DIG-CYB', 'Apply security principles and controls to protect systems and data.', 3, 'security controls and secure practices'),
-    ('EL-PROJPL', 'Project Planning', 'CCC-PDM', 'Plan scope, schedule, resources and risks for technical work.', 4, 'project plans, schedules and risk registers'),
-    ('EL-TECHDOC', 'Technical Documentation', 'CCC-PDM', 'Produce clear, accurate technical documentation for different audiences.', 3, 'technical documents and specifications'),
-    ('EL-TPS', 'Technical Problem Solving', 'CCC-PSA', 'Diagnose technical problems and develop effective, evidence-based solutions.', 5, 'root-cause analyses and solution options'),
-    ('EL-SELIFE', 'Systems Engineering Lifecycle', 'ENG-SYS', 'Apply systems engineering processes from requirements to verification and validation.', 4, 'requirements, system models and V&V plans'),
-    ('EL-EXPDES', 'Experimental Design', 'SCI-RES', 'Design experiments and studies that produce valid, reproducible results.', 4, 'experimental protocols and study designs'),
+    ('EL-PROJPL', 'Project Planning', 'CCC-PM', 'Plan scope, schedule, resources and risks for technical work.', 4, 'project plans, schedules and risk registers'),
+    ('EL-TECHDOC', 'Technical Documentation', 'CCC-PM', 'Produce clear, accurate technical documentation for different audiences.', 3, 'technical documents and specifications'),
+    ('EL-TPS', 'Technical Problem Solving', 'CCC-SM', 'Diagnose technical problems and develop effective, evidence-based solutions.', 5, 'root-cause analyses and solution options'),
+    ('EL-SELIFE', 'Systems Engineering Lifecycle', 'ENG-SE', 'Apply systems engineering processes from requirements to verification and validation.', 4, 'requirements, system models and V&V plans'),
+    ('EL-EXPDES', 'Experimental Design', 'CCC-RTM', 'Design experiments and studies that produce valid, reproducible results.', 4, 'experimental protocols and study designs'),
 ]
 PL_TEMPLATES = {
     1: 'Applies standard methods to produce {f} for well-defined tasks under guidance.',
@@ -131,13 +165,15 @@ rec('demo_fw_2027', 'demo_fw_2027', 'x_2317791_cms2_fw_version', {
     'description': 'PROTOTYPE draft of the next framework version. Not visible to employees.',
     'status': 'draft', 'active': True})
 gvar = {}
-for code, name, desc, seq in groups:
+for code, name, desc, seq, layout in groups:
     v = 'demo_grp_' + ident(code); gvar[code] = v
-    rec(v, v, 'x_2317791_cms2_comp_group', {'code': code, 'name': name, 'description': desc, 'sequence': seq,
+    rec(v, v, 'x_2317791_cms2_comp_group', {'code': code, 'name': name, 'description': desc, 'sequence': seq, 'layout': layout,
         'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
 dvar = {}
-for code, name, g, desc, seq in domains:
-    v = 'demo_dom_' + ident(code); dvar[code] = v
+seq_in_group = {}
+for key, code, name, g, desc in domains:
+    seq_in_group[g] = seq_in_group.get(g, 0) + 10; seq = seq_in_group[g]
+    v = 'demo_dom_' + (key or ident(code)); dvar[code] = v
     rec(v, v, 'x_2317791_cms2_domain', {'code': code, 'name': name, 'description': desc, 'competency_group': ref(gvar[g]),
         'sequence': seq, 'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
 evar = {}; emax = {}

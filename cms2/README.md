@@ -16,7 +16,8 @@ PLs, Framework Versions and effective dating. **Prototype – all demo content i
 |---|---|
 | Employee landing (Employee Center) | `/esc?id=x_2317791_cms2_home` |
 | Browse Role Profiles | `/esc?id=x_2317791_cms2_role_profiles` |
-| Competency Library | `/esc?id=x_2317791_cms2_library` |
+| Competency Library (37 Domains) | `/esc?id=x_2317791_cms2_library` |
+| One Domain | `/esc?id=x_2317791_cms2_library&domain=<sys_id>` |
 | Admin | Navigator → **CMS 2.0 – Competency Management** |
 | Admin workspace (known issue) | `/now/cms-admin/home` |
 

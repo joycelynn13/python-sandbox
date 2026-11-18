@@ -565,13 +565,25 @@ declare global {
                         table: 'x_2317791_cms2_domain'
                         id: '176703844cdf4061bdcfa087ebdd1b26'
                     }
+                    demo_dom_ccc_pmhd: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '59cb0ce375204d6f8d13f82a857919bd'
+                    }
                     demo_dom_ccc_psa: {
                         table: 'x_2317791_cms2_domain'
                         id: 'a0bea76149b040ea8fcd696d9de56be7'
                     }
+                    demo_dom_dig_aird: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'bb202a394cd0485cb94e2ae903936d36'
+                    }
                     demo_dom_dig_arc: {
                         table: 'x_2317791_cms2_domain'
                         id: 'b60107235aad4435b477f340b72c37e6'
+                    }
+                    demo_dom_dig_cdi: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '12c02a3abe6348399991bb86c38130f5'
                     }
                     demo_dom_dig_cyb: {
                         table: 'x_2317791_cms2_domain'
@@ -581,13 +593,117 @@ declare global {
                         table: 'x_2317791_cms2_domain'
                         id: 'dc58f891a47340aba658fd185d4b7d44'
                     }
+                    demo_dom_dig_dco: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'a7e920a1312646be9203c1e6309355de'
+                    }
+                    demo_dom_dig_ms: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '69a00664ac5646019d453d6f15684589'
+                    }
+                    demo_dom_dig_nc: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'f77ca25dd691430fba840be93edd9150'
+                    }
+                    demo_dom_dig_os: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '1bff05c6d80e4c94b2110e745fdc6fe8'
+                    }
+                    demo_dom_dig_qt: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'fb1b4359a946470198e006dac181717f'
+                    }
+                    demo_dom_dig_siot: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '2968b2238cd849c8ad9d2648622c09c8'
+                    }
+                    demo_dom_dig_st: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'b80eebc5cfb64b949dae805e88a92b06'
+                    }
                     demo_dom_dig_swe: {
                         table: 'x_2317791_cms2_domain'
                         id: 'd591289c8d4b4a1f87ae9643dc5f2aeb'
                     }
+                    demo_dom_eng_arch: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '37d9e3a98e2f455ab5ab2fdc512dae5f'
+                    }
+                    demo_dom_eng_lv: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '0e2a0ef1bff14f8dbd3c668d33411db4'
+                    }
+                    demo_dom_eng_mef: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'cf70b8d9b6dc4808930096375558f174'
+                    }
+                    demo_dom_eng_ms: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'd944d3d4238141048512df7ec8f12c21'
+                    }
+                    demo_dom_eng_pse: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '66d2665c944b4060b67120d16ec14b37'
+                    }
+                    demo_dom_eng_qsfm: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '7e8fbadf334948f9a6a604932bc40c53'
+                    }
+                    demo_dom_eng_smib: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '2c38e7b89ac34e0a89b7228127cf57d6'
+                    }
                     demo_dom_eng_sys: {
                         table: 'x_2317791_cms2_domain'
                         id: 'd741ac417eba4e719678ceaca82cdcf3'
+                    }
+                    demo_dom_eng_us: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '1d9b2d8aacb6448b9c8a4274174431d3'
+                    }
+                    demo_dom_eng_ws: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '0a250d7dbe244dd890eaa45a02a53310'
+                    }
+                    demo_dom_sci_asi: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'd49a3210ac6a4b2bb01b92994c219bae'
+                    }
+                    demo_dom_sci_bps: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '414c288145f94823b11e6696333ac5da'
+                    }
+                    demo_dom_sci_bs: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'e01b4804e5a44b3f95d77558fe545546'
+                    }
+                    demo_dom_sci_cpb: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'c4fa68b2179949aba533109a08a7bd59'
+                    }
+                    demo_dom_sci_cpt: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'aec15c4908b14ef2b94d907ef0a1f75d'
+                    }
+                    demo_dom_sci_cs: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'aa1d7b41d4ae4e7491488934f4b8ce60'
+                    }
+                    demo_dom_sci_efr: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '88c810236b734d91b432fb829b9d20e3'
+                    }
+                    demo_dom_sci_hsi: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '00fd92b39d1c41f4900c30962f694842'
+                    }
+                    demo_dom_sci_mb: {
+                        table: 'x_2317791_cms2_domain'
+                        id: '35f8c99b02bd4cd6926f1aa6e2e6075f'
+                    }
+                    demo_dom_sci_mtpe: {
+                        table: 'x_2317791_cms2_domain'
+                        id: 'fffbb59097684b508d84fba04f7ea137'
                     }
                     demo_dom_sci_res: {
                         table: 'x_2317791_cms2_domain'
@@ -2404,6 +2520,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '16a6ffd7f8b44617a188d7881f0b82ab'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '24d11f09f256409eaa6b2f9a0ce3c63f'
@@ -2464,6 +2581,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '177b39ef27a44359b954e01aa1f45d10'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '24d11f09f256409eaa6b2f9a0ce3c63f'
@@ -3677,6 +3795,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '34fcb64a3a154730855dd840842eba18'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '24d11f09f256409eaa6b2f9a0ce3c63f'
@@ -3725,6 +3844,28 @@ declare global {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'effective_from'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '3585e3f14e404ef09831dd9860826928'
+                        key: {
+                            sys_ui_section: {
+                                id: '24d11f09f256409eaa6b2f9a0ce3c63f'
+                                key: {
+                                    name: 'x_2317791_cms2_comp_group'
+                                    caption: 'Competency Group'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'status'
+                            position: '7'
                         }
                     },
                     {
@@ -4072,6 +4213,17 @@ declare global {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'effective_from'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '4141f45cb3e0496b8c48d72bc52b02c8'
+                        key: {
+                            name: 'x_2317791_cms2_comp_group'
+                            element: 'layout'
+                            value: 'row'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -5353,6 +5505,28 @@ declare global {
                     },
                     {
                         table: 'sys_ui_element'
+                        id: '640ecb2311f04702a4c51f52c10e3f12'
+                        key: {
+                            sys_ui_section: {
+                                id: '24d11f09f256409eaa6b2f9a0ce3c63f'
+                                key: {
+                                    name: 'x_2317791_cms2_comp_group'
+                                    caption: 'Competency Group'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'description'
+                            position: '10'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
                         id: '652bce7aaddf45e496642fd08b594970'
                         key: {
                             sys_ui_section: {
@@ -6073,6 +6247,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '75148ce8960b41f6985dcc5fb34909ee'
+                        key: {
+                            sys_ui_section: {
+                                id: '24d11f09f256409eaa6b2f9a0ce3c63f'
+                                key: {
+                                    name: 'x_2317791_cms2_comp_group'
+                                    caption: 'Competency Group'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.end_split'
+                            position: '9'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '7565f0e5d3c8493c9d7f06611eef947b'
                         key: {
@@ -6143,6 +6339,28 @@ declare global {
                         key: {
                             document_key: '6b5655ad31fa4a7486558cd88167afa8'
                             variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '78e789565de5434bbb64b8012c03b605'
+                        key: {
+                            sys_ui_section: {
+                                id: '24d11f09f256409eaa6b2f9a0ce3c63f'
+                                key: {
+                                    name: 'x_2317791_cms2_comp_group'
+                                    caption: 'Competency Group'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.split'
+                            position: '5'
                         }
                     },
                     {
@@ -6350,6 +6568,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '7d78f1ed877242c1a87d652181cb7375'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '24d11f09f256409eaa6b2f9a0ce3c63f'
@@ -6372,6 +6591,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '7e109ac136054d40a1a295f1287c991f'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '24d11f09f256409eaa6b2f9a0ce3c63f'
@@ -6402,6 +6622,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '7f77dd1b0e194e4a9c90fa3e24fb186d'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '24d11f09f256409eaa6b2f9a0ce3c63f'
@@ -7348,12 +7569,56 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '99b7630950b14c2d84ea784c4b7e7f14'
+                        key: {
+                            sys_ui_section: {
+                                id: '24d11f09f256409eaa6b2f9a0ce3c63f'
+                                key: {
+                                    name: 'x_2317791_cms2_comp_group'
+                                    caption: 'Competency Group'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'layout'
+                            position: '4'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '99c9ae07e5154c57bb0b759774336ed3'
                         deleted: true
                         key: {
                             document_key: '71eb525a009a44c18b4c99211b951581'
                             variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '99d83f47e1fa4176906ff42eb0a0a39a'
+                        key: {
+                            sys_ui_section: {
+                                id: '24d11f09f256409eaa6b2f9a0ce3c63f'
+                                key: {
+                                    name: 'x_2317791_cms2_comp_group'
+                                    caption: 'Competency Group'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'framework_version'
+                            position: '6'
                         }
                     },
                     {
@@ -8088,6 +8353,17 @@ declare global {
                         key: {
                             document_key: 'c70f290ee4c54b3b898d09cf4ade1d71'
                             variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'a948dc5836b245c1a15d6b3cdda7e704'
+                        key: {
+                            name: 'x_2317791_cms2_comp_group'
+                            element: 'layout'
+                            value: 'column'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -9804,6 +10080,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'd7d74224f70d499bbc883105600de756'
+                        key: {
+                            name: 'x_2317791_cms2_comp_group'
+                            element: 'layout'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: 'd825db5b51e940ed80451df33ab748be'
                         key: {
@@ -10395,6 +10679,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'e972f23c81454a388308b4bf0d3fb7ee'
+                        key: {
+                            name: 'x_2317791_cms2_comp_group'
+                            element: 'layout'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'e9de9c6d372845deb186177bd053939e'
                         key: {
@@ -10517,6 +10810,14 @@ declare global {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'effective_to'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: 'ed0667b9416c4ac4a60871f7bcce5341'
+                        key: {
+                            name: 'x_2317791_cms2_comp_group'
+                            element: 'layout'
                         }
                     },
                     {
@@ -10743,6 +11044,28 @@ declare global {
                         key: {
                             document_key: '3e39110399ae40af897e80189ae27b2e'
                             variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'f4084f452f114c829d075eb139ce7630'
+                        key: {
+                            sys_ui_section: {
+                                id: '24d11f09f256409eaa6b2f9a0ce3c63f'
+                                key: {
+                                    name: 'x_2317791_cms2_comp_group'
+                                    caption: 'Competency Group'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'active'
+                            position: '8'
                         }
                     },
                     {

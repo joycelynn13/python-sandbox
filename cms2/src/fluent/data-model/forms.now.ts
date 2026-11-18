@@ -43,6 +43,7 @@ Form({
                         { field: 'code', type: 'table_field' },
                         { field: 'name', type: 'table_field' },
                         { field: 'sequence', type: 'table_field' },
+                        { field: 'layout', type: 'table_field' },
                     ],
                     rightElements: [
                         { field: 'framework_version', type: 'table_field' },

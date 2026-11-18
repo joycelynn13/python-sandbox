@@ -166,6 +166,9 @@ var d = api.getElement(el4);
 var codes = []; for (var i = 0; i < d.levels.length; i++) codes.push(d.levels[i].code);
 check(codes.join(',') === 'PL1,PL2,PL3,PL4', 'Element detail levels are PL1-PL4 (got ' + codes.join(',') + ')');
 var d5 = api.getElement(el5); check(d5.levels.length === 5, 'PL1-PL5 Element shows 5 levels');
+var dm = api.getDomain(dom), e4 = null;
+for (var k = 0; k < dm.elements.length; k++) if (dm.elements[k].code === 'ATF-EL') e4 = dm.elements[k];
+check(!!e4 && e4.levels.length === 4 && e4.levels[3].code === 'PL4', 'Domain page shows PL1-PL4 only for ATF-EL');
 """, False), ('user', 'cmsRoleProfileAdmin'), ('script', 'assert_pl5', LOOKUP + r"""
 var rp = ins('role_profile', { code: 'RP-ATF-4', name: 'ATF RP 4', business_function: 'xDigital', framework_version: fw });
 check(!ins('requirement', { role_profile: rp, element: el4, requirement_type: 'essential', target_level: lvl(5) }), 'PL5 target rejected for an Element without PL5');

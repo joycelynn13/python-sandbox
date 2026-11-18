@@ -712,6 +712,9 @@ export const atf_t07_no_empty_pl5 = Test(
                 var codes = []; for (var i = 0; i < d.levels.length; i++) codes.push(d.levels[i].code);
                 check(codes.join(',') === 'PL1,PL2,PL3,PL4', 'Element detail levels are PL1-PL4 (got ' + codes.join(',') + ')');
                 var d5 = api.getElement(el5); check(d5.levels.length === 5, 'PL1-PL5 Element shows 5 levels');
+                var dm = api.getDomain(dom), e4 = null;
+                for (var k = 0; k < dm.elements.length; k++) if (dm.elements[k].code === 'ATF-EL') e4 = dm.elements[k];
+                check(!!e4 && e4.levels.length === 4 && e4.levels[3].code === 'PL4', 'Domain page shows PL1-PL4 only for ATF-EL');
 
                 return finish();
             })(outputs, steps, params, stepResult, assertEqual);

@@ -268,7 +268,14 @@ export function getLibrary(f: LibraryFilter) {
     g.orderBy('sequence')
     g.query()
     while (g.next()) {
-        groups.push({ id: g.getUniqueValue(), code: v(g, 'code'), name: v(g, 'name'), description: v(g, 'description'), domains: [] })
+        groups.push({
+            id: g.getUniqueValue(),
+            code: v(g, 'code'),
+            name: v(g, 'name'),
+            description: v(g, 'description'),
+            layout: v(g, 'layout') || 'column',
+            domains: [],
+        })
     }
     const groupById: { [id: string]: any } = {}
     groups.forEach((x) => (groupById[x.id] = x))
@@ -324,7 +331,15 @@ export function getLibrary(f: LibraryFilter) {
     const filtering = !!(text || f.levelId)
     groups.forEach((x) => (x.domains = x.domains.filter((d: any) => !filtering || d.elements.length)))
     const visibleGroups = groups.filter((x) => !filtering || x.domains.length)
-    return { groups: visibleGroups, scale, elementCount, allGroups: groups.map((x) => ({ id: x.id, name: x.name })) }
+    const domainCount = groups.reduce((n, x) => n + x.domains.length, 0)
+    return {
+        groups: visibleGroups,
+        scale,
+        elementCount,
+        domainCount,
+        filtering,
+        allGroups: groups.map((x) => ({ id: x.id, name: x.name })),
+    }
 }
 
 export function getElement(id: string) {
@@ -366,4 +381,37 @@ export function getElement(id: string) {
         levels,
         roleProfiles,
     }
+}
+
+/**
+ * One currently effective Domain with its Elements and, per Element, the
+ * Published descriptor of every defined PL (only defined levels – never an empty PL5).
+ */
+export function getDomain(id: string) {
+    const d: any = new GlideRecordSecure(T.domain)
+    if (!d.get(id)) return null
+    const scale = getScale()
+    const domain = {
+        id: d.getUniqueValue(),
+        code: v(d, 'code'),
+        name: v(d, 'name'),
+        description: v(d, 'description'),
+        owner: dv(d, 'owner'),
+        sme: dv(d, 'sme'),
+        groupId: v(d, 'competency_group'),
+        group: dv(d, 'competency_group'),
+        status: v(d, 'status'),
+        effectiveNow:
+            v(d, 'status') === STATUS.published && isEffectiveOn(v(d, 'effective_from'), v(d, 'effective_to'), today()),
+    }
+    const elements: any[] = []
+    const e: any = new GlideRecordSecure(T.element)
+    addCurrentlyEffective(e)
+    e.addQuery('domain', id)
+    e.orderBy('sequence')
+    e.query()
+    while (e.next()) elements.push(elementRow(e))
+    const desc = descriptorsFor(elements.map((x) => x.id))
+    elements.forEach((x) => (x.levels = levelList(desc[x.id], scale)))
+    return { domain, elements, scale }
 }

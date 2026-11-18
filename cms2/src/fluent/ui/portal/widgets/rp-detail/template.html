@@ -29,7 +29,7 @@
       <div class="cms-req" ng-repeat="r in grp.rows">
         <div class="cms-req__main">
           <a class="cms-req__name" ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
-          <div class="cms-req__path">{{r.element.group}} › {{r.element.domain}}</div>
+          <div class="cms-req__path">{{r.element.group}} › <a ng-href="?id=x_2317791_cms2_library&domain={{r.element.domainId}}">{{r.element.domain}}</a></div>
           <p class="cms-req__desc">{{r.element.descriptor}}</p>
           <div class="cms-req__levels" ng-if="r.levels.length">
             Defined levels:

@@ -42,24 +42,9 @@ export const demo_grp_ccc = Record({
     data: {
         code: 'CCC',
         name: 'Cross-Cutting Competencies',
-        description: 'Competencies applicable across all technical functions.',
+        description: 'Competencies that apply across all technical functions.',
         sequence: 10,
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
-export const demo_grp_spc_d = Record({
-    $id: Now.ID['demo_grp_spc_d'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_comp_group',
-    data: {
-        code: 'SPC-D',
-        name: 'Specialist Professional Competencies – Digital',
-        description: 'Specialist competencies for digital and software disciplines.',
-        sequence: 20,
+        layout: 'row',
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -73,9 +58,27 @@ export const demo_grp_spc_e = Record({
     table: 'x_2317791_cms2_comp_group',
     data: {
         code: 'SPC-E',
-        name: 'Specialist Professional Competencies – Engineering',
-        description: 'Specialist competencies for engineering disciplines.',
+        name: 'Specialised Competencies – Engineering',
+        description: 'Specialised competencies for engineering disciplines.',
+        sequence: 20,
+        layout: 'column',
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_grp_spc_d = Record({
+    $id: Now.ID['demo_grp_spc_d'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_comp_group',
+    data: {
+        code: 'SPC-D',
+        name: 'Specialised Competencies – Digital',
+        description: 'Specialised competencies for digital disciplines.',
         sequence: 30,
+        layout: 'column',
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -89,9 +92,10 @@ export const demo_grp_spc_s = Record({
     table: 'x_2317791_cms2_comp_group',
     data: {
         code: 'SPC-S',
-        name: 'Specialist Professional Competencies – Sciences',
-        description: 'Specialist competencies for scientific disciplines.',
+        name: 'Specialised Competencies – Sciences',
+        description: 'Specialised competencies for scientific disciplines.',
         sequence: 40,
+        layout: 'column',
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -104,11 +108,45 @@ export const demo_dom_ccc_pdm = Record({
     $meta: { installMethod: 'demo' },
     table: 'x_2317791_cms2_domain',
     data: {
-        code: 'CCC-PDM',
-        name: 'Project and Delivery Management',
-        description: 'Planning, documenting and delivering technical work.',
+        code: 'CCC-PM',
+        name: 'Project Management',
+        description: 'Planning, delivering and controlling technical projects and programmes.',
         competency_group: demo_grp_ccc,
         sequence: 10,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_ccc_pmhd = Record({
+    $id: Now.ID['demo_dom_ccc_pmhd'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'CCC-PMHD',
+        name: 'Product Management & Human-centric Design',
+        description: 'Shaping products around user needs, value and experience.',
+        competency_group: demo_grp_ccc,
+        sequence: 20,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_res = Record({
+    $id: Now.ID['demo_dom_sci_res'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'CCC-RTM',
+        name: 'Research & Technology Management',
+        description: 'Directing research, technology scouting and technology roadmaps.',
+        competency_group: demo_grp_ccc,
+        sequence: 30,
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -121,11 +159,11 @@ export const demo_dom_ccc_psa = Record({
     $meta: { installMethod: 'demo' },
     table: 'x_2317791_cms2_domain',
     data: {
-        code: 'CCC-PSA',
-        name: 'Problem Solving and Analysis',
-        description: 'Structured analysis of technical problems.',
+        code: 'CCC-SM',
+        name: 'System Management',
+        description: 'Managing systems and capabilities across their operational life.',
         competency_group: demo_grp_ccc,
-        sequence: 20,
+        sequence: 40,
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -133,15 +171,15 @@ export const demo_dom_ccc_psa = Record({
     },
 })
 
-export const demo_dom_dig_swe = Record({
-    $id: Now.ID['demo_dom_dig_swe'],
+export const demo_dom_eng_lv = Record({
+    $id: Now.ID['demo_dom_eng_lv'],
     $meta: { installMethod: 'demo' },
     table: 'x_2317791_cms2_domain',
     data: {
-        code: 'DIG-SWE',
-        name: 'Software Engineering',
-        description: 'Building, designing and assuring software.',
-        competency_group: demo_grp_spc_d,
+        code: 'ENG-LV',
+        name: 'Land Vehicles',
+        description: 'Engineering of land vehicle platforms and sub-systems.',
+        competency_group: demo_grp_spc_e,
         sequence: 10,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -150,16 +188,152 @@ export const demo_dom_dig_swe = Record({
     },
 })
 
-export const demo_dom_dig_arc = Record({
-    $id: Now.ID['demo_dom_dig_arc'],
+export const demo_dom_eng_ms = Record({
+    $id: Now.ID['demo_dom_eng_ms'],
     $meta: { installMethod: 'demo' },
     table: 'x_2317791_cms2_domain',
     data: {
-        code: 'DIG-ARC',
-        name: 'Architecture and Integration',
-        description: 'Designing solutions and integrating systems.',
-        competency_group: demo_grp_spc_d,
+        code: 'ENG-MS',
+        name: 'Marine Systems',
+        description: 'Engineering of vessels and marine platforms.',
+        competency_group: demo_grp_spc_e,
         sequence: 20,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_eng_us = Record({
+    $id: Now.ID['demo_dom_eng_us'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'ENG-US',
+        name: 'Unmanned Systems',
+        description: 'Engineering of unmanned and autonomous platforms.',
+        competency_group: demo_grp_spc_e,
+        sequence: 30,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_eng_ws = Record({
+    $id: Now.ID['demo_dom_eng_ws'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'ENG-WS',
+        name: 'Weapon Systems',
+        description: 'Engineering, integration and assurance of weapon systems.',
+        competency_group: demo_grp_spc_e,
+        sequence: 40,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_eng_smib = Record({
+    $id: Now.ID['demo_dom_eng_smib'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'ENG-SMIB',
+        name: 'Structural, Marine Infrastructure and Blast Engineering',
+        description: 'Design and protection of structures and marine infrastructure.',
+        competency_group: demo_grp_spc_e,
+        sequence: 50,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_eng_arch = Record({
+    $id: Now.ID['demo_dom_eng_arch'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'ENG-ARCH',
+        name: 'Architecture',
+        description: 'Architectural design of facilities and the built environment.',
+        competency_group: demo_grp_spc_e,
+        sequence: 60,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_eng_mef = Record({
+    $id: Now.ID['demo_dom_eng_mef'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'ENG-MEF',
+        name: 'Mechanical, Electrical & Fire Safety Engineering',
+        description: 'Building services, electrical systems and fire safety engineering.',
+        competency_group: demo_grp_spc_e,
+        sequence: 70,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_eng_qsfm = Record({
+    $id: Now.ID['demo_dom_eng_qsfm'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'ENG-QSFM',
+        name: 'Quantity Surveying and Facility Management',
+        description: 'Cost management of works and management of facilities.',
+        competency_group: demo_grp_spc_e,
+        sequence: 80,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_eng_pse = Record({
+    $id: Now.ID['demo_dom_eng_pse'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'ENG-PSE',
+        name: 'Protective Systems & Equipment',
+        description: 'Engineering of protective systems and equipment for responders.',
+        competency_group: demo_grp_spc_e,
+        sequence: 90,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_eng_sys = Record({
+    $id: Now.ID['demo_dom_eng_sys'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'ENG-SE',
+        name: 'Systems Engineering',
+        description: 'Engineering complex systems across their lifecycle.',
+        competency_group: demo_grp_spc_e,
+        sequence: 100,
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -172,11 +346,28 @@ export const demo_dom_dig_dat = Record({
     $meta: { installMethod: 'demo' },
     table: 'x_2317791_cms2_domain',
     data: {
-        code: 'DIG-DAT',
-        name: 'Data and Analytics',
-        description: 'Turning data into insight.',
+        code: 'DIG-DSE',
+        name: 'Data Science and Engineering',
+        description: 'Building data platforms and turning data into insight.',
         competency_group: demo_grp_spc_d,
-        sequence: 30,
+        sequence: 10,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_swe = Record({
+    $id: Now.ID['demo_dom_dig_swe'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-SAIE',
+        name: 'Software and AI Engineering',
+        description: 'Designing, building and assuring software and AI-enabled systems.',
+        competency_group: demo_grp_spc_d,
+        sequence: 20,
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -191,7 +382,24 @@ export const demo_dom_dig_cyb = Record({
     data: {
         code: 'DIG-CYB',
         name: 'Cybersecurity',
-        description: 'Protecting systems and information.',
+        description: 'Protecting systems, networks and information.',
+        competency_group: demo_grp_spc_d,
+        sequence: 30,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_ms = Record({
+    $id: Now.ID['demo_dom_dig_ms'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-MS',
+        name: 'Modelling & Simulation',
+        description: 'Building models and simulations for analysis and training.',
         competency_group: demo_grp_spc_d,
         sequence: 40,
         framework_version: demo_fw_2026,
@@ -201,15 +409,168 @@ export const demo_dom_dig_cyb = Record({
     },
 })
 
-export const demo_dom_eng_sys = Record({
-    $id: Now.ID['demo_dom_eng_sys'],
+export const demo_dom_dig_nc = Record({
+    $id: Now.ID['demo_dom_dig_nc'],
     $meta: { installMethod: 'demo' },
     table: 'x_2317791_cms2_domain',
     data: {
-        code: 'ENG-SYS',
-        name: 'Systems Engineering',
-        description: 'Engineering complex systems across their lifecycle.',
-        competency_group: demo_grp_spc_e,
+        code: 'DIG-NC',
+        name: 'Networking and Communications',
+        description: 'Designing and operating networks and communication systems.',
+        competency_group: demo_grp_spc_d,
+        sequence: 50,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_cdi = Record({
+    $id: Now.ID['demo_dom_dig_cdi'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-CDI',
+        name: 'Cloud & Digital Infrastructure',
+        description: 'Engineering and operating cloud and digital infrastructure.',
+        competency_group: demo_grp_spc_d,
+        sequence: 60,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_aird = Record({
+    $id: Now.ID['demo_dom_dig_aird'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-AIRD',
+        name: 'AI Applied R&D',
+        description: 'Applied research and development of AI capabilities.',
+        competency_group: demo_grp_spc_d,
+        sequence: 70,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_siot = Record({
+    $id: Now.ID['demo_dom_dig_siot'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-SIOT',
+        name: 'Sensors and IOT',
+        description: 'Designing and integrating sensors and Internet-of-Things solutions.',
+        competency_group: demo_grp_spc_d,
+        sequence: 80,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_os = Record({
+    $id: Now.ID['demo_dom_dig_os'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-OS',
+        name: 'Operational Systems',
+        description: 'Engineering and sustaining mission-critical operational systems.',
+        competency_group: demo_grp_spc_d,
+        sequence: 90,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_arc = Record({
+    $id: Now.ID['demo_dom_dig_arc'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-EA',
+        name: 'Enterprise Architecture',
+        description: 'Defining enterprise, solution and integration architectures.',
+        competency_group: demo_grp_spc_d,
+        sequence: 100,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_dco = Record({
+    $id: Now.ID['demo_dom_dig_dco'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-DCO',
+        name: 'Data Centre Operations',
+        description: 'Operating and maintaining data centre facilities.',
+        competency_group: demo_grp_spc_d,
+        sequence: 110,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_qt = Record({
+    $id: Now.ID['demo_dom_dig_qt'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-QT',
+        name: 'Quantum Technologies',
+        description: 'Research and application of quantum technologies.',
+        competency_group: demo_grp_spc_d,
+        sequence: 120,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_dig_st = Record({
+    $id: Now.ID['demo_dom_dig_st'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'DIG-ST',
+        name: 'Space Technologies',
+        description: 'Application of space-based technologies and data.',
+        competency_group: demo_grp_spc_d,
+        sequence: 130,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_mb = Record({
+    $id: Now.ID['demo_dom_sci_mb'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-MB',
+        name: 'Molecular Biology',
+        description: 'Molecular and biological analysis methods.',
+        competency_group: demo_grp_spc_s,
         sequence: 10,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -218,16 +579,152 @@ export const demo_dom_eng_sys = Record({
     },
 })
 
-export const demo_dom_sci_res = Record({
-    $id: Now.ID['demo_dom_sci_res'],
+export const demo_dom_sci_cpt = Record({
+    $id: Now.ID['demo_dom_sci_cpt'],
     $meta: { installMethod: 'demo' },
     table: 'x_2317791_cms2_domain',
     data: {
-        code: 'SCI-RES',
-        name: 'Scientific Research Methods',
-        description: 'Designing and running scientific investigations.',
+        code: 'SCI-CPT',
+        name: 'Chemistry, Pharmacology & Toxicology Sciences',
+        description: 'Chemical analysis, pharmacology and toxicology.',
         competency_group: demo_grp_spc_s,
-        sequence: 10,
+        sequence: 20,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_efr = Record({
+    $id: Now.ID['demo_dom_sci_efr'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-EFR',
+        name: 'Energetics, Fire and Radiological Sciences',
+        description: 'Science of energetic materials, fire and radiation.',
+        competency_group: demo_grp_spc_s,
+        sequence: 30,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_mtpe = Record({
+    $id: Now.ID['demo_dom_sci_mtpe'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-MTPE',
+        name: 'Materials, Trace and Physical Evidence Science',
+        description: 'Analysis of materials and trace and physical evidence.',
+        competency_group: demo_grp_spc_s,
+        sequence: 40,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_bs = Record({
+    $id: Now.ID['demo_dom_sci_bs'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-BS',
+        name: 'Biometric Science',
+        description: 'Biometric identification science and technology.',
+        competency_group: demo_grp_spc_s,
+        sequence: 50,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_cpb = Record({
+    $id: Now.ID['demo_dom_sci_cpb'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-CPB',
+        name: 'Cognition, Psychology & Behavioural Sciences',
+        description: 'Human cognition, psychology and behaviour.',
+        competency_group: demo_grp_spc_s,
+        sequence: 60,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_bps = Record({
+    $id: Now.ID['demo_dom_sci_bps'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-BPS',
+        name: 'Biomechanics & Physiological Science',
+        description: 'Human biomechanics and physiological performance.',
+        competency_group: demo_grp_spc_s,
+        sequence: 70,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_hsi = Record({
+    $id: Now.ID['demo_dom_sci_hsi'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-HSI',
+        name: 'Human-Systems Interface & Interaction Sciences',
+        description: 'Designing effective interaction between people and systems.',
+        competency_group: demo_grp_spc_s,
+        sequence: 80,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_asi = Record({
+    $id: Now.ID['demo_dom_sci_asi'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-ASI',
+        name: 'Advanced Sensing & Imaging Science',
+        description: 'Advanced sensing, imaging and signal science.',
+        competency_group: demo_grp_spc_s,
+        sequence: 90,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_dom_sci_cs = Record({
+    $id: Now.ID['demo_dom_sci_cs'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_domain',
+    data: {
+        code: 'SCI-CS',
+        name: 'Computational Science',
+        description: 'Computational methods for scientific problems.',
+        competency_group: demo_grp_spc_s,
+        sequence: 100,
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',

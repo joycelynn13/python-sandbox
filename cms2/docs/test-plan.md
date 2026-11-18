@@ -21,14 +21,14 @@ How each test works:
 | T04 | Role Profile Administrator can create a Draft Role Profile | ✅ Pass |
 | T05 | Role Profile Administrator can add Essential and Complementary requirements; duplicate rejected | ✅ Pass |
 | T06 | Target PL is stored at Element level (different targets in one Domain; no RP/Domain target column) | ✅ Pass |
-| T07 | Element without PL5 shows PL1–PL4 only; PL5 target rejected | ✅ Pass |
+| T07 | Element without PL5 shows PL1–PL4 only (Element and Domain pages); PL5 target rejected | ✅ Pass |
 | T08 | Published Role Profile cannot reference Draft content; publish without Effective From rejected | ✅ Pass |
 | T09 | Normal employee cannot access administration modules or create records | ✅ Pass |
 | T10 | Previously Published content remains (end-dated, readable) after a newer version is published | ✅ Pass |
 | T11 | Duplicate active Element + PL descriptor prevented (Draft and overlapping Published) | ✅ Pass |
 | T12 | Employee listing returns only Published and currently effective records | ✅ Pass |
 
-The final two consecutive runs both passed 12/12, with no runtime cross-scope auto-grants.
+The latest run (after the 37-domain Library landing change) passed 12/12 with no runtime cross-scope auto-grants.
 
 ### Running the suite
 
@@ -56,7 +56,8 @@ now-sdk cicd testsuite run --test-suite-name "CMS 2.0 – Role Profile and Compe
 | Landing `/esc?id=x_2317791_cms2_home` | ✅ Renders. Shows "No Role Profile assigned" for users without a prototype assignment |
 | Browse `/esc?id=x_2317791_cms2_role_profiles` | ✅ 5 currently effective Role Profiles. The historical v1 and the Draft are hidden; filters work |
 | Role Profile detail | ✅ Essential (4) / Complementary (5) shown; the Target PL button expands the Element-specific descriptor. A digest bug found here was fixed |
-| Competency Library | ✅ Group → Domain → Element tree; search matches PL descriptor text (e.g. "dashboards" → Data Analytics) |
+| Competency Library landing | ✅ All 37 Domains: CCC as a tile row, Engineering / Digital / Sciences as columns, each Domain with its Element count. Search switches to a results list |
+| Domain page `?id=x_2317791_cms2_library&domain=<sys_id>` | ✅ Element cards with a PL button bar showing only defined levels (Testing and Quality: PL1–PL4); the selected PL shows its descriptor. Empty Domains show "No Elements have been published for this Domain yet" |
 | Element detail | ✅ Cybersecurity Fundamentals shows PL1–PL3 only and the Role Profiles that use it |
 | CMS Administration Workspace `/now/cms-admin/home` | ❌ "Page not found". See `assumptions.md` → Known issues |
 

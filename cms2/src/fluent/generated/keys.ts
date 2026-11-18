@@ -1479,6 +1479,10 @@ declare global {
                         table: 'sp_container'
                         id: '52c19ccec8244a94bb5abbf19bac4fe1'
                     }
+                    spp_home_library: {
+                        table: 'sp_instance'
+                        id: '41378f75bb0446659cbc9ad8c682c0d5'
+                    }
                     spp_home_main: {
                         table: 'sp_instance'
                         id: 'e026ebf52fde4edbaf63a43ac1d015f8'

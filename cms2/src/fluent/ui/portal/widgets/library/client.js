@@ -5,18 +5,14 @@ api.controller = function ($window) {
     // ---------------- landing / search ----------------
     if (!c.data.domainId) {
         c.filter = angular.copy(c.data.filter);
-        c.hideEmpty = false;
     }
     c.groupShown = function (g) {
         return !c.filter.groupId || c.filter.groupId === g.id;
     };
-    c.domainShown = function (d) {
-        return !c.hideEmpty || d.elements.length > 0 || (d.levels && d.levels.length > 0);
-    };
     c.shownDomainCount = function () {
         var n = 0;
         angular.forEach(c.data.lib.groups, function (g) {
-            if (c.groupShown(g)) angular.forEach(g.domains, function (d) { if (c.domainShown(d)) n++; });
+            if (c.groupShown(g)) n += g.domains.length;
         });
         return n;
     };

@@ -31,6 +31,12 @@ export const page_home = SPPage({
                             instances: [
                                 { $id: Now.ID['spp_home_nav'], widget: navWidget, order: 1 },
                                 { $id: Now.ID['spp_home_main'], widget: landingWidget, order: 2 },
+                                {
+                                    $id: Now.ID['spp_home_library'],
+                                    widget: libraryWidget,
+                                    widgetParameters: '{"embedded":"true"}',
+                                    order: 3,
+                                },
                             ],
                         },
                     ],

@@ -56,6 +56,15 @@ export const libraryWidget = SPWidget({
     $id: Now.ID['spw_library'],
     id: 'x_2317791_cms2_library',
     name: 'CMS 2.0 – Competency Library',
+    optionSchema: [
+        {
+            name: 'embedded',
+            label: 'Embedded in another page',
+            type: 'boolean',
+            section: 'Presentation',
+            defaultValue: 'false',
+        },
+    ],
     htmlTemplate: Now.include('./widgets/library/template.html'),
     serverScript: Now.include('./widgets/library/server.js'),
     clientScript: Now.include('./widgets/library/client.js'),

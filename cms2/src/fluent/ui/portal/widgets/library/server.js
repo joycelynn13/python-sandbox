@@ -1,7 +1,9 @@
 (function () {
     var api = new x_2317791_cms2.CmsCatalogApi();
+    // embedded = shown as a section of another page (CMS landing page)
+    data.embedded = options.embedded === true || options.embedded === 'true';
     // Domain mode: ?domain=<sys_id>[&element=<sys_id>]
-    data.domainId = $sp.getParameter('domain') || '';
+    data.domainId = data.embedded ? '' : ($sp.getParameter('domain') || '');
     if (data.domainId) {
         data.dom = api.getDomain(data.domainId);
         data.elementId = $sp.getParameter('element') || '';

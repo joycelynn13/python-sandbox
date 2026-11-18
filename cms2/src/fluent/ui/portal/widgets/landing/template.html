@@ -1,44 +1,67 @@
 <div class="cms-landing">
   <header class="cms-hero">
     <h1>Competency Management</h1>
-    <p>Explore the HTX technical competency framework and the Role Profiles that use it.</p>
+    <p>See what your role expects, and explore the HTX technical competency framework.</p>
   </header>
 
-  <div class="cms-cards">
-    <section class="cms-card cms-card--primary" aria-labelledby="cms-my-rp">
-      <div class="cms-card__eyebrow">My Role Profile <span class="cms-badge">Prototype assignment</span></div>
+  <div class="cms-top">
+    <!-- My Role Profile -->
+    <section class="cms-myrp" aria-labelledby="my-rp-title">
+      <div class="cms-myrp__head">
+        <div class="cms-eyebrow">My Role Profile <span class="cms-badge">Prototype assignment</span></div>
+      </div>
+
       <div ng-if="c.data.my && !c.data.my.missing">
-        <h2 id="cms-my-rp">{{c.data.my.name}}</h2>
-        <div class="cms-meta">Function: <strong>{{c.data.my.businessFunction}}</strong>
-          <span ng-if="c.data.my.jobFamily"> · Job family: {{c.data.my.jobFamily}}</span></div>
+        <h2 id="my-rp-title">{{c.data.my.name}}</h2>
+        <div class="cms-meta">
+          <span><strong>Function</strong> {{c.data.my.businessFunction}}</span>
+          <span ng-if="c.data.my.jobFamily"><strong>Job family</strong> {{c.data.my.jobFamily}}</span>
+          <span ng-if="c.data.my.jobTitle"><strong>Job title</strong> {{c.data.my.jobTitle}}</span>
+        </div>
         <div class="cms-stats">
-          <div><span class="cms-stats__n">{{c.data.my.counts.essential}}</span><span>Essential Elements</span></div>
-          <div><span class="cms-stats__n">{{c.data.my.counts.complementary}}</span><span>Complementary Elements</span></div>
+          <div><span class="cms-stats__n">{{c.data.my.counts.essential}}</span><span>Essential</span></div>
+          <div><span class="cms-stats__n">{{c.data.my.counts.complementary}}</span><span>Complementary</span></div>
           <div><span class="cms-stats__n">{{c.data.my.counts.total}}</span><span>Total Elements</span></div>
+        </div>
+
+        <div class="cms-reqs" ng-if="c.data.detail">
+          <div class="cms-reqs__col">
+            <h3>Essential</h3>
+            <ul>
+              <li ng-repeat="r in c.data.detail.essential">
+                <a ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
+                <span class="cms-pl">{{r.target.code}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cms-reqs__col">
+            <h3>Complementary</h3>
+            <ul>
+              <li ng-repeat="r in c.data.detail.complementary">
+                <a ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
+                <span class="cms-pl">{{r.target.code}}</span>
+              </li>
+            </ul>
+          </div>
         </div>
         <a class="btn btn-primary" ng-href="?id=x_2317791_cms2_role_profile&sys_id={{c.data.my.id}}">View my Role Profile</a>
       </div>
+
       <div ng-if="c.data.my && c.data.my.missing">
-        <h2 id="cms-my-rp">Role Profile {{c.data.my.code}}</h2>
-        <p>This Role Profile has no currently effective Published version.</p>
+        <h2 id="my-rp-title">Role Profile {{c.data.my.code}}</h2>
+        <p class="cms-muted">This Role Profile has no currently effective Published version.</p>
       </div>
       <div ng-if="!c.data.my">
-        <h2 id="cms-my-rp">No Role Profile assigned</h2>
-        <p>The prototype has no Role Profile assignment for you. In production this comes from the authorised employee source.</p>
+        <h2 id="my-rp-title">No Role Profile assigned</h2>
+        <p class="cms-muted">The prototype has no Role Profile assignment for you. In production this comes from the authorised employee source. You can still browse Role Profiles and the Competency Library.</p>
       </div>
     </section>
 
-    <section class="cms-card">
-      <div class="cms-card__eyebrow">Library</div>
-      <h2>Explore Competency Library</h2>
-      <p>Browse Competency Groups, Domains and Elements, and read the descriptor for each Proficiency Level.</p>
-      <a class="btn btn-default" href="?id=x_2317791_cms2_library">Open Competency Library</a>
-    </section>
-
-    <section class="cms-card">
-      <div class="cms-card__eyebrow">Role Profiles</div>
-      <h2>Browse Role Profiles</h2>
-      <p>Search Role Profiles by name, job title, function or job family to see their Essential and Complementary Elements.</p>
+    <!-- Browse Role Profiles -->
+    <section class="cms-side" aria-labelledby="browse-title">
+      <div class="cms-eyebrow">Role Profiles</div>
+      <h2 id="browse-title">Browse Role Profiles</h2>
+      <p class="cms-muted">Compare other roles by function, job family or job title, and see their Essential and Complementary Elements.</p>
       <a class="btn btn-default" href="?id=x_2317791_cms2_role_profiles">Browse Role Profiles</a>
     </section>
   </div>

@@ -108,7 +108,45 @@ export const demo_dom_ccc_pdm = Record({
         name: 'Project Management',
         description: 'Planning, delivering and controlling technical projects and programmes.',
         competency_group: demo_grp_ccc,
+        pl_structure: 'mixed',
+        domain_levels_to: pl2,
         sequence: 10,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_ccc_pm_pl1 = Record({
+    $id: Now.ID['demo_pld_ccc_pm_pl1'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        applies_to: 'domain',
+        domain: demo_dom_ccc_pdm,
+        proficiency_level: pl1,
+        description: 'Applies the basic practices of Project Management on well-defined tasks with guidance, understanding why they matter.',
+        code: 'CCC-PM – PL1',
+        name: 'CCC-PM – PL1',
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_ccc_pm_pl2 = Record({
+    $id: Now.ID['demo_pld_ccc_pm_pl2'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        applies_to: 'domain',
+        domain: demo_dom_ccc_pdm,
+        proficiency_level: pl2,
+        description: 'Applies Project Management practices independently across typical work and contributes to team outcomes.',
+        code: 'CCC-PM – PL2',
+        name: 'CCC-PM – PL2',
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -125,7 +163,45 @@ export const demo_dom_ccc_pmhd = Record({
         name: 'Product Management & Human-centric Design',
         description: 'Shaping products around user needs, value and experience.',
         competency_group: demo_grp_ccc,
+        pl_structure: 'mixed',
+        domain_levels_to: pl2,
         sequence: 20,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_ccc_pmhd_pl1 = Record({
+    $id: Now.ID['demo_pld_ccc_pmhd_pl1'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        applies_to: 'domain',
+        domain: demo_dom_ccc_pmhd,
+        proficiency_level: pl1,
+        description: 'Applies the basic practices of Product Management & Human-centric Design on well-defined tasks with guidance, understanding why they matter.',
+        code: 'CCC-PMHD – PL1',
+        name: 'CCC-PMHD – PL1',
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_ccc_pmhd_pl2 = Record({
+    $id: Now.ID['demo_pld_ccc_pmhd_pl2'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        applies_to: 'domain',
+        domain: demo_dom_ccc_pmhd,
+        proficiency_level: pl2,
+        description: 'Applies Product Management & Human-centric Design practices independently across typical work and contributes to team outcomes.',
+        code: 'CCC-PMHD – PL2',
+        name: 'CCC-PMHD – PL2',
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -142,7 +218,45 @@ export const demo_dom_sci_res = Record({
         name: 'Research & Technology Management',
         description: 'Directing research, technology scouting and technology roadmaps.',
         competency_group: demo_grp_ccc,
+        pl_structure: 'mixed',
+        domain_levels_to: pl2,
         sequence: 30,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_ccc_rtm_pl1 = Record({
+    $id: Now.ID['demo_pld_ccc_rtm_pl1'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        applies_to: 'domain',
+        domain: demo_dom_sci_res,
+        proficiency_level: pl1,
+        description: 'Applies the basic practices of Research & Technology Management on well-defined tasks with guidance, understanding why they matter.',
+        code: 'CCC-RTM – PL1',
+        name: 'CCC-RTM – PL1',
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_ccc_rtm_pl2 = Record({
+    $id: Now.ID['demo_pld_ccc_rtm_pl2'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        applies_to: 'domain',
+        domain: demo_dom_sci_res,
+        proficiency_level: pl2,
+        description: 'Applies Research & Technology Management practices independently across typical work and contributes to team outcomes.',
+        code: 'CCC-RTM – PL2',
+        name: 'CCC-RTM – PL2',
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -159,7 +273,45 @@ export const demo_dom_ccc_psa = Record({
         name: 'System Management',
         description: 'Managing systems and capabilities across their operational life.',
         competency_group: demo_grp_ccc,
+        pl_structure: 'mixed',
+        domain_levels_to: pl2,
         sequence: 40,
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_ccc_sm_pl1 = Record({
+    $id: Now.ID['demo_pld_ccc_sm_pl1'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        applies_to: 'domain',
+        domain: demo_dom_ccc_psa,
+        proficiency_level: pl1,
+        description: 'Applies the basic practices of System Management on well-defined tasks with guidance, understanding why they matter.',
+        code: 'CCC-SM – PL1',
+        name: 'CCC-SM – PL1',
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_ccc_sm_pl2 = Record({
+    $id: Now.ID['demo_pld_ccc_sm_pl2'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        applies_to: 'domain',
+        domain: demo_dom_ccc_psa,
+        proficiency_level: pl2,
+        description: 'Applies System Management practices independently across typical work and contributes to team outcomes.',
+        code: 'CCC-SM – PL2',
+        name: 'CCC-SM – PL2',
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -176,6 +328,7 @@ export const demo_dom_eng_lv = Record({
         name: 'Land Vehicles',
         description: 'Engineering of land vehicle platforms and sub-systems.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 10,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -193,6 +346,7 @@ export const demo_dom_eng_ms = Record({
         name: 'Marine Systems',
         description: 'Engineering of vessels and marine platforms.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 20,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -210,6 +364,7 @@ export const demo_dom_eng_us = Record({
         name: 'Unmanned Systems',
         description: 'Engineering of unmanned and autonomous platforms.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 30,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -227,6 +382,7 @@ export const demo_dom_eng_ws = Record({
         name: 'Weapon Systems',
         description: 'Engineering, integration and assurance of weapon systems.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 40,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -244,6 +400,7 @@ export const demo_dom_eng_smib = Record({
         name: 'Structural, Marine Infrastructure and Blast Engineering',
         description: 'Design and protection of structures and marine infrastructure.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 50,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -261,6 +418,7 @@ export const demo_dom_eng_arch = Record({
         name: 'Architecture',
         description: 'Architectural design of facilities and the built environment.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 60,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -278,6 +436,7 @@ export const demo_dom_eng_mef = Record({
         name: 'Mechanical, Electrical & Fire Safety Engineering',
         description: 'Building services, electrical systems and fire safety engineering.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 70,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -295,6 +454,7 @@ export const demo_dom_eng_qsfm = Record({
         name: 'Quantity Surveying and Facility Management',
         description: 'Cost management of works and management of facilities.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 80,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -312,6 +472,7 @@ export const demo_dom_eng_pse = Record({
         name: 'Protective Systems & Equipment',
         description: 'Engineering of protective systems and equipment for responders.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 90,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -329,6 +490,7 @@ export const demo_dom_eng_sys = Record({
         name: 'Systems Engineering',
         description: 'Engineering complex systems across their lifecycle.',
         competency_group: demo_grp_spc_e,
+        pl_structure: 'element',
         sequence: 100,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -346,6 +508,7 @@ export const demo_dom_dig_dat = Record({
         name: 'Data Science and Engineering',
         description: 'Building data platforms and turning data into insight.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 10,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -363,6 +526,7 @@ export const demo_dom_dig_swe = Record({
         name: 'Software and AI Engineering',
         description: 'Designing, building and assuring software and AI-enabled systems.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 20,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -380,6 +544,7 @@ export const demo_dom_dig_cyb = Record({
         name: 'Cybersecurity',
         description: 'Protecting systems, networks and information.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 30,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -397,6 +562,7 @@ export const demo_dom_dig_ms = Record({
         name: 'Modelling & Simulation',
         description: 'Building models and simulations for analysis and training.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 40,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -414,6 +580,7 @@ export const demo_dom_dig_nc = Record({
         name: 'Networking and Communications',
         description: 'Designing and operating networks and communication systems.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 50,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -431,6 +598,7 @@ export const demo_dom_dig_cdi = Record({
         name: 'Cloud & Digital Infrastructure',
         description: 'Engineering and operating cloud and digital infrastructure.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 60,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -448,6 +616,7 @@ export const demo_dom_dig_aird = Record({
         name: 'AI Applied R&D',
         description: 'Applied research and development of AI capabilities.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 70,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -465,6 +634,7 @@ export const demo_dom_dig_siot = Record({
         name: 'Sensors and IOT',
         description: 'Designing and integrating sensors and Internet-of-Things solutions.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 80,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -482,6 +652,7 @@ export const demo_dom_dig_os = Record({
         name: 'Operational Systems',
         description: 'Engineering and sustaining mission-critical operational systems.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 90,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -499,6 +670,7 @@ export const demo_dom_dig_arc = Record({
         name: 'Enterprise Architecture',
         description: 'Defining enterprise, solution and integration architectures.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 100,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -516,6 +688,7 @@ export const demo_dom_dig_dco = Record({
         name: 'Data Centre Operations',
         description: 'Operating and maintaining data centre facilities.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 110,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -533,6 +706,7 @@ export const demo_dom_dig_qt = Record({
         name: 'Quantum Technologies',
         description: 'Research and application of quantum technologies.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 120,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -550,6 +724,7 @@ export const demo_dom_dig_st = Record({
         name: 'Space Technologies',
         description: 'Application of space-based technologies and data.',
         competency_group: demo_grp_spc_d,
+        pl_structure: 'element',
         sequence: 130,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -567,6 +742,7 @@ export const demo_dom_sci_mb = Record({
         name: 'Molecular Biology',
         description: 'Molecular and biological analysis methods.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 10,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -584,6 +760,7 @@ export const demo_dom_sci_cpt = Record({
         name: 'Chemistry, Pharmacology & Toxicology Sciences',
         description: 'Chemical analysis, pharmacology and toxicology.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 20,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -601,6 +778,7 @@ export const demo_dom_sci_efr = Record({
         name: 'Energetics, Fire and Radiological Sciences',
         description: 'Science of energetic materials, fire and radiation.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 30,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -618,6 +796,7 @@ export const demo_dom_sci_mtpe = Record({
         name: 'Materials, Trace and Physical Evidence Science',
         description: 'Analysis of materials and trace and physical evidence.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 40,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -635,6 +814,7 @@ export const demo_dom_sci_bs = Record({
         name: 'Biometric Science',
         description: 'Biometric identification science and technology.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 50,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -652,6 +832,7 @@ export const demo_dom_sci_cpb = Record({
         name: 'Cognition, Psychology & Behavioural Sciences',
         description: 'Human cognition, psychology and behaviour.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 60,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -669,6 +850,7 @@ export const demo_dom_sci_bps = Record({
         name: 'Biomechanics & Physiological Science',
         description: 'Human biomechanics and physiological performance.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 70,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -686,6 +868,7 @@ export const demo_dom_sci_hsi = Record({
         name: 'Human-Systems Interface & Interaction Sciences',
         description: 'Designing effective interaction between people and systems.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 80,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -703,6 +886,7 @@ export const demo_dom_sci_asi = Record({
         name: 'Advanced Sensing & Imaging Science',
         description: 'Advanced sensing, imaging and signal science.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 90,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -720,6 +904,7 @@ export const demo_dom_sci_cs = Record({
         name: 'Computational Science',
         description: 'Computational methods for scientific problems.',
         competency_group: demo_grp_spc_s,
+        pl_structure: 'element',
         sequence: 100,
         framework_version: demo_fw_2026,
         status: 'published',
@@ -752,6 +937,7 @@ export const demo_pld_el_appdev_pl1 = Record({
     data: {
         element: demo_el_el_appdev,
         proficiency_level: pl1,
+        applies_to: 'element',
         description: 'Applies standard methods to produce application code and components for well-defined tasks under guidance.',
         code: 'EL-APPDEV – PL1',
         name: 'EL-APPDEV – PL1',
@@ -769,6 +955,7 @@ export const demo_pld_el_appdev_pl2 = Record({
     data: {
         element: demo_el_el_appdev,
         proficiency_level: pl2,
+        applies_to: 'element',
         description: 'Independently produces and reviews application code and components for typical work and resolves common issues.',
         code: 'EL-APPDEV – PL2',
         name: 'EL-APPDEV – PL2',
@@ -786,6 +973,7 @@ export const demo_pld_el_appdev_pl3 = Record({
     data: {
         element: demo_el_el_appdev,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of application code and components for complex work, adapts methods to context and coaches others.',
         code: 'EL-APPDEV – PL3',
         name: 'EL-APPDEV – PL3',
@@ -803,6 +991,7 @@ export const demo_pld_el_appdev_pl4 = Record({
     data: {
         element: demo_el_el_appdev,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for application code and components across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-APPDEV – PL4',
         name: 'EL-APPDEV – PL4',
@@ -820,6 +1009,7 @@ export const demo_pld_el_appdev_pl5 = Record({
     data: {
         element: demo_el_el_appdev,
         proficiency_level: pl5,
+        applies_to: 'element',
         description: 'Shapes organisational strategy and practice for application code and components and influences beyond HTX.',
         code: 'EL-APPDEV – PL5',
         name: 'EL-APPDEV – PL5',
@@ -854,6 +1044,7 @@ export const demo_pld_el_swdes_pl1 = Record({
     data: {
         element: demo_el_el_swdes,
         proficiency_level: pl1,
+        applies_to: 'element',
         description: 'Applies standard methods to produce software designs and interfaces for well-defined tasks under guidance.',
         code: 'EL-SWDES – PL1',
         name: 'EL-SWDES – PL1',
@@ -871,6 +1062,7 @@ export const demo_pld_el_swdes_pl2 = Record({
     data: {
         element: demo_el_el_swdes,
         proficiency_level: pl2,
+        applies_to: 'element',
         description: 'Independently produces and reviews software designs and interfaces for typical work and resolves common issues.',
         code: 'EL-SWDES – PL2',
         name: 'EL-SWDES – PL2',
@@ -888,6 +1080,7 @@ export const demo_pld_el_swdes_pl3 = Record({
     data: {
         element: demo_el_el_swdes,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of software designs and interfaces for complex work, adapts methods to context and coaches others.',
         code: 'EL-SWDES – PL3',
         name: 'EL-SWDES – PL3',
@@ -905,6 +1098,7 @@ export const demo_pld_el_swdes_pl4 = Record({
     data: {
         element: demo_el_el_swdes,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for software designs and interfaces across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-SWDES – PL4',
         name: 'EL-SWDES – PL4',
@@ -922,6 +1116,7 @@ export const demo_pld_el_swdes_pl5 = Record({
     data: {
         element: demo_el_el_swdes,
         proficiency_level: pl5,
+        applies_to: 'element',
         description: 'Shapes organisational strategy and practice for software designs and interfaces and influences beyond HTX.',
         code: 'EL-SWDES – PL5',
         name: 'EL-SWDES – PL5',
@@ -956,6 +1151,7 @@ export const demo_pld_el_testq_pl1 = Record({
     data: {
         element: demo_el_el_testq,
         proficiency_level: pl1,
+        applies_to: 'element',
         description: 'Applies standard methods to produce test plans, automated tests and quality checks for well-defined tasks under guidance.',
         code: 'EL-TESTQ – PL1',
         name: 'EL-TESTQ – PL1',
@@ -973,6 +1169,7 @@ export const demo_pld_el_testq_pl2 = Record({
     data: {
         element: demo_el_el_testq,
         proficiency_level: pl2,
+        applies_to: 'element',
         description: 'Independently produces and reviews test plans, automated tests and quality checks for typical work and resolves common issues.',
         code: 'EL-TESTQ – PL2',
         name: 'EL-TESTQ – PL2',
@@ -990,6 +1187,7 @@ export const demo_pld_el_testq_pl3 = Record({
     data: {
         element: demo_el_el_testq,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of test plans, automated tests and quality checks for complex work, adapts methods to context and coaches others.',
         code: 'EL-TESTQ – PL3',
         name: 'EL-TESTQ – PL3',
@@ -1007,6 +1205,7 @@ export const demo_pld_el_testq_pl4 = Record({
     data: {
         element: demo_el_el_testq,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for test plans, automated tests and quality checks across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-TESTQ – PL4',
         name: 'EL-TESTQ – PL4',
@@ -1041,6 +1240,7 @@ export const demo_pld_el_solarc_pl1 = Record({
     data: {
         element: demo_el_el_solarc,
         proficiency_level: pl1,
+        applies_to: 'element',
         description: 'Applies standard methods to produce solution architectures for well-defined tasks under guidance.',
         code: 'EL-SOLARC – PL1',
         name: 'EL-SOLARC – PL1',
@@ -1058,6 +1258,7 @@ export const demo_pld_el_solarc_pl2 = Record({
     data: {
         element: demo_el_el_solarc,
         proficiency_level: pl2,
+        applies_to: 'element',
         description: 'Independently produces and reviews solution architectures for typical work and resolves common issues.',
         code: 'EL-SOLARC – PL2',
         name: 'EL-SOLARC – PL2',
@@ -1075,6 +1276,7 @@ export const demo_pld_el_solarc_pl3 = Record({
     data: {
         element: demo_el_el_solarc,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of solution architectures for complex work, adapts methods to context and coaches others.',
         code: 'EL-SOLARC – PL3',
         name: 'EL-SOLARC – PL3',
@@ -1092,6 +1294,7 @@ export const demo_pld_el_solarc_pl4 = Record({
     data: {
         element: demo_el_el_solarc,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for solution architectures across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-SOLARC – PL4',
         name: 'EL-SOLARC – PL4',
@@ -1109,6 +1312,7 @@ export const demo_pld_el_solarc_pl5 = Record({
     data: {
         element: demo_el_el_solarc,
         proficiency_level: pl5,
+        applies_to: 'element',
         description: 'Shapes organisational strategy and practice for solution architectures and influences beyond HTX.',
         code: 'EL-SOLARC – PL5',
         name: 'EL-SOLARC – PL5',
@@ -1143,6 +1347,7 @@ export const demo_pld_el_sysint_pl1 = Record({
     data: {
         element: demo_el_el_sysint,
         proficiency_level: pl1,
+        applies_to: 'element',
         description: 'Applies standard methods to produce integrations, APIs and interfaces for well-defined tasks under guidance.',
         code: 'EL-SYSINT – PL1',
         name: 'EL-SYSINT – PL1',
@@ -1160,6 +1365,7 @@ export const demo_pld_el_sysint_pl2 = Record({
     data: {
         element: demo_el_el_sysint,
         proficiency_level: pl2,
+        applies_to: 'element',
         description: 'Independently produces and reviews integrations, APIs and interfaces for typical work and resolves common issues.',
         code: 'EL-SYSINT – PL2',
         name: 'EL-SYSINT – PL2',
@@ -1177,6 +1383,7 @@ export const demo_pld_el_sysint_pl3 = Record({
     data: {
         element: demo_el_el_sysint,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of integrations, APIs and interfaces for complex work, adapts methods to context and coaches others.',
         code: 'EL-SYSINT – PL3',
         name: 'EL-SYSINT – PL3',
@@ -1194,6 +1401,7 @@ export const demo_pld_el_sysint_pl4 = Record({
     data: {
         element: demo_el_el_sysint,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for integrations, APIs and interfaces across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-SYSINT – PL4',
         name: 'EL-SYSINT – PL4',
@@ -1228,6 +1436,7 @@ export const demo_pld_el_dataan_pl1 = Record({
     data: {
         element: demo_el_el_dataan,
         proficiency_level: pl1,
+        applies_to: 'element',
         description: 'Applies standard methods to produce analyses, dashboards and data models for well-defined tasks under guidance.',
         code: 'EL-DATAAN – PL1',
         name: 'EL-DATAAN – PL1',
@@ -1245,6 +1454,7 @@ export const demo_pld_el_dataan_pl2 = Record({
     data: {
         element: demo_el_el_dataan,
         proficiency_level: pl2,
+        applies_to: 'element',
         description: 'Independently produces and reviews analyses, dashboards and data models for typical work and resolves common issues.',
         code: 'EL-DATAAN – PL2',
         name: 'EL-DATAAN – PL2',
@@ -1262,6 +1472,7 @@ export const demo_pld_el_dataan_pl3 = Record({
     data: {
         element: demo_el_el_dataan,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of analyses, dashboards and data models for complex work, adapts methods to context and coaches others.',
         code: 'EL-DATAAN – PL3',
         name: 'EL-DATAAN – PL3',
@@ -1279,6 +1490,7 @@ export const demo_pld_el_dataan_pl4 = Record({
     data: {
         element: demo_el_el_dataan,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for analyses, dashboards and data models across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-DATAAN – PL4',
         name: 'EL-DATAAN – PL4',
@@ -1296,6 +1508,7 @@ export const demo_pld_el_dataan_pl5 = Record({
     data: {
         element: demo_el_el_dataan,
         proficiency_level: pl5,
+        applies_to: 'element',
         description: 'Shapes organisational strategy and practice for analyses, dashboards and data models and influences beyond HTX.',
         code: 'EL-DATAAN – PL5',
         name: 'EL-DATAAN – PL5',
@@ -1330,6 +1543,7 @@ export const demo_pld_el_cybfun_pl1 = Record({
     data: {
         element: demo_el_el_cybfun,
         proficiency_level: pl1,
+        applies_to: 'element',
         description: 'Applies standard methods to produce security controls and secure practices for well-defined tasks under guidance.',
         code: 'EL-CYBFUN – PL1',
         name: 'EL-CYBFUN – PL1',
@@ -1347,6 +1561,7 @@ export const demo_pld_el_cybfun_pl2 = Record({
     data: {
         element: demo_el_el_cybfun,
         proficiency_level: pl2,
+        applies_to: 'element',
         description: 'Independently produces and reviews security controls and secure practices for typical work and resolves common issues.',
         code: 'EL-CYBFUN – PL2',
         name: 'EL-CYBFUN – PL2',
@@ -1364,6 +1579,7 @@ export const demo_pld_el_cybfun_pl3 = Record({
     data: {
         element: demo_el_el_cybfun,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of security controls and secure practices for complex work, adapts methods to context and coaches others.',
         code: 'EL-CYBFUN – PL3',
         name: 'EL-CYBFUN – PL3',
@@ -1391,40 +1607,6 @@ export const demo_el_el_projpl = Record({
     },
 })
 
-export const demo_pld_el_projpl_pl1 = Record({
-    $id: Now.ID['demo_pld_el_projpl_pl1'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_pl_descriptor',
-    data: {
-        element: demo_el_el_projpl,
-        proficiency_level: pl1,
-        description: 'Applies standard methods to produce project plans, schedules and risk registers for well-defined tasks under guidance.',
-        code: 'EL-PROJPL – PL1',
-        name: 'EL-PROJPL – PL1',
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
-export const demo_pld_el_projpl_pl2 = Record({
-    $id: Now.ID['demo_pld_el_projpl_pl2'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_pl_descriptor',
-    data: {
-        element: demo_el_el_projpl,
-        proficiency_level: pl2,
-        description: 'Independently produces and reviews project plans, schedules and risk registers for typical work and resolves common issues.',
-        code: 'EL-PROJPL – PL2',
-        name: 'EL-PROJPL – PL2',
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
 export const demo_pld_el_projpl_pl3 = Record({
     $id: Now.ID['demo_pld_el_projpl_pl3'],
     $meta: { installMethod: 'demo' },
@@ -1432,6 +1614,7 @@ export const demo_pld_el_projpl_pl3 = Record({
     data: {
         element: demo_el_el_projpl,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of project plans, schedules and risk registers for complex work, adapts methods to context and coaches others.',
         code: 'EL-PROJPL – PL3',
         name: 'EL-PROJPL – PL3',
@@ -1449,6 +1632,7 @@ export const demo_pld_el_projpl_pl4 = Record({
     data: {
         element: demo_el_el_projpl,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for project plans, schedules and risk registers across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-PROJPL – PL4',
         name: 'EL-PROJPL – PL4',
@@ -1476,40 +1660,6 @@ export const demo_el_el_techdoc = Record({
     },
 })
 
-export const demo_pld_el_techdoc_pl1 = Record({
-    $id: Now.ID['demo_pld_el_techdoc_pl1'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_pl_descriptor',
-    data: {
-        element: demo_el_el_techdoc,
-        proficiency_level: pl1,
-        description: 'Applies standard methods to produce technical documents and specifications for well-defined tasks under guidance.',
-        code: 'EL-TECHDOC – PL1',
-        name: 'EL-TECHDOC – PL1',
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
-export const demo_pld_el_techdoc_pl2 = Record({
-    $id: Now.ID['demo_pld_el_techdoc_pl2'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_pl_descriptor',
-    data: {
-        element: demo_el_el_techdoc,
-        proficiency_level: pl2,
-        description: 'Independently produces and reviews technical documents and specifications for typical work and resolves common issues.',
-        code: 'EL-TECHDOC – PL2',
-        name: 'EL-TECHDOC – PL2',
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
 export const demo_pld_el_techdoc_pl3 = Record({
     $id: Now.ID['demo_pld_el_techdoc_pl3'],
     $meta: { installMethod: 'demo' },
@@ -1517,9 +1667,28 @@ export const demo_pld_el_techdoc_pl3 = Record({
     data: {
         element: demo_el_el_techdoc,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of technical documents and specifications for complex work, adapts methods to context and coaches others.',
         code: 'EL-TECHDOC – PL3',
         name: 'EL-TECHDOC – PL3',
+        framework_version: demo_fw_2026,
+        status: 'published',
+        effective_from: '2026-01-01',
+        active: true,
+    },
+})
+
+export const demo_pld_el_techdoc_pl4 = Record({
+    $id: Now.ID['demo_pld_el_techdoc_pl4'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_pl_descriptor',
+    data: {
+        element: demo_el_el_techdoc,
+        proficiency_level: pl4,
+        applies_to: 'element',
+        description: 'Sets standards for technical documents and specifications across teams, resolves novel problems and is consulted as an expert.',
+        code: 'EL-TECHDOC – PL4',
+        name: 'EL-TECHDOC – PL4',
         framework_version: demo_fw_2026,
         status: 'published',
         effective_from: '2026-01-01',
@@ -1544,40 +1713,6 @@ export const demo_el_el_tps = Record({
     },
 })
 
-export const demo_pld_el_tps_pl1 = Record({
-    $id: Now.ID['demo_pld_el_tps_pl1'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_pl_descriptor',
-    data: {
-        element: demo_el_el_tps,
-        proficiency_level: pl1,
-        description: 'Applies standard methods to produce root-cause analyses and solution options for well-defined tasks under guidance.',
-        code: 'EL-TPS – PL1',
-        name: 'EL-TPS – PL1',
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
-export const demo_pld_el_tps_pl2 = Record({
-    $id: Now.ID['demo_pld_el_tps_pl2'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_pl_descriptor',
-    data: {
-        element: demo_el_el_tps,
-        proficiency_level: pl2,
-        description: 'Independently produces and reviews root-cause analyses and solution options for typical work and resolves common issues.',
-        code: 'EL-TPS – PL2',
-        name: 'EL-TPS – PL2',
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
 export const demo_pld_el_tps_pl3 = Record({
     $id: Now.ID['demo_pld_el_tps_pl3'],
     $meta: { installMethod: 'demo' },
@@ -1585,6 +1720,7 @@ export const demo_pld_el_tps_pl3 = Record({
     data: {
         element: demo_el_el_tps,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of root-cause analyses and solution options for complex work, adapts methods to context and coaches others.',
         code: 'EL-TPS – PL3',
         name: 'EL-TPS – PL3',
@@ -1602,6 +1738,7 @@ export const demo_pld_el_tps_pl4 = Record({
     data: {
         element: demo_el_el_tps,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for root-cause analyses and solution options across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-TPS – PL4',
         name: 'EL-TPS – PL4',
@@ -1619,6 +1756,7 @@ export const demo_pld_el_tps_pl5 = Record({
     data: {
         element: demo_el_el_tps,
         proficiency_level: pl5,
+        applies_to: 'element',
         description: 'Shapes organisational strategy and practice for root-cause analyses and solution options and influences beyond HTX.',
         code: 'EL-TPS – PL5',
         name: 'EL-TPS – PL5',
@@ -1653,6 +1791,7 @@ export const demo_pld_el_selife_pl1 = Record({
     data: {
         element: demo_el_el_selife,
         proficiency_level: pl1,
+        applies_to: 'element',
         description: 'Applies standard methods to produce requirements, system models and V&V plans for well-defined tasks under guidance.',
         code: 'EL-SELIFE – PL1',
         name: 'EL-SELIFE – PL1',
@@ -1670,6 +1809,7 @@ export const demo_pld_el_selife_pl2 = Record({
     data: {
         element: demo_el_el_selife,
         proficiency_level: pl2,
+        applies_to: 'element',
         description: 'Independently produces and reviews requirements, system models and V&V plans for typical work and resolves common issues.',
         code: 'EL-SELIFE – PL2',
         name: 'EL-SELIFE – PL2',
@@ -1687,6 +1827,7 @@ export const demo_pld_el_selife_pl3 = Record({
     data: {
         element: demo_el_el_selife,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of requirements, system models and V&V plans for complex work, adapts methods to context and coaches others.',
         code: 'EL-SELIFE – PL3',
         name: 'EL-SELIFE – PL3',
@@ -1704,6 +1845,7 @@ export const demo_pld_el_selife_pl4 = Record({
     data: {
         element: demo_el_el_selife,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for requirements, system models and V&V plans across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-SELIFE – PL4',
         name: 'EL-SELIFE – PL4',
@@ -1731,40 +1873,6 @@ export const demo_el_el_expdes = Record({
     },
 })
 
-export const demo_pld_el_expdes_pl1 = Record({
-    $id: Now.ID['demo_pld_el_expdes_pl1'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_pl_descriptor',
-    data: {
-        element: demo_el_el_expdes,
-        proficiency_level: pl1,
-        description: 'Applies standard methods to produce experimental protocols and study designs for well-defined tasks under guidance.',
-        code: 'EL-EXPDES – PL1',
-        name: 'EL-EXPDES – PL1',
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
-export const demo_pld_el_expdes_pl2 = Record({
-    $id: Now.ID['demo_pld_el_expdes_pl2'],
-    $meta: { installMethod: 'demo' },
-    table: 'x_2317791_cms2_pl_descriptor',
-    data: {
-        element: demo_el_el_expdes,
-        proficiency_level: pl2,
-        description: 'Independently produces and reviews experimental protocols and study designs for typical work and resolves common issues.',
-        code: 'EL-EXPDES – PL2',
-        name: 'EL-EXPDES – PL2',
-        framework_version: demo_fw_2026,
-        status: 'published',
-        effective_from: '2026-01-01',
-        active: true,
-    },
-})
-
 export const demo_pld_el_expdes_pl3 = Record({
     $id: Now.ID['demo_pld_el_expdes_pl3'],
     $meta: { installMethod: 'demo' },
@@ -1772,6 +1880,7 @@ export const demo_pld_el_expdes_pl3 = Record({
     data: {
         element: demo_el_el_expdes,
         proficiency_level: pl3,
+        applies_to: 'element',
         description: 'Leads the delivery of experimental protocols and study designs for complex work, adapts methods to context and coaches others.',
         code: 'EL-EXPDES – PL3',
         name: 'EL-EXPDES – PL3',
@@ -1789,6 +1898,7 @@ export const demo_pld_el_expdes_pl4 = Record({
     data: {
         element: demo_el_el_expdes,
         proficiency_level: pl4,
+        applies_to: 'element',
         description: 'Sets standards for experimental protocols and study designs across teams, resolves novel problems and is consulted as an expert.',
         code: 'EL-EXPDES – PL4',
         name: 'EL-EXPDES – PL4',

@@ -46,10 +46,10 @@ export const LOCKED_FIELDS: { [table: string]: string[] } = {
     [T.group]: ['code', 'name', 'description', 'sequence', 'framework_version', 'effective_from', 'supersedes'],
     [T.domain]: [
         'code', 'name', 'description', 'competency_group', 'owner', 'sme', 'sequence',
-        'framework_version', 'effective_from', 'supersedes',
+        'pl_structure', 'domain_levels_to', 'framework_version', 'effective_from', 'supersedes',
     ],
     [T.element]: ['code', 'name', 'domain', 'description', 'sequence', 'framework_version', 'effective_from', 'supersedes'],
-    [T.descriptor]: ['element', 'proficiency_level', 'description', 'framework_version', 'effective_from', 'supersedes'],
+    [T.descriptor]: ['applies_to', 'domain', 'element', 'proficiency_level', 'description', 'framework_version', 'effective_from', 'supersedes'],
     [T.roleProfile]: [
         'code', 'name', 'job_title', 'job_family', 'business_function', 'description', 'owner',
         'framework_version', 'version', 'effective_from', 'supersedes',
@@ -65,7 +65,7 @@ export const VERSION_KEY: { [table: string]: string[] } = {
     [T.group]: ['code', 'framework_version'],
     [T.domain]: ['code', 'framework_version'],
     [T.element]: ['code', 'framework_version'],
-    [T.descriptor]: ['element', 'proficiency_level', 'framework_version'],
+    [T.descriptor]: ['domain', 'element', 'proficiency_level', 'framework_version'],
     [T.roleProfile]: ['code'],
 }
 

@@ -38,7 +38,8 @@ export function applyLifecycleDefaults(current: any, previous: any): void {
     const table: string = current.getRecordClassName()
     if (table === T.descriptor) {
         // code and name are calculated, e.g. "EL-APPDEV – PL3"
-        const label = `${current.element.code || ''} – ${current.proficiency_level.code || ''}`.trim()
+        const owner = current.getValue('domain') ? current.domain : current.element
+        const label = `${owner.code || ''} – ${current.proficiency_level.code || ''}`.trim()
         current.setValue('code', label)
         current.setValue('name', label)
     }
@@ -82,16 +83,20 @@ export function closePredecessors(current: any): void {
     }
 }
 
-/** After an Element is Published: publish its Draft PL descriptors in the same Framework Version. */
-export function cascadePublishDescriptors(element: any): void {
+/**
+ * After an Element or a Domain is Published: publish the Draft PL descriptors it owns
+ * (Element-level, or Domain-level for CCC-style Domains) in the same Framework Version.
+ */
+export function cascadePublishDescriptors(owner: any): void {
+    const ownerField = owner.getRecordClassName() === T.domain ? 'domain' : 'element'
     const d: any = new GlideRecord(T.descriptor)
-    d.addQuery('element', element.getUniqueValue())
-    d.addQuery('framework_version', element.getValue('framework_version'))
+    d.addQuery(ownerField, owner.getUniqueValue())
+    d.addQuery('framework_version', owner.getValue('framework_version'))
     d.addQuery('status', STATUS.draft)
     d.addQuery('active', true)
     d.query()
     while (d.next()) {
-        if (!v(d, 'effective_from')) d.setValue('effective_from', element.getValue('effective_from'))
+        if (!v(d, 'effective_from')) d.setValue('effective_from', owner.getValue('effective_from'))
         d.setValue('status', STATUS.published)
         if (!d.update()) gs.addErrorMessage(`Descriptor ${d.getDisplayValue()} could not be published.`)
     }
@@ -119,14 +124,15 @@ export function createNewVersion(current: any): string {
     const newId = cloneAsDraft(current, overrides)
     if (!newId) return ''
 
-    if (table === T.element) {
-        // carry the Element's current descriptors into the new Draft Element
+    if (table === T.element || table === T.domain) {
+        // carry the descriptors this Element / Domain owns into the new Draft version
+        const ownerField = table === T.domain ? 'domain' : 'element'
         const d: any = new GlideRecord(T.descriptor)
-        d.addQuery('element', current.getUniqueValue())
+        d.addQuery(ownerField, current.getUniqueValue())
         d.addQuery('status', '!=', STATUS.retired)
         d.addQuery('active', true)
         d.query()
-        while (d.next()) cloneAsDraft(d, { element: newId })
+        while (d.next()) cloneAsDraft(d, { [ownerField]: newId })
     }
     if (table === T.roleProfile) {
         const r: any = new GlideRecord(T.requirement)
@@ -164,7 +170,7 @@ export function createNextFrameworkVersion(src: any): string {
     if (!newFw) return ''
 
     const map: { [oldId: string]: string } = {}
-    const copyTable = (table: string, parentField: string) => {
+    const copyTable = (table: string, parentFields: string[]) => {
         const gr: any = new GlideRecord(table)
         gr.addQuery('framework_version', src.getUniqueValue())
         gr.addQuery('status', '!=', STATUS.retired)
@@ -172,19 +178,22 @@ export function createNextFrameworkVersion(src: any): string {
         gr.query()
         while (gr.next()) {
             const overrides: { [f: string]: string } = { framework_version: newFw }
-            if (parentField) {
-                const mapped = map[v(gr, parentField)]
-                if (!mapped) continue
-                overrides[parentField] = mapped
-            }
+            let orphan = false
+            parentFields.forEach((f) => {
+                if (!v(gr, f)) return // e.g. a Domain-level descriptor has no element
+                const mapped = map[v(gr, f)]
+                if (mapped) overrides[f] = mapped
+                else orphan = true
+            })
+            if (orphan) continue
             const id = cloneAsDraft(gr, overrides)
             if (id) map[gr.getUniqueValue()] = id
         }
     }
-    copyTable(T.group, '')
-    copyTable(T.domain, 'competency_group')
-    copyTable(T.element, 'domain')
-    copyTable(T.descriptor, 'element')
+    copyTable(T.group, [])
+    copyTable(T.domain, ['competency_group'])
+    copyTable(T.element, ['domain'])
+    copyTable(T.descriptor, ['domain', 'element'])
     gs.addInfoMessage(`Created Draft Framework Version with ${Object.keys(map).length} copied records.`)
     return newFw
 }

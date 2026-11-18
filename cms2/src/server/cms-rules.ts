@@ -37,7 +37,8 @@ export function versionedAfter(current: any, previous: any): void {
         (!previous || previous.getValue('status') !== STATUS.published)
     if (!becamePublished) return
     closePredecessors(current)
-    if (current.getRecordClassName() === T.element) cascadePublishDescriptors(current)
+    const cls = current.getRecordClassName()
+    if (cls === T.element || cls === T.domain) cascadePublishDescriptors(current)
 }
 
 export function levelBefore(current: any): void {

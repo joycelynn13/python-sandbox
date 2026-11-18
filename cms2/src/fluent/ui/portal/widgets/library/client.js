@@ -11,7 +11,7 @@ api.controller = function ($window) {
         return !c.filter.groupId || c.filter.groupId === g.id;
     };
     c.domainShown = function (d) {
-        return !c.hideEmpty || d.elements.length > 0;
+        return !c.hideEmpty || d.elements.length > 0 || (d.levels && d.levels.length > 0);
     };
     c.shownDomainCount = function () {
         var n = 0;
@@ -60,10 +60,17 @@ api.controller = function ($window) {
         if (c.siblingId && c.siblingId !== c.data.dom.domain.id)
             $window.location.href = '?id=x_2317791_cms2_library&domain=' + c.siblingId;
     };
-    c.range = function (e) {
-        if (!e.levels.length) return 'No levels yet';
-        var a = e.levels[0].code, b = e.levels[e.levels.length - 1].code;
+    c.rangeOf = function (levels) {
+        if (!levels || !levels.length) return 'No levels yet';
+        var a = levels[0].code, b = levels[levels.length - 1].code;
         return a === b ? a : a + '–' + b;
+    };
+    c.range = function (e) {
+        return c.rangeOf(e.levels);
+    };
+    c.hasDomainLevels = function (e) {
+        for (var i = 0; i < e.levels.length; i++) if (e.levels[i].scope === 'domain') return true;
+        return false;
     };
     c.isTarget = function (e, l) {
         return e.myTarget && e.myTarget.code === l.code;

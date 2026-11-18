@@ -1297,10 +1297,208 @@ export const atf_t12_listing_published_effective = Test(
     }
 )
 
+export const atf_t13_ccc_domain_levels = Test(
+    { $id: Now.ID['t13_ccc_domain_levels'], name: 'CMS2 T13 – CCC Domains describe lower levels at Domain level', description: 'A Domain with mixed structure owns PL1-PL2 descriptors; its Elements own PL3+; the Element shows all levels and can be targeted at PL2.', active: true, failOnServerError: false },
+    (atf) => {
+        atf.server.createUser({ $id: Now.ID['t13_ccc_domain_levels_user1'], firstName: 'ATF', lastName: 'cmsAdmin 1', roles: [cmsAdmin] })
+        atf.server.runServerSideScript({
+            $id: Now.ID['t13_ccc_domain_levels_fixture'],
+            script: `
+            (function (outputs, steps, params, stepResult, assertEqual) {
+                var P = 'x_2317791_cms2_';
+                var fails = [];
+                function check(ok, msg) { if (!ok) fails.push(msg); }
+                function today() { return new GlideDateTime().getLocalDate().getValue(); }
+                function plusDays(n) { var g = new GlideDateTime(); g.addDaysLocalTime(n); return g.getLocalDate().getValue(); }
+                function lvl(n) { var g = new GlideRecord(P + 'prof_level'); g.addQuery('level', n); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function byCode(t, code) { var g = new GlideRecord(P + t); g.addQuery('code', code); g.orderByDesc('sys_created_on'); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function ins(t, vals) {
+                    var g = new GlideRecordSecure(P + t); g.initialize();
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return g.insert() || '';
+                }
+                function upd(t, id, vals) {
+                    var g = new GlideRecordSecure(P + t);
+                    if (!g.get(id)) return false;
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return !!g.update();
+                }
+                function finish() {
+                    stepResult.setOutputMessage(fails.length ? 'FAILED: ' + fails.join(' | ') : 'All checks passed');
+                    return fails.length === 0;
+                }
+
+                // ---- fixture (runs as a CMS Administrator test user) ----
+                var t0 = today();
+                var fw = ins('fw_version', { name: 'ATF Framework', version_number: 'ATF-' + gs.generateGUID().substring(0, 8), status: 'draft' });
+                check(!!fw, 'fixture: framework version insert');
+                check(upd('fw_version', fw, { status: 'published', effective_from: t0 }), 'fixture: publish framework version');
+                var base = { framework_version: fw, status: 'published', effective_from: t0, active: true };
+                function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
+                var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
+                var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
+                for (var i = 1; i <= 5; i++) {
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                }
+                var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
+
+                // ---- CCC-style Domain: PL1-PL2 at Domain level, PL3+ per Element ----
+                var t1 = today();
+                var grpId = byCode('comp_group', 'ATF-GRP');
+                var ccc = ins('domain', { code: 'ATF-CCC', name: 'ATF CCC Domain', competency_group: grpId, framework_version: fw,
+                    pl_structure: 'mixed', domain_levels_to: lvl(2), status: 'published', effective_from: t1 });
+                check(!!ccc, 'fixture: mixed Domain');
+                check(!!ins('pl_descriptor', { domain: ccc, proficiency_level: lvl(1), description: 'ATF CCC domain PL1', framework_version: fw, status: 'published', effective_from: t1 }), 'fixture: Domain PL1');
+                check(!!ins('pl_descriptor', { domain: ccc, proficiency_level: lvl(2), description: 'ATF CCC domain PL2', framework_version: fw, status: 'published', effective_from: t1 }), 'fixture: Domain PL2');
+                var cccEl = ins('element', { code: 'ATF-CCC-EL', name: 'ATF CCC Element', domain: ccc, framework_version: fw, status: 'published', effective_from: t1 });
+                check(!!ins('pl_descriptor', { element: cccEl, proficiency_level: lvl(3), description: 'ATF CCC element PL3', framework_version: fw, status: 'published', effective_from: t1 }), 'fixture: Element PL3');
+
+                return finish();
+            })(outputs, steps, params, stepResult, assertEqual);
+            `,
+        })
+        atf.server.createUser({ $id: Now.ID['t13_ccc_domain_levels_user2'], firstName: 'ATF', lastName: 'cmsContentAdmin 2', roles: [cmsContentAdmin] })
+        atf.server.runServerSideScript({
+            $id: Now.ID['t13_ccc_domain_levels_rules'],
+            script: `
+            (function (outputs, steps, params, stepResult, assertEqual) {
+                var P = 'x_2317791_cms2_';
+                var fails = [];
+                function check(ok, msg) { if (!ok) fails.push(msg); }
+                function today() { return new GlideDateTime().getLocalDate().getValue(); }
+                function plusDays(n) { var g = new GlideDateTime(); g.addDaysLocalTime(n); return g.getLocalDate().getValue(); }
+                function lvl(n) { var g = new GlideRecord(P + 'prof_level'); g.addQuery('level', n); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function byCode(t, code) { var g = new GlideRecord(P + t); g.addQuery('code', code); g.orderByDesc('sys_created_on'); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function ins(t, vals) {
+                    var g = new GlideRecordSecure(P + t); g.initialize();
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return g.insert() || '';
+                }
+                function upd(t, id, vals) {
+                    var g = new GlideRecordSecure(P + t);
+                    if (!g.get(id)) return false;
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return !!g.update();
+                }
+                function finish() {
+                    stepResult.setOutputMessage(fails.length ? 'FAILED: ' + fails.join(' | ') : 'All checks passed');
+                    return fails.length === 0;
+                }
+
+                var fw = (function () { var g = new GlideRecord(P + 'fw_version'); g.addQuery('version_number', 'STARTSWITH', 'ATF-'); g.orderByDesc('sys_created_on'); g.query(); return g.next() ? g.getUniqueValue() : ''; })();
+                var el4 = byCode('element', 'ATF-EL'), el5 = byCode('element', 'ATF-EL5'), elDraft = byCode('element', 'ATF-EL-D'), dom = byCode('domain', 'ATF-DOM');
+                check(fw && el4 && el5 && elDraft && dom, 'fixture records found');
+
+                var ccc = byCode('domain', 'ATF-CCC'), cccEl = byCode('element', 'ATF-CCC-EL');
+                check(!ins('pl_descriptor', { element: cccEl, proficiency_level: lvl(1), description: 'x', framework_version: fw, status: 'draft' }), 'Element-level PL1 rejected in a mixed Domain');
+                check(!ins('pl_descriptor', { domain: ccc, proficiency_level: lvl(3), description: 'x', framework_version: fw, status: 'draft' }), 'Domain-level PL3 rejected above Domain Levels Up To');
+                check(!ins('pl_descriptor', { domain: dom, proficiency_level: lvl(1), description: 'x', framework_version: fw, status: 'draft' }), 'Domain-level descriptor rejected on an Element-only Domain');
+                check(!ins('pl_descriptor', { domain: ccc, element: cccEl, proficiency_level: lvl(4), description: 'x', framework_version: fw, status: 'draft' }), 'descriptor with both Domain and Element rejected');
+                var ok = ins('pl_descriptor', { element: cccEl, proficiency_level: lvl(4), description: 'ATF CCC element PL4', framework_version: fw, status: 'draft' });
+                check(!!ok, 'Element-level PL4 accepted in a mixed Domain');
+                var g = new GlideRecord(P + 'pl_descriptor'); g.get(ok);
+                check(g.getValue('applies_to') === 'element' && g.getValue('name') === 'ATF-CCC-EL – PL4', 'applies_to and name calculated (got ' + g.getValue('applies_to') + ' / ' + g.getValue('name') + ')');
+
+                return finish();
+            })(outputs, steps, params, stepResult, assertEqual);
+            `,
+        })
+        atf.server.createUser({ $id: Now.ID['t13_ccc_domain_levels_user3'], firstName: 'ATF', lastName: 'cmsRoleProfileAdmin 3', roles: [cmsRoleProfileAdmin] })
+        atf.server.runServerSideScript({
+            $id: Now.ID['t13_ccc_domain_levels_target'],
+            script: `
+            (function (outputs, steps, params, stepResult, assertEqual) {
+                var P = 'x_2317791_cms2_';
+                var fails = [];
+                function check(ok, msg) { if (!ok) fails.push(msg); }
+                function today() { return new GlideDateTime().getLocalDate().getValue(); }
+                function plusDays(n) { var g = new GlideDateTime(); g.addDaysLocalTime(n); return g.getLocalDate().getValue(); }
+                function lvl(n) { var g = new GlideRecord(P + 'prof_level'); g.addQuery('level', n); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function byCode(t, code) { var g = new GlideRecord(P + t); g.addQuery('code', code); g.orderByDesc('sys_created_on'); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function ins(t, vals) {
+                    var g = new GlideRecordSecure(P + t); g.initialize();
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return g.insert() || '';
+                }
+                function upd(t, id, vals) {
+                    var g = new GlideRecordSecure(P + t);
+                    if (!g.get(id)) return false;
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return !!g.update();
+                }
+                function finish() {
+                    stepResult.setOutputMessage(fails.length ? 'FAILED: ' + fails.join(' | ') : 'All checks passed');
+                    return fails.length === 0;
+                }
+
+                var fw = (function () { var g = new GlideRecord(P + 'fw_version'); g.addQuery('version_number', 'STARTSWITH', 'ATF-'); g.orderByDesc('sys_created_on'); g.query(); return g.next() ? g.getUniqueValue() : ''; })();
+                var el4 = byCode('element', 'ATF-EL'), el5 = byCode('element', 'ATF-EL5'), elDraft = byCode('element', 'ATF-EL-D'), dom = byCode('domain', 'ATF-DOM');
+                check(fw && el4 && el5 && elDraft && dom, 'fixture records found');
+
+                var cccEl = byCode('element', 'ATF-CCC-EL');
+                var rp = ins('role_profile', { code: 'RP-ATF-CCC', name: 'ATF RP CCC', business_function: 'xDigital', framework_version: fw });
+                check(!!ins('requirement', { role_profile: rp, element: cccEl, requirement_type: 'essential', target_level: lvl(2) }), 'Target PL2 accepted via the Domain-level descriptor');
+                check(upd('role_profile', rp, { status: 'published', effective_from: today() }), 'Role Profile with a Domain-level target publishes');
+
+                return finish();
+            })(outputs, steps, params, stepResult, assertEqual);
+            `,
+        })
+        atf.server.createUser({ $id: Now.ID['t13_ccc_domain_levels_user4'], firstName: 'ATF', lastName: 'cmsUser 4', roles: [cmsUser] })
+        atf.server.runServerSideScript({
+            $id: Now.ID['t13_ccc_domain_levels_display'],
+            script: `
+            (function (outputs, steps, params, stepResult, assertEqual) {
+                var P = 'x_2317791_cms2_';
+                var fails = [];
+                function check(ok, msg) { if (!ok) fails.push(msg); }
+                function today() { return new GlideDateTime().getLocalDate().getValue(); }
+                function plusDays(n) { var g = new GlideDateTime(); g.addDaysLocalTime(n); return g.getLocalDate().getValue(); }
+                function lvl(n) { var g = new GlideRecord(P + 'prof_level'); g.addQuery('level', n); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function byCode(t, code) { var g = new GlideRecord(P + t); g.addQuery('code', code); g.orderByDesc('sys_created_on'); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function ins(t, vals) {
+                    var g = new GlideRecordSecure(P + t); g.initialize();
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return g.insert() || '';
+                }
+                function upd(t, id, vals) {
+                    var g = new GlideRecordSecure(P + t);
+                    if (!g.get(id)) return false;
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return !!g.update();
+                }
+                function finish() {
+                    stepResult.setOutputMessage(fails.length ? 'FAILED: ' + fails.join(' | ') : 'All checks passed');
+                    return fails.length === 0;
+                }
+
+                var fw = (function () { var g = new GlideRecord(P + 'fw_version'); g.addQuery('version_number', 'STARTSWITH', 'ATF-'); g.orderByDesc('sys_created_on'); g.query(); return g.next() ? g.getUniqueValue() : ''; })();
+                var el4 = byCode('element', 'ATF-EL'), el5 = byCode('element', 'ATF-EL5'), elDraft = byCode('element', 'ATF-EL-D'), dom = byCode('domain', 'ATF-DOM');
+                check(fw && el4 && el5 && elDraft && dom, 'fixture records found');
+
+                var api = new x_2317791_cms2.CmsCatalogApi();
+                var d = api.getElement(byCode('element', 'ATF-CCC-EL')), parts = [];
+                for (var i = 0; i < d.levels.length; i++) parts.push(d.levels[i].code + ':' + d.levels[i].scope);
+                check(parts.join(',') === 'PL1:domain,PL2:domain,PL3:element', 'Element shows inherited Domain levels then its own (got ' + parts.join(',') + ')');
+                var dm = api.getDomain(byCode('domain', 'ATF-CCC'));
+                check(dm.domain.levels.length === 2, 'Domain page lists 2 Domain-level descriptors');
+
+                return finish();
+            })(outputs, steps, params, stepResult, assertEqual);
+            `,
+        })
+    }
+)
+
 TestSuite({
     $id: Now.ID['cms2_atf_suite'],
     name: 'CMS 2.0 – Role Profile and Competency Library',
     description: 'Security, versioning and employee-visibility tests for CMS 2.0.',
     active: true,
-    tests: [atf_t01_user_reads_published, atf_t02_user_cannot_edit, atf_t03_content_admin_drafts, atf_t04_rp_admin_creates_draft, atf_t05_rp_admin_adds_requirements, atf_t06_target_pl_element_level, atf_t07_no_empty_pl5, atf_t08_published_rp_no_draft_refs, atf_t09_employee_no_admin_modules, atf_t10_history_preserved, atf_t11_duplicate_descriptor, atf_t12_listing_published_effective],
+    tests: [atf_t01_user_reads_published, atf_t02_user_cannot_edit, atf_t03_content_admin_drafts, atf_t04_rp_admin_creates_draft, atf_t05_rp_admin_adds_requirements, atf_t06_target_pl_element_level, atf_t07_no_empty_pl5, atf_t08_published_rp_no_draft_refs, atf_t09_employee_no_admin_modules, atf_t10_history_preserved, atf_t11_duplicate_descriptor, atf_t12_listing_published_effective, atf_t13_ccc_domain_levels],
 })

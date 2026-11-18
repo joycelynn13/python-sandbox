@@ -62,6 +62,10 @@ export function lifecycleErrors(current: any, previous: any): string[] {
     if (retiring && table === T.element) {
         errors.push(...elementInUseErrors(current.getUniqueValue()))
     }
+    if (table === T.descriptor) errors.push(...descriptorStructureErrors(current))
+    if (table === T.domain && v(current, 'pl_structure') === 'mixed' && !v(current, 'domain_levels_to')) {
+        errors.push('Set "Domain Levels Up To" when the Domain describes lower levels at Domain level.')
+    }
     if (table === T.descriptor && status === STATUS.draft && isTrue(current.getValue('active'))) {
         errors.push(...draftDescriptorDuplicateErrors(current))
     }
@@ -90,7 +94,7 @@ function publishGateErrors(current: any, table: string): string[] {
     const parentRule: { [t: string]: [string, string] } = {
         [T.domain]: ['competency_group', 'Competency Group'],
         [T.element]: ['domain', 'Domain'],
-        [T.descriptor]: ['element', 'Element'],
+        [T.descriptor]: current.getValue('domain') ? ['domain', 'Domain'] : ['element', 'Element'],
     }
     const rule = parentRule[table]
     if (rule) {
@@ -120,7 +124,7 @@ function overlapErrors(current: any, table: string): string[] {
     gr.addQuery('status', STATUS.published)
     gr.addQuery('active', true)
     gr.addQuery('sys_id', '!=', current.getUniqueValue())
-    key.forEach((f) => gr.addQuery(f, current.getValue(f)))
+    key.forEach((f) => (current.getValue(f) ? gr.addQuery(f, current.getValue(f)) : gr.addNullQuery(f)))
     gr.query()
 
     const clashes: string[] = []
@@ -142,7 +146,7 @@ function overlapErrors(current: any, table: string): string[] {
 
 function draftDescriptorDuplicateErrors(current: any): string[] {
     const gr: any = new GlideRecord(T.descriptor)
-    gr.addQuery('element', current.getValue('element'))
+    ;['element', 'domain'].forEach((f) => (current.getValue(f) ? gr.addQuery(f, current.getValue(f)) : gr.addNullQuery(f)))
     gr.addQuery('proficiency_level', current.getValue('proficiency_level'))
     gr.addQuery('framework_version', current.getValue('framework_version'))
     gr.addQuery('status', STATUS.draft)
@@ -151,8 +155,42 @@ function draftDescriptorDuplicateErrors(current: any): string[] {
     gr.setLimit(1)
     gr.query()
     return gr.hasNext()
-        ? ['An active Draft descriptor already exists for this Element, PL and Framework Version.']
+        ? ['An active Draft descriptor already exists for this Element or Domain, PL and Framework Version.']
         : []
+}
+
+/**
+ * A PL descriptor belongs to exactly one Domain or one Element, and its level must fit the
+ * Domain's Proficiency Structure:
+ *   element – descriptors only on Elements (Specialised Competencies)
+ *   mixed   – PLs up to "Domain Levels Up To" on the Domain, higher PLs on its Elements (CCCs)
+ */
+function descriptorStructureErrors(current: any): string[] {
+    const errors: string[] = []
+    const hasDomain = !!current.getValue('domain')
+    const hasElement = !!current.getValue('element')
+    if (hasDomain === hasElement) {
+        return ['A PL Descriptor must belong to either a Domain or an Element (exactly one).']
+    }
+    const expected = hasDomain ? 'domain' : 'element'
+    if (v(current, 'applies_to') !== expected) current.setValue('applies_to', expected)
+
+    const domain = hasDomain ? current.domain : current.element.domain
+    const structure = String(domain.pl_structure || 'element')
+    const level = parseInt(String(current.proficiency_level.level || '0'), 10)
+    const upTo = parseInt(String(domain.domain_levels_to.level || '0'), 10)
+    const pl = current.getDisplayValue('proficiency_level')
+    const upToLabel = domain.domain_levels_to.getDisplayValue ? domain.domain_levels_to.getDisplayValue() : ''
+    if (hasDomain) {
+        if (structure !== 'mixed') {
+            errors.push(`Domain "${domain.getDisplayValue()}" describes every level per Element, so it cannot have Domain-level descriptors.`)
+        } else if (level > upTo) {
+            errors.push(`${pl} is above "Domain Levels Up To" (${upToLabel}); describe it on the Domain's Elements instead.`)
+        }
+    } else if (structure === 'mixed' && level <= upTo) {
+        errors.push(`${pl} is described once for Domain "${domain.getDisplayValue()}" (up to ${upToLabel}); Element descriptors start above that level.`)
+    }
+    return errors
 }
 
 /** An Element referenced by a currently effective Published Role Profile cannot be retired. */
@@ -214,13 +252,16 @@ export function requirementDeleteErrors(current: any): string[] {
         : []
 }
 
-/** Proficiency levels with a non-retired, active descriptor for the Element. */
+/** Proficiency levels with a non-retired, active descriptor for the Element, its own or its Domain's. */
 function definedLevels(elementId: string): { ids: string[]; labels: string[] } {
     const ids: string[] = []
     const labels: string[] = []
     if (!elementId) return { ids, labels }
+    const el: any = new GlideRecord(T.element)
+    const domainId = el.get(elementId) ? v(el, 'domain') : ''
     const gr: any = new GlideRecord(T.descriptor)
-    gr.addQuery('element', elementId)
+    const q = gr.addQuery('element', elementId)
+    if (domainId) q.addOrCondition('domain', domainId) // levels inherited from a CCC-style Domain
     gr.addQuery('status', '!=', STATUS.retired)
     gr.addQuery('active', true)
     gr.orderBy('proficiency_level.level')
@@ -248,6 +289,7 @@ export function roleProfileIssues(roleProfileId: string, frameworkVersionId: str
     const errors: string[] = []
     const counts = { essential: 0, complementary: 0, total: 0 }
     const needed: { element: string; level: string; label: string }[] = []
+    const domainOf: { [elementId: string]: string } = {}
 
     const req: any = new GlideRecord(T.requirement)
     req.addQuery('role_profile', roleProfileId)
@@ -268,6 +310,7 @@ export function roleProfileIssues(roleProfileId: string, frameworkVersionId: str
         const seen: { [id: string]: boolean } = {}
         while (el.next()) {
             seen[el.getUniqueValue()] = true
+            domainOf[el.getUniqueValue()] = v(el, 'domain')
             const name = el.getDisplayValue()
             if (v(el, 'status') !== STATUS.published || !isTrue(v(el, 'active'))) {
                 errors.push(`Element "${name}" is ${el.getDisplayValue('status')}; only Published Elements can be referenced.`)
@@ -283,13 +326,14 @@ export function roleProfileIssues(roleProfileId: string, frameworkVersionId: str
     if (needed.length) {
         const published: { [k: string]: boolean } = {}
         const d: any = new GlideRecord(T.descriptor)
-        d.addQuery('element', 'IN', needed.map((n) => n.element).join(','))
+        const q = d.addQuery('element', 'IN', needed.map((n) => n.element).join(','))
+        q.addOrCondition('domain', 'IN', Object.keys(domainOf).map((k) => domainOf[k]).join(','))
         d.addQuery('status', STATUS.published)
         d.addQuery('active', true)
         d.query()
-        while (d.next()) published[v(d, 'element') + '|' + v(d, 'proficiency_level')] = true
+        while (d.next()) published[(v(d, 'element') || v(d, 'domain')) + '|' + v(d, 'proficiency_level')] = true
         needed
-            .filter((n) => !published[n.element + '|' + n.level])
+            .filter((n) => !published[n.element + '|' + n.level] && !published[domainOf[n.element] + '|' + n.level])
             .forEach((n) => errors.push(`Element "${n.label}" has no Published descriptor for its Target PL.`))
     }
 

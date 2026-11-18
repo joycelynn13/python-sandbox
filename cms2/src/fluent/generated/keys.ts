@@ -822,6 +822,38 @@ declare global {
                         table: 'x_2317791_cms2_comp_group'
                         id: '10ae10211241443d937ad976c47c911b'
                     }
+                    demo_pld_ccc_pm_pl1: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'c20349439166494ab031348a882922ec'
+                    }
+                    demo_pld_ccc_pm_pl2: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '681b232794ed445eb827b7818ceca27c'
+                    }
+                    demo_pld_ccc_pmhd_pl1: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '41d453342db94db29d211f5c1340b089'
+                    }
+                    demo_pld_ccc_pmhd_pl2: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '06f8bffb64a34ee9b508a44a4b9944e8'
+                    }
+                    demo_pld_ccc_rtm_pl1: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'd2ce3070a5214e06818cb24dab4e7409'
+                    }
+                    demo_pld_ccc_rtm_pl2: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '9b18abed7960436a9f24dbe6f50445c7'
+                    }
+                    demo_pld_ccc_sm_pl1: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '23369d8b6fab406a880009ab46fc8f99'
+                    }
+                    demo_pld_ccc_sm_pl2: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '25f55eaad32044a8b00dc73ef62d23e3'
+                    }
                     demo_pld_el_appdev_pl1: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: 'a65b09ca7d164832836381d48a39c44c'
@@ -877,10 +909,12 @@ declare global {
                     demo_pld_el_expdes_pl1: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '3e77356efdeb40a5ba0f2d0425de9707'
+                        deleted: true
                     }
                     demo_pld_el_expdes_pl2: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '75d95c83a662445db75fee64aaab60be'
+                        deleted: true
                     }
                     demo_pld_el_expdes_pl3: {
                         table: 'x_2317791_cms2_pl_descriptor'
@@ -893,10 +927,12 @@ declare global {
                     demo_pld_el_projpl_pl1: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '0767be1621524484b4817ff58afa532f'
+                        deleted: true
                     }
                     demo_pld_el_projpl_pl2: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '433e2bf1f82a45cebceb7283ad456ab4'
+                        deleted: true
                     }
                     demo_pld_el_projpl_pl3: {
                         table: 'x_2317791_cms2_pl_descriptor'
@@ -981,14 +1017,20 @@ declare global {
                     demo_pld_el_techdoc_pl1: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '4d9393faa4e8480d8edebd1c7b5a69fa'
+                        deleted: true
                     }
                     demo_pld_el_techdoc_pl2: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '189871800981428da713c9d7cb4a9880'
+                        deleted: true
                     }
                     demo_pld_el_techdoc_pl3: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: 'fd19034d33b54a0fbfd1f818e1913283'
+                    }
+                    demo_pld_el_techdoc_pl4: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '2d5e02fa91014670879aa61af0c97846'
                     }
                     demo_pld_el_testq_pl1: {
                         table: 'x_2317791_cms2_pl_descriptor'
@@ -1009,10 +1051,12 @@ declare global {
                     demo_pld_el_tps_pl1: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '66ac6b86b9a24158be4bde6ccbf00df0'
+                        deleted: true
                     }
                     demo_pld_el_tps_pl2: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '12db8917aa3e4b2ba3acfbc896f80ca5'
+                        deleted: true
                     }
                     demo_pld_el_tps_pl3: {
                         table: 'x_2317791_cms2_pl_descriptor'
@@ -1812,6 +1856,42 @@ declare global {
                         table: 'sys_atf_step'
                         id: 'baf9ea2b991e4819a85b60107f242533'
                     }
+                    t13_ccc_domain_levels: {
+                        table: 'sys_atf_test'
+                        id: '6361fbd877bd43bbafa189eb872416f3'
+                    }
+                    t13_ccc_domain_levels_display: {
+                        table: 'sys_atf_step'
+                        id: '2ad159e46d7d4998831e62a26645ce0c'
+                    }
+                    t13_ccc_domain_levels_fixture: {
+                        table: 'sys_atf_step'
+                        id: 'ecb1f66dadf342d6ad5f2b7f827d00e4'
+                    }
+                    t13_ccc_domain_levels_rules: {
+                        table: 'sys_atf_step'
+                        id: '36f55babfbd545e79ce3730964a2c690'
+                    }
+                    t13_ccc_domain_levels_target: {
+                        table: 'sys_atf_step'
+                        id: '7086253e34f74d8db57276ca535f6fdf'
+                    }
+                    t13_ccc_domain_levels_user1: {
+                        table: 'sys_atf_step'
+                        id: '6da39f6ebb0f40bc8ce4e3e1c96102d7'
+                    }
+                    t13_ccc_domain_levels_user2: {
+                        table: 'sys_atf_step'
+                        id: '3d71708efe73400db935cff7c0112167'
+                    }
+                    t13_ccc_domain_levels_user3: {
+                        table: 'sys_atf_step'
+                        id: 'c13cfa3df22346feb754d3fefa7e0b8a'
+                    }
+                    t13_ccc_domain_levels_user4: {
+                        table: 'sys_atf_step'
+                        id: '2185790ed6dd467d9b286e1d15811cfe'
+                    }
                     ua_dom_new_version: {
                         table: 'sys_ui_action'
                         id: '714d8d88bc6d4cac8794a396b7eb9a4b'
@@ -2066,6 +2146,14 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: '046adb2ba82549d8afb8bae53bf1cce3'
+                        key: {
+                            document_key: '7086253e34f74d8db57276ca535f6fdf'
+                            variable: '42f2564b73031300440211d8faf6a777'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: '04c8981edf0743eb9e338b98c977a7d1'
                         key: {
                             document_key: '8e836565840a421989f463309e0d2616'
@@ -2136,6 +2224,22 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '06ac6d7310d448fea156b95deb59cf70'
+                        key: {
+                            document_key: '2185790ed6dd467d9b286e1d15811cfe'
+                            variable: '1778a7480f20101091d0f00c97767e03'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '06e9c8d3c9be460ca929413b1af8b054'
+                        key: {
+                            document_key: '2185790ed6dd467d9b286e1d15811cfe'
+                            variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: '074aac943f904efc9ccbb8a7363a07af'
                         key: {
@@ -2152,6 +2256,15 @@ declare global {
                         key: {
                             document_key: '18d7a84a87cd4ac6aa5052e5865b1241'
                             variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '07677b57c7724f93a3de4e7773d7819b'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'domain_levels_to'
+                            language: 'en'
                         }
                     },
                     {
@@ -2313,6 +2426,14 @@ declare global {
                         key: {
                             document_key: '8eaf536baf834370aeef42625dec868c'
                             variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '0b31ae6737bc4d70ae1b3c0f05c0432a'
+                        key: {
+                            document_key: '3d71708efe73400db935cff7c0112167'
+                            variable: '98c44875ffa033008d3f5d9ad53bf1fa'
                         }
                     },
                     {
@@ -2488,6 +2609,14 @@ declare global {
                         key: {
                             document_key: 'baf9ea2b991e4819a85b60107f242533'
                             variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '10507dc0eb2148b7a26c354a8274f881'
+                        key: {
+                            document_key: '6da39f6ebb0f40bc8ce4e3e1c96102d7'
+                            variable: '1778a7480f20101091d0f00c97767e03'
                         }
                     },
                     {
@@ -2762,6 +2891,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '1688e69f80eb4027836ed53760913dff'
+                        key: {
+                            document_key: 'c13cfa3df22346feb754d3fefa7e0b8a'
+                            variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: '16a6ffd7f8b44617a188d7881f0b82ab'
                         deleted: false
@@ -2879,12 +3016,42 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '188ec35a516e4ef894aec044f9cbc02a'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'domain'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '18ca14388d3143b983c86a3eb1202100'
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'name'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '1985962a636f4b31a096a933a795be55'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.begin_split'
+                            position: '0'
                         }
                     },
                     {
@@ -2898,6 +3065,7 @@ declare global {
                     {
                         table: 'sys_ui_form_section'
                         id: '19e6bf2bd15a427fba87ce9e227a2521'
+                        deleted: true
                         key: {
                             sys_ui_form: {
                                 id: '860450d262f94420bb5c7052f32ad63c'
@@ -3008,6 +3176,14 @@ declare global {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'active'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: '1cdc4415cd824a25897dd3954d1ef05e'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'applies_to'
                         }
                     },
                     {
@@ -3335,12 +3511,82 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_section'
+                        id: '237528b275534f498b834886ddd43074'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            caption: 'Domain-level PL Descriptors'
+                            view: {
+                                id: 'Default view'
+                                key: {
+                                    name: 'NULL'
+                                }
+                            }
+                            sys_domain: 'global'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '237949d6344f400cbee9a9408b56d910'
                         deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'description'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '2384f60931194cd2b890bbe1d15c454b'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0fd06369c4a4ccdbe373ffca05da610'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    caption: 'Domain'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'status'
+                            position: '10'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_form_section'
+                        id: '23a31e89a1ea420cbee52bc43a3504df'
+                        key: {
+                            sys_ui_form: {
+                                id: '860450d262f94420bb5c7052f32ad63c'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
                         }
                     },
                     {
@@ -3446,6 +3692,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '24eb3f13b00a49a9a18e78e11cee57f7'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0fd06369c4a4ccdbe373ffca05da610'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    caption: 'Domain'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'pl_structure'
+                            position: '8'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '24eda6d419c64f0ea2817b3ba43b9f58'
                         key: {
@@ -3526,6 +3794,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '26a4c3fe691e41b5bbb81ac87f521f41'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -3574,6 +3843,36 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'supersedes'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '27276028e8a346c6893711f7873d3369'
+                        key: {
+                            document_key: '6da39f6ebb0f40bc8ce4e3e1c96102d7'
+                            variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '27575c729fee426a8ac03d2fcab097bd'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.end_split'
+                            position: '8'
                         }
                     },
                     {
@@ -3639,6 +3938,14 @@ declare global {
                         key: {
                             document_key: '01aa2478b65440a9bc14ab73e66ae68a'
                             variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '2a4570d6f16145dbbfbfdd706df6af5b'
+                        key: {
+                            document_key: '2ad159e46d7d4998831e62a26645ce0c'
+                            variable: '42f2564b73031300440211d8faf6a777'
                         }
                     },
                     {
@@ -3721,6 +4028,28 @@ declare global {
                         key: {
                             document_key: 'a193cc3371fa4dbaa9024b292250d085'
                             variable: '1778a7480f20101091d0f00c97767e03'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '2daff06ae3644e1791040b0e42a7e6c5'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0fd06369c4a4ccdbe373ffca05da610'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    caption: 'Domain'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'description'
+                            position: '13'
                         }
                     },
                     {
@@ -3845,6 +4174,39 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_form_section'
+                        id: '30b1f8e14ba941a69bd808e916c56cfc'
+                        key: {
+                            sys_ui_form: {
+                                id: '8db4183401234b109294a2fefb25559a'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            sys_ui_section: {
+                                id: '237528b275534f498b834886ddd43074'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    caption: 'Domain-level PL Descriptors'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '30c4fa362c33439b8b0ead6102cc7096'
                         key: {
@@ -3964,6 +4326,15 @@ declare global {
                             }
                             element: '12M.x_2317791_cms2_role_profile.x_2317791_cms2_requirement.role_profile'
                             position: '0'
+                        }
+                    },
+                    {
+                        table: 'sys_element_mapping'
+                        id: '335939eb823046c48d962189e5f5784f'
+                        key: {
+                            id: '2ad159e46d7d4998831e62a26645ce0c'
+                            table: 'var__m_atf_input_variable_41de4a935332120028bc29cac2dc349a'
+                            field: 'script'
                         }
                     },
                     {
@@ -4223,6 +4594,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '3616b3dabaec469aaa0cb0fb49aeb9e2'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0fd06369c4a4ccdbe373ffca05da610'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    caption: 'Domain'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'active'
+                            position: '11'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '374d1149d54f46fca822e38658848785'
                         deleted: true
@@ -4234,6 +4627,14 @@ declare global {
                                     name: 'x_2317791_cms2.content_admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '38069d97e4634c05acdae00c2a3dc810'
+                        key: {
+                            document_key: '7086253e34f74d8db57276ca535f6fdf'
+                            variable: '989d9e235324220002c6435723dc3484'
                         }
                     },
                     {
@@ -4885,6 +5286,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '4899b397027f4836af12e53b0a141568'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'status'
+                            position: '6'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '48c10f64c9424cd9bd9239f4d8e57b88'
                         deleted: true
@@ -5132,6 +5555,17 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '4cfa93cdedbb4e5ba1486db3cf0c327e'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'pl_structure'
+                            value: 'mixed'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '4d59c999c25d45f28d588e1035d8947f'
                         key: {
@@ -5190,6 +5624,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '4e13b62eed74456da7dbc53e5422e653'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -5215,6 +5650,14 @@ declare global {
                         key: {
                             document_key: 'e6dd54e24bb8497abe2e3f1a16dfdd7e'
                             variable: '989d9e235324220002c6435723dc3484'
+                        }
+                    },
+                    {
+                        table: 'sys_atf_test_suite_test'
+                        id: '4e24b141422845de9b32e878d83143a7'
+                        key: {
+                            test_suite: 'c202c8d9f4e046218281cb269e60c619'
+                            test: '6361fbd877bd43bbafa189eb872416f3'
                         }
                     },
                     {
@@ -5458,6 +5901,25 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '51e9cf0d9a95428ca8f63c26867c9393'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'applies_to'
+                            value: 'domain'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '5349363ee7fc47b4889817caed3ebdbe'
+                        key: {
+                            document_key: 'c13cfa3df22346feb754d3fefa7e0b8a'
+                            variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
                         table: 'sys_element_mapping'
                         id: '53a54b36c4c4474e9307cf8cd164bbce'
                         key: {
@@ -5580,6 +6042,14 @@ declare global {
                         key: {
                             document_key: '44b5129dfff44d8bad3a2c855ec75669'
                             variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '57884aba0b9f4383af1c7575ab05827c'
+                        key: {
+                            document_key: '3d71708efe73400db935cff7c0112167'
+                            variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
                         }
                     },
                     {
@@ -5857,6 +6327,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '613877951df9446d815fe45c35871b22'
+                        key: {
+                            document_key: '2185790ed6dd467d9b286e1d15811cfe'
+                            variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '61d809b0b74c48f2b4583ca91076f609'
                         key: {
@@ -5957,6 +6435,14 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: '6392a0c2ce8f464896baf05a58dd54ce'
+                        key: {
+                            document_key: 'ecb1f66dadf342d6ad5f2b7f827d00e4'
+                            variable: '989d9e235324220002c6435723dc3484'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: '63c6a66af3014fd6b89518b0229dc08a'
                         key: {
                             document_key: '3e39110399ae40af897e80189ae27b2e'
@@ -6019,6 +6505,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '6540cfb4be054acab8894f6815869536'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: 'd0fd06369c4a4ccdbe373ffca05da610'
@@ -6222,6 +6709,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '6896bf0377c042359d3db41d3356a991'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0fd06369c4a4ccdbe373ffca05da610'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    caption: 'Domain'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'domain_levels_to'
+                            position: '9'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '68b924c57ae6430db5e4a414de9807ae'
                         key: {
@@ -6232,6 +6741,28 @@ declare global {
                                     name: 'x_2317791_cms2.user'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '6993f06a5c864e189fe03b42d450900a'
+                        key: {
+                            sys_ui_section: {
+                                id: 'd0fd06369c4a4ccdbe373ffca05da610'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    caption: 'Domain'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.end_split'
+                            position: '12'
                         }
                     },
                     {
@@ -6362,6 +6893,28 @@ declare global {
                                     name: 'x_2317791_cms2.content_admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '6bdd6388bcc940dfa1e0a91ebfd4e48e'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'description'
+                            position: '9'
                         }
                     },
                     {
@@ -6597,6 +7150,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '72cc2fbc0bb34f50975b4cfcb14a2a2a'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: 'd0fd06369c4a4ccdbe373ffca05da610'
@@ -6886,11 +7440,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_element_mapping'
+                        id: '77fc2e80e41245f980b048d9af83ef26'
+                        key: {
+                            id: 'ecb1f66dadf342d6ad5f2b7f827d00e4'
+                            table: 'var__m_atf_input_variable_41de4a935332120028bc29cac2dc349a'
+                            field: 'script'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '781c942d68ac4f978989dca2bf7ee6c7'
                         key: {
                             document_key: 'c698d815add443b28c11a9d32d936b53'
                             variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '787199e419f1473db4eb3ff4ab51d779'
+                        key: {
+                            document_key: '2ad159e46d7d4998831e62a26645ce0c'
+                            variable: '989d9e235324220002c6435723dc3484'
                         }
                     },
                     {
@@ -6947,6 +7518,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: '799123f2f3514165a5722208f1a6c2c5'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: 'd0fd06369c4a4ccdbe373ffca05da610'
@@ -7198,6 +7770,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '7f0ced7ec5944670b83ee261df282ee1'
+                        key: {
+                            document_key: '2185790ed6dd467d9b286e1d15811cfe'
+                            variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: '7f77dd1b0e194e4a9c90fa3e24fb186d'
                         deleted: false
@@ -7360,6 +7940,28 @@ declare global {
                     },
                     {
                         table: 'sys_ui_element'
+                        id: '829c2fc87eb64e21a9a6a04323fb92b4'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'active'
+                            position: '7'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
                         id: '82c71029771c43de9dd96874e286cd15'
                         key: {
                             sys_ui_section: {
@@ -7405,6 +8007,7 @@ declare global {
                     {
                         table: 'sys_ui_section'
                         id: '83ebab2f3b974a548207049311ee681c'
+                        deleted: true
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
                             caption: 'Element PL Descriptor'
@@ -7547,6 +8150,28 @@ declare global {
                                     name: 'x_2317791_cms2.role_profile_admin'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '87c58ae4f56942e9a1749e504312f1a9'
+                        key: {
+                            sys_ui_section: {
+                                id: '237528b275534f498b834886ddd43074'
+                                key: {
+                                    name: 'x_2317791_cms2_domain'
+                                    caption: 'Domain-level PL Descriptors'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '12M.x_2317791_cms2_domain.x_2317791_cms2_pl_descriptor.domain'
+                            position: '0'
                         }
                     },
                     {
@@ -7698,6 +8323,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '8ba9590b78fa465ebb3ba34628ee5437'
+                        key: {
+                            document_key: '6da39f6ebb0f40bc8ce4e3e1c96102d7'
+                            variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: '8baabf9511d340a69e4b2555f5c403a2'
                         key: {
@@ -7727,6 +8360,14 @@ declare global {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'active'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '8c05cbe4129f4b03b57b89c5706343c2'
+                        key: {
+                            document_key: '3d71708efe73400db935cff7c0112167'
+                            variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
                         }
                     },
                     {
@@ -7905,6 +8546,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '8ed3b9561dbe4572acaaad2697fadafc'
+                        key: {
+                            document_key: 'ecb1f66dadf342d6ad5f2b7f827d00e4'
+                            variable: '42f2564b73031300440211d8faf6a777'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: '8f3657925bfb4b1f99beadde9d6b2b76'
                         key: {
@@ -8016,6 +8665,17 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '913c1daaf031479f8903dc131685e06e'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'pl_structure'
+                            value: 'element'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '918a988011e04c66ad37c3eabe082867'
                         key: {
@@ -8060,6 +8720,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '91e0acd36eb84e8297378fc3706b378b'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'element'
+                            position: '3'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '92107165027c471380bd148e34e0e7fc'
                         deleted: true
@@ -8087,6 +8769,14 @@ declare global {
                         key: {
                             document_key: 'e1966a1aa9fc4e76bf884504438f45c4'
                             variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '937e2c278e14417185d2d6aa674805d8'
+                        key: {
+                            document_key: '36f55babfbd545e79ce3730964a2c690'
+                            variable: '989d9e235324220002c6435723dc3484'
                         }
                     },
                     {
@@ -8223,6 +8913,28 @@ declare global {
                         key: {
                             document_key: 'c70f290ee4c54b3b898d09cf4ade1d71'
                             variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '99436c039fc849aaabe42cb4ab5b1b23'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'applies_to'
+                            position: '1'
                         }
                     },
                     {
@@ -8459,6 +9171,14 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: '9d03dd8051fb4794b04b5bbb755ea099'
+                        key: {
+                            document_key: '2185790ed6dd467d9b286e1d15811cfe'
+                            variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: '9d3c43c198d346dca0943aedff0160bd'
                         key: {
                             document_key: '44b5129dfff44d8bad3a2c855ec75669'
@@ -8671,8 +9391,17 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: 'a1b018e70b374e0d9ab288ca52c90a5b'
+                        key: {
+                            document_key: 'c13cfa3df22346feb754d3fefa7e0b8a'
+                            variable: '1778a7480f20101091d0f00c97767e03'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: 'a1df479157aa40539e8a1d3edaad54e6'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -8747,6 +9476,14 @@ declare global {
                             value: 'draft'
                             language: 'en'
                             dependent_value: 'NULL'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: 'a281d45f30124a9b8d5ff99b3adfedf6'
+                        key: {
+                            document_key: 'c13cfa3df22346feb754d3fefa7e0b8a'
+                            variable: '98c44875ffa033008d3f5d9ad53bf1fa'
                         }
                     },
                     {
@@ -8911,6 +9648,14 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: 'a4322f61bb8d47f8aa12c75f1c11ebdd'
+                        key: {
+                            document_key: '6da39f6ebb0f40bc8ce4e3e1c96102d7'
+                            variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: 'a4982732dcf44e00ba29a01efb98aa61'
                         key: {
                             document_key: 'f906aa20705d43c6b532046feacc6497'
@@ -9054,6 +9799,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: 'a593b34fb4b8422a9969306b2d30206a'
+                        key: {
+                            document_key: '3d71708efe73400db935cff7c0112167'
+                            variable: '1778a7480f20101091d0f00c97767e03'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: 'a5aacd5ed7b14754be0eb76de804dd64'
                         key: {
@@ -9122,6 +9875,28 @@ declare global {
                             name: 'x_2317791_cms2_requirement'
                             element: 'requirement_type'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'a7d61038222c4238b6ee4ae957b48ef8'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.split'
+                            position: '5'
                         }
                     },
                     {
@@ -9251,6 +10026,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'ac0ea80f9987407d8b8e03cdc3174c7e'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'pl_structure'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'ac3082d27fb34539847887fa9b580a81'
                         key: {
@@ -9283,9 +10066,34 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: 'acdab5400eab4a63b3f8805ae5225263'
+                        key: {
+                            document_key: '6da39f6ebb0f40bc8ce4e3e1c96102d7'
+                            variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'ad02d5d4e4eb47798588dcfb569275d9'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'pl_structure'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: 'ad8919385c3448698733b771408e8cc2'
                         key: {
                             document_key: 'a35425752dca4e7c87d9f0a8270f6877'
+                            variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: 'ada5611891df4ac8b550b12d5cde17e5'
+                        key: {
+                            document_key: '6da39f6ebb0f40bc8ce4e3e1c96102d7'
                             variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
                         }
                     },
@@ -9476,6 +10284,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_index'
+                        id: 'b47e935e5fea4095b584ef2a887b134b'
+                        key: {
+                            logical_table_name: 'x_2317791_cms2_pl_descriptor'
+                            col_name_string: 'domain,proficiency_level'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: 'b4827c118a564d27b89c58f7c3f248a7'
                         key: {
@@ -9519,6 +10335,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: 'b5fd6138977746979545d34c3635aa53'
+                        key: {
+                            document_key: '2185790ed6dd467d9b286e1d15811cfe'
+                            variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: 'b61b76d18a354a46824aa41b8c49c0ae'
                         key: {
@@ -9541,6 +10365,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'b669e9da5b94419aa03407655ffddfa4'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'domain'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: 'b66f171cf92f460cb796445a64ee1746'
                         key: {
@@ -9554,6 +10387,28 @@ declare global {
                         key: {
                             document_key: '281b19dc68c241cea8db2a61f3347941'
                             variable: '989d9e235324220002c6435723dc3484'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'b69b0150067646ce8a39a1aad5247f3a'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'proficiency_level'
+                            position: '4'
                         }
                     },
                     {
@@ -9654,6 +10509,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: 'b84981d6cca44f2888ee6390a3848459'
+                        key: {
+                            sys_ui_section: {
+                                id: 'bc2cb089e188459bae2e5c60d113a505'
+                                key: {
+                                    name: 'x_2317791_cms2_pl_descriptor'
+                                    caption: 'PL Descriptor'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'domain'
+                            position: '2'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: 'b84ea3d3f94145ecb0edb4d46841402b'
                         key: {
@@ -9718,6 +10595,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_element_mapping'
+                        id: 'bb08b57475ac4e79836bc258a2ac5741'
+                        key: {
+                            id: '7086253e34f74d8db57276ca535f6fdf'
+                            table: 'var__m_atf_input_variable_41de4a935332120028bc29cac2dc349a'
+                            field: 'script'
+                        }
+                    },
+                    {
                         table: 'sys_ui_element'
                         id: 'bb3640b8c1dd4c44bac4e2b34f8f50b2'
                         key: {
@@ -9737,6 +10623,21 @@ declare global {
                             }
                             element: '12M.x_2317791_cms2_element.x_2317791_cms2_requirement.element'
                             position: '0'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_section'
+                        id: 'bc2cb089e188459bae2e5c60d113a505'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            caption: 'PL Descriptor'
+                            view: {
+                                id: 'Default view'
+                                key: {
+                                    name: 'NULL'
+                                }
+                            }
+                            sys_domain: 'global'
                         }
                     },
                     {
@@ -9914,6 +10815,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: 'c05ebc64803146c583140443558839c7'
+                        key: {
+                            document_key: '2185790ed6dd467d9b286e1d15811cfe'
+                            variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
                         table: 'ua_table_licensing_config'
                         id: 'c061a92af54c4f8780eaa5843c794b10'
                         key: {
@@ -9939,6 +10848,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: 'c19d9305a3004bc982492fbbb6935345'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -10030,6 +10940,14 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: 'c23c329d3ccf4badb14c686eb58c0628'
+                        key: {
+                            document_key: '36f55babfbd545e79ce3730964a2c690'
+                            variable: '42f2564b73031300440211d8faf6a777'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: 'c2554830e1d74bd6bec73c8fc33a0779'
                         key: {
                             document_key: 'dd54fcc1b5d3447aba37b3aa49535b25'
@@ -10049,6 +10967,15 @@ declare global {
                                 }
                             }
                             sys_domain: 'global'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'c2c97b75b2104cdaa69bf11c23e2622e'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'applies_to'
+                            language: 'en'
                         }
                     },
                     {
@@ -10075,6 +11002,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: 'c3176d83a27045d49ad56d7bdb399ee3'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -10230,6 +11158,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: 'c5ebdec35174432c82db02149b273f98'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -10360,6 +11289,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: 'c83548115a9e41a4aedfc57c152c420d'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: 'd0fd06369c4a4ccdbe373ffca05da610'
@@ -10431,6 +11361,15 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'description'
+                        }
+                    },
+                    {
+                        table: 'sys_element_mapping'
+                        id: 'c9cb3992b77048a0b692c04f30c26a04'
+                        key: {
+                            id: '36f55babfbd545e79ce3730964a2c690'
+                            table: 'var__m_atf_input_variable_41de4a935332120028bc29cac2dc349a'
+                            field: 'script'
                         }
                     },
                     {
@@ -10983,6 +11922,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: 'd6ad71fa77564592906123d6f14e1d15'
+                        key: {
+                            document_key: '3d71708efe73400db935cff7c0112167'
+                            variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'd6c7d41432234e45bf31296c5f4dece2'
                         deleted: true
@@ -11110,6 +12057,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: 'da187ba97ae44fa4a16075baaa94ad7a'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -11171,10 +12119,29 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: 'da79e519b1fb4a20aea7c2860c96766a'
+                        key: {
+                            document_key: 'c13cfa3df22346feb754d3fefa7e0b8a'
+                            variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: 'db04b7ae29aa40d5a34435384a897c7b'
                         key: {
                             document_key: 'c70f290ee4c54b3b898d09cf4ade1d71'
                             variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: 'db28c95089924b479166cde6b6876c4a'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'applies_to'
+                            value: 'element'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -11246,6 +12213,14 @@ declare global {
                         key: {
                             document_key: 'a193cc3371fa4dbaa9024b292250d085'
                             variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
+                        }
+                    },
+                    {
+                        table: 'sys_choice_set'
+                        id: 'dd16b3b06e0e4a2296c0a87286515ce5'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'pl_structure'
                         }
                     },
                     {
@@ -11450,6 +12425,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: 'e2cf411c759446d29680d9c36ae0949d'
+                        key: {
+                            document_key: 'c13cfa3df22346feb754d3fefa7e0b8a'
+                            variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: 'e2f9c1221a1c489eba8c5008564d0f56'
                         key: {
@@ -11470,6 +12453,14 @@ declare global {
                             name: 'x_2317791_cms2_comp_group'
                             element: 'description'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'e378721b390e49cc88a29558863afea3'
+                        key: {
+                            name: 'x_2317791_cms2_domain'
+                            element: 'domain_levels_to'
                         }
                     },
                     {
@@ -11868,6 +12859,7 @@ declare global {
                     {
                         table: 'sys_ui_element'
                         id: 'ed1a4db782b440cea464f6cd2de5f468'
+                        deleted: true
                         key: {
                             sys_ui_section: {
                                 id: '83ebab2f3b974a548207049311ee681c'
@@ -12023,6 +13015,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: 'efbf1d789a7b4ad0b3a866a2416bc2a1'
+                        key: {
+                            document_key: '3d71708efe73400db935cff7c0112167'
+                            variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'f00ca6046af749c1b8f47b5b89a49b71'
                         deleted: true
@@ -12045,6 +13045,14 @@ declare global {
                         key: {
                             document_key: '68038e6628b544a197cb5fb5758cd525'
                             variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'f1b70c07eca443d88b37907aa6b177d0'
+                        key: {
+                            name: 'x_2317791_cms2_pl_descriptor'
+                            element: 'applies_to'
                         }
                     },
                     {
@@ -12196,10 +13204,26 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: 'f670d8276afd496dbf82fce13d95340a'
+                        key: {
+                            document_key: 'c13cfa3df22346feb754d3fefa7e0b8a'
+                            variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: 'f7634062a2c94f89ba3019311ff81af9'
                         key: {
                             document_key: 'a35425752dca4e7c87d9f0a8270f6877'
                             variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: 'f82ab0780fef4e76a6e96272f16ccb0d'
+                        key: {
+                            document_key: '6da39f6ebb0f40bc8ce4e3e1c96102d7'
+                            variable: '98c44875ffa033008d3f5d9ad53bf1fa'
                         }
                     },
                     {
@@ -12208,6 +13232,14 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_fw_version'
                             element: 'effective_to'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: 'f8e86a5e730b48bc86d8fbfa895c6be0'
+                        key: {
+                            document_key: '3d71708efe73400db935cff7c0112167'
+                            variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
                         }
                     },
                     {

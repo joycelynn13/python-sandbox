@@ -150,37 +150,64 @@ function roleProfileFacets() {
 }
 
 /** Published descriptors for the given Elements, one per PL (the one effective today, else the latest). */
-function descriptorsFor(elementIds: string[]): { [elementId: string]: { [levelId: string]: any } } {
-    const out: { [e: string]: { [l: string]: any } } = {}
-    if (!elementIds.length) return out
+type DescRow = { id: string; levelId: string; descriptor: string; effectiveFrom: string; effectiveTo: string; scope: 'domain' | 'element' }
+type ByLevel = { [levelId: string]: DescRow }
+
+/**
+ * Published descriptors owned by the given Elements and/or Domains, one per PL per owner
+ * (the one effective today, else the latest). Keyed by owner sys_id.
+ */
+function descriptorsFor(elementIds: string[], domainIds: string[] = []): { [ownerId: string]: ByLevel } {
+    const out: { [o: string]: ByLevel } = {}
+    if (!elementIds.length && !domainIds.length) return out
     const t = today()
     const d: any = new GlideRecordSecure(T.descriptor)
-    d.addQuery('element', 'IN', elementIds.join(','))
+    if (elementIds.length) {
+        const q = d.addQuery('element', 'IN', elementIds.join(','))
+        if (domainIds.length) q.addOrCondition('domain', 'IN', domainIds.join(','))
+    } else {
+        d.addQuery('domain', 'IN', domainIds.join(','))
+    }
     d.addQuery('status', STATUS.published)
     d.addQuery('active', true)
     d.orderBy('effective_from')
     d.query()
     while (d.next()) {
-        const e = v(d, 'element')
+        const owner = v(d, 'element') || v(d, 'domain')
         const l = v(d, 'proficiency_level')
-        const row = {
+        const row: DescRow = {
             id: d.getUniqueValue(),
             levelId: l,
             descriptor: v(d, 'description'),
             effectiveFrom: v(d, 'effective_from'),
             effectiveTo: v(d, 'effective_to'),
+            scope: v(d, 'element') ? 'element' : 'domain',
         }
-        out[e] = out[e] || {}
-        const existing = out[e][l]
+        out[owner] = out[owner] || {}
+        const existing = out[owner][l]
         // ordered by effective_from, so a later row wins unless the existing one is effective today
-        if (!existing || !isEffectiveOn(existing.effectiveFrom, existing.effectiveTo, t)) out[e][l] = row
+        if (!existing || !isEffectiveOn(existing.effectiveFrom, existing.effectiveTo, t)) out[owner][l] = row
     }
     return out
 }
 
-function levelList(byLevel: { [levelId: string]: any } | undefined, scale: Level[]) {
+/**
+ * Effective levels of each Element = levels described on its Domain (CCC-style Domains,
+ * e.g. PL1–PL2) merged with the Element's own levels (e.g. PL3–PL5).
+ */
+function elementLevelMap(elements: { id: string; domainId: string }[]): { [elementId: string]: ByLevel } {
+    const domainIds = elements.map((e) => e.domainId).filter((x, i, a) => x && a.indexOf(x) === i)
+    const desc = descriptorsFor(elements.map((e) => e.id), domainIds)
+    const out: { [e: string]: ByLevel } = {}
+    elements.forEach((e) => (out[e.id] = { ...(desc[e.domainId] || {}), ...(desc[e.id] || {}) }))
+    return out
+}
+
+function levelList(byLevel: ByLevel | undefined, scale: Level[]) {
     // only levels that actually have a descriptor – never an empty PL5
-    return scale.filter((s) => byLevel && byLevel[s.id]).map((s) => ({ ...s, descriptor: byLevel![s.id].descriptor }))
+    return scale
+        .filter((s) => byLevel && byLevel[s.id])
+        .map((s) => ({ ...s, descriptor: byLevel![s.id].descriptor, scope: byLevel![s.id].scope }))
 }
 
 function elementRow(gr: any) {
@@ -230,7 +257,7 @@ export function getRoleProfile(id: string) {
         e.query()
         while (e.next()) elements[e.getUniqueValue()] = elementRow(e)
     }
-    const desc = descriptorsFor(Object.keys(elements))
+    const desc = elementLevelMap(Object.keys(elements).map((k) => elements[k]))
 
     const rows = reqs
         .filter((x) => elements[x.elementId])
@@ -380,7 +407,9 @@ export function getLibrary(f: LibraryFilter) {
         e.query()
         while (e.next()) elements.push(elementRow(e))
     }
-    const desc = descriptorsFor(elements.map((x) => x.id))
+    const desc = elementLevelMap(elements)
+    const domainDesc = descriptorsFor([], Object.keys(domainById))
+    Object.keys(domainById).forEach((id) => (domainById[id].levels = levelList(domainDesc[id], scale)))
 
     let elementCount = 0
     elements.forEach((el) => {
@@ -426,7 +455,7 @@ export function getElement(id: string) {
     const effectiveNow =
         el.status === STATUS.published && isEffectiveOn(v(e, 'effective_from'), v(e, 'effective_to'), today())
     const scale = getScale()
-    const levels = levelList(descriptorsFor([id])[id], scale)
+    const levels = levelList(elementLevelMap([{ id, domainId: el.domainId }])[id], scale)
 
     // Role Profiles (currently effective) using this Element or another version of it (same code)
     const versionIds: string[] = []
@@ -489,7 +518,8 @@ export function getDomain(id: string) {
     e.orderBy('sequence')
     e.query()
     while (e.next()) elements.push(elementRow(e))
-    const desc = descriptorsFor(elements.map((x) => x.id))
+    const desc = elementLevelMap(elements)
+    const domainLevels = levelList(descriptorsFor([], [id])[id], scale)
     const mine = myTargets()
     const usedBy = roleProfilesByElementCode(elements.map((x) => x.code))
     elements.forEach((x) => {
@@ -507,5 +537,5 @@ export function getDomain(id: string) {
     s.query()
     while (s.next()) siblings.push({ id: s.getUniqueValue(), name: v(s, 'name') })
 
-    return { domain, elements, scale, siblings }
+    return { domain: { ...domain, levels: domainLevels }, elements, scale, siblings }
 }

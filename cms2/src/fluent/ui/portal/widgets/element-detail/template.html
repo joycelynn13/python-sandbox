@@ -35,7 +35,7 @@
       <ol class="cms-pls">
         <li ng-repeat="l in c.data.el.levels" class="cms-pl" ng-class="{'is-target': c.data.el.myTarget && c.data.el.myTarget.code === l.code}">
           <div class="cms-pl__badge"><span>{{l.code}}</span><small>{{l.label}}</small></div>
-          <p><span class="cms-mine-chip" ng-if="c.data.el.myTarget && c.data.el.myTarget.code === l.code">Your target</span>{{l.descriptor}}</p>
+          <p><span class="cms-mine-chip" ng-if="c.data.el.myTarget && c.data.el.myTarget.code === l.code">Your target</span><span class="cms-domain-chip" ng-if="l.scope === 'domain'">Domain level · shared by all Elements in {{c.data.el.element.domain}}</span>{{l.descriptor}}</p>
         </li>
       </ol>
     </section>

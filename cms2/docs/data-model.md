@@ -1,6 +1,11 @@
 # CMS 2.0 – Data Model
 
-Scope `x_2317791_cms2`. Source: `src/fluent/data-model/`.
+Scope `x_2317791_cms2`. Source: `src/fluent/data-model/`. Visual version: `docs/data-architecture.html`.
+
+> **Restructured (not yet installed on dev485488):**
+> - Competency Group, Domain, Element, PL Descriptor and Role Profile now **extend the Governed Content base table** (`x_2317791_cms2_governed`), which holds the shared lifecycle fields once.
+> - PL Descriptors can belong to a **Domain** (lower levels of Cross-Cutting Domains) or an **Element**.
+> - See `docs/prompt-data-model-update.md` for the full rules. The tables below describe the installed (previous) structure until the app is reinstalled.
 
 ```
 Framework Version ◄─────────────── every versioned row references one

@@ -5,6 +5,7 @@ import {
     MultiLineTextColumn,
     BooleanColumn,
     IntegerColumn,
+    ChoiceColumn,
     ReferenceColumn,
     OverrideColumn,
     Record,
@@ -53,6 +54,25 @@ export const x_2317791_cms2_domain = Table({
         }),
         owner: ReferenceColumn({ label: 'Domain Owner', referenceTable: 'sys_user' }),
         sme: ReferenceColumn({ label: 'SME', referenceTable: 'sys_user' }),
+        // Where Proficiency Level descriptors live for this Domain.
+        //  element – every PL is described per Element (Specialised Competencies)
+        //  mixed   – lower PLs are described once for the Domain, higher PLs per Element (CCCs)
+        pl_structure: ChoiceColumn({
+            label: 'Proficiency Structure',
+            mandatory: true,
+            default: 'element',
+            dropdown: 'dropdown_without_none',
+            choices: {
+                element: { label: 'Element levels only', sequence: 10 },
+                mixed: { label: 'Domain levels, then Element levels', sequence: 20 },
+            },
+        }),
+        domain_levels_to: ReferenceColumn({
+            label: 'Domain Levels Up To',
+            referenceTable: 'x_2317791_cms2_prof_level',
+            referenceQual: 'active=true',
+            hint: 'Mixed structure only: highest PL described at Domain level (e.g. PL2). Higher PLs are described per Element.',
+        }),
     },
     index: [{ name: 'cms2_dom_group', unique: false, element: 'competency_group' }],
 })
@@ -104,12 +124,16 @@ export const x_2317791_cms2_prof_level = Table({
     },
 })
 
-// ---------------------------------------------------------------- Element PL Descriptor
-// code / name are calculated ("EL-APPDEV – PL3"); the descriptor text is the
-// inherited description column, labelled "PL Descriptor" on this table.
+// ---------------------------------------------------------------- PL Descriptor
+// A Proficiency Level descriptor belongs to EITHER a Domain or an Element:
+//   Specialised (SPC) Domains – PL1…PL5 described per Element
+//   Cross-Cutting (CCC) Domains – PL1…PLn described once for the Domain, higher PLs per Element
+// Exactly one of domain / element is set (enforced in cms-validation). code / name are
+// calculated ("CCC-PM – PL2", "EL-APPDEV – PL3"); the text is the inherited description
+// column, labelled "PL Descriptor" on this table.
 export const x_2317791_cms2_pl_descriptor = Table({
     name: 'x_2317791_cms2_pl_descriptor',
-    label: 'Element PL Descriptor',
+    label: 'PL Descriptor',
     extends: 'x_2317791_cms2_governed',
     display: 'name',
     audit: true,
@@ -118,11 +142,27 @@ export const x_2317791_cms2_pl_descriptor = Table({
     actions: { read: true, create: false, update: false, delete: false },
     schema: {
         description: OverrideColumn({ baseTable: 'x_2317791_cms2_governed', mandatory: true }),
+        applies_to: ChoiceColumn({
+            label: 'Applies To',
+            mandatory: true,
+            default: 'element',
+            dropdown: 'dropdown_without_none',
+            choices: {
+                element: { label: 'Element', sequence: 10 },
+                domain: { label: 'Domain', sequence: 20 },
+            },
+        }),
+        domain: ReferenceColumn({
+            label: 'Domain',
+            referenceTable: 'x_2317791_cms2_domain',
+            referenceQual: 'status!=retired^active=true^pl_structure=mixed',
+            hint: 'Set for Domain-level descriptors only.',
+        }),
         element: ReferenceColumn({
             label: 'Element',
             referenceTable: 'x_2317791_cms2_element',
-            mandatory: true,
             referenceQual: 'status!=retired^active=true',
+            hint: 'Set for Element-level descriptors only.',
         }),
         proficiency_level: ReferenceColumn({
             label: 'Proficiency Level',
@@ -131,7 +171,10 @@ export const x_2317791_cms2_pl_descriptor = Table({
             referenceQual: 'active=true',
         }),
     },
-    index: [{ name: 'cms2_pld_elem_pl', unique: false, element: ['element', 'proficiency_level'] }],
+    index: [
+        { name: 'cms2_pld_elem_pl', unique: false, element: ['element', 'proficiency_level'] },
+        { name: 'cms2_pld_dom_pl', unique: false, element: ['domain', 'proficiency_level'] },
+    ],
 })
 
 // ---------------------------------------------------------------- per-table labels for inherited columns

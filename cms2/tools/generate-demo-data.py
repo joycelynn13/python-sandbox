@@ -82,11 +82,18 @@ elements = [
     ('EL-DATAAN', 'Data Analytics', 'DIG-DSE', 'Collect, analyse and visualise data to produce evidence-based insights.', 5, 'analyses, dashboards and data models'),
     ('EL-CYBFUN', 'Cybersecurity Fundamentals', 'DIG-CYB', 'Apply security principles and controls to protect systems and data.', 3, 'security controls and secure practices'),
     ('EL-PROJPL', 'Project Planning', 'CCC-PM', 'Plan scope, schedule, resources and risks for technical work.', 4, 'project plans, schedules and risk registers'),
-    ('EL-TECHDOC', 'Technical Documentation', 'CCC-PM', 'Produce clear, accurate technical documentation for different audiences.', 3, 'technical documents and specifications'),
+    ('EL-TECHDOC', 'Technical Documentation', 'CCC-PM', 'Produce clear, accurate technical documentation for different audiences.', 4, 'technical documents and specifications'),
     ('EL-TPS', 'Technical Problem Solving', 'CCC-SM', 'Diagnose technical problems and develop effective, evidence-based solutions.', 5, 'root-cause analyses and solution options'),
     ('EL-SELIFE', 'Systems Engineering Lifecycle', 'ENG-SE', 'Apply systems engineering processes from requirements to verification and validation.', 4, 'requirements, system models and V&V plans'),
     ('EL-EXPDES', 'Experimental Design', 'CCC-RTM', 'Design experiments and studies that produce valid, reproducible results.', 4, 'experimental protocols and study designs'),
 ]
+# CCC Domains describe the lower levels once for the whole Domain (PL1–PL2 here, from the
+# CCC slide) and the higher levels per Element. Specialised Domains describe every level per Element.
+CCC_DOMAIN_LEVELS_TO = 2
+DOMAIN_PL_TEMPLATES = {
+    1: 'Applies the basic practices of {d} on well-defined tasks with guidance, understanding why they matter.',
+    2: 'Applies {d} practices independently across typical work and contributes to team outcomes.',
+}
 PL_TEMPLATES = {
     1: 'Applies standard methods to produce {f} for well-defined tasks under guidance.',
     2: 'Independently produces and reviews {f} for typical work and resolves common issues.',
@@ -176,20 +183,32 @@ for code, name, desc, seq in groups:
         'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
 dvar = {}
 seq_in_group = {}
+dgroup = {}
 for key, code, name, g, desc in domains:
     seq_in_group[g] = seq_in_group.get(g, 0) + 10; seq = seq_in_group[g]
-    v = 'demo_dom_' + (key or ident(code)); dvar[code] = v
+    v = 'demo_dom_' + (key or ident(code)); dvar[code] = v; dgroup[code] = g
+    mixed = g == 'CCC'
     rec(v, v, 'x_2317791_cms2_domain', {'code': code, 'name': name, 'description': desc, 'competency_group': ref(gvar[g]),
+        'pl_structure': 'mixed' if mixed else 'element', 'domain_levels_to': ref(f'pl{CCC_DOMAIN_LEVELS_TO}') if mixed else None,
         'sequence': seq, 'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
-evar = {}; emax = {}
+    if mixed:
+        for lvl in range(1, CCC_DOMAIN_LEVELS_TO + 1):
+            dd = f'demo_pld_{ident(code)}_pl{lvl}'
+            rec(dd, dd, 'x_2317791_cms2_pl_descriptor', {'applies_to': 'domain', 'domain': ref(v), 'proficiency_level': ref(f'pl{lvl}'),
+                'description': DOMAIN_PL_TEMPLATES[lvl].format(d=name),
+                'code': f'{code} – PL{lvl}', 'name': f'{code} – PL{lvl}',
+                'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
+evar = {}; emax = {}; emin = {}; edom = {}
 for i, (code, name, dom, desc, maxpl, focus) in enumerate(elements):
-    v = 'demo_el_' + ident(code); evar[code] = v; emax[code] = maxpl
+    v = 'demo_el_' + ident(code); evar[code] = v; emax[code] = maxpl; edom[code] = dom
     rec(v, v, 'x_2317791_cms2_element', {'code': code, 'name': name, 'domain': ref(dvar[dom]), 'description': desc,
         'sequence': (i + 1) * 10, 'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
-    for lvl in range(1, maxpl + 1):
+    minpl = CCC_DOMAIN_LEVELS_TO + 1 if dgroup[dom] == 'CCC' else 1   # CCC Elements start above the Domain levels
+    emin[code] = minpl
+    for lvl in range(minpl, maxpl + 1):
         dv_ = f'demo_pld_{ident(code)}_pl{lvl}'
         rec(dv_, dv_, 'x_2317791_cms2_pl_descriptor', {'element': ref(v), 'proficiency_level': ref(f'pl{lvl}'),
-            'description': PL_TEMPLATES[lvl].format(f=focus), 'code': f'{code} – PL{lvl}', 'name': f'{code} – PL{lvl}',
+            'applies_to': 'element', 'description': PL_TEMPLATES[lvl].format(f=focus), 'code': f'{code} – PL{lvl}', 'name': f'{code} – PL{lvl}',
             'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
 for key, code, name, title, fam, fn, desc, ver, frm, to, status, sup, reqs in role_profiles:
     v = 'demo_' + key
@@ -200,7 +219,8 @@ for key, code, name, title, fam, fn, desc, ver, frm, to, status, sup, reqs in ro
         # app's own key registry (stable across builds) rather than the record variable
         'supersedes': key_sys_id('demo_' + sup) if sup else None})
     for n, (ecode, t, lvl) in enumerate(reqs):
-        assert lvl <= emax[ecode], f'{key}: {ecode} has no PL{lvl}'
+        # a CCC Element's PL1–PL2 come from its Domain, so they are valid targets too
+        assert lvl <= emax[ecode] and (lvl >= emin[ecode] or dgroup[edom[ecode]] == 'CCC'), f'{key}: {ecode} has no PL{lvl}'
         rv = f'demo_req_{key}_{ident(ecode)}'
         rec(rv, rv, 'x_2317791_cms2_requirement', {'role_profile': ref(v), 'element': ref(evar[ecode]),
             'requirement_type': 'essential' if t == 'E' else 'complementary', 'target_level': ref(f'pl{lvl}'),

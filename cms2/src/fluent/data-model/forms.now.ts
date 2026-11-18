@@ -96,6 +96,8 @@ Form({
                     rightElements: [
                         { field: 'owner', type: 'table_field' },
                         { field: 'sme', type: 'table_field' },
+                        { field: 'pl_structure', type: 'table_field' },
+                        { field: 'domain_levels_to', type: 'table_field' },
                         { field: 'status', type: 'table_field' },
                         { field: 'active', type: 'table_field' },
                     ],
@@ -123,6 +125,15 @@ Form({
                 {
                     layout: 'one-column',
                     elements: [{ type: 'list', listType: '12M', listRef: 'x_2317791_cms2_element.domain' }],
+                },
+            ],
+        },
+        {
+            caption: 'Domain-level PL Descriptors',
+            content: [
+                {
+                    layout: 'one-column',
+                    elements: [{ type: 'list', listType: '12M', listRef: 'x_2317791_cms2_pl_descriptor.domain' }],
                 },
             ],
         },
@@ -217,11 +228,13 @@ Form({
     view: default_view,
     sections: [
         {
-            caption: 'Element PL Descriptor',
+            caption: 'PL Descriptor',
             content: [
                 {
                     layout: 'two-column',
                     leftElements: [
+                        { field: 'applies_to', type: 'table_field' },
+                        { field: 'domain', type: 'table_field' },
                         { field: 'element', type: 'table_field' },
                         { field: 'proficiency_level', type: 'table_field' },
                     ],

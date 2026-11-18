@@ -19,6 +19,7 @@ $mine-tint: #e6f4ef;
 .cms-chip--ess { background: $accent-tint; color: $accent; font-weight: 600; }
 .cms-chip--plain { background: transparent; border: 1px solid $line; }
 .cms-chip--mine { background: $mine-tint; color: $mine; font-weight: 600; }
+.cms-chip--domain { background: $accent-tint; color: $accent; font-weight: 600; }
 .cms-state { padding: 24px 0; }
 .cms-state h2 { font-size: 18px; margin: 0 0 6px; }
 .cms-state p { color: $muted; }
@@ -68,6 +69,9 @@ $mine-tint: #e6f4ef;
 .cms-lvl { display: inline-block; border: 1px solid #cfd6de; border-radius: 3px; padding: 0 5px; margin-right: 3px; font-size: 11px; color: $body; }
 
 /* ---------------- domain: master–detail ---------------- */
+.cms-dlevels { background: $surface; border: 1px solid $line; border-radius: 10px; padding: 18px 22px; margin-bottom: 20px; display: grid; gap: 8px; }
+.cms-dlevels__title { font-size: 19px; margin: 0; }
+.cms-dcard__dl { color: $accent; font-weight: 600; }
 .cms-crumbs { font-size: 13px; color: $muted; margin-bottom: 10px; }
 .cms-crumbs span { margin: 0 4px; }
 .cms-dhead { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; justify-content: space-between;

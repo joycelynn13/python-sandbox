@@ -252,6 +252,45 @@ for (var g = 0; g < lib.groups.length; g++) for (var d = 0; d < lib.groups[g].do
 check(names.indexOf('ATF-EL') >= 0 && names.indexOf('ATF-EL-D') < 0, 'library shows Published, hides Draft Elements (got ' + names.join(',') + ')');
 """, False)])
 
+CCC_FIX = r"""
+// ---- CCC-style Domain: PL1-PL2 at Domain level, PL3+ per Element ----
+var t1 = today();
+var grpId = byCode('comp_group', 'ATF-GRP');
+var ccc = ins('domain', { code: 'ATF-CCC', name: 'ATF CCC Domain', competency_group: grpId, framework_version: fw,
+    pl_structure: 'mixed', domain_levels_to: lvl(2), status: 'published', effective_from: t1 });
+check(!!ccc, 'fixture: mixed Domain');
+check(!!ins('pl_descriptor', { domain: ccc, proficiency_level: lvl(1), description: 'ATF CCC domain PL1', framework_version: fw, status: 'published', effective_from: t1 }), 'fixture: Domain PL1');
+check(!!ins('pl_descriptor', { domain: ccc, proficiency_level: lvl(2), description: 'ATF CCC domain PL2', framework_version: fw, status: 'published', effective_from: t1 }), 'fixture: Domain PL2');
+var cccEl = ins('element', { code: 'ATF-CCC-EL', name: 'ATF CCC Element', domain: ccc, framework_version: fw, status: 'published', effective_from: t1 });
+check(!!ins('pl_descriptor', { element: cccEl, proficiency_level: lvl(3), description: 'ATF CCC element PL3', framework_version: fw, status: 'published', effective_from: t1 }), 'fixture: Element PL3');
+"""
+
+test('t13_ccc_domain_levels', 'CMS2 T13 – CCC Domains describe lower levels at Domain level',
+     'A Domain with mixed structure owns PL1-PL2 descriptors; its Elements own PL3+; the Element shows all levels and can be targeted at PL2.',
+     [('user', 'cmsAdmin'), ('script', 'fixture', CCC_FIX, True), ('user', 'cmsContentAdmin'), ('script', 'rules', LOOKUP + r"""
+var ccc = byCode('domain', 'ATF-CCC'), cccEl = byCode('element', 'ATF-CCC-EL');
+check(!ins('pl_descriptor', { element: cccEl, proficiency_level: lvl(1), description: 'x', framework_version: fw, status: 'draft' }), 'Element-level PL1 rejected in a mixed Domain');
+check(!ins('pl_descriptor', { domain: ccc, proficiency_level: lvl(3), description: 'x', framework_version: fw, status: 'draft' }), 'Domain-level PL3 rejected above Domain Levels Up To');
+check(!ins('pl_descriptor', { domain: dom, proficiency_level: lvl(1), description: 'x', framework_version: fw, status: 'draft' }), 'Domain-level descriptor rejected on an Element-only Domain');
+check(!ins('pl_descriptor', { domain: ccc, element: cccEl, proficiency_level: lvl(4), description: 'x', framework_version: fw, status: 'draft' }), 'descriptor with both Domain and Element rejected');
+var ok = ins('pl_descriptor', { element: cccEl, proficiency_level: lvl(4), description: 'ATF CCC element PL4', framework_version: fw, status: 'draft' });
+check(!!ok, 'Element-level PL4 accepted in a mixed Domain');
+var g = new GlideRecord(P + 'pl_descriptor'); g.get(ok);
+check(g.getValue('applies_to') === 'element' && g.getValue('name') === 'ATF-CCC-EL – PL4', 'applies_to and name calculated (got ' + g.getValue('applies_to') + ' / ' + g.getValue('name') + ')');
+""", False), ('user', 'cmsRoleProfileAdmin'), ('script', 'target', LOOKUP + r"""
+var cccEl = byCode('element', 'ATF-CCC-EL');
+var rp = ins('role_profile', { code: 'RP-ATF-CCC', name: 'ATF RP CCC', business_function: 'xDigital', framework_version: fw });
+check(!!ins('requirement', { role_profile: rp, element: cccEl, requirement_type: 'essential', target_level: lvl(2) }), 'Target PL2 accepted via the Domain-level descriptor');
+check(upd('role_profile', rp, { status: 'published', effective_from: today() }), 'Role Profile with a Domain-level target publishes');
+""", False), ('user', 'cmsUser'), ('script', 'display', LOOKUP + r"""
+var api = new x_2317791_cms2.CmsCatalogApi();
+var d = api.getElement(byCode('element', 'ATF-CCC-EL')), parts = [];
+for (var i = 0; i < d.levels.length; i++) parts.push(d.levels[i].code + ':' + d.levels[i].scope);
+check(parts.join(',') === 'PL1:domain,PL2:domain,PL3:element', 'Element shows inherited Domain levels then its own (got ' + parts.join(',') + ')');
+var dm = api.getDomain(byCode('domain', 'ATF-CCC'));
+check(dm.domain.levels.length === 2, 'Domain page lists 2 Domain-level descriptors');
+""", False)])
+
 roles_used = ['cmsUser', 'cmsContentAdmin', 'cmsRoleProfileAdmin', 'cmsAdmin']
 out = ["import '@servicenow/sdk/global'", "import { Test, TestSuite } from '@servicenow/sdk/core'",
        "import { " + ', '.join(roles_used) + " } from '../security/roles.now'", '',

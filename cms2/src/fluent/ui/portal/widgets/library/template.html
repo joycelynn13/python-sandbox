@@ -32,6 +32,20 @@
         </div>
       </header>
 
+      <!-- CCC-style Domains describe their lower levels once, for the whole Domain -->
+      <section class="cms-dlevels" ng-if="c.data.dom.domain.levels.length" aria-labelledby="dl-head">
+        <div class="cms-eyebrow">Domain level</div>
+        <h2 id="dl-head" class="cms-dlevels__title">{{c.data.dom.domain.name}}: {{c.rangeOf(c.data.dom.domain.levels)}}</h2>
+        <p class="cms-hint">These levels describe the Domain as a whole and apply to every Element in it.
+          <span ng-if="c.data.dom.elements.length">Higher levels are described per Element below.</span></p>
+        <ol class="cms-ladder">
+          <li ng-repeat="l in c.data.dom.domain.levels" class="cms-ladder__step">
+            <div class="cms-ladder__badge"><span>{{l.code}}</span><small>{{l.label}}</small></div>
+            <div class="cms-ladder__body"><p>{{l.descriptor}}</p></div>
+          </li>
+        </ol>
+      </section>
+
       <div ng-if="!c.data.dom.elements.length" class="cms-state cms-state--box">
         <h2>No Elements published yet</h2>
         <p>Elements for this Domain are still being defined. Browse another Domain in the meantime.</p>
@@ -69,13 +83,15 @@
           </div>
 
           <h3 class="cms-h3">Proficiency Levels</h3>
-          <p class="cms-hint" ng-if="c.current.levels.length">This Element defines {{c.range(c.current)}}. Read upwards to see how expectations grow.</p>
+          <p class="cms-hint" ng-if="c.current.levels.length">Levels {{c.range(c.current)}}. Read upwards to see how expectations grow.
+            <span ng-if="c.hasDomainLevels(c.current)">Levels tagged “Domain level” are shared by every Element in {{c.data.dom.domain.name}}.</span></p>
           <p class="cms-hint" ng-if="!c.current.levels.length">No Proficiency Level descriptors are published yet.</p>
           <ol class="cms-ladder">
             <li ng-repeat="l in c.current.levels" class="cms-ladder__step" ng-class="{'is-target': c.isTarget(c.current, l)}">
               <div class="cms-ladder__badge"><span>{{l.code}}</span><small>{{l.label}}</small></div>
               <div class="cms-ladder__body">
                 <span class="cms-chip cms-chip--mine" ng-if="c.isTarget(c.current, l)">Your target</span>
+                <span class="cms-chip cms-chip--domain" ng-if="l.scope === 'domain'" title="Described once for the whole Domain">Domain level</span>
                 <p>{{l.descriptor}}</p>
               </div>
             </li>
@@ -136,10 +152,11 @@
         <p class="cms-gsec__desc" ng-if="g.description">{{g.description}}</p>
         <div class="cms-grid">
           <a class="cms-dcard" ng-repeat="d in g.domains" ng-if="c.domainShown(d)"
-             ng-class="{'is-empty': !d.elements.length}" ng-href="?id=x_2317791_cms2_library&domain={{d.id}}">
+             ng-class="{'is-empty': !d.elements.length && !d.levels.length}" ng-href="?id=x_2317791_cms2_library&domain={{d.id}}">
             <span class="cms-dcard__name">{{d.name}}</span>
             <span class="cms-dcard__desc">{{d.description}}</span>
             <span class="cms-dcard__foot">
+              <span class="cms-dcard__dl" ng-if="d.levels.length">{{c.rangeOf(d.levels)}} at Domain level ·</span>
               <span ng-if="d.elements.length"><strong>{{d.elements.length}}</strong> Element{{d.elements.length === 1 ? '' : 's'}}</span>
               <span ng-if="!d.elements.length" class="cms-dcard__soon">Elements coming soon</span>
             </span>

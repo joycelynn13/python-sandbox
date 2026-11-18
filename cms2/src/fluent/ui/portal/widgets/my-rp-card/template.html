@@ -1,0 +1,66 @@
+<section class="cmsrp" ng-class="{'cmsrp--wide': c.wide}" aria-labelledby="cmsrp-title" ng-if="c.data.my || !c.data.hideWhenEmpty">
+  <div class="cmsrp__in">
+    <header class="cmsrp__head">
+      <h2 id="cmsrp-title" class="cmsrp__label">My Role Profile</h2>
+      <span class="cmsrp__tag" title="Prototype: assignment is not yet from the authorised employee source">Prototype</span>
+    </header>
+
+    <!-- has a current Role Profile -->
+    <div ng-if="c.data.my && !c.data.my.missing" class="cmsrp__body">
+      <div class="cmsrp__id">
+        <a class="cmsrp__name" ng-href="?id=x_2317791_cms2_role_profile&sys_id={{c.data.my.id}}">{{c.data.my.name}}</a>
+        <div class="cmsrp__meta">
+          <span>{{c.data.my.businessFunction}}</span><span ng-if="c.data.my.jobFamily">{{c.data.my.jobFamily}}</span>
+        </div>
+        <div class="cmsrp__counts" aria-label="Element counts">
+          <span class="cmsrp__count cmsrp__count--ess"><b>{{c.data.my.counts.essential}}</b> Essential</span>
+          <span class="cmsrp__count"><b>{{c.data.my.counts.complementary}}</b> Complementary</span>
+        </div>
+      </div>
+
+      <div class="cmsrp__lists" ng-if="c.data.detail">
+        <div class="cmsrp__list">
+          <h3>Essential</h3>
+          <ul>
+            <li ng-repeat="r in c.visibleEssential()">
+              <a ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
+              <span class="cmsrp__pl" title="Target {{r.target.code}} – {{r.target.label}}">{{r.target.code}}</span>
+            </li>
+          </ul>
+          <button type="button" class="cmsrp__more" ng-if="c.hiddenCount() > 0 && !c.expanded" ng-click="c.expanded = true">
+            Show {{c.hiddenCount()}} more
+          </button>
+        </div>
+        <div class="cmsrp__list cmsrp__list--comp">
+          <h3>Complementary</h3>
+          <ul>
+            <li ng-repeat="r in c.data.detail.complementary">
+              <a ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
+              <span class="cmsrp__pl" title="Target {{r.target.code}} – {{r.target.label}}">{{r.target.code}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cmsrp__actions">
+        <a class="cmsrp__btn" ng-href="?id=x_2317791_cms2_role_profile&sys_id={{c.data.my.id}}">View my Role Profile</a>
+        <a class="cmsrp__link" href="?id=x_2317791_cms2_library">Competency Library</a>
+      </div>
+    </div>
+
+    <!-- assignment exists but no current version -->
+    <div ng-if="c.data.my && c.data.my.missing" class="cmsrp__body">
+      <p class="cmsrp__empty">Your Role Profile ({{c.data.my.code}}) is being updated and has no published version yet.</p>
+      <a class="cmsrp__link" href="?id=x_2317791_cms2_role_profiles">Browse Role Profiles</a>
+    </div>
+
+    <!-- no assignment -->
+    <div ng-if="!c.data.my" class="cmsrp__body">
+      <p class="cmsrp__empty">No Role Profile is linked to you yet.</p>
+      <div class="cmsrp__actions">
+        <a class="cmsrp__link" href="?id=x_2317791_cms2_role_profiles">Browse Role Profiles</a>
+        <a class="cmsrp__link" href="?id=x_2317791_cms2_library">Competency Library</a>
+      </div>
+    </div>
+  </div>
+</section>

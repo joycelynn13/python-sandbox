@@ -1,6 +1,4 @@
 (function () {
-    var api = new x_2317791_cms2.CmsCatalogApi();
-    data.my = api.getMyRoleProfile(gs.getUserName());
-    // full requirement list for the summary (Essential / Complementary with Target PL)
-    data.detail = data.my && !data.my.missing ? api.getRoleProfile(data.my.id) : null;
+    // The My Role Profile card is its own widget so other portals (e.g. Xponent Hub) can reuse it.
+    data.card = $sp.getWidget('x_2317791_cms2_my_rp_card', { max_items: 10 });
 })();

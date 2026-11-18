@@ -9,6 +9,7 @@ PLs, Framework Versions and effective dating. **Prototype – all demo content i
 * Security: [`docs/security-model.md`](docs/security-model.md)
 * Tests: [`docs/test-plan.md`](docs/test-plan.md)
 * Assumptions and known issues: [`docs/assumptions.md`](docs/assumptions.md)
+* Showing My Role Profile on Xponent Hub: [`docs/xponent-hub-integration.md`](docs/xponent-hub-integration.md)
 
 ## Where things are on the instance
 
@@ -38,7 +39,7 @@ src/fluent/
   demo/demo-data.now.ts            synthetic demo data       (generated)
 src/server/                        TypeScript modules: config, dates, validation, versioning, catalog, rules
 src/script-includes/               bridge JS for Script Includes
-tools/                             generators for demo data and ATF
+tools/                             generators for demo data and ATF; retarget-scope.py for another company code
 ```
 
 `.now.ts` files must be declarative (no loops or interpolation), so the repetitive demo data and ATF

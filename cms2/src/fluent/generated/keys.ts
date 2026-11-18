@@ -1451,6 +1451,30 @@ declare global {
                         table: 'sys_script_include'
                         id: '22b95b2fa76245bd9b097aca94cb36b4'
                     }
+                    spp_card_preview_col_main: {
+                        table: 'sp_column'
+                        id: '54016063c6de4382a39dd3c3b69337f1'
+                    }
+                    spp_card_preview_col_side: {
+                        table: 'sp_column'
+                        id: '8aa15aaaecb9403daf340781935889c9'
+                    }
+                    spp_card_preview_container: {
+                        table: 'sp_container'
+                        id: 'c873f0e67315427fad6c85aa6f434da7'
+                    }
+                    spp_card_preview_narrow: {
+                        table: 'sp_instance'
+                        id: '28750179dea74baa8ef4c7394b4b995a'
+                    }
+                    spp_card_preview_row: {
+                        table: 'sp_row'
+                        id: '77155cc5f5fc4341b12938bcb904a0d3'
+                    }
+                    spp_card_preview_wide: {
+                        table: 'sp_instance'
+                        id: 'b1ce58ee41bb4fc68c1913e253f525f1'
+                    }
                     spp_element_col: {
                         table: 'sp_column'
                         id: 'dcaeae49ebaa4c4fa1484f47a7eb4317'
@@ -1566,6 +1590,10 @@ declare global {
                     spw_library: {
                         table: 'sp_widget'
                         id: '3a4c7238aec44f70ace5a0f38f353c43'
+                    }
+                    spw_my_rp_card: {
+                        table: 'sp_widget'
+                        id: '3b6507096b9d46a7b50eb17c6c500ea0'
                     }
                     spw_nav: {
                         table: 'sp_widget'
@@ -6205,6 +6233,13 @@ declare global {
                             }
                             element: 'framework_version'
                             position: '1'
+                        }
+                    },
+                    {
+                        table: 'sp_page'
+                        id: '5dd43a1a0d6740f1aa7edd3ddbdefa4e'
+                        key: {
+                            id: 'x_2317791_cms2_card_preview'
                         }
                     },
                     {

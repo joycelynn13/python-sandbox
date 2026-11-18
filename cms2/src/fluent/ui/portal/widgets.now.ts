@@ -84,3 +84,20 @@ export const elementDetailWidget = SPWidget({
     roles: [cmsUser],
     hasPreview: false,
 })
+
+// Reusable card: CMS landing page and other portals (e.g. Xponent Hub home, placed by its owners).
+export const myRoleProfileCardWidget = SPWidget({
+    $id: Now.ID['spw_my_rp_card'],
+    id: 'x_2317791_cms2_my_rp_card',
+    name: 'CMS 2.0 – My Role Profile card',
+    htmlTemplate: Now.include('./widgets/my-rp-card/template.html'),
+    serverScript: Now.include('./widgets/my-rp-card/server.js'),
+    clientScript: Now.include('./widgets/my-rp-card/client.js'),
+    customCss: Now.include('./widgets/my-rp-card/styles.scss'),
+    roles: [cmsUser],
+    hasPreview: false,
+    optionSchema: [
+        { name: 'max_items', label: 'Essential Elements shown before "Show more"', type: 'integer', section: 'Presentation', defaultValue: 5 },
+        { name: 'hide_when_empty', label: 'Hide when the user has no Role Profile', type: 'boolean', section: 'Behavior', defaultValue: 'false' },
+    ],
+})

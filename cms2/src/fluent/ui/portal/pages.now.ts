@@ -1,7 +1,7 @@
 import '@servicenow/sdk/global'
 import { SPPage } from '@servicenow/sdk/core'
-import { cmsUser } from '../../security/roles.now'
-import { navWidget, landingWidget, rpBrowseWidget, rpDetailWidget, libraryWidget, elementDetailWidget } from './widgets.now'
+import { cmsUser, cmsContentAdmin, cmsRoleProfileAdmin, cmsAdmin } from '../../security/roles.now'
+import { navWidget, myRoleProfileCardWidget, landingWidget, rpBrowseWidget, rpDetailWidget, libraryWidget, elementDetailWidget } from './widgets.now'
 
 // Pages are portal-independent; they are opened inside Employee Center (/esc?id=<pageId>)
 // so employees get the standard EC header, theme and navigation.
@@ -173,6 +173,50 @@ export const page_element = SPPage({
                             instances: [
                                 { $id: Now.ID['spp_element_nav'], widget: navWidget, order: 1 },
                                 { $id: Now.ID['spp_element_main'], widget: elementDetailWidget, order: 2 },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+})
+
+// Admin-only preview of the My Role Profile card in a narrow side column and a wide main column,
+// mirroring where portal owners (e.g. Xponent Hub) would place it.
+export const page_card_preview = SPPage({
+    pageId: 'x_2317791_cms2_card_preview',
+    title: 'CMS 2.0 – My Role Profile card preview',
+    shortDescription: 'Admin preview of the reusable My Role Profile card at two column widths',
+    category: 'custom',
+    roles: [cmsContentAdmin, cmsRoleProfileAdmin, cmsAdmin],
+    containers: [
+        {
+            $id: Now.ID['spp_card_preview_container'],
+            name: 'Card preview – main',
+            width: 'container',
+            order: 1,
+            rows: [
+                {
+                    $id: Now.ID['spp_card_preview_row'],
+                    order: 1,
+                    columns: [
+                        {
+                            $id: Now.ID['spp_card_preview_col_main'],
+                            size: 8,
+                            sizeXs: 12,
+                            order: 1,
+                            instances: [
+                                { $id: Now.ID['spp_card_preview_wide'], widget: myRoleProfileCardWidget, order: 1, title: 'Main column (8/12)' },
+                            ],
+                        },
+                        {
+                            $id: Now.ID['spp_card_preview_col_side'],
+                            size: 4,
+                            sizeXs: 12,
+                            order: 2,
+                            instances: [
+                                { $id: Now.ID['spp_card_preview_narrow'], widget: myRoleProfileCardWidget, order: 1, title: 'Side column (4/12)' },
                             ],
                         },
                     ],

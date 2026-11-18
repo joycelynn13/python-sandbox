@@ -5,21 +5,9 @@ $accent: #5b2a91; $accent-tint: #f3edf9; $ink: #1d2b3a; $body: #33414f; $muted: 
 .cms-hero p { color: $muted; margin-bottom: 18px; }
 .cms-muted { color: $muted; }
 .cms-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: $muted; font-weight: 700; }
-.cms-badge { background: $accent-tint; color: $accent; border-radius: 10px; padding: 1px 8px; font-size: 11px; text-transform: none; letter-spacing: 0; margin-left: 4px; }
 .cms-top { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; align-items: start; }
-.cms-myrp, .cms-side { background: #fff; border: 1px solid $line; border-radius: 10px; padding: 18px 20px; }
-.cms-myrp { border-top: 4px solid $accent; }
-.cms-myrp h2, .cms-side h2 { font-size: 22px; margin: 4px 0 8px; }
-.cms-meta { display: flex; flex-wrap: wrap; gap: 4px 18px; color: $body; margin-bottom: 12px; }
-.cms-meta strong { color: $muted; font-size: 12px; text-transform: uppercase; font-weight: 600; margin-right: 4px; }
-.cms-stats { display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 14px; }
-.cms-stats > div { display: flex; flex-direction: column; }
-.cms-stats__n { font-size: 26px; font-weight: 700; line-height: 1.1; }
-.cms-stats span:last-child { font-size: 12px; color: $muted; }
-.cms-reqs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 6px 24px; margin-bottom: 14px; }
-.cms-reqs h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: $muted; margin: 0 0 4px; }
-.cms-reqs ul { list-style: none; margin: 0; padding: 0; }
-.cms-reqs li { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-bottom: 1px solid #eef1f4; }
-.cms-pl { flex: none; font-size: 12px; font-weight: 700; color: $accent; background: $accent-tint; border-radius: 10px; padding: 0 8px; }
 .cms-side .btn { margin-top: 6px; }
 @media (max-width: 767px) { .cms-top { grid-template-columns: 1fr; } }
+
+.cms-side { background: #fff; border: 1px solid $line; border-radius: 8px; padding: 16px 18px; }
+.cms-side h2 { font-size: 20px; margin: 4px 0 8px; }

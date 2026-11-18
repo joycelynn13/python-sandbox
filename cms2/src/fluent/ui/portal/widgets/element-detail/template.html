@@ -24,13 +24,18 @@
       </div>
     </header>
 
+    <div class="cms-mine" ng-if="c.data.el.myTarget">
+      <strong>Your Role Profile target: {{c.data.el.myTarget.code}} – {{c.data.el.myTarget.label}}</strong>
+      <span>{{c.data.el.myTarget.typeLabel}} Element in {{c.data.el.myTarget.roleProfile}}</span>
+    </div>
+
     <section aria-labelledby="pl-head">
       <h2 id="pl-head">Proficiency Level descriptors</h2>
       <p class="cms-empty" ng-if="!c.data.el.levels.length">No published descriptors.</p>
       <ol class="cms-pls">
-        <li ng-repeat="l in c.data.el.levels" class="cms-pl">
+        <li ng-repeat="l in c.data.el.levels" class="cms-pl" ng-class="{'is-target': c.data.el.myTarget && c.data.el.myTarget.code === l.code}">
           <div class="cms-pl__badge"><span>{{l.code}}</span><small>{{l.label}}</small></div>
-          <p>{{l.descriptor}}</p>
+          <p><span class="cms-mine-chip" ng-if="c.data.el.myTarget && c.data.el.myTarget.code === l.code">Your target</span>{{l.descriptor}}</p>
         </li>
       </ol>
     </section>

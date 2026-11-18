@@ -91,7 +91,9 @@ function currentRoleProfileByCode(code: string): any {
 /** @param userName sys_user.user_name (the assignment stores user_name via referenceKey) */
 export function getMyRoleProfile(userName: string) {
     const a: any = new GlideRecordSecure(T.assignment)
-    a.addQuery('user', userName)
+    // user_name is stored via referenceKey; records created through some APIs hold the sys_id instead
+    const q = a.addQuery('user', userName)
+    if (userName === gs.getUserName()) q.addOrCondition('user', gs.getUserID())
     a.addQuery('active', true)
     a.setLimit(1)
     a.query()
@@ -189,7 +191,6 @@ function elementRow(gr: any) {
         descriptor: v(gr, 'descriptor'),
         domainId: v(gr, 'domain'),
         domain: dv(gr, 'domain'),
-        groupId: v(gr, 'domain.competency_group'),
         group: dv(gr, 'domain.competency_group'),
         status: v(gr, 'status'),
         frameworkVersion: dv(gr, 'framework_version'),
@@ -254,6 +255,73 @@ export function getRoleProfile(id: string) {
 
 // ------------------------------------------------------------------ competency library
 
+/** "Specialised Competencies – Digital" → "Digital"; names without a dash are kept whole. */
+function shortName(name: string): string {
+    const i = name.lastIndexOf(' – ')
+    return i > 0 ? name.substring(i + 3) : name
+}
+
+/** The viewer's own Role Profile targets, keyed by Element code (so any Element version matches). */
+function myTargets(): { [elementCode: string]: { code: string; label: string; type: string; typeLabel: string; roleProfile: string } } {
+    const out: { [c: string]: any } = {}
+    const my: any = getMyRoleProfile(gs.getUserName())
+    if (!my || my.missing) return out
+    // collect rows first, then resolve Element codes and PL labels in batch (no dot-walked getValue)
+    const rows: { element: string; level: string; type: string; typeLabel: string }[] = []
+    const r: any = new GlideRecordSecure(T.requirement)
+    r.addQuery('role_profile', my.id)
+    r.addQuery('active', true)
+    r.query()
+    while (r.next()) {
+        rows.push({ element: v(r, 'element'), level: v(r, 'target_level'), type: v(r, 'requirement_type'), typeLabel: dv(r, 'requirement_type') })
+    }
+    if (!rows.length) return out
+    const codeById: { [id: string]: string } = {}
+    const e: any = new GlideRecordSecure(T.element)
+    e.addQuery('sys_id', 'IN', rows.map((x) => x.element).join(','))
+    e.query()
+    while (e.next()) codeById[e.getUniqueValue()] = v(e, 'code')
+    const levelById: { [id: string]: Level } = {}
+    getScale().forEach((l) => (levelById[l.id] = l))
+    rows.forEach((x) => {
+        const code = codeById[x.element]
+        const lvl = levelById[x.level]
+        if (code && lvl) out[code] = { code: lvl.code, label: lvl.label, type: x.type, typeLabel: x.typeLabel, roleProfile: my.name }
+    })
+    return out
+}
+
+/** Currently effective Role Profiles that use any Published version of the given Element codes. */
+function roleProfilesByElementCode(codes: string[]): { [code: string]: any[] } {
+    const out: { [c: string]: any[] } = {}
+    codes.forEach((c) => (out[c] = []))
+    if (!codes.length) return out
+    const codeById: { [id: string]: string } = {}
+    const e: any = new GlideRecordSecure(T.element)
+    e.addQuery('code', 'IN', codes.join(','))
+    e.addQuery('status', STATUS.published)
+    e.query()
+    while (e.next()) codeById[e.getUniqueValue()] = v(e, 'code')
+    const ids = Object.keys(codeById)
+    if (!ids.length) return out
+    const r: any = new GlideRecordSecure(T.requirement)
+    r.addQuery('element', 'IN', ids.join(','))
+    r.addQuery('active', true)
+    addCurrentlyEffective(r, 'role_profile.')
+    r.orderBy('role_profile.name')
+    r.query()
+    while (r.next()) {
+        out[codeById[v(r, 'element')]].push({
+            id: v(r, 'role_profile'),
+            name: dv(r, 'role_profile'),
+            type: v(r, 'requirement_type'),
+            typeLabel: dv(r, 'requirement_type'),
+            target: dv(r, 'target_level').split(' – ')[0],
+        })
+    }
+    return out
+}
+
 export type LibraryFilter = { text?: string; groupId?: string; levelId?: string }
 
 export function getLibrary(f: LibraryFilter) {
@@ -273,7 +341,7 @@ export function getLibrary(f: LibraryFilter) {
             code: v(g, 'code'),
             name: v(g, 'name'),
             description: v(g, 'description'),
-            layout: v(g, 'layout') || 'column',
+            shortName: shortName(v(g, 'name')),
             domains: [],
         })
     }
@@ -290,6 +358,7 @@ export function getLibrary(f: LibraryFilter) {
         while (d.next()) {
             const dom = {
                 id: d.getUniqueValue(),
+                groupId: v(d, 'competency_group'),
                 code: v(d, 'code'),
                 name: v(d, 'name'),
                 description: v(d, 'description'),
@@ -318,13 +387,21 @@ export function getLibrary(f: LibraryFilter) {
         const levels = levelList(desc[el.id], scale)
         if (f.levelId && !levels.some((l) => l.id === f.levelId)) return
         const dom = domainById[el.domainId]
-        const grp = groupById[el.groupId] || { name: '' }
-        const matched =
-            has(el.name) || has(el.code) || has(el.descriptor) || has(dom.name) || has(dom.description) ||
-            has(grp.name) || has(grp.code) || levels.some((l) => has(l.descriptor) || has(l.code) || has(l.label))
-        if (!matched) return
+        const grp = groupById[dom.groupId] || { name: '', code: '' }
+        const matchedIn = !text
+            ? ''
+            : has(el.name) || has(el.code)
+              ? 'Element name'
+              : has(el.descriptor)
+                ? 'Element descriptor'
+                : has(dom.name) || has(dom.description)
+                  ? 'Domain'
+                  : has(grp.name) || has(grp.code)
+                    ? 'Competency Group'
+                    : levels.filter((l) => has(l.descriptor) || has(l.code) || has(l.label)).map((l) => l.code + ' descriptor')[0] || ''
+        if (text && !matchedIn) return
         elementCount++
-        dom.elements.push({ ...el, levels: levels.map((l) => ({ id: l.id, code: l.code, label: l.label })) })
+        dom.elements.push({ ...el, matchedIn, levels: levels.map((l) => ({ id: l.id, code: l.code, label: l.label })) })
     })
 
     // drop empty branches when a search/filter is active
@@ -338,7 +415,7 @@ export function getLibrary(f: LibraryFilter) {
         elementCount,
         domainCount,
         filtering,
-        allGroups: groups.map((x) => ({ id: x.id, name: x.name })),
+        allGroups: groups.map((x) => ({ id: x.id, name: x.name, shortName: x.shortName })),
     }
 }
 
@@ -377,6 +454,7 @@ export function getElement(id: string) {
         })
     }
     return {
+        myTarget: myTargets()[el.code] || null,
         element: { ...el, effectiveFrom: v(e, 'effective_from'), effectiveTo: v(e, 'effective_to'), effectiveNow },
         levels,
         roleProfiles,
@@ -412,6 +490,22 @@ export function getDomain(id: string) {
     e.query()
     while (e.next()) elements.push(elementRow(e))
     const desc = descriptorsFor(elements.map((x) => x.id))
-    elements.forEach((x) => (x.levels = levelList(desc[x.id], scale)))
-    return { domain, elements, scale }
+    const mine = myTargets()
+    const usedBy = roleProfilesByElementCode(elements.map((x) => x.code))
+    elements.forEach((x) => {
+        x.levels = levelList(desc[x.id], scale)
+        x.myTarget = mine[x.code] || null
+        x.roleProfiles = usedBy[x.code] || []
+    })
+
+    // other Domains in the same group, for quick switching
+    const siblings: any[] = []
+    const s: any = new GlideRecordSecure(T.domain)
+    addCurrentlyEffective(s)
+    s.addQuery('competency_group', domain.groupId)
+    s.orderBy('sequence')
+    s.query()
+    while (s.next()) siblings.push({ id: s.getUniqueValue(), name: v(s, 'name') })
+
+    return { domain, elements, scale, siblings }
 }

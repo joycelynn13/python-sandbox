@@ -42,7 +42,7 @@ export const PROPS = {
  */
 export const LOCKED_FIELDS: { [table: string]: string[] } = {
     [T.fwVersion]: ['name', 'version_number', 'description', 'effective_from'],
-    [T.group]: ['code', 'name', 'description', 'sequence', 'layout', 'framework_version', 'effective_from', 'supersedes'],
+    [T.group]: ['code', 'name', 'description', 'sequence', 'framework_version', 'effective_from', 'supersedes'],
     [T.domain]: [
         'code', 'name', 'description', 'competency_group', 'owner', 'sme', 'sequence',
         'framework_version', 'effective_from', 'supersedes',

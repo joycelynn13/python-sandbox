@@ -1,135 +1,178 @@
 <div class="cms-lib">
 
-  <!-- ============================ DOMAIN MODE ============================ -->
+  <!-- ============================== DOMAIN ============================== -->
   <div ng-if="c.data.domainId">
-    <div ng-if="!c.data.dom" class="cms-empty">
+    <div ng-if="!c.data.dom" class="cms-state">
       <h1>Domain not available</h1>
-      <p>This Domain does not exist or is not published.</p>
-      <a href="?id=x_2317791_cms2_library">Back to the Competency Library</a>
+      <p>This Domain does not exist or is not currently published.</p>
+      <a class="btn btn-default" href="?id=x_2317791_cms2_library">Back to the Competency Library</a>
     </div>
+
     <div ng-if="c.data.dom">
       <nav class="cms-crumbs" aria-label="Breadcrumb">
-        <a href="?id=x_2317791_cms2_library">Competency Library</a> › <span>{{c.data.dom.domain.group}}</span>
+        <a href="?id=x_2317791_cms2_library">Competency Library</a>
+        <span aria-hidden="true">›</span>
+        <a ng-href="?id=x_2317791_cms2_library&group={{c.data.dom.domain.groupId}}">{{c.data.dom.domain.group}}</a>
       </nav>
-      <header class="cms-dom-head">
-        <div class="cms-eyebrow">Domain</div>
-        <h1>{{c.data.dom.domain.name}}</h1>
-        <p ng-if="c.data.dom.domain.description">{{c.data.dom.domain.description}}</p>
-        <div class="cms-dom-meta">
-          <span>{{c.data.dom.elements.length}} Element(s)</span>
-          <span ng-if="c.data.dom.domain.owner">Domain Owner: {{c.data.dom.domain.owner}}</span>
-          <span ng-if="c.data.dom.domain.sme">SME: {{c.data.dom.domain.sme}}</span>
+
+      <header class="cms-dhead">
+        <div class="cms-dhead__main">
+          <h1>{{c.data.dom.domain.name}}</h1>
+          <p ng-if="c.data.dom.domain.description">{{c.data.dom.domain.description}}</p>
+          <div class="cms-meta">
+            <span>{{c.data.dom.elements.length}} Element{{c.data.dom.elements.length === 1 ? '' : 's'}}</span>
+            <span ng-if="c.data.dom.domain.owner">Domain Owner: {{c.data.dom.domain.owner}}</span>
+            <span ng-if="c.data.dom.domain.sme">SME: {{c.data.dom.domain.sme}}</span>
+          </div>
+        </div>
+        <div class="cms-dhead__switch" ng-if="c.data.dom.siblings.length > 1">
+          <label for="dom-switch">Switch Domain</label>
+          <select id="dom-switch" class="form-control" ng-model="c.siblingId" ng-change="c.goDomain()"
+                  ng-options="s.id as s.name for s in c.data.dom.siblings"></select>
         </div>
       </header>
 
-      <p ng-if="!c.data.dom.elements.length" class="cms-empty cms-empty--box">
-        No Elements have been published for this Domain yet.
-      </p>
-
-      <article class="cms-el-card" ng-repeat="e in c.data.dom.elements" aria-labelledby="el-{{e.id}}">
-        <div class="cms-eyebrow">Element</div>
-        <h2 id="el-{{e.id}}"><a ng-href="?id=x_2317791_cms2_element&sys_id={{e.id}}">{{e.name}}</a></h2>
-        <p class="cms-el-card__desc">{{e.descriptor}}</p>
-        <div ng-if="e.levels.length">
-          <div class="cms-pl-label" id="pl-label-{{e.id}}">Proficiency Level</div>
-          <div class="cms-pl-tabs" role="tablist" aria-labelledby="pl-label-{{e.id}}">
-            <button type="button" role="tab" ng-repeat="l in e.levels" class="cms-pl-tab"
-                    ng-class="{'is-selected': c.sel[e.id] === l.id}" aria-selected="{{c.sel[e.id] === l.id}}"
-                    ng-click="c.select(e, l)" title="{{l.code}} – {{l.label}}">{{l.code}}</button>
-          </div>
-          <div class="cms-pl-panel" role="tabpanel" ng-if="c.selected(e)">
-            <strong>{{c.selected(e).code}} – {{c.selected(e).label}}</strong>
-            <p>{{c.selected(e).descriptor}}</p>
-          </div>
-        </div>
-        <p ng-if="!e.levels.length" class="cms-empty">No published PL descriptors.</p>
-      </article>
-    </div>
-  </div>
-
-  <!-- ===================== LANDING + SEARCH MODE ===================== -->
-  <div ng-if="!c.data.domainId">
-    <header class="cms-lib-head">
-      <h1>Competency Library</h1>
-      <p>Browse the HTX technical competency framework: Competency Group → Domain → Element → Proficiency Level.</p>
-      <div class="cms-lib-stats" ng-if="!c.data.lib.filtering">
-        <span><strong>{{c.data.lib.domainCount}}</strong> Domains</span>
-        <span><strong>{{c.data.lib.elementCount}}</strong> Elements</span>
+      <div ng-if="!c.data.dom.elements.length" class="cms-state cms-state--box">
+        <h2>No Elements published yet</h2>
+        <p>Elements for this Domain are still being defined. Browse another Domain in the meantime.</p>
+        <a class="btn btn-default" href="?id=x_2317791_cms2_library">Back to all Domains</a>
       </div>
-    </header>
 
-    <form class="cms-filters" role="search" ng-submit="c.search()">
-      <div class="cms-filters__row">
-        <div class="cms-filters__wide">
-          <label for="lib-q">Search</label>
-          <input id="lib-q" type="search" class="form-control" placeholder="Domain, Element, description or PL descriptor text"
-                 ng-model="c.filter.text" ng-model-options="{debounce: 350}" ng-change="c.search()">
-        </div>
-        <div>
-          <label for="lib-grp">Competency Group</label>
-          <select id="lib-grp" class="form-control" ng-model="c.filter.groupId" ng-change="c.search()">
-            <option value="">All groups</option>
-            <option ng-repeat="g in c.data.lib.allGroups" value="{{g.id}}">{{g.name}}</option>
-          </select>
-        </div>
-        <div>
-          <label for="lib-pl">Proficiency Level</label>
-          <select id="lib-pl" class="form-control" ng-model="c.filter.levelId" ng-change="c.search()">
-            <option value="">Any PL</option>
-            <option ng-repeat="l in c.data.lib.scale" value="{{l.id}}">{{l.display}}</option>
-          </select>
-        </div>
-        <div class="cms-filters__clear"><button type="button" class="btn btn-link" ng-click="c.clear()">Clear</button></div>
-      </div>
-    </form>
-
-    <p class="cms-count" aria-live="polite" ng-if="c.loading">Searching…</p>
-
-    <!-- Landing: all Domains, laid out like the framework overview -->
-    <div ng-if="!c.data.lib.filtering && !c.loading">
-      <section class="cms-band" ng-repeat="g in c.rows" aria-labelledby="grp-{{g.id}}">
-        <h2 id="grp-{{g.id}}">{{g.name}} <span class="cms-band__code">({{g.code}}s)</span></h2>
-        <div class="cms-band__tiles">
-          <a class="cms-tile" ng-repeat="d in g.domains" ng-href="?id=x_2317791_cms2_library&domain={{d.id}}">
-            <span class="cms-tile__name">{{d.name}}</span>
-            <span class="cms-tile__count">{{c.elementCount(d)}} Element(s)</span>
-          </a>
-        </div>
-      </section>
-
-      <div class="cms-cols" ng-if="c.cols.length">
-        <section class="cms-col" ng-repeat="g in c.cols" aria-labelledby="grp-{{g.id}}">
-          <h2 id="grp-{{g.id}}" class="cms-col__head" title="{{g.name}}">{{c.shortName(g)}}</h2>
-          <ul class="cms-col__list">
-            <li ng-repeat="d in g.domains">
-              <a ng-href="?id=x_2317791_cms2_library&domain={{d.id}}">
-                <span>{{d.name}}</span>
-                <span class="cms-badge" ng-class="{'cms-badge--zero': !c.elementCount(d)}"
-                      aria-label="{{c.elementCount(d)}} Elements">{{c.elementCount(d)}}</span>
-              </a>
+      <div class="cms-md" ng-if="c.data.dom.elements.length">
+        <!-- master: element list (select on small screens) -->
+        <div class="cms-md__list">
+          <label class="cms-md__select-label" for="el-select">Element</label>
+          <select id="el-select" class="form-control cms-md__select" ng-model="c.currentId" ng-change="c.pickById()"
+                  ng-options="e.id as e.name for e in c.data.dom.elements"></select>
+          <ul class="cms-elist" aria-label="Elements in {{c.data.dom.domain.name}}">
+            <li ng-repeat="e in c.data.dom.elements">
+              <button type="button" class="cms-elist__item" ng-class="{'is-active': c.current.id === e.id}"
+                      aria-current="{{c.current.id === e.id ? 'true' : 'false'}}" ng-click="c.pick(e)">
+                <span class="cms-elist__name">{{e.name}}</span>
+                <span class="cms-elist__meta">{{c.range(e)}}
+                  <span ng-if="e.myTarget" class="cms-chip cms-chip--mine">Your target {{e.myTarget.code}}</span>
+                </span>
+              </button>
             </li>
           </ul>
+        </div>
+
+        <!-- detail: selected element with proficiency ladder -->
+        <section class="cms-md__detail" ng-if="c.current" aria-labelledby="el-title" aria-live="polite">
+          <div class="cms-eyebrow">Element</div>
+          <h2 id="el-title">{{c.current.name}}</h2>
+          <p class="cms-detail__desc">{{c.current.descriptor}}</p>
+
+          <div class="cms-mine" ng-if="c.current.myTarget">
+            <strong>Your Role Profile target: {{c.current.myTarget.code}} – {{c.current.myTarget.label}}</strong>
+            <span>{{c.current.myTarget.typeLabel}} Element in {{c.current.myTarget.roleProfile}}</span>
+          </div>
+
+          <h3 class="cms-h3">Proficiency Levels</h3>
+          <p class="cms-hint" ng-if="c.current.levels.length">This Element defines {{c.range(c.current)}}. Read upwards to see how expectations grow.</p>
+          <p class="cms-hint" ng-if="!c.current.levels.length">No Proficiency Level descriptors are published yet.</p>
+          <ol class="cms-ladder">
+            <li ng-repeat="l in c.current.levels" class="cms-ladder__step" ng-class="{'is-target': c.isTarget(c.current, l)}">
+              <div class="cms-ladder__badge"><span>{{l.code}}</span><small>{{l.label}}</small></div>
+              <div class="cms-ladder__body">
+                <span class="cms-chip cms-chip--mine" ng-if="c.isTarget(c.current, l)">Your target</span>
+                <p>{{l.descriptor}}</p>
+              </div>
+            </li>
+          </ol>
+
+          <h3 class="cms-h3">Used in Role Profiles</h3>
+          <p class="cms-hint" ng-if="!c.current.roleProfiles.length">No current Role Profile uses this Element.</p>
+          <ul class="cms-rplist" ng-if="c.current.roleProfiles.length">
+            <li ng-repeat="rp in c.current.roleProfiles">
+              <a ng-href="?id=x_2317791_cms2_role_profile&sys_id={{rp.id}}">{{rp.name}}</a>
+              <span class="cms-chip" ng-class="{'cms-chip--ess': rp.type === 'essential'}">{{rp.typeLabel}}</span>
+              <span class="cms-chip cms-chip--plain">Target {{rp.target}}</span>
+            </li>
+          </ul>
+          <a class="cms-more" ng-href="?id=x_2317791_cms2_element&sys_id={{c.current.id}}">Open full Element page →</a>
         </section>
       </div>
     </div>
+  </div>
 
-    <!-- Search / filter results -->
-    <div ng-if="c.data.lib.filtering && !c.loading">
-      <p class="cms-count">{{c.data.lib.elementCount}} Element(s) match</p>
-      <section class="cms-result-group" ng-repeat="g in c.data.lib.groups">
-        <h2>{{g.name}}</h2>
-        <div class="cms-result-domain" ng-repeat="d in g.domains">
-          <h3><a ng-href="?id=x_2317791_cms2_library&domain={{d.id}}">{{d.name}}</a></h3>
-          <ul class="cms-elements">
-            <li ng-repeat="e in d.elements">
-              <a class="cms-el__name" ng-href="?id=x_2317791_cms2_element&sys_id={{e.id}}">{{e.name}}</a>
-              <span class="cms-el__levels"><span ng-repeat="l in e.levels" class="cms-lvl" title="{{l.code}} – {{l.label}}">{{l.code}}</span></span>
-              <p class="cms-el__desc">{{e.descriptor}}</p>
-            </li>
-          </ul>
+  <!-- ========================== LANDING / SEARCH ========================== -->
+  <div ng-if="!c.data.domainId">
+    <header class="cms-lhead">
+      <h1>Competency Library</h1>
+      <p>Explore the HTX technical competency framework. Choose a Domain to see its Elements and what each Proficiency Level looks like.</p>
+    </header>
+
+    <form class="cms-search" role="search" ng-submit="c.search()">
+      <label class="sr-only" for="lib-q">Search the library</label>
+      <input id="lib-q" type="search" class="form-control input-lg" placeholder="Search Domains, Elements and Proficiency Level descriptors"
+             ng-model="c.filter.text" ng-model-options="{debounce: 350}" ng-change="c.search()">
+      <label class="sr-only" for="lib-pl">Proficiency Level</label>
+      <select id="lib-pl" class="form-control input-lg cms-search__pl" ng-model="c.filter.levelId" ng-change="c.search()">
+        <option value="">Any level</option>
+        <option ng-repeat="l in c.data.lib.scale" value="{{l.id}}">{{l.display}}</option>
+      </select>
+    </form>
+
+    <div class="cms-toolbar" ng-if="!c.data.lib.filtering">
+      <div class="cms-chips" role="group" aria-label="Filter by Competency Group">
+        <button type="button" class="cms-filterchip" ng-class="{'is-on': !c.filter.groupId}" aria-pressed="{{!c.filter.groupId}}" ng-click="c.setGroup('')">All</button>
+        <button type="button" class="cms-filterchip" ng-repeat="g in c.data.lib.allGroups" ng-class="{'is-on': c.filter.groupId === g.id}"
+                aria-pressed="{{c.filter.groupId === g.id}}" ng-click="c.setGroup(g.id)">{{g.shortName}}</button>
+      </div>
+      <label class="cms-toggle"><input type="checkbox" ng-model="c.hideEmpty"> Hide Domains without Elements</label>
+      <span class="cms-count" aria-live="polite">{{c.shownDomainCount()}} Domains · {{c.data.lib.elementCount}} Elements</span>
+    </div>
+
+    <p class="cms-count" ng-if="c.loading" aria-live="polite">Searching…</p>
+
+    <!-- browse -->
+    <div ng-if="!c.data.lib.filtering && !c.loading">
+      <section class="cms-gsec" ng-repeat="g in c.data.lib.groups" ng-if="c.groupShown(g)" aria-labelledby="g-{{g.id}}">
+        <div class="cms-gsec__head">
+          <h2 id="g-{{g.id}}">{{g.name}}</h2>
+          <span class="cms-count">{{g.domains.length}} Domains</span>
+        </div>
+        <p class="cms-gsec__desc" ng-if="g.description">{{g.description}}</p>
+        <div class="cms-grid">
+          <a class="cms-dcard" ng-repeat="d in g.domains" ng-if="c.domainShown(d)"
+             ng-class="{'is-empty': !d.elements.length}" ng-href="?id=x_2317791_cms2_library&domain={{d.id}}">
+            <span class="cms-dcard__name">{{d.name}}</span>
+            <span class="cms-dcard__desc">{{d.description}}</span>
+            <span class="cms-dcard__foot">
+              <span ng-if="d.elements.length"><strong>{{d.elements.length}}</strong> Element{{d.elements.length === 1 ? '' : 's'}}</span>
+              <span ng-if="!d.elements.length" class="cms-dcard__soon">Elements coming soon</span>
+            </span>
+            <span class="cms-dcard__preview" ng-if="d.elements.length">{{c.preview(d)}}</span>
+          </a>
         </div>
       </section>
-      <p ng-if="!c.data.lib.groups.length" class="cms-empty">Nothing in the library matches your search.</p>
+    </div>
+
+    <!-- search results -->
+    <div ng-if="c.data.lib.filtering && !c.loading">
+      <div class="cms-results-head">
+        <span class="cms-count" aria-live="polite">{{c.data.lib.elementCount}} matching Element{{c.data.lib.elementCount === 1 ? '' : 's'}}</span>
+        <button type="button" class="btn btn-link" ng-click="c.clearSearch()">Clear search</button>
+      </div>
+      <div ng-repeat="g in c.data.lib.groups">
+        <div ng-repeat="d in g.domains">
+          <a class="cms-result" ng-repeat="e in d.elements" ng-href="?id=x_2317791_cms2_library&domain={{d.id}}&element={{e.id}}">
+            <span class="cms-result__path">{{g.shortName}} › {{d.name}}</span>
+            <span class="cms-result__name">{{e.name}}</span>
+            <span class="cms-result__desc">{{e.descriptor}}</span>
+            <span class="cms-result__foot">
+              <span class="cms-chip cms-chip--plain" ng-if="e.matchedIn">Matched in {{e.matchedIn}}</span>
+              <span class="cms-lvls"><span ng-repeat="l in e.levels" class="cms-lvl">{{l.code}}</span></span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="cms-state" ng-if="!c.data.lib.elementCount">
+        <h2>No matches</h2>
+        <p>Try a broader term, or browse the Domains instead.</p>
+        <button type="button" class="btn btn-default" ng-click="c.clearSearch()">Browse all Domains</button>
+      </div>
     </div>
   </div>
 </div>

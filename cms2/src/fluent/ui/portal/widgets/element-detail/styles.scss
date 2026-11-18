@@ -18,3 +18,7 @@
 .cms-table { background: #fff; }
 .cms-empty { color: #5f6f81; }
 @media (max-width: 600px) { .cms-pl { grid-template-columns: 1fr; } }
+.cms-mine { display: flex; flex-direction: column; gap: 2px; background: #e6f4ef; border-left: 4px solid #0b6b4f; border-radius: 6px; padding: 10px 14px; margin: 0 0 8px; color: #0b6b4f; }
+.cms-mine span { color: #33414f; font-size: 13px; }
+.cms-pl.is-target { border: 2px solid #0b6b4f; background: #e6f4ef; }
+.cms-mine-chip { display: block; width: max-content; border-radius: 12px; padding: 1px 9px; font-size: 12px; font-weight: 600; background: #fff; color: #0b6b4f; margin-bottom: 4px; }

@@ -22,13 +22,13 @@ PL_DESC = {
 def ident(s): return re.sub(r'[^a-z0-9]+', '_', s.lower()).strip('_')
 def q(s): return "'" + s.replace('\\', '\\\\').replace("'", "\\'") + "'"
 
-# code, name, description, sequence, landing-page layout ('row' = tile band, 'column' = column)
+# code, name, description, sequence
 # Names follow the "Refreshed Technical Competency Framework" slide (4 CCCs + 33 SPCs = 37 Domains).
 groups = [
-    ('CCC', 'Cross-Cutting Competencies', 'Competencies that apply across all technical functions.', 10, 'row'),
-    ('SPC-E', 'Specialised Competencies – Engineering', 'Specialised competencies for engineering disciplines.', 20, 'column'),
-    ('SPC-D', 'Specialised Competencies – Digital', 'Specialised competencies for digital disciplines.', 30, 'column'),
-    ('SPC-S', 'Specialised Competencies – Sciences', 'Specialised competencies for scientific disciplines.', 40, 'column'),
+    ('CCC', 'Cross-Cutting Competencies', 'Competencies that apply across all technical functions.', 10),
+    ('SPC-E', 'Specialised Competencies – Engineering', 'Specialised competencies for engineering disciplines.', 20),
+    ('SPC-D', 'Specialised Competencies – Digital', 'Specialised competencies for digital disciplines.', 30),
+    ('SPC-S', 'Specialised Competencies – Sciences', 'Specialised competencies for scientific disciplines.', 40),
 ]
 # key (stable Now.ID – the first 8 reuse the original demo keys so records update in place),
 # code, name, group, description
@@ -165,9 +165,9 @@ rec('demo_fw_2027', 'demo_fw_2027', 'x_2317791_cms2_fw_version', {
     'description': 'PROTOTYPE draft of the next framework version. Not visible to employees.',
     'status': 'draft', 'active': True})
 gvar = {}
-for code, name, desc, seq, layout in groups:
+for code, name, desc, seq in groups:
     v = 'demo_grp_' + ident(code); gvar[code] = v
-    rec(v, v, 'x_2317791_cms2_comp_group', {'code': code, 'name': name, 'description': desc, 'sequence': seq, 'layout': layout,
+    rec(v, v, 'x_2317791_cms2_comp_group', {'code': code, 'name': name, 'description': desc, 'sequence': seq,
         'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
 dvar = {}
 seq_in_group = {}

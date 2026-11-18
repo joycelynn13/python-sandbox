@@ -28,7 +28,7 @@ How each test works:
 | T11 | Duplicate active Element + PL descriptor prevented (Draft and overlapping Published) | ✅ Pass |
 | T12 | Employee listing returns only Published and currently effective records | ✅ Pass |
 
-The latest run (after the 37-domain Library landing change) passed 12/12 with no runtime cross-scope auto-grants.
+The latest run (after the Library UX redesign) passed 12/12. No runtime cross-scope auto-grants occurred, and the instance holds only the 12 declared privileges.
 
 ### Running the suite
 
@@ -56,8 +56,9 @@ now-sdk cicd testsuite run --test-suite-name "CMS 2.0 – Role Profile and Compe
 | Landing `/esc?id=x_2317791_cms2_home` | ✅ Renders. Shows "No Role Profile assigned" for users without a prototype assignment |
 | Browse `/esc?id=x_2317791_cms2_role_profiles` | ✅ 5 currently effective Role Profiles. The historical v1 and the Draft are hidden; filters work |
 | Role Profile detail | ✅ Essential (4) / Complementary (5) shown; the Target PL button expands the Element-specific descriptor. A digest bug found here was fixed |
-| Competency Library landing | ✅ All 37 Domains: CCC as a tile row, Engineering / Digital / Sciences as columns, each Domain with its Element count. Search switches to a results list |
-| Domain page `?id=x_2317791_cms2_library&domain=<sys_id>` | ✅ Element cards with a PL button bar showing only defined levels (Testing and Quality: PL1–PL4); the selected PL shows its descriptor. Empty Domains show "No Elements have been published for this Domain yet" |
+| Competency Library landing | ✅ All 37 Domains as one responsive card grid per Competency Group, each card with description, Element count and preview. Group chips and "Hide Domains without Elements" filter on the client side (Digital + hide empty → 4 Domains). Search shows where each result matched (e.g. "Matched in PL1 descriptor") and deep-links to the Element in its Domain |
+| Domain page `?id=x_2317791_cms2_library&domain=<sys_id>[&element=<sys_id>]` | ✅ Master–detail: Element list on the left; the selected Element shows a proficiency ladder of all defined levels (Testing and Quality: PL1–PL4, no PL5), the viewer's **Your target** level from their Role Profile, and the Role Profiles that use it. Switch Domain dropdown. Empty Domains show a friendly empty state |
+| Mobile (390 px) | ✅ Element list becomes a dropdown; no horizontal scrolling |
 | Element detail | ✅ Cybersecurity Fundamentals shows PL1–PL3 only and the Role Profiles that use it |
 | CMS Administration Workspace `/now/cms-admin/home` | ❌ "Page not found". See `assumptions.md` → Known issues |
 

@@ -91,7 +91,7 @@ Acl({
     table: 'x_2317791_cms2_rp_assignment',
     operation: 'read',
     roles: [cmsUser],
-    script: `answer = current.getValue('user') == gs.getUserName();`,
+    script: `var u = current.getValue('user'); answer = u == gs.getUserName() || u == gs.getUserID();`,
     description: 'Employees read only their own prototype Role Profile assignment.',
 })
 Acl({ $id: Now.ID['acl_rpa_read_admin'], type: 'record', table: 'x_2317791_cms2_rp_assignment', operation: 'read', roles: [cmsRoleProfileAdmin] })

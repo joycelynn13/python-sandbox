@@ -1,0 +1,54 @@
+<div class="cms-eld">
+  <div ng-if="!c.data.el" class="cms-empty">
+    <h1>Element not available</h1>
+    <p>This Element does not exist or is not published.</p>
+    <a href="?id=x_2317791_cms2_library">Back to the Competency Library</a>
+  </div>
+  <div ng-if="c.data.el">
+    <nav class="cms-crumbs" aria-label="Breadcrumb">
+      <a href="?id=x_2317791_cms2_library">Competency Library</a> ›
+      <a ng-href="?id=x_2317791_cms2_library&group={{c.data.el.element.groupId}}">{{c.data.el.element.group}}</a> ›
+      <span>{{c.data.el.element.domain}}</span>
+    </nav>
+    <header class="cms-eld__head">
+      <h1>{{c.data.el.element.name}}</h1>
+      <div class="cms-eld__meta">
+        <span><strong>Domain</strong> {{c.data.el.element.domain}}</span>
+        <span><strong>Competency Group</strong> {{c.data.el.element.group}}</span>
+        <span><strong>Code</strong> {{c.data.el.element.code}}</span>
+      </div>
+      <p class="cms-eld__desc">{{c.data.el.element.descriptor}}</p>
+      <div class="cms-eld__version">{{c.data.el.element.frameworkVersion}} · effective from {{c.data.el.element.effectiveFrom}}
+        <span ng-if="c.data.el.element.effectiveTo"> to {{c.data.el.element.effectiveTo}}</span>
+        <span class="cms-status" ng-if="!c.data.el.element.effectiveNow">Not currently effective</span>
+      </div>
+    </header>
+
+    <section aria-labelledby="pl-head">
+      <h2 id="pl-head">Proficiency Level descriptors</h2>
+      <p class="cms-empty" ng-if="!c.data.el.levels.length">No published descriptors.</p>
+      <ol class="cms-pls">
+        <li ng-repeat="l in c.data.el.levels" class="cms-pl">
+          <div class="cms-pl__badge"><span>{{l.code}}</span><small>{{l.label}}</small></div>
+          <p>{{l.descriptor}}</p>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="rp-head">
+      <h2 id="rp-head">Role Profiles using this Element</h2>
+      <p class="cms-empty" ng-if="!c.data.el.roleProfiles.length">No currently published Role Profile uses this Element.</p>
+      <table class="table cms-table" ng-if="c.data.el.roleProfiles.length">
+        <thead><tr><th scope="col">Role Profile</th><th scope="col">Function</th><th scope="col">Requirement</th><th scope="col">Target PL</th></tr></thead>
+        <tbody>
+          <tr ng-repeat="rp in c.data.el.roleProfiles">
+            <td><a ng-href="?id=x_2317791_cms2_role_profile&sys_id={{rp.id}}">{{rp.name}}</a></td>
+            <td>{{rp.businessFunction}}</td>
+            <td><span class="cms-pill" ng-class="{'cms-pill--ess': rp.type === 'essential'}">{{rp.typeLabel}}</span></td>
+            <td>{{rp.target}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="cms-browse">
+  <h1>Role Profiles</h1>
+  <form class="cms-filters" role="search" ng-submit="c.search()">
+    <div class="cms-filters__main">
+      <label class="sr-only" for="rp-q">Search Role Profiles</label>
+      <input id="rp-q" type="search" class="form-control" placeholder="Search by name, code or description"
+             ng-model="c.filter.text" ng-model-options="{debounce: 350}" ng-change="c.search()">
+    </div>
+    <div class="cms-filters__row">
+      <div>
+        <label for="rp-title">Job title</label>
+        <input id="rp-title" type="text" class="form-control" ng-model="c.filter.jobTitle"
+               ng-model-options="{debounce: 350}" ng-change="c.search()">
+      </div>
+      <div>
+        <label for="rp-fn">Function</label>
+        <select id="rp-fn" class="form-control" ng-model="c.filter.businessFunction" ng-change="c.search()">
+          <option value="">All functions</option>
+          <option ng-repeat="f in c.data.result.facets.functions" value="{{f}}">{{f}}</option>
+        </select>
+      </div>
+      <div>
+        <label for="rp-fam">Job family</label>
+        <select id="rp-fam" class="form-control" ng-model="c.filter.jobFamily" ng-change="c.search()">
+          <option value="">All job families</option>
+          <option ng-repeat="f in c.data.result.facets.jobFamilies" value="{{f}}">{{f}}</option>
+        </select>
+      </div>
+      <div ng-if="c.data.result.canSeeAllStatuses">
+        <label for="rp-status">Status <span class="cms-admin-tag">admin</span></label>
+        <select id="rp-status" class="form-control" ng-model="c.filter.status" ng-change="c.search()">
+          <option value="effective">Published – currently effective</option>
+          <option value="published">Published – all periods</option>
+          <option value="draft">Draft</option>
+          <option value="retired">Retired</option>
+        </select>
+      </div>
+      <div class="cms-filters__clear"><button type="button" class="btn btn-link" ng-click="c.clear()">Clear filters</button></div>
+    </div>
+  </form>
+
+  <p class="cms-count" aria-live="polite">
+    <span ng-if="c.loading">Searching…</span>
+    <span ng-if="!c.loading">{{c.data.result.items.length}} Role Profile(s)</span>
+  </p>
+
+  <ul class="cms-rp-list">
+    <li ng-repeat="rp in c.data.result.items" class="cms-rp">
+      <div class="cms-rp__head">
+        <a class="cms-rp__name" ng-href="?id=x_2317791_cms2_role_profile&sys_id={{rp.id}}">{{rp.name}}</a>
+        <span class="cms-status" ng-if="rp.status !== 'published'">{{rp.statusLabel}}</span>
+      </div>
+      <div class="cms-rp__meta">
+        <span ng-if="rp.jobTitle">{{rp.jobTitle}}</span>
+        <span ng-if="rp.businessFunction">Function: {{rp.businessFunction}}</span>
+        <span ng-if="rp.jobFamily">Job family: {{rp.jobFamily}}</span>
+        <span>Version {{rp.version}} · from {{rp.effectiveFrom}}</span>
+      </div>
+      <div class="cms-rp__counts">
+        <span class="cms-pill cms-pill--ess">{{rp.counts.essential}} Essential</span>
+        <span class="cms-pill">{{rp.counts.complementary}} Complementary</span>
+        <span class="cms-pill cms-pill--muted">{{rp.counts.total}} total</span>
+      </div>
+    </li>
+  </ul>
+  <p ng-if="!c.loading && !c.data.result.items.length" class="cms-empty">No Role Profiles match these filters.</p>
+</div>

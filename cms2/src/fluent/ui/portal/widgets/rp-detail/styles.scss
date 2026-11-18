@@ -1,0 +1,27 @@
+.cms-back { display: inline-block; margin-bottom: 8px; font-size: 13px; }
+.cms-rpd__head { background: #fff; border: 1px solid #dde2e8; border-left: 4px solid #0b5cad; border-radius: 8px; padding: 16px 18px; margin-bottom: 18px; }
+.cms-rpd__head h1 { font-size: 26px; margin: 0 0 8px; }
+.cms-rpd__meta { display: flex; flex-wrap: wrap; gap: 4px 20px; color: #33414f; }
+.cms-rpd__meta strong { color: #5f6f81; font-weight: 600; font-size: 12px; text-transform: uppercase; margin-right: 4px; }
+.cms-rpd__desc { margin: 10px 0 6px; color: #33414f; }
+.cms-rpd__version { font-size: 12px; color: #5f6f81; }
+.cms-status { font-size: 11px; text-transform: uppercase; background: #fdecea; color: #8a1c12; border-radius: 3px; padding: 1px 6px; margin-left: 6px; }
+.cms-req-section h2 { font-size: 19px; margin: 18px 0 10px; }
+.cms-req-section--essential h2 { color: #0b4a8b; }
+.cms-count { color: #5f6f81; font-weight: 400; font-size: 15px; }
+.cms-req { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; background: #fff; border: 1px solid #dde2e8; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+.cms-req-section--essential .cms-req { border-left: 4px solid #0b5cad; }
+.cms-req__name { font-size: 16px; font-weight: 600; }
+.cms-req__path { font-size: 12px; color: #5f6f81; margin: 2px 0 6px; }
+.cms-req__desc { margin: 0 0 6px; color: #33414f; }
+.cms-req__levels { font-size: 12px; color: #5f6f81; }
+.cms-lvl { display: inline-block; border: 1px solid #cfd6de; border-radius: 3px; padding: 0 5px; margin-left: 3px; }
+.cms-lvl--target { background: #0b5cad; color: #fff; border-color: #0b5cad; }
+.cms-req__target { text-align: right; }
+.cms-req__label { display: block; font-size: 11px; text-transform: uppercase; color: #5f6f81; font-weight: 600; }
+.cms-target-btn { margin-top: 4px; background: #e3eefb; color: #0b4a8b; border: 1px solid #b9d2f0; border-radius: 16px; padding: 5px 12px; font-weight: 600; white-space: nowrap; }
+.cms-target-btn:hover, .cms-target-btn:focus { background: #d2e3f8; }
+.cms-req__pl { grid-column: 1 / -1; background: #f6f9fd; border: 1px solid #d6e4f5; border-radius: 6px; padding: 10px 12px; }
+.cms-req__pl p { margin: 6px 0 0; }
+.cms-empty { color: #5f6f81; }
+@media (max-width: 600px) { .cms-req { grid-template-columns: 1fr; } .cms-req__target { text-align: left; } }

@@ -1,0 +1,15 @@
+.cms-nav { margin: 0 0 16px; }
+.cms-proto {
+  background: #fff8e1; border: 1px solid #f0d58c; color: #5c4400;
+  border-radius: 6px; padding: 8px 12px; font-size: 13px; margin-bottom: 12px;
+}
+.cms-proto__tag {
+  display: inline-block; font-weight: 600; text-transform: uppercase; font-size: 11px;
+  letter-spacing: .04em; background: #5c4400; color: #fff; border-radius: 3px; padding: 1px 6px; margin-right: 6px;
+}
+.cms-tabs { display: flex; gap: 4px; border-bottom: 1px solid #dde2e8; flex-wrap: wrap; }
+.cms-tabs a {
+  padding: 8px 14px; color: #3a4a5c; text-decoration: none; border-bottom: 3px solid transparent; font-weight: 500;
+}
+.cms-tabs a:hover, .cms-tabs a:focus { color: #0b5cad; }
+.cms-tabs a.is-active { color: #0b5cad; border-bottom-color: #0b5cad; }

@@ -1,0 +1,54 @@
+<div class="cms-rpd">
+  <div ng-if="!c.data.rp" class="cms-empty">
+    <h1>Role Profile not available</h1>
+    <p>This Role Profile does not exist or is not currently published.</p>
+    <a href="?id=x_2317791_cms2_role_profiles">Back to Role Profiles</a>
+  </div>
+
+  <div ng-if="c.data.rp">
+    <a class="cms-back" href="?id=x_2317791_cms2_role_profiles">&larr; All Role Profiles</a>
+    <header class="cms-rpd__head">
+      <h1>{{c.data.rp.profile.name}}</h1>
+      <div class="cms-rpd__meta">
+        <span ng-if="c.data.rp.profile.jobTitle"><strong>Job title</strong> {{c.data.rp.profile.jobTitle}}</span>
+        <span><strong>Function</strong> {{c.data.rp.profile.businessFunction}}</span>
+        <span ng-if="c.data.rp.profile.jobFamily"><strong>Job family</strong> {{c.data.rp.profile.jobFamily}}</span>
+      </div>
+      <p class="cms-rpd__desc" ng-if="c.data.rp.profile.description">{{c.data.rp.profile.description}}</p>
+      <div class="cms-rpd__version">
+        {{c.data.rp.profile.frameworkVersion}} · Role Profile version {{c.data.rp.profile.version}} ·
+        effective from {{c.data.rp.profile.effectiveFrom}}<span ng-if="c.data.rp.profile.effectiveTo"> to {{c.data.rp.profile.effectiveTo}}</span>
+        <span class="cms-status" ng-if="c.data.rp.profile.status !== 'published'">{{c.data.rp.profile.statusLabel}} – admin preview</span>
+      </div>
+    </header>
+
+    <section ng-repeat="grp in c.sections"
+             class="cms-req-section cms-req-section--{{grp.key}}" aria-labelledby="sec-{{grp.key}}">
+      <h2 id="sec-{{grp.key}}">{{grp.title}} Elements <span class="cms-count">({{grp.rows.length}})</span></h2>
+      <p ng-if="!grp.rows.length" class="cms-empty">None.</p>
+      <div class="cms-req" ng-repeat="r in grp.rows">
+        <div class="cms-req__main">
+          <a class="cms-req__name" ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
+          <div class="cms-req__path">{{r.element.group}} › {{r.element.domain}}</div>
+          <p class="cms-req__desc">{{r.element.descriptor}}</p>
+          <div class="cms-req__levels" ng-if="r.levels.length">
+            Defined levels:
+            <span ng-repeat="l in r.levels" class="cms-lvl" ng-class="{'cms-lvl--target': l.id === r.targetLevelId}">{{l.code}}</span>
+          </div>
+        </div>
+        <div class="cms-req__target">
+          <span class="cms-req__label">Target PL</span>
+          <button type="button" class="cms-target-btn" ng-click="c.toggle(r.id)"
+                  aria-expanded="{{!!c.open[r.id]}}" aria-controls="desc-{{r.id}}">
+            {{r.target.code}} – {{r.target.label}}
+            <span class="cms-caret" aria-hidden="true">{{c.open[r.id] ? '▴' : '▾'}}</span>
+          </button>
+        </div>
+        <div id="desc-{{r.id}}" class="cms-req__pl" ng-show="c.open[r.id]">
+          <strong>{{r.target.code}} – {{r.target.label}} for {{r.element.name}}</strong>
+          <p>{{r.targetDescriptor || 'No published descriptor for this level.'}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

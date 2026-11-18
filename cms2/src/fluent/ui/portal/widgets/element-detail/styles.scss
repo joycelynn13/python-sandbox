@@ -1,0 +1,20 @@
+.cms-crumbs { font-size: 13px; color: #5f6f81; margin-bottom: 8px; }
+.cms-eld__head { background: #fff; border: 1px solid #dde2e8; border-left: 4px solid #0b5cad; border-radius: 8px; padding: 16px 18px; margin-bottom: 18px; }
+.cms-eld__head h1 { font-size: 26px; margin: 0 0 8px; }
+.cms-eld__meta { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.cms-eld__meta strong { color: #5f6f81; font-weight: 600; font-size: 12px; text-transform: uppercase; margin-right: 4px; }
+.cms-eld__desc { margin: 10px 0 6px; }
+.cms-eld__version { font-size: 12px; color: #5f6f81; }
+.cms-status { font-size: 11px; text-transform: uppercase; background: #fdecea; color: #8a1c12; border-radius: 3px; padding: 1px 6px; margin-left: 6px; }
+.cms-eld h2 { font-size: 19px; margin: 18px 0 10px; }
+.cms-pls { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.cms-pl { display: grid; grid-template-columns: 110px 1fr; gap: 14px; background: #fff; border: 1px solid #dde2e8; border-radius: 8px; padding: 12px 14px; }
+.cms-pl p { margin: 0; }
+.cms-pl__badge { display: flex; flex-direction: column; }
+.cms-pl__badge span { font-size: 18px; font-weight: 700; color: #0b4a8b; }
+.cms-pl__badge small { color: #5f6f81; font-size: 12px; }
+.cms-pill { border-radius: 12px; padding: 2px 10px; font-size: 12px; background: #eef1f4; color: #33414f; }
+.cms-pill--ess { background: #e3eefb; color: #0b4a8b; font-weight: 600; }
+.cms-table { background: #fff; }
+.cms-empty { color: #5f6f81; }
+@media (max-width: 600px) { .cms-pl { grid-template-columns: 1fr; } }

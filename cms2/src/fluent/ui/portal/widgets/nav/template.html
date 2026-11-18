@@ -1,0 +1,10 @@
+<div class="cms-nav">
+  <div class="cms-proto" role="note">
+    <span class="cms-proto__tag">Prototype</span>
+    CMS 2.0 preview with synthetic demo content. It is not approved HTX competency policy.
+  </div>
+  <nav class="cms-tabs" aria-label="CMS 2.0 navigation">
+    <a ng-repeat="t in c.tabs" ng-href="?id={{t.id}}" ng-class="{'is-active': c.isActive(t)}"
+       aria-current="{{c.isActive(t) ? 'page' : undefined}}">{{t.label}}</a>
+  </nav>
+</div>

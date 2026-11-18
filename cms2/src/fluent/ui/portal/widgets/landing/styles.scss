@@ -1,0 +1,15 @@
+.cms-hero h1 { font-size: 28px; margin: 4px 0 6px; }
+.cms-hero p { color: #4a5868; margin-bottom: 20px; }
+.cms-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.cms-card { background: #fff; border: 1px solid #dde2e8; border-radius: 8px; padding: 18px; display: flex; flex-direction: column; }
+.cms-card h2 { font-size: 20px; margin: 4px 0 8px; }
+.cms-card p { color: #4a5868; flex: 1; }
+.cms-card .btn { align-self: flex-start; margin-top: 12px; }
+.cms-card--primary { border-top: 4px solid #0b5cad; }
+.cms-card__eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: #5f6f81; font-weight: 600; }
+.cms-badge { background: #eef3f9; color: #0b5cad; border-radius: 10px; padding: 1px 8px; font-size: 11px; text-transform: none; letter-spacing: 0; margin-left: 4px; }
+.cms-meta { color: #4a5868; margin-bottom: 12px; }
+.cms-stats { display: flex; gap: 18px; flex-wrap: wrap; }
+.cms-stats > div { display: flex; flex-direction: column; min-width: 90px; }
+.cms-stats__n { font-size: 26px; font-weight: 600; color: #1d2b3a; }
+.cms-stats span:last-child { font-size: 12px; color: #5f6f81; }

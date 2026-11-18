@@ -1,0 +1,6 @@
+{
+    "scope": "x_2317791_cms2",
+    "scopeId": "db9b595295ba4c388847273bac0974eb",
+    "name": "CMS 2.0 – Competency Management",
+    "tsconfigPath": "./src/server/tsconfig.json"
+}

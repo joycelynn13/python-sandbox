@@ -26,15 +26,6 @@
           <option ng-repeat="f in c.data.result.facets.jobFamilies" value="{{f}}">{{f}}</option>
         </select>
       </div>
-      <div ng-if="c.data.result.canSeeAllStatuses">
-        <label for="rp-status">Status <span class="cms-admin-tag">admin</span></label>
-        <select id="rp-status" class="form-control" ng-model="c.filter.status" ng-change="c.search()">
-          <option value="effective">Published – currently effective</option>
-          <option value="published">Published – all periods</option>
-          <option value="draft">Draft</option>
-          <option value="retired">Retired</option>
-        </select>
-      </div>
       <div class="cms-filters__clear"><button type="button" class="btn btn-link" ng-click="c.clear()">Clear filters</button></div>
     </div>
   </form>
@@ -48,7 +39,6 @@
     <li ng-repeat="rp in c.data.result.items" class="cms-rp">
       <div class="cms-rp__head">
         <a class="cms-rp__name" ng-href="?id=x_2317791_cms2_role_profile&sys_id={{rp.id}}">{{rp.name}}</a>
-        <span class="cms-status" ng-if="rp.status !== 'published'">{{rp.statusLabel}}</span>
       </div>
       <div class="cms-rp__meta">
         <span ng-if="rp.jobTitle">{{rp.jobTitle}}</span>

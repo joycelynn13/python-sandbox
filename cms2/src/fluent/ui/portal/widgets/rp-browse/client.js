@@ -10,7 +10,7 @@ api.controller = function () {
         });
     };
     c.clear = function () {
-        c.filter = { text: '', businessFunction: '', jobFamily: '', jobTitle: '', status: 'effective' };
+        c.filter = { text: '', businessFunction: '', jobFamily: '', jobTitle: '' };
         c.search();
     };
 };

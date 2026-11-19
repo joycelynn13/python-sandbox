@@ -4,15 +4,13 @@
         text: $sp.getParameter('q') || '',
         businessFunction: $sp.getParameter('function') || '',
         jobFamily: $sp.getParameter('family') || '',
-        jobTitle: '',
-        status: 'effective'
+        jobTitle: ''
     };
     data.filter = f;
     data.result = api.browseRoleProfiles({
         text: f.text,
         businessFunction: f.businessFunction,
         jobFamily: f.jobFamily,
-        jobTitle: f.jobTitle,
-        status: f.status
+        jobTitle: f.jobTitle
     });
 })();

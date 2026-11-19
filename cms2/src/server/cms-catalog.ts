@@ -1,5 +1,5 @@
 import { gs, GlideRecordSecure } from '@servicenow/glide'
-import { T, STATUS, ROLES, REQUIREMENT_TYPE } from './cms-config.ts'
+import { T, STATUS, REQUIREMENT_TYPE } from './cms-config.ts'
 import { addCurrentlyEffective, isEffectiveOn, today } from './cms-dates.ts'
 
 /*
@@ -10,10 +10,6 @@ import { addCurrentlyEffective, isEffectiveOn, today } from './cms-dates.ts'
 
 const v = (gr: any, f: string): string => (gr.getValue(f) || '') as string
 const dv = (gr: any, f: string): string => (gr.getDisplayValue(f) || '') as string
-
-export function canSeeAllStatuses(): boolean {
-    return gs.hasRole(ROLES.contentAdmin) || gs.hasRole(ROLES.roleProfileAdmin)
-}
 
 // ------------------------------------------------------------------ PL scale
 
@@ -104,17 +100,12 @@ export function getMyRoleProfile(userName: string) {
     return { ...s, counts: countsFor([s.id])[s.id], source: v(a, 'source') }
 }
 
-export type BrowseFilter = { text?: string; businessFunction?: string; jobFamily?: string; jobTitle?: string; status?: string }
+export type BrowseFilter = { text?: string; businessFunction?: string; jobFamily?: string; jobTitle?: string }
 
+/** Employee browse: Published, currently effective Role Profiles only (Drafts are managed in the admin UI). */
 export function browseRoleProfiles(f: BrowseFilter) {
     const gr: any = new GlideRecordSecure(T.roleProfile)
-    const allStatuses = canSeeAllStatuses()
-    if (allStatuses && f.status && f.status !== 'effective') {
-        gr.addQuery('status', f.status)
-        gr.addQuery('active', true)
-    } else {
-        addCurrentlyEffective(gr) // employees: Published + currently effective only
-    }
+    addCurrentlyEffective(gr)
     if (f.text) {
         const q = gr.addQuery('name', 'CONTAINS', f.text)
         q.addOrCondition('job_title', 'CONTAINS', f.text)
@@ -132,7 +123,7 @@ export function browseRoleProfiles(f: BrowseFilter) {
     while (gr.next()) items.push(rpSummary(gr))
     const counts = countsFor(items.map((i) => i.id))
     items.forEach((i) => (i.counts = counts[i.id]))
-    return { items, facets: roleProfileFacets(), canSeeAllStatuses: allStatuses }
+    return { items, facets: roleProfileFacets() }
 }
 
 /** Distinct Functions / Job Families of currently effective Role Profiles (for filter dropdowns). */
@@ -230,7 +221,7 @@ export function getRoleProfile(id: string) {
     const summary = rpSummary(rp)
     const effectiveNow =
         summary.status === STATUS.published && isEffectiveOn(summary.effectiveFrom, summary.effectiveTo, today())
-    if (!effectiveNow && !canSeeAllStatuses()) return null
+    if (!effectiveNow) return null // Drafts and historical versions are viewed in the admin UI
 
     const scale = getScale()
     const reqs: any[] = []

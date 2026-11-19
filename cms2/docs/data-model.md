@@ -87,8 +87,8 @@ Role Profile Assignment (prototype: user_name → Role Profile code)
 | Framework Versions | 2 (2026.1 Published, 2027.1 Draft) |
 | Competency Groups | 4 |
 | Domains | 37 (4 CCC with *Domain levels, then Element levels* up to PL2; 33 Specialised) |
-| Elements | 12 (CCC Elements start at PL3) |
-| PL Descriptors | 52 (8 Domain-level, 44 Element-level) |
+| Elements | 17. The 7 Project Management Elements and their Element Descriptors are **real HTX content**; the other 10 are synthetic. CCC Elements start at PL3 |
+| PL Descriptors | 8 Domain-level + Element-level rows. Project Management PL3–PL5 are labelled **[Placeholder]** until the real descriptors are supplied |
 | Role Profiles | 7 (5 current, 1 historical version, 1 Draft) |
 | Requirements | 42 |
 | Prototype assignments | 3 |

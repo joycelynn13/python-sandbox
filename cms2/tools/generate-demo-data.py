@@ -81,8 +81,17 @@ elements = [
     ('EL-SYSINT', 'Systems Integration', 'DIG-EA', 'Integrate systems and services through APIs, messaging and data exchange.', 4, 'integrations, APIs and interfaces'),
     ('EL-DATAAN', 'Data Analytics', 'DIG-DSE', 'Collect, analyse and visualise data to produce evidence-based insights.', 5, 'analyses, dashboards and data models'),
     ('EL-CYBFUN', 'Cybersecurity Fundamentals', 'DIG-CYB', 'Apply security principles and controls to protect systems and data.', 3, 'security controls and secure practices'),
-    ('EL-PROJPL', 'Project Planning', 'CCC-PM', 'Plan scope, schedule, resources and risks for technical work.', 4, 'project plans, schedules and risk registers'),
-    ('EL-TECHDOC', 'Technical Documentation', 'CCC-PM', 'Produce clear, accurate technical documentation for different audiences.', 4, 'technical documents and specifications'),
+    # --- Project Management: real Elements and Element Descriptors supplied by HTX (CCCs pillar).
+    # PL descriptors were not supplied; PL3–PL5 are labelled placeholders (focus=None).
+    # The first two reuse the record keys of the synthetic Elements they replace, so the
+    # existing instance records are updated in place instead of orphaned.
+    ('PM-IPID', 'Integrated Programme Implementation & Delivery', 'CCC-PM', 'Lead and manage the full lifecycle of complex programmes and projects by coordinating resources, timelines, risks, and interdependencies. This includes planning schedules, tracking milestones, and coordinating timelines to ensure timely delivery, strategic alignment, and operational readiness. Focus on long-term supportability through structured and adaptive delivery approaches, while driving continuous improvement and facilitating programme closure.', 5, None, 'el_projpl', 60),
+    ('PM-TAM', 'Technical Assurance Management', 'CCC-PM', 'Provide technical direction, review, and governance (e.g. systems architecture, quality assurance (QA), and RAM) across project or programme phases to ensure design integrity, regulatory compliance, and alignment with agency or national objectives. This includes evaluating technical proposals, guiding multidisciplinary teams, and assuring technical soundness and quality outcomes that meet stakeholder expectations.', 5, None, 'el_techdoc', 50),
+    ('PM-PPS', 'Programme Planning & Strategy', 'CCC-PM', 'Formulate, plan, and position strategic programmes to meet priorities by integrating problem framing, systems foresight, research and evaluation, stakeholder insights, and solutioning strategies. This includes defining objectives, identifying systems-level considerations, lifecycle trade-offs, applying structured foresight and strategic thinking, and leveraging research and market intelligence to make informed plans, acquisition, and implementation strategies. Develop compelling business cases that align with priorities, justify investment decisions, and advance agency, cross-agency, or national agendas.', 5, None, None, 10),
+    ('PM-PSPM', 'Programme Stakeholders & Partnership Management', 'CCC-PM', 'Build and manage relationships with stakeholders (e.g. vendors, agencies, workstream leads, systems owners) to drive programme success and achieve system-level outcomes. This includes stakeholder mapping, trust-building, engagement, negotiation, and partnership development, with a focus on aligning interests, anticipating needs, and integrating feedback, critical for large-scale or multi-agency programmes.', 5, None, None, 20),
+    ('PM-CPM', 'Contracting & Procurement Management', 'CCC-PM', 'Manage contracts and procurement processes to support programme outcomes, ensure compliance, and optimise value across the lifecycle. This includes contract structuring, sourcing strategy, pre-tender planning, contract administration, vendor performance, and risk mitigation aligned with public sector frameworks and Instruction Manual (IM).', 5, None, None, 30),
+    ('PM-FBM', 'Financial & Budget Management', 'CCC-PM', 'Plan, manage, and govern budgets, costs, and funding mechanisms to enable sustainable programme outcomes, value optimisation, and financial compliance. This includes budgeting, forecasting, lifecycle costing, securing funding, operational controls, grant governance, and aligning resource allocation with strategic outcomes.', 5, None, None, 40),
+    ('PM-PGRM', 'Programme Governance & Risk Management', 'CCC-PM', 'Establish and apply governance structures, policies, and risk management processes to ensure accountability, transparency, and performance in programme delivery. This includes data governance, compliance assurance, internal controls, and the proactive identification and mitigation of strategic, operational, and reputational risks.', 5, None, None, 70),
     ('EL-TPS', 'Technical Problem Solving', 'CCC-SM', 'Diagnose technical problems and develop effective, evidence-based solutions.', 5, 'root-cause analyses and solution options'),
     ('EL-SELIFE', 'Systems Engineering Lifecycle', 'ENG-SE', 'Apply systems engineering processes from requirements to verification and validation.', 4, 'requirements, system models and V&V plans'),
     ('EL-EXPDES', 'Experimental Design', 'CCC-RTM', 'Design experiments and studies that produce valid, reproducible results.', 4, 'experimental protocols and study designs'),
@@ -106,27 +115,27 @@ PL_TEMPLATES = {
 role_profiles = [
     ('rp_appdev_v1', 'RP-XD-APPDEV', 'Engineer – Application Development', 'Engineer', 'Software Engineering', 'xDigital',
      'Designs, builds and maintains digital applications. (Version 1 – historical.)', 1, '2026-01-01', '2026-06-30', 'published', None,
-     [('EL-APPDEV', 'E', 2), ('EL-SWDES', 'E', 2), ('EL-TESTQ', 'E', 2), ('EL-TECHDOC', 'C', 1), ('EL-TPS', 'C', 2)]),
+     [('EL-APPDEV', 'E', 2), ('EL-SWDES', 'E', 2), ('EL-TESTQ', 'E', 2), ('PM-TAM', 'C', 1), ('EL-TPS', 'C', 2)]),
     ('rp_appdev_v2', 'RP-XD-APPDEV', 'Engineer – Application Development', 'Engineer', 'Software Engineering', 'xDigital',
      'Designs, builds, tests and maintains digital applications, working with architects and product teams.', 2, '2026-07-01', None, 'published', 'rp_appdev_v1',
      [('EL-APPDEV', 'E', 3), ('EL-SWDES', 'E', 3), ('EL-TESTQ', 'E', 2), ('EL-SYSINT', 'E', 2),
-      ('EL-SOLARC', 'C', 2), ('EL-TECHDOC', 'C', 2), ('EL-TPS', 'C', 3), ('EL-CYBFUN', 'C', 2), ('EL-PROJPL', 'C', 1)]),
+      ('EL-SOLARC', 'C', 2), ('PM-TAM', 'C', 2), ('EL-TPS', 'C', 3), ('EL-CYBFUN', 'C', 2), ('PM-IPID', 'C', 1)]),
     ('rp_solarch', 'RP-XD-SOLARCH', 'Senior Engineer – Solution Architecture', 'Senior Engineer', 'Architecture', 'xDigital',
      'Defines solution architectures and technical direction for digital programmes.', 1, '2026-01-01', None, 'published', None,
      [('EL-SOLARC', 'E', 4), ('EL-SYSINT', 'E', 4), ('EL-SWDES', 'E', 4), ('EL-CYBFUN', 'E', 3),
-      ('EL-APPDEV', 'C', 3), ('EL-TECHDOC', 'C', 3), ('EL-PROJPL', 'C', 3), ('EL-TPS', 'C', 4)]),
+      ('EL-APPDEV', 'C', 3), ('PM-TAM', 'C', 3), ('PM-IPID', 'C', 3), ('EL-TPS', 'C', 4)]),
     ('rp_data', 'RP-XD-DATA', 'Data Analyst', 'Analyst', 'Data and AI', 'xDigital',
      'Analyses operational data and builds insight products for decision makers.', 1, '2026-01-01', None, 'published', None,
-     [('EL-DATAAN', 'E', 3), ('EL-TPS', 'E', 3), ('EL-TECHDOC', 'E', 2),
-      ('EL-APPDEV', 'C', 1), ('EL-CYBFUN', 'C', 1), ('EL-PROJPL', 'C', 2)]),
+     [('EL-DATAAN', 'E', 3), ('EL-TPS', 'E', 3), ('PM-TAM', 'E', 2),
+      ('EL-APPDEV', 'C', 1), ('EL-CYBFUN', 'C', 1), ('PM-IPID', 'C', 2)]),
     ('rp_syseng', 'RP-XE-SYSENG', 'Engineer – Systems Engineering', 'Engineer', 'Systems Engineering', 'xEngineering',
      'Engineers complex systems from requirements through verification and validation.', 1, '2026-01-01', None, 'published', None,
      [('EL-SELIFE', 'E', 3), ('EL-SYSINT', 'E', 3), ('EL-TESTQ', 'E', 3),
-      ('EL-PROJPL', 'C', 2), ('EL-TPS', 'C', 3), ('EL-TECHDOC', 'C', 2)]),
+      ('PM-IPID', 'C', 2), ('EL-TPS', 'C', 3), ('PM-TAM', 'C', 2)]),
     ('rp_science', 'RP-XS-RES', 'Scientist – Research', 'Scientist', 'Research', 'xSciences',
      'Plans and conducts scientific investigations and communicates findings.', 1, '2026-01-01', None, 'published', None,
      [('EL-EXPDES', 'E', 3), ('EL-DATAAN', 'E', 3), ('EL-TPS', 'E', 3),
-      ('EL-TECHDOC', 'C', 3), ('EL-PROJPL', 'C', 2)]),
+      ('PM-TAM', 'C', 3), ('PM-IPID', 'C', 2)]),
     ('rp_qe_draft', 'RP-XD-QE', 'Engineer – Quality Engineering', 'Engineer', 'Software Engineering', 'xDigital',
      'DRAFT – not visible to employees until published.', 1, None, None, 'draft', None,
      [('EL-TESTQ', 'E', 3), ('EL-APPDEV', 'E', 2), ('EL-TPS', 'C', 2)]),
@@ -199,16 +208,22 @@ for key, code, name, g, desc in domains:
                 'code': f'{code} – PL{lvl}', 'name': f'{code} – PL{lvl}',
                 'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
 evar = {}; emax = {}; emin = {}; edom = {}
-for i, (code, name, dom, desc, maxpl, focus) in enumerate(elements):
-    v = 'demo_el_' + ident(code); evar[code] = v; emax[code] = maxpl; edom[code] = dom
+PLACEHOLDER = '[Placeholder] {pl} descriptor for {name} – to be provided by the Domain Owner.'
+ekey = {}
+for i, row in enumerate(elements):
+    code, name, dom, desc, maxpl, focus = row[:6]
+    key = row[6] if len(row) > 6 and row[6] else ident(code)
+    seq_override = row[7] if len(row) > 7 else None
+    ekey[code] = key
+    v = 'demo_el_' + key; evar[code] = v; emax[code] = maxpl; edom[code] = dom
     rec(v, v, 'x_2317791_cms2_element', {'code': code, 'name': name, 'domain': ref(dvar[dom]), 'description': desc,
-        'sequence': (i + 1) * 10, 'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
+        'sequence': seq_override or (i + 1) * 10, 'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
     minpl = CCC_DOMAIN_LEVELS_TO + 1 if dgroup[dom] == 'CCC' else 1   # CCC Elements start above the Domain levels
     emin[code] = minpl
     for lvl in range(minpl, maxpl + 1):
-        dv_ = f'demo_pld_{ident(code)}_pl{lvl}'
+        dv_ = f'demo_pld_{key}_pl{lvl}'
         rec(dv_, dv_, 'x_2317791_cms2_pl_descriptor', {'element': ref(v), 'proficiency_level': ref(f'pl{lvl}'),
-            'applies_to': 'element', 'description': PL_TEMPLATES[lvl].format(f=focus), 'code': f'{code} – PL{lvl}', 'name': f'{code} – PL{lvl}',
+            'applies_to': 'element', 'description': PL_TEMPLATES[lvl].format(f=focus) if focus else PLACEHOLDER.format(pl=f'PL{lvl}', name=name), 'code': f'{code} – PL{lvl}', 'name': f'{code} – PL{lvl}',
             'framework_version': ref(FW), 'status': 'published', 'effective_from': '2026-01-01', 'active': True})
 for key, code, name, title, fam, fn, desc, ver, frm, to, status, sup, reqs in role_profiles:
     v = 'demo_' + key
@@ -221,7 +236,7 @@ for key, code, name, title, fam, fn, desc, ver, frm, to, status, sup, reqs in ro
     for n, (ecode, t, lvl) in enumerate(reqs):
         # a CCC Element's PL1–PL2 come from its Domain, so they are valid targets too
         assert lvl <= emax[ecode] and (lvl >= emin[ecode] or dgroup[edom[ecode]] == 'CCC'), f'{key}: {ecode} has no PL{lvl}'
-        rv = f'demo_req_{key}_{ident(ecode)}'
+        rv = f'demo_req_{key}_{ekey[ecode]}'
         rec(rv, rv, 'x_2317791_cms2_requirement', {'role_profile': ref(v), 'element': ref(evar[ecode]),
             'requirement_type': 'essential' if t == 'E' else 'complementary', 'target_level': ref(f'pl{lvl}'),
             'sequence': (n + 1) * 10, 'active': True})

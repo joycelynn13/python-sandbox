@@ -798,6 +798,26 @@ declare global {
                         table: 'x_2317791_cms2_element'
                         id: 'd55cb1fa805e4f748b77aa564c1e7c07'
                     }
+                    demo_el_pm_cpm: {
+                        table: 'x_2317791_cms2_element'
+                        id: '39c9cb1f75ec48f18d25eb89c8d916ef'
+                    }
+                    demo_el_pm_fbm: {
+                        table: 'x_2317791_cms2_element'
+                        id: '41447132b7594a4082857ba840e9c3de'
+                    }
+                    demo_el_pm_pgrm: {
+                        table: 'x_2317791_cms2_element'
+                        id: '2af202d2d55b4666950fe8031b455819'
+                    }
+                    demo_el_pm_pps: {
+                        table: 'x_2317791_cms2_element'
+                        id: '7d3f4a45c19c40adb51bf241e5041498'
+                    }
+                    demo_el_pm_pspm: {
+                        table: 'x_2317791_cms2_element'
+                        id: 'cb385c1326b545c9a908b0693196d7a2'
+                    }
                     demo_fw_2026: {
                         table: 'x_2317791_cms2_fw_version'
                         id: 'e1af39f6b03d47dcab0479a07474672b'
@@ -942,6 +962,10 @@ declare global {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '0e1e0649c86b4ada9ec0b4318792b5be'
                     }
+                    demo_pld_el_projpl_pl5: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '155ac1d661764f69b96c21545a6ff65f'
+                    }
                     demo_pld_el_selife_pl1: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: 'f36a1df37f9c4afa89a60e1252e7972d'
@@ -1032,6 +1056,10 @@ declare global {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '2d5e02fa91014670879aa61af0c97846'
                     }
+                    demo_pld_el_techdoc_pl5: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'f0847f73698046569cc30f55d0a8f6bd'
+                    }
                     demo_pld_el_testq_pl1: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '1eb471a885c14531b17956d37f110f26'
@@ -1069,6 +1097,66 @@ declare global {
                     demo_pld_el_tps_pl5: {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: 'fe3675a177ba4349888e5be52c067e30'
+                    }
+                    demo_pld_pm_cpm_pl3: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '7f2c53d832504a18b3bdc03eb2f04734'
+                    }
+                    demo_pld_pm_cpm_pl4: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'd622a1c80385407b813a89895bffe417'
+                    }
+                    demo_pld_pm_cpm_pl5: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '80c9f4e74c494dfabad84a2ea749f123'
+                    }
+                    demo_pld_pm_fbm_pl3: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'ec1e07305e974206a679fb98168d62e1'
+                    }
+                    demo_pld_pm_fbm_pl4: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'd87b263eafba4648bdbc7f294f7ccd05'
+                    }
+                    demo_pld_pm_fbm_pl5: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'c7be0ca8ffe94286af26bc62835a6516'
+                    }
+                    demo_pld_pm_pgrm_pl3: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '1324a22e0362463aa568bb39393aa860'
+                    }
+                    demo_pld_pm_pgrm_pl4: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '91aade16c8f84405b3de4d9011427af2'
+                    }
+                    demo_pld_pm_pgrm_pl5: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '43a564cbfe914dd08957b8452ed7acd2'
+                    }
+                    demo_pld_pm_pps_pl3: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '9dee58871eca40a693e7a563d9f753cf'
+                    }
+                    demo_pld_pm_pps_pl4: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '7be8bab1084e45078123e36195e7c9b3'
+                    }
+                    demo_pld_pm_pps_pl5: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '16220cec77ab450ebe43ee287648f07b'
+                    }
+                    demo_pld_pm_pspm_pl3: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'd190328ece764ea2ac50ac5d0f950762'
+                    }
+                    demo_pld_pm_pspm_pl4: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: 'e7cb45cf062c483aa87b616de32e4560'
+                    }
+                    demo_pld_pm_pspm_pl5: {
+                        table: 'x_2317791_cms2_pl_descriptor'
+                        id: '3c604029d135483b8e9848b224aa9b25'
                     }
                     demo_req_rp_appdev_v1_el_appdev: {
                         table: 'x_2317791_cms2_requirement'

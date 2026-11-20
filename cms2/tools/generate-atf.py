@@ -291,6 +291,41 @@ var dm = api.getDomain(byCode('domain', 'ATF-CCC'));
 check(dm.domain.levels.length === 2, 'Domain page lists 2 Domain-level descriptors');
 """, False)])
 
+test('t14_gap_analysis', 'CMS2 T14 – Gap analysis compares Current PL with the Target PL',
+     'Met (green), gap of 1 (orange), gap of 2+ (red) and not assessed (grey) are calculated on the own Role Profile of the viewer only.',
+     [('user', 'cmsAdmin'), ('script', 'gap', r"""
+var t2 = today();
+function el(code) {
+    var id = ins('element', pub({ code: code, name: 'ATF ' + code, domain: dom }));
+    for (var i = 1; i <= 5; i++) ins('pl_descriptor', pub({ element: id, proficiency_level: lvl(i), description: code + ' PL' + i }));
+    return id;
+}
+var g1 = el('ATF-G1'), g2 = el('ATF-G2');
+var rp = ins('role_profile', { code: 'RP-ATF-GAP', name: 'ATF Gap RP', business_function: 'xDigital', framework_version: fw });
+ins('requirement', { role_profile: rp, element: el4, requirement_type: 'essential', target_level: lvl(3), sequence: 1 });
+ins('requirement', { role_profile: rp, element: el5, requirement_type: 'essential', target_level: lvl(4), sequence: 2 });
+ins('requirement', { role_profile: rp, element: g1, requirement_type: 'essential', target_level: lvl(4), sequence: 3 });
+ins('requirement', { role_profile: rp, element: g2, requirement_type: 'complementary', target_level: lvl(2), sequence: 4 });
+check(upd('role_profile', rp, { status: 'published', effective_from: t2 }), 'publish gap Role Profile');
+check(!!ins('rp_assignment', { user: gs.getUserName(), role_profile_code: 'RP-ATF-GAP' }), 'assign Role Profile to test user');
+function cur(code, n) { return ins('proficiency', { user: gs.getUserName(), element_code: code, current_level: lvl(n), source: 'prototype' }); }
+check(cur('ATF-EL', 3) && cur('ATF-EL5', 3) && cur('ATF-G1', 1), 'record current levels');
+
+var api = new x_2317791_cms2.CmsCatalogApi();
+var d = api.getRoleProfile(rp), got = {};
+var rows = d.essential.concat(d.complementary);
+for (var i = 0; i < rows.length; i++) got[rows[i].element.code] = rows[i].gap.status + ':' + rows[i].gap.label;
+check(d.isMine, 'own Role Profile is flagged isMine');
+check(got['ATF-EL'] === 'met:Met', 'target PL3, current PL3 -> Met (got ' + got['ATF-EL'] + ')');
+check(got['ATF-EL5'] === 'minor:Gap 1', 'target PL4, current PL3 -> Gap 1 orange (got ' + got['ATF-EL5'] + ')');
+check(got['ATF-G1'] === 'major:Gap 3', 'target PL4, current PL1 -> Gap 3 red (got ' + got['ATF-G1'] + ')');
+check(got['ATF-G2'] === 'unknown:Not assessed', 'no current level -> Not assessed (got ' + got['ATF-G2'] + ')');
+var sm = d.gapSummary;
+check(sm.met === 1 && sm.minor === 1 && sm.major === 1 && sm.unknown === 1, 'summary 1/1/1/1');
+var other = api.getRoleProfile(byCode('role_profile', 'RP-XD-APPDEV') || rp);
+check(other && (other.profile.code === 'RP-ATF-GAP' || other.isMine === false), 'gap analysis only on the own Role Profile of the viewer');
+""", True)])
+
 roles_used = ['cmsUser', 'cmsContentAdmin', 'cmsRoleProfileAdmin', 'cmsAdmin']
 out = ["import '@servicenow/sdk/global'", "import { Test, TestSuite } from '@servicenow/sdk/core'",
        "import { " + ', '.join(roles_used) + " } from '../security/roles.now'", '',

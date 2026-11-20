@@ -1495,10 +1495,98 @@ export const atf_t13_ccc_domain_levels = Test(
     }
 )
 
+export const atf_t14_gap_analysis = Test(
+    { $id: Now.ID['t14_gap_analysis'], name: 'CMS2 T14 – Gap analysis compares Current PL with the Target PL', description: 'Met (green), gap of 1 (orange), gap of 2+ (red) and not assessed (grey) are calculated on the own Role Profile of the viewer only.', active: true, failOnServerError: false },
+    (atf) => {
+        atf.server.createUser({ $id: Now.ID['t14_gap_analysis_user1'], firstName: 'ATF', lastName: 'cmsAdmin 1', roles: [cmsAdmin] })
+        atf.server.runServerSideScript({
+            $id: Now.ID['t14_gap_analysis_gap'],
+            script: `
+            (function (outputs, steps, params, stepResult, assertEqual) {
+                var P = 'x_2317791_cms2_';
+                var fails = [];
+                function check(ok, msg) { if (!ok) fails.push(msg); }
+                function today() { return new GlideDateTime().getLocalDate().getValue(); }
+                function plusDays(n) { var g = new GlideDateTime(); g.addDaysLocalTime(n); return g.getLocalDate().getValue(); }
+                function lvl(n) { var g = new GlideRecord(P + 'prof_level'); g.addQuery('level', n); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function byCode(t, code) { var g = new GlideRecord(P + t); g.addQuery('code', code); g.orderByDesc('sys_created_on'); g.query(); return g.next() ? g.getUniqueValue() : ''; }
+                function ins(t, vals) {
+                    var g = new GlideRecordSecure(P + t); g.initialize();
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return g.insert() || '';
+                }
+                function upd(t, id, vals) {
+                    var g = new GlideRecordSecure(P + t);
+                    if (!g.get(id)) return false;
+                    for (var k in vals) g.setValue(k, vals[k]);
+                    return !!g.update();
+                }
+                function finish() {
+                    stepResult.setOutputMessage(fails.length ? 'FAILED: ' + fails.join(' | ') : 'All checks passed');
+                    return fails.length === 0;
+                }
+
+                // ---- fixture (runs as a CMS Administrator test user) ----
+                var t0 = today();
+                var fw = ins('fw_version', { name: 'ATF Framework', version_number: 'ATF-' + gs.generateGUID().substring(0, 8), status: 'draft' });
+                check(!!fw, 'fixture: framework version insert');
+                check(upd('fw_version', fw, { status: 'published', effective_from: t0 }), 'fixture: publish framework version');
+                var base = { framework_version: fw, status: 'published', effective_from: t0, active: true };
+                function pub(extra) { var o = {}; for (var a in base) o[a] = base[a]; for (var b in extra) o[b] = extra[b]; return o; }
+                var grp = ins('comp_group', pub({ code: 'ATF-GRP', name: 'ATF Group', sequence: 1 }));
+                var dom = ins('domain', pub({ code: 'ATF-DOM', name: 'ATF Domain', competency_group: grp }));
+                var el4 = ins('element', pub({ code: 'ATF-EL', name: 'ATF Element PL1-4', domain: dom, description: 'ATF element without PL5' }));
+                var el5 = ins('element', pub({ code: 'ATF-EL5', name: 'ATF Element PL1-5', domain: dom, description: 'ATF element with PL5' }));
+                for (var i = 1; i <= 5; i++) {
+                    if (i <= 4) check(!!ins('pl_descriptor', pub({ element: el4, proficiency_level: lvl(i), description: 'ATF EL PL' + i })), 'fixture: EL PL' + i);
+                    check(!!ins('pl_descriptor', pub({ element: el5, proficiency_level: lvl(i), description: 'ATF EL5 PL' + i })), 'fixture: EL5 PL' + i);
+                }
+                var elDraft = ins('element', { code: 'ATF-EL-D', name: 'ATF Draft Element', domain: dom, framework_version: fw, status: 'draft', active: true });
+                check(!!ins('pl_descriptor', { element: elDraft, proficiency_level: lvl(1), description: 'ATF draft PL1', framework_version: fw, status: 'draft', active: true }), 'fixture: draft descriptor');
+                check(grp && dom && el4 && el5 && elDraft, 'fixture: content created');
+
+                var t2 = today();
+                function el(code) {
+                    var id = ins('element', pub({ code: code, name: 'ATF ' + code, domain: dom }));
+                    for (var i = 1; i <= 5; i++) ins('pl_descriptor', pub({ element: id, proficiency_level: lvl(i), description: code + ' PL' + i }));
+                    return id;
+                }
+                var g1 = el('ATF-G1'), g2 = el('ATF-G2');
+                var rp = ins('role_profile', { code: 'RP-ATF-GAP', name: 'ATF Gap RP', business_function: 'xDigital', framework_version: fw });
+                ins('requirement', { role_profile: rp, element: el4, requirement_type: 'essential', target_level: lvl(3), sequence: 1 });
+                ins('requirement', { role_profile: rp, element: el5, requirement_type: 'essential', target_level: lvl(4), sequence: 2 });
+                ins('requirement', { role_profile: rp, element: g1, requirement_type: 'essential', target_level: lvl(4), sequence: 3 });
+                ins('requirement', { role_profile: rp, element: g2, requirement_type: 'complementary', target_level: lvl(2), sequence: 4 });
+                check(upd('role_profile', rp, { status: 'published', effective_from: t2 }), 'publish gap Role Profile');
+                check(!!ins('rp_assignment', { user: gs.getUserName(), role_profile_code: 'RP-ATF-GAP' }), 'assign Role Profile to test user');
+                function cur(code, n) { return ins('proficiency', { user: gs.getUserName(), element_code: code, current_level: lvl(n), source: 'prototype' }); }
+                check(cur('ATF-EL', 3) && cur('ATF-EL5', 3) && cur('ATF-G1', 1), 'record current levels');
+
+                var api = new x_2317791_cms2.CmsCatalogApi();
+                var d = api.getRoleProfile(rp), got = {};
+                var rows = d.essential.concat(d.complementary);
+                for (var i = 0; i < rows.length; i++) got[rows[i].element.code] = rows[i].gap.status + ':' + rows[i].gap.label;
+                check(d.isMine, 'own Role Profile is flagged isMine');
+                check(got['ATF-EL'] === 'met:Met', 'target PL3, current PL3 -> Met (got ' + got['ATF-EL'] + ')');
+                check(got['ATF-EL5'] === 'minor:Gap 1', 'target PL4, current PL3 -> Gap 1 orange (got ' + got['ATF-EL5'] + ')');
+                check(got['ATF-G1'] === 'major:Gap 3', 'target PL4, current PL1 -> Gap 3 red (got ' + got['ATF-G1'] + ')');
+                check(got['ATF-G2'] === 'unknown:Not assessed', 'no current level -> Not assessed (got ' + got['ATF-G2'] + ')');
+                var sm = d.gapSummary;
+                check(sm.met === 1 && sm.minor === 1 && sm.major === 1 && sm.unknown === 1, 'summary 1/1/1/1');
+                var other = api.getRoleProfile(byCode('role_profile', 'RP-XD-APPDEV') || rp);
+                check(other && (other.profile.code === 'RP-ATF-GAP' || other.isMine === false), 'gap analysis only on the own Role Profile of the viewer');
+
+                return finish();
+            })(outputs, steps, params, stepResult, assertEqual);
+            `,
+        })
+    }
+)
+
 TestSuite({
     $id: Now.ID['cms2_atf_suite'],
     name: 'CMS 2.0 – Role Profile and Competency Library',
     description: 'Security, versioning and employee-visibility tests for CMS 2.0.',
     active: true,
-    tests: [atf_t01_user_reads_published, atf_t02_user_cannot_edit, atf_t03_content_admin_drafts, atf_t04_rp_admin_creates_draft, atf_t05_rp_admin_adds_requirements, atf_t06_target_pl_element_level, atf_t07_no_empty_pl5, atf_t08_published_rp_no_draft_refs, atf_t09_employee_no_admin_modules, atf_t10_history_preserved, atf_t11_duplicate_descriptor, atf_t12_listing_published_effective, atf_t13_ccc_domain_levels],
+    tests: [atf_t01_user_reads_published, atf_t02_user_cannot_edit, atf_t03_content_admin_drafts, atf_t04_rp_admin_creates_draft, atf_t05_rp_admin_adds_requirements, atf_t06_target_pl_element_level, atf_t07_no_empty_pl5, atf_t08_published_rp_no_draft_refs, atf_t09_employee_no_admin_modules, atf_t10_history_preserved, atf_t11_duplicate_descriptor, atf_t12_listing_published_effective, atf_t13_ccc_domain_levels, atf_t14_gap_analysis],
 })

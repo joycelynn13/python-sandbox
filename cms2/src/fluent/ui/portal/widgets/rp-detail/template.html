@@ -21,6 +21,14 @@
       </div>
     </header>
 
+    <div class="cms-gapsum" ng-if="c.data.rp.isMine" aria-label="Gap analysis summary">
+      <strong>Your gap analysis</strong>
+      <span class="cms-gap cms-gap--met">{{c.data.rp.gapSummary.met}} met</span>
+      <span class="cms-gap cms-gap--minor">{{c.data.rp.gapSummary.minor}} gap of 1</span>
+      <span class="cms-gap cms-gap--major">{{c.data.rp.gapSummary.major}} gap of 2+</span>
+      <span class="cms-gap cms-gap--unknown" ng-if="c.data.rp.gapSummary.unknown">{{c.data.rp.gapSummary.unknown}} not assessed</span>
+    </div>
+
     <section ng-repeat="grp in c.sections"
              class="cms-req-section cms-req-section--{{grp.key}}" aria-labelledby="sec-{{grp.key}}">
       <h2 id="sec-{{grp.key}}">{{grp.title}} Elements <span class="cms-count">({{grp.rows.length}})</span></h2>
@@ -42,6 +50,10 @@
             {{r.target.code}} – {{r.target.label}}
             <span class="cms-caret" aria-hidden="true">{{c.open[r.id] ? '▴' : '▾'}}</span>
           </button>
+          <div class="cms-req__gap" ng-if="r.gap">
+            <span class="cms-req__cur">Current <b>{{r.current ? r.current.code : '–'}}</b></span>
+            <span class="cms-gap cms-gap--{{r.gap.status}}">{{r.gap.label}}</span>
+          </div>
         </div>
         <div id="desc-{{r.id}}" class="cms-req__pl" ng-show="c.open[r.id]">
           <strong>{{r.target.code}} – {{r.target.label}} for {{r.element.name}}</strong>

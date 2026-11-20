@@ -120,3 +120,14 @@ $mine-tint: #e6f4ef;
   .cms-md__select-label { font-size: 12px; color: $muted; font-weight: 600; }
   .cms-ladder__step { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* gap analysis: green met, orange gap of 1, red gap of 2+, grey not assessed */
+.cms-gap { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 12px; padding: 2px 9px; white-space: nowrap; }
+.cms-gap--met { color: #1b7f4c; background: #e3f4ea; }
+.cms-gap--minor { color: #a45600; background: #fff0dc; }
+.cms-gap--major { color: #b3261e; background: #fdeceb; }
+.cms-gap--unknown { color: #5f6f81; background: #eef1f4; font-weight: 600; }
+.cms-gap--met::before { content: "✓ "; }
+.cms-gap--minor::before, .cms-gap--major::before { content: "▲ "; }
+.cms-mine__gap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: #33414f; font-size: 13px; margin-top: 4px; }
+.cms-chip--now { background: #e8eef9; color: #1f4e8c; font-weight: 600; }

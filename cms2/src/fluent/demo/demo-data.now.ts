@@ -3057,3 +3057,311 @@ export const demo_rpa_beth_anglin = Record({
         active: true,
     },
 })
+
+export const demo_prof_admin_el_appdev = Record({
+    $id: Now.ID['demo_prof_admin_el_appdev'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'admin',
+        element_code: 'EL-APPDEV',
+        current_level: pl3,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_admin_el_swdes = Record({
+    $id: Now.ID['demo_prof_admin_el_swdes'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'admin',
+        element_code: 'EL-SWDES',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_admin_el_testq = Record({
+    $id: Now.ID['demo_prof_admin_el_testq'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'admin',
+        element_code: 'EL-TESTQ',
+        current_level: pl3,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_admin_el_solarc = Record({
+    $id: Now.ID['demo_prof_admin_el_solarc'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'admin',
+        element_code: 'EL-SOLARC',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_admin_el_techdoc = Record({
+    $id: Now.ID['demo_prof_admin_el_techdoc'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'admin',
+        element_code: 'PM-TAM',
+        current_level: pl1,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_admin_el_tps = Record({
+    $id: Now.ID['demo_prof_admin_el_tps'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'admin',
+        element_code: 'EL-TPS',
+        current_level: pl1,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_admin_el_cybfun = Record({
+    $id: Now.ID['demo_prof_admin_el_cybfun'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'admin',
+        element_code: 'EL-CYBFUN',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_admin_el_projpl = Record({
+    $id: Now.ID['demo_prof_admin_el_projpl'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'admin',
+        element_code: 'PM-IPID',
+        current_level: pl1,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_appdev = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_appdev'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'EL-APPDEV',
+        current_level: pl1,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_swdes = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_swdes'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'EL-SWDES',
+        current_level: pl1,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_testq = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_testq'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'EL-TESTQ',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_sysint = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_sysint'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'EL-SYSINT',
+        current_level: pl1,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_solarc = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_solarc'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'EL-SOLARC',
+        current_level: pl3,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_techdoc = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_techdoc'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'PM-TAM',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_tps = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_tps'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'EL-TPS',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_cybfun = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_cybfun'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'EL-CYBFUN',
+        current_level: pl1,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_abel_tuter_el_projpl = Record({
+    $id: Now.ID['demo_prof_abel_tuter_el_projpl'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'abel.tuter',
+        element_code: 'PM-IPID',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_beth_anglin_el_dataan = Record({
+    $id: Now.ID['demo_prof_beth_anglin_el_dataan'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'beth.anglin',
+        element_code: 'EL-DATAAN',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_beth_anglin_el_tps = Record({
+    $id: Now.ID['demo_prof_beth_anglin_el_tps'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'beth.anglin',
+        element_code: 'EL-TPS',
+        current_level: pl3,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_beth_anglin_el_techdoc = Record({
+    $id: Now.ID['demo_prof_beth_anglin_el_techdoc'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'beth.anglin',
+        element_code: 'PM-TAM',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_beth_anglin_el_appdev = Record({
+    $id: Now.ID['demo_prof_beth_anglin_el_appdev'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'beth.anglin',
+        element_code: 'EL-APPDEV',
+        current_level: pl2,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})
+
+export const demo_prof_beth_anglin_el_projpl = Record({
+    $id: Now.ID['demo_prof_beth_anglin_el_projpl'],
+    $meta: { installMethod: 'demo' },
+    table: 'x_2317791_cms2_proficiency',
+    data: {
+        user: 'beth.anglin',
+        element_code: 'PM-IPID',
+        current_level: pl1,
+        source: 'prototype',
+        as_of: '2026-10-01',
+        active: true,
+    },
+})

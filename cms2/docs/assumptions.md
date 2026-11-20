@@ -13,6 +13,7 @@
 | A7 | EMPOWER MSS is out of scope. Prototype assignments link `sys_user.user_name` → Role Profile code | Replace `x_2317791_cms2_rp_assignment` with the authorised source; `getMyRoleProfile()` is the only consumer |
 | A8 | All demo content is **synthetic** and is not approved HTX competency policy | Demo rows are in `unload.demo` and can be excluded from installs |
 | A10 | Competency Group names follow the *Refreshed Technical Competency Framework* slide ("Specialised Competencies"), not the earlier brief ("Specialist Professional Competencies") | Rename the 4 group records |
+| A11 | Current PL comes from a **prototype** Employee Proficiency table until the assessment workflow or an authoritative source exists. Gap bands: met (≤0) green, 1 orange, ≥2 red | Replace the source in `myCurrentLevels()` (`cms-catalog.ts`); change bands in `cms-gap.ts` |
 | A9 | Skills Management is not used yet; Elements may later link read-only to `cmn_skill` for the assessment phase | See ADR §6.3 |
 
 ## Open questions for the business

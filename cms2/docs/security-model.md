@@ -13,7 +13,7 @@ Source: `src/fluent/security/`.
 
 Grant `x_2317791_cms2.user` to employees through a group, not individually.
 
-## Record ACLs (50)
+## Record ACLs (55)
 
 | Table | read | create / write | delete |
 |---|---|---|---|
@@ -23,6 +23,7 @@ Grant `x_2317791_cms2.user` to employees through a group, not individually.
 | prof_level | user | admin | admin |
 | role_profile | user: Published; role_profile_admin and content_admin: all | role_profile_admin | admin |
 | requirement | user: active rows of Published Role Profiles; both admin roles: all | role_profile_admin | role_profile_admin (the delete guard rule blocks it on Published) |
+| proficiency (prototype) | user: **own rows only**; admin: all | admin | admin |
 | rp_assignment | user: **own row only** (script `user == gs.getUserName()`); role_profile_admin: all | role_profile_admin | role_profile_admin |
 | UX route `now.cms-admin.*` | the three admin roles | – | – |
 

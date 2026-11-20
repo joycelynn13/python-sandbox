@@ -141,6 +141,26 @@ declare global {
                         table: 'sys_security_acl'
                         id: 'fb946d74e7984be29ddc8f06ab55626b'
                     }
+                    acl_prof_create: {
+                        table: 'sys_security_acl'
+                        id: 'ca71f5cb436a4aa4b6a9e34029de0ec5'
+                    }
+                    acl_prof_delete: {
+                        table: 'sys_security_acl'
+                        id: '5c7d3f279aed4fdfade7b18df6eab67b'
+                    }
+                    acl_prof_read_admin: {
+                        table: 'sys_security_acl'
+                        id: '9473cea09bbf471083274c6679164a50'
+                    }
+                    acl_prof_read_own: {
+                        table: 'sys_security_acl'
+                        id: '2aedf75ccf434000b504a2c1900c7893'
+                    }
+                    acl_prof_write: {
+                        table: 'sys_security_acl'
+                        id: '3db7530ebc7e406abd65e3faadff3036'
+                    }
                     acl_req_create: {
                         table: 'sys_security_acl'
                         id: '3667f388190f4c5f88c0aeb278aaff2f'
@@ -1158,6 +1178,94 @@ declare global {
                         table: 'x_2317791_cms2_pl_descriptor'
                         id: '3c604029d135483b8e9848b224aa9b25'
                     }
+                    demo_prof_abel_tuter_el_appdev: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '25ed2e64639a415bba171010ac524886'
+                    }
+                    demo_prof_abel_tuter_el_cybfun: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'd389b01d46144e0281fa66567c50e296'
+                    }
+                    demo_prof_abel_tuter_el_projpl: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'c951bd4d492542e993f08b037370f3b9'
+                    }
+                    demo_prof_abel_tuter_el_solarc: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '9ea1c69d61844b47bdc796a390b2aa48'
+                    }
+                    demo_prof_abel_tuter_el_swdes: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'a36648072e19471abe04b572518ddf25'
+                    }
+                    demo_prof_abel_tuter_el_sysint: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '7d5d9240fd814b1aa86ab2faf11992c1'
+                    }
+                    demo_prof_abel_tuter_el_techdoc: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'e0c63657246742c98db8cf46f83909fd'
+                    }
+                    demo_prof_abel_tuter_el_testq: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '09e47f69de9141e187f1ce0ef18028d0'
+                    }
+                    demo_prof_abel_tuter_el_tps: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'cc088a31d34c49859d081f452063ae1e'
+                    }
+                    demo_prof_admin_el_appdev: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'd4e592e76bca4c29b8998b1579f8c121'
+                    }
+                    demo_prof_admin_el_cybfun: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'cfea4733ad874f658372e2eb54ef1643'
+                    }
+                    demo_prof_admin_el_projpl: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '1e35f8b5ec7141049cc523af8f69e1f1'
+                    }
+                    demo_prof_admin_el_solarc: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'd13c99a906594ae399edb1e51b0d915b'
+                    }
+                    demo_prof_admin_el_swdes: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'c648a86d36cc4997b23d896731d56fdf'
+                    }
+                    demo_prof_admin_el_techdoc: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'c71ad1ac916e42629954b968fb40c6de'
+                    }
+                    demo_prof_admin_el_testq: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '04bd9f807d7944169e03c98a1c082408'
+                    }
+                    demo_prof_admin_el_tps: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '6e657afc743e40a39df8233997a18480'
+                    }
+                    demo_prof_beth_anglin_el_appdev: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '49bc1fff811447f2857359fc9aadb517'
+                    }
+                    demo_prof_beth_anglin_el_dataan: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: 'e79e102ec6dd4060b9101ce6c4e1231c'
+                    }
+                    demo_prof_beth_anglin_el_projpl: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '7c79544eed214e7eb45cca56ec31db6c'
+                    }
+                    demo_prof_beth_anglin_el_techdoc: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '1a6ddfc7da8543f48513a56dc67a1962'
+                    }
+                    demo_prof_beth_anglin_el_tps: {
+                        table: 'x_2317791_cms2_proficiency'
+                        id: '1f5737f1d4ba4e5091ab289578897d6e'
+                    }
                     demo_req_rp_appdev_v1_el_appdev: {
                         table: 'x_2317791_cms2_requirement'
                         id: '39d81a4275b34991aa9d907c8c16427f'
@@ -1420,6 +1528,10 @@ declare global {
                     mod_pl_descriptors: {
                         table: 'sys_app_module'
                         id: '0f25a5454a684566bd7a1b3e10bb6965'
+                    }
+                    mod_proficiency: {
+                        table: 'sys_app_module'
+                        id: '4a796b1b42e54b68b1d1e9d87170c26b'
                     }
                     mod_pub_descriptors: {
                         table: 'sys_app_module'
@@ -1706,6 +1818,10 @@ declare global {
                     'src_server_cms-dates_ts': {
                         table: 'sys_module'
                         id: '42d51b95ad7840ccbfa5b0523355848c'
+                    }
+                    'src_server_cms-gap_ts': {
+                        table: 'sys_module'
+                        id: '0f1c2dbdb9e346db953e8f80a70c60ab'
                     }
                     'src_server_cms-rules_ts': {
                         table: 'sys_module'
@@ -2012,6 +2128,18 @@ declare global {
                         table: 'sys_atf_step'
                         id: '2185790ed6dd467d9b286e1d15811cfe'
                     }
+                    t14_gap_analysis: {
+                        table: 'sys_atf_test'
+                        id: '4348acfa093c43219af2fa12a864da2c'
+                    }
+                    t14_gap_analysis_gap: {
+                        table: 'sys_atf_step'
+                        id: '89c788c79d57427baca2a044b9f71c8e'
+                    }
+                    t14_gap_analysis_user1: {
+                        table: 'sys_atf_step'
+                        id: 'a7b801e6b74143748e562bf9f5adfbb9'
+                    }
                     ua_dom_new_version: {
                         table: 'sys_ui_action'
                         id: '714d8d88bc6d4cac8794a396b7eb9a4b'
@@ -2131,6 +2259,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '003c0953080c45bbb7b1d27b6ebef311'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'element_code'
+                            position: '2'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '00418d9c766645708836da0a449d63ec'
                         key: {
@@ -2178,11 +2328,35 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice'
+                        id: '016bd885e0b34a5586108806424ddbea'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'source'
+                            value: 'prototype'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_atf_test_suite_test'
                         id: '016f5f2eaaa0422eb31943b6c424ef47'
                         key: {
                             test_suite: 'c202c8d9f4e046218281cb269e60c619'
                             test: '00cccae906134cdea4285b247959a9e3'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '02934d861cea4b63bd56b180ac9e2e0e'
+                        key: {
+                            sys_security_acl: 'ca71f5cb436a4aa4b6a9e34029de0ec5'
+                            sys_user_role: {
+                                id: '4cf0c55285a84f87b0a05fb7d97765b4'
+                                key: {
+                                    name: 'x_2317791_cms2.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -2593,6 +2767,15 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'status'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '0ccb3165a1a941c89efcf132c64eead1'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'element_code'
+                            language: 'en'
                         }
                     },
                     {
@@ -3280,6 +3463,19 @@ declare global {
                         id: '1c6256f2281442fba1ee45c86cb8e47d'
                         key: {
                             sys_ui_action: '08fd9ed6a31241d09b5de48e81fcfa70'
+                            sys_user_role: {
+                                id: '4cf0c55285a84f87b0a05fb7d97765b4'
+                                key: {
+                                    name: 'x_2317791_cms2.admin'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '1c63d958ab674bf9809651a1e95d5640'
+                        key: {
+                            sys_security_acl: '9473cea09bbf471083274c6679164a50'
                             sys_user_role: {
                                 id: '4cf0c55285a84f87b0a05fb7d97765b4'
                                 key: {
@@ -4029,6 +4225,14 @@ declare global {
                     },
                     {
                         table: 'sys_dictionary'
+                        id: '281da51be5d140328458c96abba78121'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'source'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
                         id: '2887ab2817ce441787995d69e23675a5'
                         key: {
                             name: 'x_2317791_cms2_governed'
@@ -4099,6 +4303,13 @@ declare global {
                                     sys_domain: 'global'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sys_db_object'
+                        id: '2c82e2d68bbd49408e1c32d7a5cf6fc4'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
                         }
                     },
                     {
@@ -4257,6 +4468,15 @@ declare global {
                         key: {
                             logical_table_name: 'x_2317791_cms2_domain'
                             col_name_string: 'competency_group'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '2e7601a58e814c7e840a84ff360c9e4e'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'source'
+                            language: 'en'
                         }
                     },
                     {
@@ -5008,6 +5228,14 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: '3e1d3cb0bc2d4959bf362d975d7a0451'
+                        key: {
+                            document_key: 'a7b801e6b74143748e562bf9f5adfbb9'
+                            variable: '1778a7480f20101091d0f00c97767e03'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: '3ececd6f5d164df2a6633b97ebc188c7'
                         key: {
                             document_key: 'c393fb1903184f678597e66478010fcb'
@@ -5152,6 +5380,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '42c458f65ea94daa9fd09fd0c5fb0976'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'current_level'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'ua_table_licensing_config'
                         id: '43033bd08a5549be9e86dd1f7046c464'
                         key: {
@@ -5255,6 +5492,17 @@ declare global {
                         key: {
                             document_key: 'c393fb1903184f678597e66478010fcb'
                             variable: '42f2564b73031300440211d8faf6a777'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '458c2e4b3dd44650994a27edeeaf93a7'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'source'
+                            value: 'assessed'
+                            language: 'en'
+                            dependent_value: 'NULL'
                         }
                     },
                     {
@@ -5590,6 +5838,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '4aedfb37308f4733bc3518fe5ac2e745'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.split'
+                            position: '4'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: '4b7a99ae07904f3a9f276aa4b0988a2e'
                         key: {
@@ -5641,6 +5911,14 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'supersedes'
+                        }
+                    },
+                    {
+                        table: 'sys_index'
+                        id: '4cb00a50b5224759830695912aef8001'
+                        key: {
+                            logical_table_name: 'x_2317791_cms2_proficiency'
+                            col_name_string: 'user,element_code'
                         }
                     },
                     {
@@ -6041,6 +6319,25 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: '5354016dcdfb4321b65e8b081c51df48'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'element_code'
+                        }
+                    },
+                    {
+                        table: 'sys_choice'
+                        id: '537b8c497a734698bc01914bbd7e57f1'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'source'
+                            value: 'self'
+                            language: 'en'
+                            dependent_value: 'NULL'
+                        }
+                    },
+                    {
                         table: 'sys_element_mapping'
                         id: '53a54b36c4c4474e9307cf8cd164bbce'
                         key: {
@@ -6069,6 +6366,15 @@ declare global {
                             }
                             element: '.end_split'
                             position: '7'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '5454c2a7dcf244ffab7f183cbe53bba4'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'active'
+                            language: 'en'
                         }
                     },
                     {
@@ -6174,6 +6480,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '57d81e93b44b42bf8c68e4962352a903'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'user'
+                            position: '1'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '59501f5a0c284691a5c0ebc7369855f2'
                         key: {
@@ -6234,6 +6562,28 @@ declare global {
                             id: '4cbf282b14a74d9383b6c5302598f5b7'
                             table: 'var__m_atf_input_variable_41de4a935332120028bc29cac2dc349a'
                             field: 'script'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: '5b2461996f02400f95976c0e5e29eab2'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'current_level'
+                            position: '3'
                         }
                     },
                     {
@@ -6421,12 +6771,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '604764db39f447d5841130c322af1804'
+                        key: {
+                            document_key: 'a7b801e6b74143748e562bf9f5adfbb9'
+                            variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '604fa1d2f8dd4bd9a3781ff5114ef8a6'
                         deleted: true
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'effective_from'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '60cd6887e344402ea1cc30f3ab8b919d'
+                        key: {
+                            document_key: 'a7b801e6b74143748e562bf9f5adfbb9'
+                            variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
                         }
                     },
                     {
@@ -7011,6 +7377,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_element_mapping'
+                        id: '6bac9e200ecd4017ba46dea1a8f3241b'
+                        key: {
+                            id: '89c788c79d57427baca2a044b9f71c8e'
+                            table: 'var__m_atf_input_variable_41de4a935332120028bc29cac2dc349a'
+                            field: 'script'
+                        }
+                    },
+                    {
                         table: 'sys_security_acl_role'
                         id: '6bb066fd29d446609a83fc3d54c75278'
                         key: {
@@ -7461,6 +7836,14 @@ declare global {
                     },
                     {
                         table: 'sys_variable_value'
+                        id: '751de67b9fbd441fa83428713f7cb536'
+                        key: {
+                            document_key: 'a7b801e6b74143748e562bf9f5adfbb9'
+                            variable: '6f69fc4aff6433008d3f5d9ad53bf18c'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
                         id: '7565f0e5d3c8493c9d7f06611eef947b'
                         key: {
                             document_key: '8ff681ca173741b89df858cc0cb8f055'
@@ -7903,6 +8286,29 @@ declare global {
                         key: {
                             document_key: '2185790ed6dd467d9b286e1d15811cfe'
                             variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_section'
+                        id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            caption: 'Employee Proficiency (prototype)'
+                            view: {
+                                id: 'Default view'
+                                key: {
+                                    name: 'NULL'
+                                }
+                            }
+                            sys_domain: 'global'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '7f488869ab5e4ec384fd9a76538ecffb'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'active'
                         }
                     },
                     {
@@ -8372,6 +8778,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '890afdb60ad34119a4ec5948e5d89fba'
+                        key: {
+                            document_key: 'a7b801e6b74143748e562bf9f5adfbb9'
+                            variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: '8978ff2f27b44eddb60762996fa0a292'
                         deleted: true
@@ -8379,6 +8793,14 @@ declare global {
                             name: 'x_2317791_cms2_pl_descriptor'
                             element: 'effective_to'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: '898b83a2d6934fa69824376b206d70dc'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'current_level'
                         }
                     },
                     {
@@ -8712,6 +9134,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: '8f3e1d5fc1254de1ac218e311190d29e'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'active'
+                            position: '7'
+                        }
+                    },
+                    {
                         table: 'sys_ui_action_role'
                         id: '8f43c17630cd46e7a0d37d1bbe5a8f65'
                         key: {
@@ -8839,6 +9283,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_atf_test_suite_test'
+                        id: '91a9a0d915684a159a979e349437f733'
+                        key: {
+                            test_suite: 'c202c8d9f4e046218281cb269e60c619'
+                            test: '4348acfa093c43219af2fa12a864da2c'
+                        }
+                    },
+                    {
                         table: 'sys_dictionary'
                         id: '91cf3fb5637d47aaa9e797478490e972'
                         deleted: true
@@ -8924,6 +9376,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: '9527b98896d545a4883b70ddbdb14090'
+                        key: {
+                            document_key: '89c788c79d57427baca2a044b9f71c8e'
+                            variable: '989d9e235324220002c6435723dc3484'
+                        }
+                    },
+                    {
                         table: 'sys_ui_form_section'
                         id: '956f141bb9884a63959d2ded5db94f4f'
                         key: {
@@ -8962,6 +9422,19 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_role_profile'
                             element: 'business_function'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: '95e7e20524274c94ae375bf7b0cd348f'
+                        key: {
+                            sys_security_acl: '5c7d3f279aed4fdfade7b18df6eab67b'
+                            sys_user_role: {
+                                id: '4cf0c55285a84f87b0a05fb7d97765b4'
+                                key: {
+                                    name: 'x_2317791_cms2.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -9025,6 +9498,15 @@ declare global {
                         key: {
                             document_key: '6b5655ad31fa4a7486558cd88167afa8'
                             variable: 'ff06ab840f20101091d0f00c97767e6d'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '98b952964ea1418ea080709f08c41e70'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'as_of'
+                            language: 'en'
                         }
                     },
                     {
@@ -10104,6 +10586,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_dictionary'
+                        id: 'aab7ba4678624dcab57ceceedabac7e4'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'user'
+                        }
+                    },
+                    {
                         table: 'sys_atf_test_suite_test'
                         id: 'ab2b3260eed84125a6bd61ee85052ad3'
                         key: {
@@ -10151,6 +10641,14 @@ declare global {
                             name: 'x_2317791_cms2_requirement'
                             element: 'element'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'abe947fb766140a2a8425644b94ed4bf'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'NULL'
                         }
                     },
                     {
@@ -10723,6 +11221,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: 'baa2303d0ab9474f93390e61ccaf2699'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.end_split'
+                            position: '8'
+                        }
+                    },
+                    {
                         table: 'sys_element_mapping'
                         id: 'bb08b57475ac4e79836bc258a2ac5741'
                         key: {
@@ -10774,6 +11294,28 @@ declare global {
                         key: {
                             document_key: '01aa2478b65440a9bc14ab73e66ae68a'
                             variable: 'b27b2b29ff6033008d3f5d9ad53bf164'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_element'
+                        id: 'bc61cdf9170e429090b6bc137fb4885d'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'source'
+                            position: '5'
                         }
                     },
                     {
@@ -11412,6 +11954,23 @@ declare global {
                             }
                             element: 'effective_from'
                             position: '2'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'c77d7e28e29043708767912fd06ba578'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'user'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: 'c822b3ea70e94e9fad325361f1336cbe'
+                        key: {
+                            document_key: 'a7b801e6b74143748e562bf9f5adfbb9'
+                            variable: '1985e0ceff2433008d3f5d9ad53bf1ba'
                         }
                     },
                     {
@@ -12076,6 +12635,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_choice_set'
+                        id: 'd7131849b287439cbc475582f34047e0'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'source'
+                        }
+                    },
+                    {
                         table: 'sys_variable_value'
                         id: 'd72a6ccdfc934b21920c4104af6db504'
                         deleted: true
@@ -12093,6 +12660,39 @@ declare global {
                                 id: '0a6d7362df87496cb747d732eee6ddfe'
                                 key: {
                                     name: 'x_2317791_cms2.user'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_ui_form_section'
+                        id: 'd7991f4fa5724054a6647e5bfbf50f38'
+                        key: {
+                            sys_ui_form: {
+                                id: 'f7c36a07141f4bf08526752a710403b9'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
                                 }
                             }
                         }
@@ -12243,6 +12843,13 @@ declare global {
                             }
                             element: 'owner'
                             position: '6'
+                        }
+                    },
+                    {
+                        table: 'ua_table_licensing_config'
+                        id: 'da78961b5a9549c99d87c2b52b1f5707'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
                         }
                     },
                     {
@@ -12531,6 +13138,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: 'e104f7cc734e42cdacdd923d5e17a29a'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: 'as_of'
+                            position: '6'
+                        }
+                    },
+                    {
                         table: 'sys_choice'
                         id: 'e145c88610af4786a9c7ffeee7777889'
                         deleted: true
@@ -12632,6 +13261,19 @@ declare global {
                     },
                     {
                         table: 'sys_security_acl_role'
+                        id: 'e453ae6399e243258c4d1f32639eeccd'
+                        key: {
+                            sys_security_acl: '2aedf75ccf434000b504a2c1900c7893'
+                            sys_user_role: {
+                                id: '0a6d7362df87496cb747d732eee6ddfe'
+                                key: {
+                                    name: 'x_2317791_cms2.user'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
                         id: 'e4e5ef16975949e79b37acbb612eab96'
                         key: {
                             sys_security_acl: 'c609e56d83374a00990fd70cf8141ffb'
@@ -12714,6 +13356,14 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_variable_value'
+                        id: 'e724b35450a74da0ab7e0972a14d1dc8'
+                        key: {
+                            document_key: 'a7b801e6b74143748e562bf9f5adfbb9'
+                            variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'e728f83e63cc4f9bb937269ce797d4fb'
                         key: {
@@ -12762,6 +13412,15 @@ declare global {
                         key: {
                             name: 'x_2317791_cms2_domain'
                             element: 'sme'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'e7bc0e0dffe942f08fbd60e50e7dc798'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'NULL'
                             language: 'en'
                         }
                     },
@@ -12858,6 +13517,19 @@ declare global {
                         key: {
                             document_key: 'f906aa20705d43c6b532046feacc6497'
                             variable: '98c44875ffa033008d3f5d9ad53bf1fa'
+                        }
+                    },
+                    {
+                        table: 'sys_security_acl_role'
+                        id: 'eab581b6cbe24f46a0449ba577917010'
+                        key: {
+                            sys_security_acl: '3db7530ebc7e406abd65e3faadff3036'
+                            sys_user_role: {
+                                id: '4cf0c55285a84f87b0a05fb7d97765b4'
+                                key: {
+                                    name: 'x_2317791_cms2.admin'
+                                }
+                            }
                         }
                     },
                     {
@@ -13158,6 +13830,28 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_ui_element'
+                        id: 'eff31ac3d17c4cfd81a4e93ff5123d29'
+                        key: {
+                            sys_ui_section: {
+                                id: '7f0f90d1f3ad4d53b98a2bf83b110ca5'
+                                key: {
+                                    name: 'x_2317791_cms2_proficiency'
+                                    caption: 'Employee Proficiency (prototype)'
+                                    view: {
+                                        id: 'Default view'
+                                        key: {
+                                            name: 'NULL'
+                                        }
+                                    }
+                                    sys_domain: 'global'
+                                }
+                            }
+                            element: '.begin_split'
+                            position: '0'
+                        }
+                    },
+                    {
                         table: 'sys_documentation'
                         id: 'f00ca6046af749c1b8f47b5b89a49b71'
                         deleted: true
@@ -13172,6 +13866,14 @@ declare global {
                         id: 'f02387fdfd8d4dcaa80d363ae2e8fee8'
                         key: {
                             name: 'x_2317791_cms2_pl_descriptor'
+                        }
+                    },
+                    {
+                        table: 'sys_dictionary'
+                        id: 'f0f2caa7aa014451941e718646c6506d'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            element: 'as_of'
                         }
                     },
                     {
@@ -13228,6 +13930,14 @@ declare global {
                             name: 'x_2317791_cms2_element'
                             element: 'supersedes'
                             language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: 'f3680d91535f4da8bbe08e166a0a50ff'
+                        key: {
+                            document_key: '89c788c79d57427baca2a044b9f71c8e'
+                            variable: '42f2564b73031300440211d8faf6a777'
                         }
                     },
                     {
@@ -13351,6 +14061,20 @@ declare global {
                         key: {
                             document_key: 'a35425752dca4e7c87d9f0a8270f6877'
                             variable: '8c07aba5ff6033008d3f5d9ad53bf13b'
+                        }
+                    },
+                    {
+                        table: 'sys_ui_form'
+                        id: 'f7c36a07141f4bf08526752a710403b9'
+                        key: {
+                            name: 'x_2317791_cms2_proficiency'
+                            view: {
+                                id: 'Default view'
+                                key: {
+                                    name: 'NULL'
+                                }
+                            }
+                            sys_domain: 'global'
                         }
                     },
                     {

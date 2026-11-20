@@ -80,6 +80,8 @@
           <div class="cms-mine" ng-if="c.current.myTarget">
             <strong>Your Role Profile target: {{c.current.myTarget.code}} – {{c.current.myTarget.label}}</strong>
             <span>{{c.current.myTarget.typeLabel}} Element in {{c.current.myTarget.roleProfile}}</span>
+            <span class="cms-mine__gap">Current level: <b>{{c.current.myTarget.current ? c.current.myTarget.current.code + ' – ' + c.current.myTarget.current.label : 'not assessed'}}</b>
+              <span class="cms-gap cms-gap--{{c.current.myTarget.gap.status}}">{{c.current.myTarget.gap.label}}</span></span>
           </div>
 
           <h3 class="cms-h3">Proficiency Levels</h3>
@@ -91,6 +93,7 @@
               <div class="cms-ladder__badge"><span>{{l.code}}</span><small>{{l.label}}</small></div>
               <div class="cms-ladder__body">
                 <span class="cms-chip cms-chip--mine" ng-if="c.isTarget(c.current, l)">Your target</span>
+                <span class="cms-chip cms-chip--now" ng-if="c.current.myTarget.current && c.current.myTarget.current.code === l.code">You are here</span>
                 <span class="cms-chip cms-chip--domain" ng-if="l.scope === 'domain'" title="Described once for the whole Domain">Domain level</span>
                 <p>{{l.descriptor}}</p>
               </div>

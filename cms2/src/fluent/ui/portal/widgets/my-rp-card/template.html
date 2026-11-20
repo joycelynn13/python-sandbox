@@ -18,13 +18,24 @@
         </div>
       </div>
 
+      <div class="cmsrp__summary" ng-if="c.data.detail.gapSummary" aria-label="Gap analysis summary">
+        <span class="cmsrp__sum cmsrp__sum--met"><b>{{c.data.detail.gapSummary.met}}</b> met</span>
+        <span class="cmsrp__sum cmsrp__sum--minor"><b>{{c.data.detail.gapSummary.minor}}</b> gap of 1</span>
+        <span class="cmsrp__sum cmsrp__sum--major"><b>{{c.data.detail.gapSummary.major}}</b> gap of 2+</span>
+        <span class="cmsrp__sum cmsrp__sum--unknown" ng-if="c.data.detail.gapSummary.unknown"><b>{{c.data.detail.gapSummary.unknown}}</b> not assessed</span>
+      </div>
+
       <div class="cmsrp__lists" ng-if="c.data.detail">
         <div class="cmsrp__list">
           <h3>Essential</h3>
           <ul>
-            <li ng-repeat="r in c.visibleEssential()">
-              <a ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
-              <span class="cmsrp__pl" title="Target {{r.target.code}} – {{r.target.label}}">{{r.target.code}}</span>
+            <li ng-repeat="r in c.visibleEssential()" class="cmsrp__row">
+              <a class="cmsrp__el" ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
+              <span class="cmsrp__levels">
+                <span title="Required: {{r.target.code}} – {{r.target.label}}">Req <b>{{r.target.code}}</b></span>
+                <span title="{{r.current ? 'Current: ' + r.current.code + ' – ' + r.current.label + ' (' + r.current.source + ')' : 'No current level recorded'}}">Now <b>{{r.current ? r.current.code : '–'}}</b></span>
+              </span>
+              <span class="cmsrp__gap cmsrp__gap--{{r.gap.status}}">{{r.gap.label}}</span>
             </li>
           </ul>
           <button type="button" class="cmsrp__more" ng-if="c.hiddenCount() > 0 && !c.expanded" ng-click="c.expanded = true">
@@ -34,9 +45,13 @@
         <div class="cmsrp__list cmsrp__list--comp">
           <h3>Complementary</h3>
           <ul>
-            <li ng-repeat="r in c.data.detail.complementary">
-              <a ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
-              <span class="cmsrp__pl" title="Target {{r.target.code}} – {{r.target.label}}">{{r.target.code}}</span>
+            <li ng-repeat="r in c.data.detail.complementary" class="cmsrp__row">
+              <a class="cmsrp__el" ng-href="?id=x_2317791_cms2_element&sys_id={{r.element.id}}">{{r.element.name}}</a>
+              <span class="cmsrp__levels">
+                <span title="Required: {{r.target.code}} – {{r.target.label}}">Req <b>{{r.target.code}}</b></span>
+                <span title="{{r.current ? 'Current: ' + r.current.code + ' – ' + r.current.label + ' (' + r.current.source + ')' : 'No current level recorded'}}">Now <b>{{r.current ? r.current.code : '–'}}</b></span>
+              </span>
+              <span class="cmsrp__gap cmsrp__gap--{{r.gap.status}}">{{r.gap.label}}</span>
             </li>
           </ul>
         </div>

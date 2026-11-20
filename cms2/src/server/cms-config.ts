@@ -15,6 +15,7 @@ export const T = {
     roleProfile: 'x_2317791_cms2_role_profile',
     requirement: 'x_2317791_cms2_requirement',
     assignment: 'x_2317791_cms2_rp_assignment',
+    proficiency: 'x_2317791_cms2_proficiency',
 } as const
 
 export const STATUS = { draft: 'draft', published: 'published', retired: 'retired' } as const

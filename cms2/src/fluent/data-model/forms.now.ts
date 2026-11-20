@@ -393,3 +393,28 @@ Form({
         },
     ],
 })
+
+Form({
+    table: 'x_2317791_cms2_proficiency',
+    view: default_view,
+    sections: [
+        {
+            caption: 'Employee Proficiency (prototype)',
+            content: [
+                {
+                    layout: 'two-column',
+                    leftElements: [
+                        { field: 'user', type: 'table_field' },
+                        { field: 'element_code', type: 'table_field' },
+                        { field: 'current_level', type: 'table_field' },
+                    ],
+                    rightElements: [
+                        { field: 'source', type: 'table_field' },
+                        { field: 'as_of', type: 'table_field' },
+                        { field: 'active', type: 'table_field' },
+                    ],
+                },
+            ],
+        },
+    ],
+})

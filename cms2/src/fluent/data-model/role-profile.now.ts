@@ -4,6 +4,7 @@ import {
     StringColumn,
     ChoiceColumn,
     BooleanColumn,
+    DateColumn,
     IntegerColumn,
     ReferenceColumn,
     OverrideColumn,
@@ -110,4 +111,47 @@ export const x_2317791_cms2_rp_assignment = Table({
         active: BooleanColumn({ label: 'Active', default: 'true' }),
     },
     index: [{ name: 'cms2_rpa_user', unique: false, element: 'user' }],
+})
+
+// ---------------------------------------------------------------- PROTOTYPE employee current proficiency
+// Each employee's current PL per Element, used for gap analysis against Role Profile targets.
+// Stand-in for the future assessment workflow / authoritative source. Keyed by Element CODE so a
+// current level still applies after a new Element version is published.
+export const x_2317791_cms2_proficiency = Table({
+    name: 'x_2317791_cms2_proficiency',
+    label: 'Employee Proficiency (prototype)',
+    display: 'element_code',
+    audit: true,
+    allowWebServiceAccess: true,
+    accessibleFrom: 'public',
+    actions: { read: true, create: false, update: false, delete: false },
+    schema: {
+        user: ReferenceColumn({
+            label: 'Employee',
+            referenceTable: 'sys_user',
+            mandatory: true,
+            referenceKey: 'user_name',
+        }),
+        element_code: StringColumn({ label: 'Element Code', mandatory: true, maxLength: 60 }),
+        current_level: ReferenceColumn({
+            label: 'Current PL',
+            referenceTable: 'x_2317791_cms2_prof_level',
+            mandatory: true,
+            referenceQual: 'active=true',
+        }),
+        source: ChoiceColumn({
+            label: 'Source',
+            mandatory: true,
+            default: 'prototype',
+            dropdown: 'dropdown_without_none',
+            choices: {
+                prototype: { label: 'Prototype data', sequence: 10 },
+                self: { label: 'Self-assessment', sequence: 20 },
+                assessed: { label: 'Assessed', sequence: 30 },
+            },
+        }),
+        as_of: DateColumn({ label: 'As Of' }),
+        active: BooleanColumn({ label: 'Active', default: 'true' }),
+    },
+    index: [{ name: 'cms2_prof_user_code', unique: false, element: ['user', 'element_code'] }],
 })

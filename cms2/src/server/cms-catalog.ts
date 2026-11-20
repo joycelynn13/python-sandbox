@@ -1,6 +1,7 @@
 import { gs, GlideRecordSecure } from '@servicenow/glide'
 import { T, STATUS, REQUIREMENT_TYPE } from './cms-config.ts'
 import { addCurrentlyEffective, isEffectiveOn, today } from './cms-dates.ts'
+import { gapFor, summarise } from './cms-gap.ts'
 
 /*
  * Read-only API for the employee experience (Employee Center pages).
@@ -82,6 +83,28 @@ function currentRoleProfileByCode(code: string): any {
     gr.setLimit(1)
     gr.query()
     return gr.next() ? gr : null
+}
+
+/**
+ * The viewer's current PL per Element code (prototype Employee Proficiency table).
+ * The read ACL limits rows to the viewer's own.
+ */
+function myCurrentLevels(): { [elementCode: string]: { level: number; code: string; label: string; source: string; asOf: string } } {
+    const out: { [c: string]: any } = {}
+    const levelById: { [id: string]: Level } = {}
+    getScale().forEach((l) => (levelById[l.id] = l))
+    const p: any = new GlideRecordSecure(T.proficiency)
+    const q = p.addQuery('user', gs.getUserName())
+    q.addOrCondition('user', gs.getUserID())
+    p.addQuery('active', true)
+    p.orderBy('as_of')
+    p.query()
+    while (p.next()) {
+        const lvl = levelById[v(p, 'current_level')]
+        if (!lvl) continue
+        out[v(p, 'element_code')] = { level: lvl.level, code: lvl.code, label: lvl.label, source: dv(p, 'source'), asOf: v(p, 'as_of') }
+    }
+    return out
 }
 
 /** @param userName sys_user.user_name (the assignment stores user_name via referenceKey) */
@@ -250,20 +273,30 @@ export function getRoleProfile(id: string) {
     }
     const desc = elementLevelMap(Object.keys(elements).map((k) => elements[k]))
 
+    // gap analysis only on the viewer's own Role Profile
+    const mine: any = getMyRoleProfile(gs.getUserName())
+    const isMine = !!mine && !mine.missing && mine.code === summary.code
+    const current = isMine ? myCurrentLevels() : {}
+
     const rows = reqs
         .filter((x) => elements[x.elementId])
         .map((x) => {
             const target = scale.filter((s) => s.id === x.targetLevelId)[0]
             const byLevel = desc[x.elementId] || {}
+            const cur = current[elements[x.elementId].code] || null
             return {
                 ...x,
                 element: elements[x.elementId],
                 target: target || null,
                 targetDescriptor: byLevel[x.targetLevelId] ? byLevel[x.targetLevelId].descriptor : '',
                 levels: levelList(byLevel, scale),
+                current: cur,
+                gap: isMine ? gapFor(target ? target.level : null, cur ? cur.level : null) : null,
             }
         })
     return {
+        isMine,
+        gapSummary: isMine ? summarise(rows.map((r) => r.gap!)) : null,
         profile: summary,
         essential: rows.filter((x) => x.type === REQUIREMENT_TYPE.essential),
         complementary: rows.filter((x) => x.type === REQUIREMENT_TYPE.complementary),
@@ -280,10 +313,11 @@ function shortName(name: string): string {
 }
 
 /** The viewer's own Role Profile targets, keyed by Element code (so any Element version matches). */
-function myTargets(): { [elementCode: string]: { code: string; label: string; type: string; typeLabel: string; roleProfile: string } } {
+function myTargets(): { [elementCode: string]: any } {
     const out: { [c: string]: any } = {}
     const my: any = getMyRoleProfile(gs.getUserName())
     if (!my || my.missing) return out
+    const current = myCurrentLevels()
     // collect rows first, then resolve Element codes and PL labels in batch (no dot-walked getValue)
     const rows: { element: string; level: string; type: string; typeLabel: string }[] = []
     const r: any = new GlideRecordSecure(T.requirement)
@@ -304,7 +338,13 @@ function myTargets(): { [elementCode: string]: { code: string; label: string; ty
     rows.forEach((x) => {
         const code = codeById[x.element]
         const lvl = levelById[x.level]
-        if (code && lvl) out[code] = { code: lvl.code, label: lvl.label, type: x.type, typeLabel: x.typeLabel, roleProfile: my.name }
+        if (code && lvl) {
+            const cur = current[code] || null
+            out[code] = {
+                code: lvl.code, label: lvl.label, type: x.type, typeLabel: x.typeLabel, roleProfile: my.name,
+                current: cur, gap: gapFor(lvl.level, cur ? cur.level : null),
+            }
+        }
     })
     return out
 }

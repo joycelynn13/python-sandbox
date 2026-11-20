@@ -16,7 +16,7 @@ Governed Content (extensible base: code, name, description, sequence, framework_
 Role Profile Assignment (prototype: user_name → Role Profile code)
 ```
 
-## Tables (10)
+## Tables (11)
 
 | Table | Label | Extends | Own columns |
 |---|---|---|---|
@@ -30,6 +30,7 @@ Role Profile Assignment (prototype: user_name → Role Profile code)
 | `x_2317791_cms2_prof_level` | Proficiency Level | – | level, code (PL1…), label, display_name, description, active |
 | `x_2317791_cms2_requirement` | Role Profile Element Requirement | – | role_profile, element, requirement_type (Essential / Complementary), target_level, sequence, active |
 | `x_2317791_cms2_rp_assignment` | Prototype Role Profile Assignment | – | user (stores `user_name`), role_profile_code, source, active |
+| `x_2317791_cms2_proficiency` | Employee Proficiency (prototype) | – | user (stores `user_name`), element_code, current_level, source (Prototype / Self-assessment / Assessed), as_of, active |
 
 ## Why table extension
 
@@ -94,3 +95,21 @@ Role Profile Assignment (prototype: user_name → Role Profile code)
 | Prototype assignments | 3 |
 
 The PL scale (5 rows) is configuration, loaded on first install.
+
+## Gap analysis
+
+Current PL comes from **Employee Proficiency (prototype)**, a stand-in for the future assessment workflow
+or authoritative source. It is keyed by Element **code**, so a current level still applies after a new
+Element version. Rules (`src/server/cms-gap.ts`, the only place they live):
+
+| Gap = Target PL − Current PL | Status | Shown as |
+|---|---|---|
+| ≤ 0 | met | green "✓ Met" |
+| 1 | minor | orange "▲ Gap 1" |
+| ≥ 2 | major | red "▲ Gap 2", "▲ Gap 3", … |
+| no current level | unknown | grey "Not assessed" |
+
+Gap analysis appears only on the viewer's **own** Role Profile: the My Role Profile card (summary and every
+Element), the Role Profile detail page, and the "Your target" banner on Domain and Element pages, where the
+ladder also marks the current level "You are here". Demo data gives `admin` 5 met, 2 gap of 1, 1 gap of 2+
+and 1 not assessed.

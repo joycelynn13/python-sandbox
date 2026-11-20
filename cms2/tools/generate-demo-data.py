@@ -141,6 +141,13 @@ role_profiles = [
      [('EL-TESTQ', 'E', 3), ('EL-APPDEV', 'E', 2), ('EL-TPS', 'C', 2)]),
 ]
 assignments = [('admin', 'RP-XD-APPDEV'), ('abel.tuter', 'RP-XD-APPDEV'), ('beth.anglin', 'RP-XD-DATA')]
+# PROTOTYPE current proficiency for gap analysis: user -> {element code: current PL}. Missing = not assessed.
+# admin (RP-XD-APPDEV v2) shows every state: 5 met, 2 gap of 1, 1 gap of 2+, 1 not assessed.
+proficiency = {
+    'admin': {'EL-APPDEV': 3, 'EL-SWDES': 2, 'EL-TESTQ': 3, 'EL-SOLARC': 2, 'PM-TAM': 1, 'EL-TPS': 1, 'EL-CYBFUN': 2, 'PM-IPID': 1},
+    'abel.tuter': {'EL-APPDEV': 1, 'EL-SWDES': 1, 'EL-TESTQ': 2, 'EL-SYSINT': 1, 'EL-SOLARC': 3, 'PM-TAM': 2, 'EL-TPS': 2, 'EL-CYBFUN': 1, 'PM-IPID': 2},
+    'beth.anglin': {'EL-DATAAN': 2, 'EL-TPS': 3, 'PM-TAM': 2, 'EL-APPDEV': 2, 'PM-IPID': 1},
+}
 
 out = []
 w = out.append
@@ -244,6 +251,12 @@ for user, code in assignments:
     v = 'demo_rpa_' + ident(user)
     rec(v, v, 'x_2317791_cms2_rp_assignment', {'user': user, 'role_profile_code': code,
         'source': 'Prototype – demo data', 'active': True})
+for user, levels in proficiency.items():
+    for ecode, lvl in levels.items():
+        assert ecode in evar, f'unknown element {ecode}'
+        pv = f'demo_prof_{ident(user)}_{ekey[ecode]}'
+        rec(pv, pv, 'x_2317791_cms2_proficiency', {'user': user, 'element_code': ecode, 'current_level': ref(f'pl{lvl}'),
+            'source': 'prototype', 'as_of': '2026-10-01', 'active': True})
 open(os.path.join(ROOT, 'src/fluent/demo/demo-data.now.ts'), 'w').write('\n'.join(out))
 
 # --- proficiency scale: configuration seed (first install), labels are data, not code

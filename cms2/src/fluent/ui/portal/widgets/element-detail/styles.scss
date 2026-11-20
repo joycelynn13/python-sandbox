@@ -23,3 +23,13 @@
 .cms-pl.is-target { border: 2px solid #0b6b4f; background: #e6f4ef; }
 .cms-mine-chip { display: block; width: max-content; border-radius: 12px; padding: 1px 9px; font-size: 12px; font-weight: 600; background: #fff; color: #0b6b4f; margin-bottom: 4px; }
 .cms-domain-chip { display: block; width: max-content; max-width: 100%; border-radius: 12px; padding: 1px 9px; font-size: 12px; font-weight: 600; background: #f3edf9; color: #5b2a91; margin-bottom: 4px; }
+
+/* gap analysis: green met, orange gap of 1, red gap of 2+, grey not assessed */
+.cms-gap { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 12px; padding: 2px 9px; white-space: nowrap; }
+.cms-gap--met { color: #1b7f4c; background: #e3f4ea; }
+.cms-gap--minor { color: #a45600; background: #fff0dc; }
+.cms-gap--major { color: #b3261e; background: #fdeceb; }
+.cms-gap--unknown { color: #5f6f81; background: #eef1f4; font-weight: 600; }
+.cms-gap--met::before { content: "✓ "; }
+.cms-gap--minor::before, .cms-gap--major::before { content: "▲ "; }
+.cms-mine__gap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: #33414f; font-size: 13px; margin-top: 4px; }

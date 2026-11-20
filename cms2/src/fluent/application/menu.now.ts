@@ -289,3 +289,18 @@ Record({
         order: 340,
     },
 })
+
+Record({
+    $id: Now.ID['mod_proficiency'],
+    table: 'sys_app_module',
+    data: {
+        title: 'Employee Proficiency (prototype)',
+        application: cmsMenu,
+        link_type: 'LIST',
+        name: 'x_2317791_cms2_proficiency',
+        hint: 'Current PL per employee and Element, used for gap analysis',
+        roles: ['x_2317791_cms2.admin'],
+        active: true,
+        order: 240,
+    },
+})

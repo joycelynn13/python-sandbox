@@ -27,6 +27,8 @@
     <div class="cms-mine" ng-if="c.data.el.myTarget">
       <strong>Your Role Profile target: {{c.data.el.myTarget.code}} – {{c.data.el.myTarget.label}}</strong>
       <span>{{c.data.el.myTarget.typeLabel}} Element in {{c.data.el.myTarget.roleProfile}}</span>
+      <span class="cms-mine__gap">Current level: <b>{{c.data.el.myTarget.current ? c.data.el.myTarget.current.code + ' – ' + c.data.el.myTarget.current.label : 'not assessed'}}</b>
+        <span class="cms-gap cms-gap--{{c.data.el.myTarget.gap.status}}">{{c.data.el.myTarget.gap.label}}</span></span>
     </div>
 
     <section aria-labelledby="pl-head">

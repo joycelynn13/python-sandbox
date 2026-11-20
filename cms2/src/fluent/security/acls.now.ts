@@ -109,3 +109,17 @@ Acl({ $id: Now.ID['acl_rpa_create'], type: 'record', table: 'x_2317791_cms2_rp_a
 Acl({ $id: Now.ID['acl_rpa_write'], type: 'record', table: 'x_2317791_cms2_rp_assignment', operation: 'write', roles: [cmsRoleProfileAdmin] })
 Acl({ $id: Now.ID['acl_rpa_delete'], type: 'record', table: 'x_2317791_cms2_rp_assignment', operation: 'delete', roles: [cmsRoleProfileAdmin] })
 
+// ---------------------------------------------------------------- prototype employee proficiency (personal data)
+Acl({
+    $id: Now.ID['acl_prof_read_own'],
+    type: 'record',
+    table: 'x_2317791_cms2_proficiency',
+    operation: 'read',
+    roles: [cmsUser],
+    script: `var u = current.getValue('user'); answer = u == gs.getUserName() || u == gs.getUserID();`,
+    description: 'Employees read only their own current proficiency.',
+})
+Acl({ $id: Now.ID['acl_prof_read_admin'], type: 'record', table: 'x_2317791_cms2_proficiency', operation: 'read', roles: [cmsAdmin] })
+Acl({ $id: Now.ID['acl_prof_create'], type: 'record', table: 'x_2317791_cms2_proficiency', operation: 'create', roles: [cmsAdmin] })
+Acl({ $id: Now.ID['acl_prof_write'], type: 'record', table: 'x_2317791_cms2_proficiency', operation: 'write', roles: [cmsAdmin] })
+Acl({ $id: Now.ID['acl_prof_delete'], type: 'record', table: 'x_2317791_cms2_proficiency', operation: 'delete', roles: [cmsAdmin] })

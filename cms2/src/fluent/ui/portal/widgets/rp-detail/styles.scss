@@ -24,3 +24,15 @@
 .cms-req__pl p { margin: 6px 0 0; }
 .cms-empty { color: #5f6f81; }
 @media (max-width: 600px) { .cms-req { grid-template-columns: 1fr; } .cms-req__target { text-align: left; } }
+
+/* gap analysis: green met, orange gap of 1, red gap of 2+, grey not assessed */
+.cms-gap { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 12px; padding: 2px 9px; white-space: nowrap; }
+.cms-gap--met { color: #1b7f4c; background: #e3f4ea; }
+.cms-gap--minor { color: #a45600; background: #fff0dc; }
+.cms-gap--major { color: #b3261e; background: #fdeceb; }
+.cms-gap--unknown { color: #5f6f81; background: #eef1f4; font-weight: 600; }
+.cms-gap--met::before { content: "✓ "; }
+.cms-gap--minor::before, .cms-gap--major::before { content: "▲ "; }
+.cms-gapsum { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #fff; border: 1px solid #dde2e8; border-radius: 8px; padding: 10px 14px; margin-bottom: 4px; }
+.cms-req__gap { display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin-top: 8px; font-size: 12px; color: #5f6f81; }
+.cms-req__gap b { color: #33414f; }

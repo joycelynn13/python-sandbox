@@ -8,7 +8,7 @@ the CMS pages without leaving Xponent Hub.
 | Piece | Id | Notes |
 |---|---|---|
 | **My Role Profile card** (widget) | `x_2317791_cms2_my_rp_card` | Self-contained. Lays itself out by the width of its column: **compact** in a side column (Essential Elements with Target PLs, "Show more"), **full** in a main column (Essential and Complementary side by side) |
-| CMS pages | `x_2317791_cms2_home`, `_role_profiles`, `_role_profile`, `_library`, `_element` | Portal-independent. Opened as `/hub?id=…` they render inside Xponent Hub with its header and theme |
+| CMS pages | `cms2_home`, `x_2317791_cms2_role_profiles`, `x_2317791_cms2_role_profile`, `x_2317791_cms2_library`, `x_2317791_cms2_element` | Portal-independent. Opened as `/hub?id=…` they render inside Xponent Hub with its header and theme |
 | Preview page (admins) | `x_2317791_cms2_card_preview` | Shows the card at both widths, in any portal |
 
 Card options (Page Designer → instance options):
@@ -37,7 +37,8 @@ verified in Employee Center (`/esc`) and Service Portal (`/sp`).
    - re-run both generators;
    - build and deploy.
 
-   Ids in this guide then read `x_<company_code>_cms2_…`.
+   Ids in this guide then read `x_<company_code>_cms2_…`. The home page id `cms2_home` has no scope prefix, so
+   check it is still free on the target instance (Service Portal page ids are unique instance-wide).
 2. **Decide on demo data.** Demo rows install as demo data. Install without them (`--demoData false`) once
    real framework content is loaded.
 3. **Give employees access.** Grant `x_<company_code>_cms2.user` to all employees through a group (for
@@ -54,7 +55,7 @@ verified in Employee Center (`/esc`) and Service Portal (`/sp`).
 
    Set `hide_when_empty` to true. Xponent Hub's page belongs to its own application, so the Xponent Hub
    team makes this change; the CMS app does not edit their page.
-6. **Point the existing "Competency Management" tile** in *Access Services* to `?id=x_<company_code>_cms2_home`,
+6. **Point the existing "Competency Management" tile** in *Access Services* to `?id=cms2_home`,
    if that tile is meant to open CMS 2.0 rather than CMS 1.0.
 7. **Test** with a real employee account: the card shows their Role Profile, the links open inside
    `/hub`, and people without a Role Profile do not see an empty card.

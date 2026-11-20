@@ -5293,6 +5293,7 @@ declare global {
                     {
                         table: 'sp_page'
                         id: '45dabe7c1a214827a3993b51e1faf180'
+                        deleted: true
                         key: {
                             id: 'x_2317791_cms2_home'
                         }
@@ -12612,6 +12613,13 @@ declare global {
                                 }
                             }
                             sys_domain: 'global'
+                        }
+                    },
+                    {
+                        table: 'sp_page'
+                        id: 'e4039b1891224e0c86fcacf5807b5877'
+                        key: {
+                            id: 'cms2_home'
                         }
                     },
                     {

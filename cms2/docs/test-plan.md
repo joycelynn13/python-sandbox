@@ -54,7 +54,7 @@ now-sdk cicd testsuite run --test-suite-name "CMS 2.0 – Role Profile and Compe
 
 | Page | Result |
 |---|---|
-| Landing `/esc?id=x_2317791_cms2_home` | ✅ Renders. Shows "No Role Profile assigned" for users without a prototype assignment |
+| Landing `/esc?id=cms2_home` | ✅ Renders. Shows "No Role Profile assigned" for users without a prototype assignment |
 | Browse `/esc?id=x_2317791_cms2_role_profiles` | ✅ 5 currently effective Role Profiles for everyone, admins included. No Status filter or status chips; the historical v1 and the Draft are hidden, and a Draft opened by direct link shows "not available". Drafts are managed in the admin UI |
 | Role Profile detail | ✅ Essential (4) / Complementary (5) shown; the Target PL button expands the Element-specific descriptor. A digest bug found here was fixed |
 | Competency Library landing | ✅ All 37 Domains as one responsive card grid per Competency Group, each card with description, Element count and preview. Group chips and "Hide Domains without Elements" filter on the client side (Digital + hide empty → 4 Domains). Search shows where each result matched (e.g. "Matched in PL1 descriptor") and deep-links to the Element in its Domain |

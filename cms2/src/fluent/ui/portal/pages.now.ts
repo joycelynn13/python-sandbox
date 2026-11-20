@@ -7,7 +7,7 @@ import { navWidget, myRoleProfileCardWidget, landingWidget, rpBrowseWidget, rpDe
 // so employees get the standard EC header, theme and navigation.
 
 export const page_home = SPPage({
-    pageId: 'x_2317791_cms2_home',
+    pageId: 'cms2_home',
     title: 'CMS 2.0 – Competency Management',
     shortDescription: 'CMS landing page',
     category: 'custom',

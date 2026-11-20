@@ -257,5 +257,5 @@ and broad cross-scope grants. Before deploying, one of these must be chosen:
 | Prototype Role Profile assignment is not authoritative | Table labelled "Prototype"; documented in `assumptions.md` |
 | PL labels (Apply/Proficient/Accomplish/Master/Influence) not confirmed against an HTX source document | Stored as data and editable by CMS Admin; flagged in `assumptions.md` |
 | Recommended Essential/total limits are business assumptions | Scoped system properties; warnings only, never a publish block |
-| Employee pages are Service Portal pages hosted in Employee Center (`/esc?id=x_2317791_cms2_home`), not EC Content Publishing | Portal-independent pages; can be added to EC taxonomy/menus later |
+| Employee pages are Service Portal pages hosted in Employee Center (`/esc?id=cms2_home`), not EC Content Publishing | Portal-independent pages; can be added to EC taxonomy/menus later |
 | **CMS Administration Workspace route not resolving** on this PDI (`/now/cms-admin` returns "Page not found") although all workspace records and the route ACL install correctly | Classic application menu, forms and UI actions provide the same administration. See `assumptions.md` → Known issues |

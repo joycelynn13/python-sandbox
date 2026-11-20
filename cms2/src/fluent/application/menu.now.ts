@@ -25,7 +25,7 @@ Record({
         title: 'Employee View (Employee Center)',
         application: cmsMenu,
         link_type: 'DIRECT',
-        query: 'esc?id=x_2317791_cms2_home',
+        query: 'esc?id=cms2_home',
         roles: ['x_2317791_cms2.content_admin', 'x_2317791_cms2.role_profile_admin', 'x_2317791_cms2.admin'],
         active: true,
         order: 50,

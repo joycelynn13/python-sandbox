@@ -15,7 +15,7 @@ PLs, Framework Versions and effective dating. **Prototype – all demo content i
 
 | What | URL |
 |---|---|
-| Employee landing (Employee Center) | `/esc?id=x_2317791_cms2_home` |
+| Employee landing (Employee Center) | `/esc?id=cms2_home` |
 | Browse Role Profiles | `/esc?id=x_2317791_cms2_role_profiles` |
 | Competency Library (37 Domains) | `/esc?id=x_2317791_cms2_library` |
 | One Domain | `/esc?id=x_2317791_cms2_library&domain=<sys_id>` |
